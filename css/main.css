@@ -249,6 +249,7 @@ hr {
   margin: 40px 0;
 }
 blockquote {
+  background: rgba(208,167,2,0.051);
   border-left: 4px solid #d0a702;
   color: var(--blockquote-color);
   margin: 0;
@@ -1192,7 +1193,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #b409be;
+  background: #33f;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
