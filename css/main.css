@@ -420,7 +420,7 @@ code {
   font-family: consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
 }
 code {
-  background: #eee;
+  background: rgba(208,167,1,0.11);
   border-radius: 3px;
   color: #555;
   padding: 2px 4px;
@@ -1193,7 +1193,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #33f;
+  background: #ff9967;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
