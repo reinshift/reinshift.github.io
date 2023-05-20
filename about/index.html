@@ -21,7 +21,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Le vent se lève, il faut tenter de vivre    在一个准备实变期末考的晚上，我在网上搜索着一些实变的试题，偶然间发现了这样一个网站： Home - ZHANGWP   这个博客网站的创立者是一位南开数院跨保清华CS的学霸，尔其大方美观的博客、华丽夺目的履历都对当时的我造成了不小的冲击。看着他的网站与博客的历史，我不禁也萌生了搭建个人博客的想法。   然而一">
@@ -31,10 +31,12 @@
 <meta property="og:site_name" content="雁来廿陆">
 <meta property="og:description" content="Le vent se lève, il faut tenter de vivre    在一个准备实变期末考的晚上，我在网上搜索着一些实变的试题，偶然间发现了这样一个网站： Home - ZHANGWP   这个博客网站的创立者是一位南开数院跨保清华CS的学霸，尔其大方美观的博客、华丽夺目的履历都对当时的我造成了不小的冲击。看着他的网站与博客的历史，我不禁也萌生了搭建个人博客的想法。   然而一">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ghchart.rshah.org/C39412/reinshift">
 <meta property="article:published_time" content="2023-05-01T03:04:32.000Z">
-<meta property="article:modified_time" content="2023-05-02T09:06:09.554Z">
+<meta property="article:modified_time" content="2023-05-20T07:28:55.619Z">
 <meta property="article:author" content="雁来廿陆">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ghchart.rshah.org/C39412/reinshift">
 
 <link rel="canonical" href="http://example.com/about/">
 
@@ -108,7 +110,6 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
-        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -148,43 +149,20 @@
     <a href="/movies/" rel="section"><i class="fa fa-film fa-fw"></i>电影</a>
 
   </li>
-      <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
-        </a>
-      </li>
   </ul>
 </nav>
 
 
 
-  <div class="search-pop-overlay">
-    <div class="popup search-popup">
-        <div class="search-header">
-  <span class="search-icon">
-    <i class="fa fa-search"></i>
-  </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
-  <span class="popup-btn-close">
-    <i class="fa fa-times-circle"></i>
-  </span>
-</div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
-</div>
-
-    </div>
-  </div>
 
 </div>
     </header>
 
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
 
 
     <main class="main">
@@ -224,6 +202,7 @@
 <p><a target="_blank" rel="noopener" href="https://www.zhangwp.com/">Home - ZHANGWP</a></p>
 <p>  这个博客网站的创立者是一位南开数院跨保清华CS的学霸，尔其大方美观的博客、华丽夺目的履历都对当时的我造成了不小的冲击。看着他的网站与博客的历史，我不禁也萌生了搭建个人博客的想法。</p>
 <p>  然而一年的考研时间让我不得不将这件事搁置。考研的整个过程，有痛苦有迷惘，但最终还是磕磕绊绊地拟录取了。这段经历和一些心得会在下面更详细的记录。而也正是拟录取后，我在整理收藏的网站时，才回忆起当初的念想，才各种搜罗有关搭建个人博客的相关教程，最终在2023年4月26日，<a target="_blank" rel="noopener" href="http://reinshift.cn">http://reinshift.cn</a>得以呈现在各位读者面前。</p>
+<p><img src="https://ghchart.rshah.org/C39412/reinshift" alt="reinshift's Github chart"></p>
 <ul class="lvl-0">
 <li class="lvl-2">
 <h4 id="写在前面">写在前面</h4>
@@ -239,19 +218,31 @@
 <p>  是否我们的努力都没有意义，是否当期待成为现实时会失落；是否欢愉仅存于片刻，是否一直以来追求的真相是一个悲剧？</p>
 <p>  而在每天看太阳升起降落的循环往复中也逐渐有了自己的一些结论：虚无主义是世界观，存在主义是方法论。如若忽视结局，过程就会变得真实可爱，且伴随着对个体的或抚慰或伤害，产生动态的情感，正是一切如此的过程组成了当下的我。</p>
 <p>  于是便有了筛选出过程中的一些片段，呈现在个人博客上的想法。我们的故事也至此翻开了新的一页……</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h4 id="关于我">关于我</h4>
+</li>
+</ul>
+<blockquote>
+<p>四体不勤，五谷不分。文不能测字，武不能防身。</p>
+</blockquote>
+<p>  涉猎广泛，但没有一技之长。希望以这副身躯，逼近世界的真相。</p>
 <hr>
 <ul class="lvl-0">
 <li class="lvl-2">
 <h4 id="To-be-continued…">To be continued…</h4>
 </li>
 <li class="lvl-2">
-<p><input type="checkbox" id="checkbox0" checked="true"><label for="checkbox0">写在前面</label></p>
+<p><input type="checkbox" id="checkbox0"><label for="checkbox0">自定义鼠标样式</label></p>
 </li>
 <li class="lvl-2">
-<p><input type="checkbox" id="checkbox1"><label for="checkbox1">个人简介</label></p>
+<p><input type="checkbox" id="checkbox1"><label for="checkbox1">收录至百度搜索引擎</label></p>
 </li>
 <li class="lvl-2">
-<p><input type="checkbox" id="checkbox2"><label for="checkbox2">未来展望</label></p>
+<p><input type="checkbox" id="checkbox2"><label for="checkbox2">配置图床</label></p>
+</li>
+<li class="lvl-2">
+<p><input type="checkbox" id="checkbox3"><label for="checkbox3">修复valine无法显示的异常</label></p>
 </li>
 </ul>
 
@@ -315,7 +306,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Le-vent-se-leve-il-faut-tenter-de-vivre"><span class="nav-number">1.</span> <span class="nav-text">Le vent se lève, il faut tenter de vivre</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#To-be-continued%E2%80%A6"><span class="nav-number">3.</span> <span class="nav-text">To be continued…</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Le-vent-se-leve-il-faut-tenter-de-vivre"><span class="nav-number">1.</span> <span class="nav-text">Le vent se lève, il faut tenter de vivre</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%88%91"><span class="nav-number">3.</span> <span class="nav-text">关于我</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#To-be-continued%E2%80%A6"><span class="nav-number">4.</span> <span class="nav-text">To be continued…</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -374,10 +365,6 @@
 	<div class="widget" id="CloudCalendar"></div>
 </div>
       </div>
-        <div class="back-to-top motion-element">
-          <i class="fa fa-arrow-up"></i>
-          <span>0%</span>
-        </div>
          
            
          
@@ -716,10 +703,6 @@ if(canvas.getContext){
   
 
 
-
-
-  
-<script src="/js/local-search.js"></script>
 
 
 

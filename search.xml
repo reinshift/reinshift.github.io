@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>今日更新内容</title>
+    <url>/2023/04/28/blog1/</url>
+    <content><![CDATA[<p>以下是今天的更新内容：</p>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">增加了新成员：wanko（汪酱） 🐶</li>
+</ul>
+<blockquote>
+<p>但是很遗憾，由于技术有限，没能成功编辑浮空文字</p>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">增加了基于valine平台的评论功能</li>
+</ul>
+<blockquote>
+<p>但是不知道如何删除评论，所以评论的各位爷要谨言慎行</p>
+</blockquote>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>更换了Hexo的Markdown渲染引擎，现在可以呈现emoji表情了</p>
+</li>
+</ul>
+<blockquote>
+<p>emoji的简码链接： <a href="https://gist.github.com/rxaviers/7360908">简码</a></p>
+</blockquote>
+<hr>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>备案与毕业</title>
     <url>/2023/05/13/blog2/</url>
     <content><![CDATA[<p>  经历了长达十多天的备案，终于在昨天过审了。</p>
@@ -19,58 +53,6 @@
       <tags>
         <tag>建站</tag>
         <tag>人生</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo d错误：spawn failed的一种解决方法</title>
-    <url>/2023/05/15/blog3/</url>
-    <content><![CDATA[<p>  继上一条，这几天内部署断断续续的报错，网上的教程都不适用，和朋友交流后终于有了一个稳定的解决方法。</p>
-<span id="more"></span>
-<p>  报错内容大概是这样：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Please make sure you have the correct access rights</span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">Error: Spwan failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt;(D:\Blog\node_modules hexo-util\lib\spawn.js:51:21)</span><br><span class="line">    at ChildProcess.emit (node:events:513:28)</span><br><span class="line">    at cp.emit (D:\Blog\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/chid_process:291:12)</span><br></pre></td></tr></table></figure>
-<p>  确定是网络的原因后，可以作如下尝试：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>获取steam++这款软件（github可以搜索到，也有其他选择）</p>
-</li>
-<li class="lvl-2">
-<p>打开steam++并加速github</p>
-</li>
-<li class="lvl-2">
-<p>命令行输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:443</span><br><span class="line">git config --global https.proxy http://127.0.0.1:443</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-2">
-<p>最后<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>应该就能成功了🥰</p>
-</li>
-</ul>
-<p>  这篇文章希望给一些同样有该问题但网上教程都不适用的朋友一点参考。</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>建站</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>my first post</title>
-    <url>/2023/04/27/test/</url>
-    <content><![CDATA[<h1>你好</h1>
-<h2 id="这是我的第一篇个人博客">这是我的第一篇个人博客</h2>
-<span id="more"></span>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Hello World!&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Le vent se lève, il faut tenter de vivre</p>
-</blockquote>
-<p>have fun 😃</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>建站</tag>
       </tags>
   </entry>
   <entry>
@@ -104,37 +86,55 @@
       </tags>
   </entry>
   <entry>
-    <title>今日更新内容</title>
-    <url>/2023/04/28/blog1/</url>
-    <content><![CDATA[<p>以下是今天的更新内容：</p>
+    <title>my first post</title>
+    <url>/2023/04/27/test/</url>
+    <content><![CDATA[<h1>你好</h1>
+<h2 id="这是我的第一篇个人博客">这是我的第一篇个人博客</h2>
 <span id="more"></span>
-<ul class="lvl-0">
-<li class="lvl-2">增加了新成员：wanko（汪酱） 🐶</li>
-</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Hello World!&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>但是很遗憾，由于技术有限，没能成功编辑浮空文字</p>
+<p>Le vent se lève, il faut tenter de vivre</p>
 </blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">增加了基于valine平台的评论功能</li>
-</ul>
-<blockquote>
-<p>但是不知道如何删除评论，所以评论的各位爷要谨言慎行</p>
-</blockquote>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>更换了Hexo的Markdown渲染引擎，现在可以呈现emoji表情了</p>
-</li>
-</ul>
-<blockquote>
-<p>emoji的简码链接： <a href="https://gist.github.com/rxaviers/7360908">简码</a></p>
-</blockquote>
-<hr>
+<p>have fun 😃</p>
 ]]></content>
       <categories>
         <category>经验</category>
       </categories>
       <tags>
         <tag>建站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo d错误：spawn failed的一种解决方法</title>
+    <url>/2023/05/15/blog3/</url>
+    <content><![CDATA[<p>  继上一条，这几天内部署断断续续的报错，网上的教程都不适用，和朋友交流后终于有了一个稳定的解决方法。</p>
+<span id="more"></span>
+<p>  报错内容大概是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Please make sure you have the correct access rights</span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">Error: Spwan failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt;(D:\Blog\node_modules hexo-util\lib\spawn.js:51:21)</span><br><span class="line">    at ChildProcess.emit (node:events:513:28)</span><br><span class="line">    at cp.emit (D:\Blog\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/chid_process:291:12)</span><br></pre></td></tr></table></figure>
+<p>  确定是网络的原因后，可以作如下尝试：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>获取steam++这款软件（github可以搜索到，也有其他选择）</p>
+</li>
+<li class="lvl-2">
+<p>打开steam++并加速github</p>
+</li>
+<li class="lvl-2">
+<p>命令行输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:443</span><br><span class="line">git config --global https.proxy http://127.0.0.1:443</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>最后<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>应该就能成功了🥰</p>
+</li>
+</ul>
+<p>  这篇文章希望给一些同样有该问题但网上教程都不适用的朋友一点参考。</p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
