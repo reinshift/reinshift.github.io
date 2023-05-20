@@ -736,7 +736,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
     new Valine({
       el         : '#valine-comments',
       verify     : false,
-      notify     : true,
+      notify     : false,
       appId      : 'Ckwnd4o8s3y0azJ4ss1oFAI3-gzGzoHsz',
       appKey     : 'zeTScqzTEaANvPmeUQ7RYznq',
       placeholder: "Just go go",
@@ -746,8 +746,8 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       visitor    : false,
       lang       : '' || 'zh-cn',
       path       : location.pathname,
-      recordIP   : false,
-      serverURLs : ''
+      recordIP   : true,
+      serverURLs : 'https://Ckwnd4o8.api.lncldglobal.com'
     });
   }, window.Valine);
 });
