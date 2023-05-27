@@ -48,7 +48,7 @@
 
 
 
-
+<link rel="dns-prefetch" href="example.reinshift.cn">
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -659,6 +659,17 @@ if(canvas.getContext){
 
 
   <script async src="/js/cursor/fireworks.js"></script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"example.reinshift.cn","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"水水水，快来水(～￣▽￣)～#","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":null,"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/archives/2023/05/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
 <!-- calendar widget -->
 {% if theme.CloudCalendar.enable %}
     <script src="{{ theme.CloudCalendar.calendarCdn }}"></script>
