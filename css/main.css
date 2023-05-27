@@ -181,6 +181,7 @@ body {
   height: 100%;
 }
 body {
+  cursor: url("/images/Arrow.cur"), auto;
   background: var(--body-bg-color);
   box-sizing: border-box;
   color: var(--text-color);
@@ -224,6 +225,7 @@ p {
   margin: 0 0 20px;
 }
 a {
+  cursor: url("/images/Hand2.cur"), auto !important;
   border-bottom: 1px solid #999;
   color: var(--link-color);
   cursor: pointer;
