@@ -1,27 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>备案与毕业</title>
-    <url>/2023/05/13/blog2/</url>
-    <content><![CDATA[<p>  经历了长达十多天的备案，终于在昨天过审了。</p>
-<span id="more"></span>
-<p>  根据规定，这段时间不能访问域名，也就一直没有更新。昨晚九点得知过审后遂启动域名，奇怪的是<code>hexo cl</code>,<code>hexo g</code>都能使用，唯独<code>hexo d</code>一直报错，无法成功部署。</p>
-<p>  <code>hexo s</code>本地渲染也没问题，并且在家也没有出现过这种情况，那么猜测就是网络的问题，我想备案的这几天从家里到学校了，网络的影响应该很大。网上找了很多教程，最后搞到凌晨1点，发现断开学校宽带，连手机热点就解决了🤣难绷…</p>
-<p>  十几天内，我给网站添加了“关于”板块，用<code>&amp;emsp;</code>进行首行缩进；参与了毕业论文的答辩，也拍了毕业照，本科生涯渐渐以倒数计时，朋友们都在抓紧时间记录、分享以及欢庆。这让我想到高中毕业时，每个人都在留言板上写一句话，我用当时所学的vb语言写了一小段代码，具体内容我难以记起，大致内容就是有一个按钮，按下就可以将系统时间暂停。</p>
-<p>  还有一位令人怀念的朋友这样写：</p>
-<blockquote>
-<p>“明天会更好。”</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>建站</tag>
-        <tag>人生</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>今日更新内容</title>
     <url>/2023/04/28/blog1/</url>
     <content><![CDATA[<p>以下是今天的更新内容：</p>
@@ -56,36 +35,24 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo d错误：spawn failed的一种解决方法</title>
-    <url>/2023/05/15/blog3/</url>
-    <content><![CDATA[<p>  继上一条，这几天内部署断断续续的报错，网上的教程都不适用，和朋友交流后终于有了一个稳定的解决方法。</p>
+    <title>备案与毕业</title>
+    <url>/2023/05/13/blog2/</url>
+    <content><![CDATA[<p>  经历了长达十多天的备案，终于在昨天过审了。</p>
 <span id="more"></span>
-<p>  报错内容大概是这样：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Please make sure you have the correct access rights</span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">Error: Spwan failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt;(D:\Blog\node_modules hexo-util\lib\spawn.js:51:21)</span><br><span class="line">    at ChildProcess.emit (node:events:513:28)</span><br><span class="line">    at cp.emit (D:\Blog\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/chid_process:291:12)</span><br></pre></td></tr></table></figure>
-<p>  确定是网络的原因后，可以作如下尝试：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>获取steam++这款软件（github可以搜索到，也有其他选择）</p>
-</li>
-<li class="lvl-2">
-<p>打开steam++并加速github</p>
-</li>
-<li class="lvl-2">
-<p>命令行输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:443</span><br><span class="line">git config --global https.proxy http://127.0.0.1:443</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-2">
-<p>最后<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>应该就能成功了🥰</p>
-</li>
-</ul>
-<p>  这篇文章希望给一些同样有该问题但网上教程都不适用的朋友一点参考。</p>
+<p>  根据规定，这段时间不能访问域名，也就一直没有更新。昨晚九点得知过审后遂启动域名，奇怪的是<code>hexo cl</code>,<code>hexo g</code>都能使用，唯独<code>hexo d</code>一直报错，无法成功部署。</p>
+<p>  <code>hexo s</code>本地渲染也没问题，并且在家也没有出现过这种情况，那么猜测就是网络的问题，我想备案的这几天从家里到学校了，网络的影响应该很大。网上找了很多教程，最后搞到凌晨1点，发现断开学校宽带，连手机热点就解决了🤣难绷…</p>
+<p>  十几天内，我给网站添加了“关于”板块，用<code>&amp;emsp;</code>进行首行缩进；参与了毕业论文的答辩，也拍了毕业照，本科生涯渐渐以倒数计时，朋友们都在抓紧时间记录、分享以及欢庆。这让我想到高中毕业时，每个人都在留言板上写一句话，我用当时所学的vb语言写了一小段代码，具体内容我难以记起，大致内容就是有一个按钮，按下就可以将系统时间暂停。</p>
+<p>  还有一位令人怀念的朋友这样写：</p>
+<blockquote>
+<p>“明天会更好。”</p>
+</blockquote>
 ]]></content>
       <categories>
-        <category>经验</category>
+        <category>日常</category>
       </categories>
       <tags>
         <tag>建站</tag>
-        <tag>Hexo</tag>
+        <tag>人生</tag>
       </tags>
   </entry>
   <entry>
@@ -135,30 +102,15 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo-Next鼠标指针自定义</title>
-    <url>/2023/05/27/blog7/</url>
-    <content><![CDATA[<h4 id="准备材料">准备材料</h4>
-<p>  <code>.cur</code>或者<code>.ico</code>文件，不能太大（我试过超过1MB的素材不可用），<code>.ani</code>动态光标没试成功过。这些资源可以在<a href="https://zhutix.com/tag/cursors/">致美化</a>等途径中找到。</p>
+    <title>响应式Bilibili视频代码块测试</title>
+    <url>/2023/05/24/blog5/</url>
+    <content><![CDATA[<p>  首先在b站点击分享，复制嵌入代码，再按照如下格式编辑：</p>
 <span id="more"></span>
-<p>  这些文件建议下载到<code>../themes/source/images</code>中，也可以不下载而采用cdn。</p>
-<p>  这里Next版本为8.16。</p>
-<h4 id="文件修改">文件修改</h4>
-<p>  在<code>yourBlog/themes/next/source/css/_common/scaffolding</code>中找到<code>base.styl</code>，对里面的代码行进行编辑：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">+ <span class="attribute">cursor</span>: <span class="built_in">url</span>(/images/yourArrow.cur), auto;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">var</span>(--body-bg-color);</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--text-color);</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="variable">$font</span>-family-base;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="variable">$font</span>-size-base;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="variable">$line</span>-height-base;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">transition</span>: padding <span class="variable">$transition</span>-ease;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  在添加的这行代码里将<code>yourArrow.cur</code>改为下载的素材名即可。这个地方一般是放指针型鼠标，下面还有一个区域需要编辑：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">+ <span class="attribute">cursor</span>: <span class="built_in">url</span>(/images/yourHand.cur), auto<span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="variable">$link</span>-decoration-color;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--link-color);</span><br><span class="line">  <span class="comment">// For a:not(:any-link)</span></span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">outline</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  这个位置一般放的是手型鼠标，也就是将鼠标悬在链接上会变化成的手型样式，同样将<code>yourHand.cur</code>改成下载的素材名。</p>
-<h4 id="重新部署">重新部署</h4>
-<p>  修改后可以先在本地看看效果，如果成功，最后hexo三件套即可。</p>
-<p>下面再附上很多博客在用的鼠标指针cdn：</p>
-<blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur">https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur</a><br>
-<a href="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur">https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur</a></p>
-</blockquote>
-<p>对应指针型和手型，效果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur" alt="Arrow"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur" alt="Hand"></p>
-<p>用法就是将url括号里的链接替换为上述链接。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position: relative; width: 100%; height: 0; padding-bottom: 75%;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;//player.bilibili.com/player.html?aid=986143204&amp;bvid=BV1Ft4y1A73f&amp;cid=851363812&amp;page=1&quot;</span> <span class="attr">scrolling</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">framespacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">allowfullscreen</span>=<span class="string">&quot;true&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>下面是测试的效果：</p>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
+    <iframe src="//player.bilibili.com/player.html?aid=986143204&bvid=BV1Ft4y1A73f&cid=851363812&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
 ]]></content>
       <categories>
         <category>经验</category>
@@ -187,15 +139,63 @@
       </tags>
   </entry>
   <entry>
-    <title>响应式Bilibili视频代码块测试</title>
-    <url>/2023/05/24/blog5/</url>
-    <content><![CDATA[<p>  首先在b站点击分享，复制嵌入代码，再按照如下格式编辑：</p>
+    <title>hexo d错误：spawn failed的一种解决方法</title>
+    <url>/2023/05/15/blog3/</url>
+    <content><![CDATA[<p>  继上一条，这几天内部署断断续续的报错，网上的教程都不适用，和朋友交流后终于有了一个稳定的解决方法。</p>
 <span id="more"></span>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position: relative; width: 100%; height: 0; padding-bottom: 75%;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;//player.bilibili.com/player.html?aid=986143204&amp;bvid=BV1Ft4y1A73f&amp;cid=851363812&amp;page=1&quot;</span> <span class="attr">scrolling</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">framespacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">allowfullscreen</span>=<span class="string">&quot;true&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>下面是测试的效果：</p>
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
-    <iframe src="//player.bilibili.com/player.html?aid=986143204&bvid=BV1Ft4y1A73f&cid=851363812&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-</div>
+<p>  报错内容大概是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Please make sure you have the correct access rights</span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">Error: Spwan failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt;(D:\Blog\node_modules hexo-util\lib\spawn.js:51:21)</span><br><span class="line">    at ChildProcess.emit (node:events:513:28)</span><br><span class="line">    at cp.emit (D:\Blog\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/chid_process:291:12)</span><br></pre></td></tr></table></figure>
+<p>  确定是网络的原因后，可以作如下尝试：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>获取steam++这款软件（github可以搜索到，也有其他选择）</p>
+</li>
+<li class="lvl-2">
+<p>打开steam++并加速github</p>
+</li>
+<li class="lvl-2">
+<p>命令行输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:443</span><br><span class="line">git config --global https.proxy http://127.0.0.1:443</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>最后<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>应该就能成功了🥰</p>
+</li>
+</ul>
+<p>  这篇文章希望给一些同样有该问题但网上教程都不适用的朋友一点参考。</p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo-Next鼠标指针自定义</title>
+    <url>/2023/05/27/blog7/</url>
+    <content><![CDATA[<h4 id="准备材料">准备材料</h4>
+<p>  <code>.cur</code>或者<code>.ico</code>文件，不能太大（我试过超过1MB的素材不可用），<code>.ani</code>动态光标没试成功过。这些资源可以在<a href="https://zhutix.com/tag/cursors/">致美化</a>等途径中找到。</p>
+<span id="more"></span>
+<p>  这些文件建议下载到<code>../themes/source/images</code>中，也可以不下载而采用cdn。</p>
+<p>  这里Next版本为8.16。</p>
+<h4 id="文件修改">文件修改</h4>
+<p>  在<code>yourBlog/themes/next/source/css/_common/scaffolding</code>中找到<code>base.styl</code>，对里面的代码行进行编辑：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">+ <span class="attribute">cursor</span>: <span class="built_in">url</span>(/images/yourArrow.cur), auto;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">var</span>(--body-bg-color);</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--text-color);</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="variable">$font</span>-family-base;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="variable">$font</span>-size-base;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="variable">$line</span>-height-base;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">transition</span>: padding <span class="variable">$transition</span>-ease;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  在添加的这行代码里将<code>yourArrow.cur</code>改为下载的素材名即可。这个地方一般是放指针型鼠标，下面还有一个区域需要编辑：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">+ <span class="attribute">cursor</span>: <span class="built_in">url</span>(/images/yourHand.cur), auto<span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="variable">$link</span>-decoration-color;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--link-color);</span><br><span class="line">  <span class="comment">// For a:not(:any-link)</span></span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">outline</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  这个位置一般放的是手型鼠标，也就是将鼠标悬在链接上会变化成的手型样式，同样将<code>yourHand.cur</code>改成下载的素材名。</p>
+<h4 id="重新部署">重新部署</h4>
+<p>  修改后可以先在本地看看效果，如果成功，最后hexo三件套即可。</p>
+<p>下面再附上很多博客在用的鼠标指针cdn：</p>
+<blockquote>
+<p><a href="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur">https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur</a><br>
+<a href="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur">https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur</a></p>
+</blockquote>
+<p>对应指针型和手型，效果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur" alt="Arrow"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur" alt="Hand"></p>
+<p>用法就是将url括号里的链接替换为上述链接。</p>
 ]]></content>
       <categories>
         <category>经验</category>
