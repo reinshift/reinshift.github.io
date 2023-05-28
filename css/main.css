@@ -1967,9 +1967,6 @@ pre code {
 }
 .post-eof {
   background: #ccc;
-  height: 1px;
-  margin: 80px auto 60px;
-  width: 8%;
 }
 .post-block:last-of-type .post-eof {
   display: none;
@@ -2488,4 +2485,33 @@ header.header {
   .pagination {
     margin-bottom: 10px;
   }
+}
+body {
+  background: url("/images/oreo.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 100% 100%;
+}
+.content-wrap {
+  opacity: 0.8;
+}
+.main-inner {
+  background-color: rgba(255,255,255,0);
+}
+.post-block {
+  background-color: rgba(255,255,255,0.9);
+  margin-top: -10px;
+  margin-bottom: 24px;
+  padding: 20px;
+  border-radius: 15px 15px 15px 15px;
+}
+.header.header {
+  border-radius: 15px 15px 15px 15px;
+}
+.site-brand-container {
+  background-color: #af9f92;
+}
+.sidebar-inner {
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 15px 15px 15px 15px;
 }
