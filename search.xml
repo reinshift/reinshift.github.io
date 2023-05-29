@@ -22,6 +22,87 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo d错误：spawn failed的一种解决方法</title>
+    <url>/2023/05/15/blog3/</url>
+    <content><![CDATA[<p>  继上一条，这几天内部署断断续续的报错，网上的教程都不适用，和朋友交流后终于有了一个稳定的解决方法。</p>
+<span id="more"></span>
+<p>  报错内容大概是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Please make sure you have the correct access rights</span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">Error: Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt;(D:\Blog\node_modules hexo-util\lib\spawn.js:51:21)</span><br><span class="line">    at ChildProcess.emit (node:events:513:28)</span><br><span class="line">    at cp.emit (D:\Blog\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/chid_process:291:12)</span><br></pre></td></tr></table></figure>
+<p>  确定是网络的原因后，可以作如下尝试：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>获取steam++这款软件（github可以搜索到，也有其他选择）</p>
+</li>
+<li class="lvl-2">
+<p>打开steam++并加速github</p>
+</li>
+<li class="lvl-2">
+<p>命令行输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:443</span><br><span class="line">git config --global https.proxy http://127.0.0.1:443</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>最后<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>应该就能成功了🥰</p>
+</li>
+</ul>
+<p>  这篇文章希望给一些同样有该问题但网上教程都不适用的朋友一点参考。</p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Next主题更改引用blockquote以及内嵌代码code的颜色</title>
+    <url>/2023/05/19/blog4/</url>
+    <content><![CDATA[<h5 id="Next版本：7-8-0">Next版本：7.8.0</h5>
+<p>  因为设置了背景，所以往往有统一颜色的需求，此时占比较大的引用和代码的颜色较为明显，如果采用默认颜色会比较难看。在相同Next主题和版本下，可以这样设置：</p>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>块引用</p>
+</li>
+</ul>
+<p>  首先cd到<code>..\next\source\css\_common\scaffolding</code>找到<code>base.styl</code>文件，打开ctrl+F搜索blockquote，对代码进行如下编辑：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#d0a7020d</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">4px</span> solid <span class="number">#d0a702</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--blockquote-color);</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">15px</span>;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">cite</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">5px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中background是引用块的背景颜色，border-left即左边粗竖线的颜色，对#后面改成自己喜欢的颜色后重新部署即可。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>内嵌代码</p>
+</li>
+</ul>
+<p>  cd到<code>..\next\source\css\_variables</code>找到<code>base.styl</code>文件，打开找到code-background，同样将后面的颜色进行修改即可。</p>
+<p>  由于我还没有设置图床，就不放图片演示了😶</p>
+<p>  最后，如果版本不一致，也可以用开发者工具找到源代码进行修改。</p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>响应式Bilibili视频代码块测试</title>
+    <url>/2023/05/24/blog5/</url>
+    <content><![CDATA[<p>  首先在b站点击分享，复制嵌入代码，再按照如下格式编辑：</p>
+<span id="more"></span>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position: relative; width: 100%; height: 0; padding-bottom: 75%;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;//player.bilibili.com/player.html?aid=986143204&amp;bvid=BV1Ft4y1A73f&amp;cid=851363812&amp;page=1&quot;</span> <span class="attr">scrolling</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">framespacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">allowfullscreen</span>=<span class="string">&quot;true&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>下面是测试的效果：</p>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
+    <iframe src="//player.bilibili.com/player.html?aid=986143204&bvid=BV1Ft4y1A73f&cid=851363812&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>今日更新内容</title>
     <url>/2023/04/28/blog1/</url>
     <content><![CDATA[<p>以下是今天的更新内容：</p>
@@ -53,73 +134,6 @@
       </categories>
       <tags>
         <tag>建站</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo d错误：spawn failed的一种解决方法</title>
-    <url>/2023/05/15/blog3/</url>
-    <content><![CDATA[<p>  继上一条，这几天内部署断断续续的报错，网上的教程都不适用，和朋友交流后终于有了一个稳定的解决方法。</p>
-<span id="more"></span>
-<p>  报错内容大概是这样：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Please make sure you have the correct access rights</span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">Error: Spwan failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt;(D:\Blog\node_modules hexo-util\lib\spawn.js:51:21)</span><br><span class="line">    at ChildProcess.emit (node:events:513:28)</span><br><span class="line">    at cp.emit (D:\Blog\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/chid_process:291:12)</span><br></pre></td></tr></table></figure>
-<p>  确定是网络的原因后，可以作如下尝试：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>获取steam++这款软件（github可以搜索到，也有其他选择）</p>
-</li>
-<li class="lvl-2">
-<p>打开steam++并加速github</p>
-</li>
-<li class="lvl-2">
-<p>命令行输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:443</span><br><span class="line">git config --global https.proxy http://127.0.0.1:443</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-2">
-<p>最后<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>应该就能成功了🥰</p>
-</li>
-</ul>
-<p>  这篇文章希望给一些同样有该问题但网上教程都不适用的朋友一点参考。</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>建站</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>更新Next主题：v7.8-&gt;v8.16</title>
-    <url>/2023/05/26/blog6/</url>
-    <content><![CDATA[<p>  由于需要换valine为waline或twikoo，以及各种由于Next版本低导致的问题（相关的网络资源少、教程少等等），今天下定决心更新一下版本。</p>
-<span id="more"></span>
-<h4 id="Hexo-version-6-3；Next-version-7-8">Hexo version: 6.3；Next version:7.8</h4>
-<p>  知道更新版本有一定的风险，于是做好了旧版本的备份。最终没有太大的损失，只是先前自定义的一些样式由于文件发生改变而失效，这些会在后续重新补充。</p>
-<p>  更新版本参考教程：<a href="https://drifter-games.com/2021/nextupdate/">https://drifter-games.com/2021/nextupdate/</a></p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>响应式Bilibili视频代码块测试</title>
-    <url>/2023/05/24/blog5/</url>
-    <content><![CDATA[<p>  首先在b站点击分享，复制嵌入代码，再按照如下格式编辑：</p>
-<span id="more"></span>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position: relative; width: 100%; height: 0; padding-bottom: 75%;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;//player.bilibili.com/player.html?aid=986143204&amp;bvid=BV1Ft4y1A73f&amp;cid=851363812&amp;page=1&quot;</span> <span class="attr">scrolling</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">framespacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">allowfullscreen</span>=<span class="string">&quot;true&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>下面是测试的效果：</p>
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
-    <iframe src="//player.bilibili.com/player.html?aid=986143204&bvid=BV1Ft4y1A73f&cid=851363812&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-</div>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -156,36 +170,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Next主题更改引用blockquote以及内嵌代码code的颜色</title>
-    <url>/2023/05/19/blog4/</url>
-    <content><![CDATA[<h5 id="Next版本：7-8-0">Next版本：7.8.0</h5>
-<p>  因为设置了背景，所以往往有统一颜色的需求，此时占比较大的引用和代码的颜色较为明显，如果采用默认颜色会比较难看。在相同Next主题和版本下，可以这样设置：</p>
-<span id="more"></span>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>块引用</p>
-</li>
-</ul>
-<p>  首先cd到<code>..\next\source\css\_common\scaffolding</code>找到<code>base.styl</code>文件，打开ctrl+F搜索blockquote，对代码进行如下编辑：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#d0a7020d</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">4px</span> solid <span class="number">#d0a702</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--blockquote-color);</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">15px</span>;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">cite</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">5px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其中background是引用块的背景颜色，border-left即左边粗竖线的颜色，对#后面改成自己喜欢的颜色后重新部署即可。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>内嵌代码</p>
-</li>
-</ul>
-<p> &amp;Emsp;cd到<code>..\next\source\css\_variables</code>找到<code>base.styl</code>文件，打开找到code-background，同样将后面的颜色进行修改即可。</p>
-<p>  由于我还没有设置图床，就不放图片演示了😶</p>
-<p>  最后，如果版本不一致，也可以用开发者工具找到源代码进行修改。</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>my first post</title>
     <url>/2023/04/27/test/</url>
     <content><![CDATA[<h1>你好</h1>
@@ -202,6 +186,22 @@
       </categories>
       <tags>
         <tag>建站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>更新Next主题：v7.8-&gt;v8.16</title>
+    <url>/2023/05/26/blog6/</url>
+    <content><![CDATA[<p>  由于需要换valine为waline或twikoo，以及各种由于Next版本低导致的问题（相关的网络资源少、教程少等等），今天下定决心更新一下版本。</p>
+<span id="more"></span>
+<h4 id="Hexo-version-6-3；Next-version-7-8">Hexo version: 6.3；Next version:7.8</h4>
+<p>  知道更新版本有一定的风险，于是做好了旧版本的备份。最终没有太大的损失，只是先前自定义的一些样式由于文件发生改变而失效，这些会在后续重新补充。</p>
+<p>  更新版本参考教程：<a href="https://drifter-games.com/2021/nextupdate/">https://drifter-games.com/2021/nextupdate/</a></p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
