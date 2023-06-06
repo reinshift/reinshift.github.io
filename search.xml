@@ -32,6 +32,39 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo d错误：spawn failed的一种解决方法</title>
+    <url>/2023/05/15/blog3/</url>
+    <content><![CDATA[<p>  继上一条，这几天内部署断断续续的报错，网上的教程都不适用，和朋友交流后终于有了一个稳定的解决方法。</p>
+<span id="more"></span>
+<p>  报错内容大概是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Please make sure you have the correct access rights</span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">Error: Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt;(D:\Blog\node_modules hexo-util\lib\spawn.js:51:21)</span><br><span class="line">    at ChildProcess.emit (node:events:513:28)</span><br><span class="line">    at cp.emit (D:\Blog\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/chid_process:291:12)</span><br></pre></td></tr></table></figure>
+<p>  确定是网络的原因后，可以作如下尝试：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>获取steam++这款软件（github可以搜索到，也有其他选择）</p>
+</li>
+<li class="lvl-2">
+<p>打开steam++并加速github</p>
+</li>
+<li class="lvl-2">
+<p>命令行输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:443</span><br><span class="line">git config --global https.proxy http://127.0.0.1:443</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>最后<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>应该就能成功了🥰</p>
+</li>
+</ul>
+<p>  这篇文章希望给一些同样有该问题但网上教程都不适用的朋友一点参考。</p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数组的动态联编</title>
     <url>/2023/06/06/blog10-cppDynamicArray/</url>
     <content><![CDATA[<p>  使用数组声明来创建数组时，将采用静态联编，即数组的长度在编译时设置。这个时候如果在括号里使用变量会报错，这样如果想输入数组长度以控制是做不到的：</p>
@@ -46,7 +79,7 @@
 </blockquote>
 <p>  使用静态联编时，必须在编写程序时指定数组的长度；使用动态联编时，程序将在运行时确定数组的长度。</p>
 <p>  了解了这些特性，就可以在程序中这样写：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> num;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Put in the number of people:__\b\b&quot;</span>;</span><br><span class="line">    cin &gt;&gt; num;</span><br><span class="line">    <span class="comment">//int Age[num];</span></span><br><span class="line">    <span class="type">int</span>* p_Age = <span class="keyword">new</span> <span class="type">int</span>[num];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span>;</span><br><span class="line">        cin &gt;&gt; p_Age[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the ages of people is:&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span> &lt;&lt; p_Age[i] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span>[] p_Age;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> num;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Put in the number of people:__\b\b&quot;</span>;</span><br><span class="line">    cin &gt;&gt; num;</span><br><span class="line">    <span class="comment">//int Age[num];</span></span><br><span class="line">    <span class="type">int</span>* p_Age = <span class="keyword">new</span> <span class="type">int</span>[num];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span>;</span><br><span class="line">        cin &gt;&gt; p_Age[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the age of every person is:&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span> &lt;&lt; p_Age[i] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span>[] p_Age;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>  当输入10赋值给变量num时，接下来就会创建一个长度为10的数组以储存数据。</p>
 <p>  当然采用这种方式创建数组的最后需要用<code>delete[]</code>来释放其占用的内存。</p>
 ]]></content>
@@ -56,6 +89,27 @@
       </categories>
       <tags>
         <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>备案与毕业</title>
+    <url>/2023/05/13/blog2/</url>
+    <content><![CDATA[<p>  经历了长达十多天的备案，终于在昨天过审了。</p>
+<span id="more"></span>
+<p>  根据规定，这段时间不能访问域名，也就一直没有更新。昨晚九点得知过审后遂启动域名，奇怪的是<code>hexo cl</code>,<code>hexo g</code>都能使用，唯独<code>hexo d</code>一直报错，无法成功部署。</p>
+<p>  <code>hexo s</code>本地渲染也没问题，并且在家也没有出现过这种情况，那么猜测就是网络的问题，我想备案的这几天从家里到学校了，网络的影响应该很大。网上找了很多教程，最后搞到凌晨1点，发现断开学校宽带，连手机热点就解决了🤣难绷…</p>
+<p>  十几天内，我给网站添加了“关于”板块，用<code>&amp;emsp;</code>进行首行缩进；参与了毕业论文的答辩，也拍了毕业照，本科生涯渐渐以倒数计时，朋友们都在抓紧时间记录、分享以及欢庆。这让我想到高中毕业时，每个人都在留言板上写一句话，我用当时所学的vb语言写了一小段代码，具体内容我难以记起，大致内容就是有一个按钮，按下就可以将系统时间暂停。</p>
+<p>  还有一位令人怀念的朋友这样写：</p>
+<blockquote>
+<p>“明天会更好。”</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
+        <tag>人生</tag>
       </tags>
   </entry>
   <entry>
@@ -90,35 +144,19 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo d错误：spawn failed的一种解决方法</title>
-    <url>/2023/05/15/blog3/</url>
-    <content><![CDATA[<p>  继上一条，这几天内部署断断续续的报错，网上的教程都不适用，和朋友交流后终于有了一个稳定的解决方法。</p>
+    <title>更新Next主题：v7.8-&gt;v8.16</title>
+    <url>/2023/05/26/blog6/</url>
+    <content><![CDATA[<p>  由于需要换valine为waline或twikoo，以及各种由于Next版本低导致的问题（相关的网络资源少、教程少等等），今天下定决心更新一下版本。</p>
 <span id="more"></span>
-<p>  报错内容大概是这样：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Please make sure you have the correct access rights</span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">Error: Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt;(D:\Blog\node_modules hexo-util\lib\spawn.js:51:21)</span><br><span class="line">    at ChildProcess.emit (node:events:513:28)</span><br><span class="line">    at cp.emit (D:\Blog\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/chid_process:291:12)</span><br></pre></td></tr></table></figure>
-<p>  确定是网络的原因后，可以作如下尝试：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>获取steam++这款软件（github可以搜索到，也有其他选择）</p>
-</li>
-<li class="lvl-2">
-<p>打开steam++并加速github</p>
-</li>
-<li class="lvl-2">
-<p>命令行输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:443</span><br><span class="line">git config --global https.proxy http://127.0.0.1:443</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-2">
-<p>最后<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>应该就能成功了🥰</p>
-</li>
-</ul>
-<p>  这篇文章希望给一些同样有该问题但网上教程都不适用的朋友一点参考。</p>
+<h4 id="Hexo-version-6-3；Next-version-7-8">Hexo version: 6.3；Next version:7.8</h4>
+<p>  知道更新版本有一定的风险，于是做好了旧版本的备份。最终没有太大的损失，只是先前自定义的一些样式由于文件发生改变而失效，这些会在后续重新补充。</p>
+<p>  更新版本参考教程：<a href="https://drifter-games.com/2021/nextupdate/">https://drifter-games.com/2021/nextupdate/</a></p>
 ]]></content>
       <categories>
         <category>经验</category>
+        <category>Next升级</category>
       </categories>
       <tags>
-        <tag>建站</tag>
         <tag>Hexo</tag>
       </tags>
   </entry>
@@ -139,27 +177,6 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>备案与毕业</title>
-    <url>/2023/05/13/blog2/</url>
-    <content><![CDATA[<p>  经历了长达十多天的备案，终于在昨天过审了。</p>
-<span id="more"></span>
-<p>  根据规定，这段时间不能访问域名，也就一直没有更新。昨晚九点得知过审后遂启动域名，奇怪的是<code>hexo cl</code>,<code>hexo g</code>都能使用，唯独<code>hexo d</code>一直报错，无法成功部署。</p>
-<p>  <code>hexo s</code>本地渲染也没问题，并且在家也没有出现过这种情况，那么猜测就是网络的问题，我想备案的这几天从家里到学校了，网络的影响应该很大。网上找了很多教程，最后搞到凌晨1点，发现断开学校宽带，连手机热点就解决了🤣难绷…</p>
-<p>  十几天内，我给网站添加了“关于”板块，用<code>&amp;emsp;</code>进行首行缩进；参与了毕业论文的答辩，也拍了毕业照，本科生涯渐渐以倒数计时，朋友们都在抓紧时间记录、分享以及欢庆。这让我想到高中毕业时，每个人都在留言板上写一句话，我用当时所学的vb语言写了一小段代码，具体内容我难以记起，大致内容就是有一个按钮，按下就可以将系统时间暂停。</p>
-<p>  还有一位令人怀念的朋友这样写：</p>
-<blockquote>
-<p>“明天会更好。”</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>建站</tag>
-        <tag>人生</tag>
       </tags>
   </entry>
   <entry>
@@ -197,20 +214,68 @@
       </tags>
   </entry>
   <entry>
-    <title>更新Next主题：v7.8-&gt;v8.16</title>
-    <url>/2023/05/26/blog6/</url>
-    <content><![CDATA[<p>  由于需要换valine为waline或twikoo，以及各种由于Next版本低导致的问题（相关的网络资源少、教程少等等），今天下定决心更新一下版本。</p>
+    <title>更改waline主题颜色</title>
+    <url>/2023/06/03/blog9-stylDIY/</url>
+    <content><![CDATA[<p>  之前就想自定义waline的样式以适配当前的背景图，但又因为没学过css，也不会自己上传cdn，所以向waline的开发者求助，最后知道了<code>!important</code>大法，希望能给到和我一样没接触过css的博主一些参考。</p>
 <span id="more"></span>
-<h4 id="Hexo-version-6-3；Next-version-7-8">Hexo version: 6.3；Next version:7.8</h4>
-<p>  知道更新版本有一定的风险，于是做好了旧版本的备份。最终没有太大的损失，只是先前自定义的一些样式由于文件发生改变而失效，这些会在后续重新补充。</p>
-<p>  更新版本参考教程：<a href="https://drifter-games.com/2021/nextupdate/">https://drifter-games.com/2021/nextupdate/</a></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="修改主题配置文件">修改主题配置文件</h3>
+</li>
+</ul>
+<p>  在<code>.../next</code>下的<code>_config.yml</code>文件中搜索<code>custom file paths</code>，这是自定义文件的路径，将<code>#style: source/_data/styles.styl</code>前面的<code>#</code>去掉，并且到这个路径下创建对应的文件夹和文件，这样可以在<code>styles.styl</code>中自定义样式并覆盖主题的样式，并且方便后续的维护和更改。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="定位到需要修改的样式">定位到需要修改的样式</h3>
+</li>
+</ul>
+<p>  在自己的博客页面检查需要修改的元素，比如我要修改waline的按钮颜色，那么右键按钮检查就可以调出开发者工具：</p>
+<p><img src="https://i2.100024.xyz/2023/06/03/qrzy72.webp#pic_center" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/06/03/qrzydi.webp#pic_center" alt=""></p>
+<p>可以看到这个按钮的样式代码，发现这里的颜色统一采用了一个全局样式<code>--waline-theme-color</code>，如果能将这个元素覆盖掉，那就不用一一修改了。</p>
+<p>  将鼠标悬浮到这个按钮后是另一个颜色，这里查看源代码可以看到悬浮时的样式：</p>
+<p><img src="https://i2.100024.xyz/2023/06/03/qyh9ep.webp#pic_center" alt=""></p>
+<p>在<code>active</code>处同样采用了一个全局颜色<code>--waline-active-color</code>，那么要做的就是把这两个颜色覆盖掉。再进行查找可以找到全局声明：</p>
+<p><img src="https://i2.100024.xyz/2023/06/03/qrzvws.webp#pic_center" alt=""></p>
+<p>这里就包含了主题原来的颜色。由于我已经进行了修改，所以图片显示的是已被覆盖的样子。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="important覆盖样式">!important覆盖样式</h3>
+</li>
+</ul>
+<p>  由于waline插件的import采用的是官方提供的cdn，想要在本地修改样式就需要以覆盖的形式。这里我们打开开始所创建的<code>styles.styl</code>，在里面写入：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attr">--waline-theme-color</span>: <span class="number">#4b3425</span> !important;</span><br><span class="line">  <span class="attr">--waline-active-color</span>: <span class="number">#9c8877</span> !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>颜色改成需要的颜色即可。</p>
+<p>  效果可以参考评论区，修改全局样式的好处就是可以做到很方便的统一：</p>
+<p><img src="https://i2.100024.xyz/2023/06/03/rah08z.webp#23pic_center" alt=""></p>
+<p>  可以看到在后面加入<code>!important</code>后，此声明将覆盖任何其他声明。但是这样做会破坏样式表中的固有的级联规则，使得找bug变得困难，所以不推荐大量使用，有条件的还是建议自己将官方css文件进行修改并上传cdn导入自己的主题。</p>
 ]]></content>
       <categories>
         <category>经验</category>
-        <category>Next升级</category>
+        <category>Next美化</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
+        <tag>Css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>my first post</title>
+    <url>/2023/04/27/test/</url>
+    <content><![CDATA[<h1>你好</h1>
+<h2 id="这是我的第一篇个人博客">这是我的第一篇个人博客</h2>
+<span id="more"></span>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Hello World!&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Le vent se lève, il faut tenter de vivre</p>
+</blockquote>
+<p>have fun 😃</p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
       </tags>
   </entry>
   <entry>
@@ -301,71 +366,6 @@
       </categories>
       <tags>
         <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>更改waline主题颜色</title>
-    <url>/2023/06/03/blog9-stylDIY/</url>
-    <content><![CDATA[<p>  之前就想自定义waline的样式以适配当前的背景图，但又因为没学过css，也不会自己上传cdn，所以向waline的开发者求助，最后知道了<code>!important</code>大法，希望能给到和我一样没接触过css的博主一些参考。</p>
-<span id="more"></span>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="修改主题配置文件">修改主题配置文件</h3>
-</li>
-</ul>
-<p>  在<code>.../next</code>下的<code>_config.yml</code>文件中搜索<code>custom file paths</code>，这是自定义文件的路径，将<code>#style: source/_data/styles.styl</code>前面的<code>#</code>去掉，并且到这个路径下创建对应的文件夹和文件，这样可以在<code>styles.styl</code>中自定义样式并覆盖主题的样式，并且方便后续的维护和更改。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="定位到需要修改的样式">定位到需要修改的样式</h3>
-</li>
-</ul>
-<p>  在自己的博客页面检查需要修改的元素，比如我要修改waline的按钮颜色，那么右键按钮检查就可以调出开发者工具：</p>
-<p><img src="https://i2.100024.xyz/2023/06/03/qrzy72.webp#pic_center" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/06/03/qrzydi.webp#pic_center" alt=""></p>
-<p>可以看到这个按钮的样式代码，发现这里的颜色统一采用了一个全局样式<code>--waline-theme-color</code>，如果能将这个元素覆盖掉，那就不用一一修改了。</p>
-<p>  将鼠标悬浮到这个按钮后是另一个颜色，这里查看源代码可以看到悬浮时的样式：</p>
-<p><img src="https://i2.100024.xyz/2023/06/03/qyh9ep.webp#pic_center" alt=""></p>
-<p>在<code>active</code>处同样采用了一个全局颜色<code>--waline-active-color</code>，那么要做的就是把这两个颜色覆盖掉。再进行查找可以找到全局声明：</p>
-<p><img src="https://i2.100024.xyz/2023/06/03/qrzvws.webp#pic_center" alt=""></p>
-<p>这里就包含了主题原来的颜色。由于我已经进行了修改，所以图片显示的是已被覆盖的样子。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="important覆盖样式">!important覆盖样式</h3>
-</li>
-</ul>
-<p>  由于waline插件的import采用的是官方提供的cdn，想要在本地修改样式就需要以覆盖的形式。这里我们打开开始所创建的<code>styles.styl</code>，在里面写入：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attr">--waline-theme-color</span>: <span class="number">#4b3425</span> !important;</span><br><span class="line">  <span class="attr">--waline-active-color</span>: <span class="number">#9c8877</span> !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>颜色改成需要的颜色即可。</p>
-<p>  效果可以参考评论区，修改全局样式的好处就是可以做到很方便的统一：</p>
-<p><img src="https://i2.100024.xyz/2023/06/03/rah08z.webp#23pic_center" alt=""></p>
-<p>  可以看到在后面加入<code>!important</code>后，此声明将覆盖任何其他声明。但是这样做会破坏样式表中的固有的级联规则，使得找bug变得困难，所以不推荐大量使用，有条件的还是建议自己将官方css文件进行修改并上传cdn导入自己的主题。</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-        <category>Next美化</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>my first post</title>
-    <url>/2023/04/27/test/</url>
-    <content><![CDATA[<h1>你好</h1>
-<h2 id="这是我的第一篇个人博客">这是我的第一篇个人博客</h2>
-<span id="more"></span>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Hello World!&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Le vent se lève, il faut tenter de vivre</p>
-</blockquote>
-<p>have fun 😃</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>建站</tag>
       </tags>
   </entry>
 </search>
