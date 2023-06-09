@@ -1,34 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>今日更新内容</title>
-    <url>/2023/04/28/blog1/</url>
-    <content><![CDATA[<p>以下是今天的更新内容：</p>
+    <title>数组的动态联编</title>
+    <url>/2023/06/06/blog10-cppDynamicArray/</url>
+    <content><![CDATA[<p>  使用数组声明来创建数组时，将采用静态联编，即数组的长度在编译时设置。这个时候如果在括号里使用变量会报错，这样如果想输入数组长度以控制是做不到的：</p>
 <span id="more"></span>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>增加了新成员：wanko（汪酱） 🐶</p>
+<p><img src="https://i2.100024.xyz/2023/06/06/ny90mg.webp#pic_center" alt=""></p>
+<p>  如果想创建一个数组，其长度让用户来输入管理，这个时候就需要用<code>new[]</code>运算符创建数组，采用动态联编（动态数组）。</p>
 <blockquote>
-<p>但是很遗憾，由于技术有限，没能成功编辑浮空文字</p>
+<p>静态联编：在编译时给数组分配内存被称为静态联编（static binding），意味着数组是在编译时加入到程序中的。</p>
 </blockquote>
-</li>
-<li class="lvl-2">
-<p>增加了基于valine平台的评论功能</p>
 <blockquote>
-<p>但是不知道如何删除评论，所以评论的各位爷要谨言慎行</p>
+<p>动态联编：使用new时，如果在运行阶段需要数组，则创建它；如果不需要，则不创建。还可以在程序运行时选择数组的长度。这被称为动态联编（dynamic binding），意味着数组是在程序运行时创建的。这种数组叫作动态数组（dynamic array）。</p>
 </blockquote>
-</li>
-<li class="lvl-2">
-<p>更换了Hexo的Markdown渲染引擎，现在可以呈现emoji表情了</p>
-<blockquote>
-<p>emoji的简码链接： <a href="https://gist.github.com/rxaviers/7360908">简码</a></p>
-</blockquote>
-</li>
-</ul>
-<hr>
+<p>  使用静态联编时，必须在编写程序时指定数组的长度；使用动态联编时，程序将在运行时确定数组的长度。</p>
+<p>  了解了这些特性，就可以在程序中这样写：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> num;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Put in the number of people:__\b\b&quot;</span>;</span><br><span class="line">    cin &gt;&gt; num;</span><br><span class="line">    <span class="comment">//int Age[num];</span></span><br><span class="line">    <span class="type">int</span>* p_Age = <span class="keyword">new</span> <span class="type">int</span>[num];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span>;</span><br><span class="line">        cin &gt;&gt; p_Age[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the age of every person is:&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span> &lt;&lt; p_Age[i] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span>[] p_Age;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  当输入10赋值给变量num时，接下来就会创建一个长度为10的数组以储存数据。</p>
+<p>  当然采用这种方式创建数组的最后需要用<code>delete[]</code>来释放其占用的内存。</p>
 ]]></content>
+      <categories>
+        <category>学习</category>
+        <category>C++</category>
+      </categories>
       <tags>
-        <tag>建站</tag>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -65,54 +61,6 @@
       </tags>
   </entry>
   <entry>
-    <title>数组的动态联编</title>
-    <url>/2023/06/06/blog10-cppDynamicArray/</url>
-    <content><![CDATA[<p>  使用数组声明来创建数组时，将采用静态联编，即数组的长度在编译时设置。这个时候如果在括号里使用变量会报错，这样如果想输入数组长度以控制是做不到的：</p>
-<span id="more"></span>
-<p><img src="https://i2.100024.xyz/2023/06/06/ny90mg.webp#pic_center" alt=""></p>
-<p>  如果想创建一个数组，其长度让用户来输入管理，这个时候就需要用<code>new[]</code>运算符创建数组，采用动态联编（动态数组）。</p>
-<blockquote>
-<p>静态联编：在编译时给数组分配内存被称为静态联编（static binding），意味着数组是在编译时加入到程序中的。</p>
-</blockquote>
-<blockquote>
-<p>动态联编：使用new时，如果在运行阶段需要数组，则创建它；如果不需要，则不创建。还可以在程序运行时选择数组的长度。这被称为动态联编（dynamic binding），意味着数组是在程序运行时创建的。这种数组叫作动态数组（dynamic array）。</p>
-</blockquote>
-<p>  使用静态联编时，必须在编写程序时指定数组的长度；使用动态联编时，程序将在运行时确定数组的长度。</p>
-<p>  了解了这些特性，就可以在程序中这样写：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> num;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Put in the number of people:__\b\b&quot;</span>;</span><br><span class="line">    cin &gt;&gt; num;</span><br><span class="line">    <span class="comment">//int Age[num];</span></span><br><span class="line">    <span class="type">int</span>* p_Age = <span class="keyword">new</span> <span class="type">int</span>[num];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span>;</span><br><span class="line">        cin &gt;&gt; p_Age[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the age of every person is:&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span> &lt;&lt; p_Age[i] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span>[] p_Age;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  当输入10赋值给变量num时，接下来就会创建一个长度为10的数组以储存数据。</p>
-<p>  当然采用这种方式创建数组的最后需要用<code>delete[]</code>来释放其占用的内存。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>备案与毕业</title>
-    <url>/2023/05/13/blog2/</url>
-    <content><![CDATA[<p>  经历了长达十多天的备案，终于在昨天过审了。</p>
-<span id="more"></span>
-<p>  根据规定，这段时间不能访问域名，也就一直没有更新。昨晚九点得知过审后遂启动域名，奇怪的是<code>hexo cl</code>,<code>hexo g</code>都能使用，唯独<code>hexo d</code>一直报错，无法成功部署。</p>
-<p>  <code>hexo s</code>本地渲染也没问题，并且在家也没有出现过这种情况，那么猜测就是网络的问题，我想备案的这几天从家里到学校了，网络的影响应该很大。网上找了很多教程，最后搞到凌晨1点，发现断开学校宽带，连手机热点就解决了🤣难绷…</p>
-<p>  十几天内，我给网站添加了“关于”板块，用<code>&amp;emsp;</code>进行首行缩进；参与了毕业论文的答辩，也拍了毕业照，本科生涯渐渐以倒数计时，朋友们都在抓紧时间记录、分享以及欢庆。这让我想到高中毕业时，每个人都在留言板上写一句话，我用当时所学的vb语言写了一小段代码，具体内容我难以记起，大致内容就是有一个按钮，按下就可以将系统时间暂停。</p>
-<p>  还有一位令人怀念的朋友这样写：</p>
-<blockquote>
-<p>“明天会更好。”</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>建站</tag>
-        <tag>人生</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Next主题更改引用blockquote以及内嵌代码code的颜色</title>
     <url>/2023/05/19/blog4/</url>
     <content><![CDATA[<h5 id="Next版本：7-8-0">Next版本：7.8.0</h5>
@@ -144,20 +92,147 @@
       </tags>
   </entry>
   <entry>
-    <title>更新Next主题：v7.8-&gt;v8.16</title>
-    <url>/2023/05/26/blog6/</url>
-    <content><![CDATA[<p>  由于需要换valine为waline或twikoo，以及各种由于Next版本低导致的问题（相关的网络资源少、教程少等等），今天下定决心更新一下版本。</p>
+    <title>今日更新内容</title>
+    <url>/2023/04/28/blog1/</url>
+    <content><![CDATA[<p>以下是今天的更新内容：</p>
 <span id="more"></span>
-<h4 id="Hexo-version-6-3；Next-version-7-8">Hexo version: 6.3；Next version:7.8</h4>
-<p>  知道更新版本有一定的风险，于是做好了旧版本的备份。最终没有太大的损失，只是先前自定义的一些样式由于文件发生改变而失效，这些会在后续重新补充。</p>
-<p>  更新版本参考教程：<a href="https://drifter-games.com/2021/nextupdate/">https://drifter-games.com/2021/nextupdate/</a></p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>增加了新成员：wanko（汪酱） 🐶</p>
+<blockquote>
+<p>但是很遗憾，由于技术有限，没能成功编辑浮空文字</p>
+</blockquote>
+</li>
+<li class="lvl-2">
+<p>增加了基于valine平台的评论功能</p>
+<blockquote>
+<p>但是不知道如何删除评论，所以评论的各位爷要谨言慎行</p>
+</blockquote>
+</li>
+<li class="lvl-2">
+<p>更换了Hexo的Markdown渲染引擎，现在可以呈现emoji表情了</p>
+<blockquote>
+<p>emoji的简码链接： <a href="https://gist.github.com/rxaviers/7360908">简码</a></p>
+</blockquote>
+</li>
+</ul>
+<hr>
+]]></content>
+      <tags>
+        <tag>建站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构note（一）</title>
+    <url>/2023/06/09/blog11-DS1/</url>
+    <content><![CDATA[<h1>1.1 什么是数据结构？</h1>
+<blockquote>
+<p>“数据结构是数据对象，以及存在于该对象的实例和组成实例的数据元素之间的各种联系。这些联系可以通过定义相关的函数给出。”——Sartaj Sahni.</p>
+</blockquote>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>解决问题方法的效率，跟数据的组织方式有关</p>
+</li>
+<li class="lvl-2">
+<p>解决问题方法的效率，跟空间的利用效率有关</p>
+</li>
+<li class="lvl-2">
+<p>解决问题方法的效率，跟算法的巧妙程度有关</p>
+</li>
+</ul>
+<h3 id="抽象数据类型">抽象数据类型</h3>
+<ol>
+<li class="lvl-3">
+<p>数据结构（比如C++里的class）：</p>
+<ol>
+<li class="lvl-6">
+<p>数据对象集</p>
+</li>
+<li class="lvl-6">
+<p>数据集合相关联的操作集</p>
+</li>
+</ol>
+</li>
+<li class="lvl-3">
+<p>抽象：</p>
+<ol>
+<li class="lvl-6">
+<p>与存放数据的机器无关</p>
+</li>
+<li class="lvl-6">
+<p>与数据存储的物理结构无关</p>
+</li>
+<li class="lvl-6">
+<p>与实现操作的算法和编程语言均无关</p>
+</li>
+</ol>
+</li>
+</ol>
+<h1>1.2 什么是算法？</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>一个有限的指令集</p>
+</li>
+<li class="lvl-2">
+<p>接受一些输入（或不需要）</p>
+</li>
+<li class="lvl-2">
+<p>产生输出</p>
+</li>
+<li class="lvl-2">
+<p>在有限步骤后终止</p>
+</li>
+<li class="lvl-2">
+<p>每条指令必须</p>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p>有充分明确的目标，不可以有歧义</p>
+</li>
+<li class="lvl-4">
+<p>计算机的处理能力范围内</p>
+</li>
+<li class="lvl-4">
+<p>描述不依赖计算机语言和具体实现手段</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="什么是好的算法？">什么是好的算法？</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>空间复杂度$S(n)$</p>
+</li>
+<li class="lvl-2">
+<p>时间复杂度$T(n)$：$O(log{n})\le O(n)\le O(nlog{n}) \le O(n^{2}) \le O(2^{n})\le O(n!)$</p>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p>若两段算法分别有复杂度$T_1(n)=O(f_1(n))$和$T_2(n)=O(f_2(n))$，则：</p>
+<ul class="lvl-4">
+<li class="lvl-6">
+<p>$T_1(n)+T_2(n)=\max(O(f_1(n)),O(f_2(n)))$</p>
+</li>
+<li class="lvl-6">
+<p>$T_1(n)\times T_2(n)=O(f_1(n)\times f_2(n))$</p>
+</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p>一个for循环的时间复杂度等于循环次数乘以循环体代码的复杂度</p>
+</li>
+<li class="lvl-4">
+<p>if-else结构的复杂度取决于if的条件判断复杂度和两个分支部分的复杂度，总体取三者中最大</p>
+</li>
+</ul>
+</li>
+</ul>
 ]]></content>
       <categories>
-        <category>经验</category>
-        <category>Next升级</category>
+        <category>学习</category>
+        <category>数据结构</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -177,6 +252,134 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>更新Next主题：v7.8-&gt;v8.16</title>
+    <url>/2023/05/26/blog6/</url>
+    <content><![CDATA[<p>  由于需要换valine为waline或twikoo，以及各种由于Next版本低导致的问题（相关的网络资源少、教程少等等），今天下定决心更新一下版本。</p>
+<span id="more"></span>
+<h4 id="Hexo-version-6-3；Next-version-7-8">Hexo version: 6.3；Next version:7.8</h4>
+<p>  知道更新版本有一定的风险，于是做好了旧版本的备份。最终没有太大的损失，只是先前自定义的一些样式由于文件发生改变而失效，这些会在后续重新补充。</p>
+<p>  更新版本参考教程：<a href="https://drifter-games.com/2021/nextupdate/">https://drifter-games.com/2021/nextupdate/</a></p>
+]]></content>
+      <categories>
+        <category>经验</category>
+        <category>Next升级</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>备案与毕业</title>
+    <url>/2023/05/13/blog2/</url>
+    <content><![CDATA[<p>  经历了长达十多天的备案，终于在昨天过审了。</p>
+<span id="more"></span>
+<p>  根据规定，这段时间不能访问域名，也就一直没有更新。昨晚九点得知过审后遂启动域名，奇怪的是<code>hexo cl</code>,<code>hexo g</code>都能使用，唯独<code>hexo d</code>一直报错，无法成功部署。</p>
+<p>  <code>hexo s</code>本地渲染也没问题，并且在家也没有出现过这种情况，那么猜测就是网络的问题，我想备案的这几天从家里到学校了，网络的影响应该很大。网上找了很多教程，最后搞到凌晨1点，发现断开学校宽带，连手机热点就解决了🤣难绷…</p>
+<p>  十几天内，我给网站添加了“关于”板块，用<code>&amp;emsp;</code>进行首行缩进；参与了毕业论文的答辩，也拍了毕业照，本科生涯渐渐以倒数计时，朋友们都在抓紧时间记录、分享以及欢庆。这让我想到高中毕业时，每个人都在留言板上写一句话，我用当时所学的vb语言写了一小段代码，具体内容我难以记起，大致内容就是有一个按钮，按下就可以将系统时间暂停。</p>
+<p>  还有一位令人怀念的朋友这样写：</p>
+<blockquote>
+<p>“明天会更好。”</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
+        <tag>人生</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++文本操作：文本文件的读写</title>
+    <url>/2023/05/30/blog8-cpptxtwrite/</url>
+    <content><![CDATA[<h3 id="写文件">写文件</h3>
+<ol>
+<li class="lvl-3">
+<p>包含头文件：<code>#include &lt;fstream&gt;</code></p>
+</li>
+<li class="lvl-3">
+<p>创建流对象：<code>ofstream ofs;</code></p>
+<span id="more"></span>
+</li>
+<li class="lvl-3">
+<p>打开文件：<code>ofs.open(&quot;Url&quot;,打开方式)</code></p>
+<p>（如果路径处只写了文件名，则会保存在同级文件夹下）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">打开方式</th>
+<th style="text-align:left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ios::in</td>
+<td style="text-align:left">为读文件而打开文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::out</td>
+<td style="text-align:left">为写文件而打开文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::ate</td>
+<td style="text-align:left">初始位置为文件尾</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::app</td>
+<td style="text-align:left">追加方式写文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::trunc</td>
+<td style="text-align:left">先删除，再创建</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::binary</td>
+<td style="text-align:left">二进制方式</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="lvl-3">
+<p>写数据：<code>ofs &lt;&lt; &quot;写入的数据&quot;</code>（可以加入<code>&lt;&lt; endl;</code>来换行）</p>
+</li>
+<li class="lvl-3">
+<p>关闭文件：<code>ofs.close();</code></p>
+</li>
+</ol>
+<h5 id="示例：">示例：</h5>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fstream&gt;</span><span class="comment">//1.头文件的包含</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//2.创建流对象</span></span><br><span class="line">    ofstream ofs;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.指定打开方式</span></span><br><span class="line">    ofs.<span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>, ios::out);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.写内容</span></span><br><span class="line">    ofs &lt;&lt; <span class="string">&quot;姓名：张三&quot;</span> &lt;&lt; endl;</span><br><span class="line">    ofs &lt;&lt; <span class="string">&quot;性别：男&quot;</span> &lt;&lt; endl;</span><br><span class="line">    ofs &lt;&lt; <span class="string">&quot;年龄：18&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//5.关闭文件</span></span><br><span class="line">    ofs.<span class="built_in">close</span>();</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;写入成功！&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">test01</span>();</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="读文件">读文件</h3>
+<ol>
+<li class="lvl-3">
+<p>包含头文件：<code>#include &lt;fstream&gt;</code></p>
+</li>
+<li class="lvl-3">
+<p>创建流对象：<code>ofstream ifs;</code></p>
+</li>
+<li class="lvl-3">
+<p>打开文件并判断是否成功打开：<code>ifs.open(&quot;Url&quot;,打开方式)</code></p>
+<p>（判断打开方式见代码）</p>
+</li>
+<li class="lvl-3">
+<p>读数据：有四种方式，各有特点</p>
+</li>
+<li class="lvl-3">
+<p>关闭文件：<code>ifs.close();</code></p>
+</li>
+</ol>
+<h5 id="示例：-v2">示例：</h5>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fstream&gt;</span><span class="comment">//1.包含头文件</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//2.创建流对象</span></span><br><span class="line">    ifstream ifs;</span><br><span class="line">    <span class="comment">//3.打开文件并判断是否打开成功</span></span><br><span class="line">    ifs.<span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>, ios::in);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!ifs.<span class="built_in">is_open</span>()) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;文件打开失败&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//4.读数据</span></span><br><span class="line">    <span class="comment">//第一种（C风格字符串1）</span></span><br><span class="line">    <span class="comment">//char buf[1024] = &#123; 0 &#125;;</span></span><br><span class="line">    <span class="comment">//while (ifs &gt;&gt; buf) &#123;</span></span><br><span class="line">    <span class="comment">//    cout &lt;&lt; buf &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//第二种（C风格字符串2）</span></span><br><span class="line">    <span class="comment">//char buf[1024] = &#123; 0 &#125;;</span></span><br><span class="line">    <span class="comment">//while (ifs.getline(buf, sizeof(buf))) &#123;</span></span><br><span class="line">    <span class="comment">//    cout &lt;&lt; buf &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//第三种（CPP风格字符串）</span></span><br><span class="line">    <span class="comment">//string buf;</span></span><br><span class="line">    <span class="comment">//while (getline(ifs, buf)) &#123;</span></span><br><span class="line">    <span class="comment">//    cout &lt;&lt; buf &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//第四种（单字符）</span></span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="keyword">while</span> ((c = ifs.<span class="built_in">get</span>()) != EOF)<span class="comment">//EOF=end of file</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; c;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//5.关闭文件</span></span><br><span class="line">    ifs.<span class="built_in">close</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">test01</span>();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -276,96 +479,6 @@
       </categories>
       <tags>
         <tag>建站</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++文本操作：文本文件的读写</title>
-    <url>/2023/05/30/blog8-cpptxtwrite/</url>
-    <content><![CDATA[<h3 id="写文件">写文件</h3>
-<ol>
-<li class="lvl-3">
-<p>包含头文件：<code>#include &lt;fstream&gt;</code></p>
-</li>
-<li class="lvl-3">
-<p>创建流对象：<code>ofstream ofs;</code></p>
-<span id="more"></span>
-</li>
-<li class="lvl-3">
-<p>打开文件：<code>ofs.open(&quot;Url&quot;,打开方式)</code></p>
-<p>（如果路径处只写了文件名，则会保存在同级文件夹下）</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">打开方式</th>
-<th style="text-align:left">解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">ios::in</td>
-<td style="text-align:left">为读文件而打开文件</td>
-</tr>
-<tr>
-<td style="text-align:left">ios::out</td>
-<td style="text-align:left">为写文件而打开文件</td>
-</tr>
-<tr>
-<td style="text-align:left">ios::ate</td>
-<td style="text-align:left">初始位置为文件尾</td>
-</tr>
-<tr>
-<td style="text-align:left">ios::app</td>
-<td style="text-align:left">追加方式写文件</td>
-</tr>
-<tr>
-<td style="text-align:left">ios::trunc</td>
-<td style="text-align:left">先删除，再创建</td>
-</tr>
-<tr>
-<td style="text-align:left">ios::binary</td>
-<td style="text-align:left">二进制方式</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li class="lvl-3">
-<p>写数据：<code>ofs &lt;&lt; &quot;写入的数据&quot;</code>（可以加入<code>&lt;&lt; endl;</code>来换行）</p>
-</li>
-<li class="lvl-3">
-<p>关闭文件：<code>ofs.close();</code></p>
-</li>
-</ol>
-<h5 id="示例：">示例：</h5>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fstream&gt;</span><span class="comment">//1.头文件的包含</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//2.创建流对象</span></span><br><span class="line">    ofstream ofs;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.指定打开方式</span></span><br><span class="line">    ofs.<span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>, ios::out);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.写内容</span></span><br><span class="line">    ofs &lt;&lt; <span class="string">&quot;姓名：张三&quot;</span> &lt;&lt; endl;</span><br><span class="line">    ofs &lt;&lt; <span class="string">&quot;性别：男&quot;</span> &lt;&lt; endl;</span><br><span class="line">    ofs &lt;&lt; <span class="string">&quot;年龄：18&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//5.关闭文件</span></span><br><span class="line">    ofs.<span class="built_in">close</span>();</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;写入成功！&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">test01</span>();</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="读文件">读文件</h3>
-<ol>
-<li class="lvl-3">
-<p>包含头文件：<code>#include &lt;fstream&gt;</code></p>
-</li>
-<li class="lvl-3">
-<p>创建流对象：<code>ofstream ifs;</code></p>
-</li>
-<li class="lvl-3">
-<p>打开文件并判断是否成功打开：<code>ifs.open(&quot;Url&quot;,打开方式)</code></p>
-<p>（判断打开方式见代码）</p>
-</li>
-<li class="lvl-3">
-<p>读数据：有四种方式，各有特点</p>
-</li>
-<li class="lvl-3">
-<p>关闭文件：<code>ifs.close();</code></p>
-</li>
-</ol>
-<h5 id="示例：-v2">示例：</h5>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fstream&gt;</span><span class="comment">//1.包含头文件</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//2.创建流对象</span></span><br><span class="line">    ifstream ifs;</span><br><span class="line">    <span class="comment">//3.打开文件并判断是否打开成功</span></span><br><span class="line">    ifs.<span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>, ios::in);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!ifs.<span class="built_in">is_open</span>()) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;文件打开失败&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//4.读数据</span></span><br><span class="line">    <span class="comment">//第一种（C风格字符串1）</span></span><br><span class="line">    <span class="comment">//char buf[1024] = &#123; 0 &#125;;</span></span><br><span class="line">    <span class="comment">//while (ifs &gt;&gt; buf) &#123;</span></span><br><span class="line">    <span class="comment">//    cout &lt;&lt; buf &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//第二种（C风格字符串2）</span></span><br><span class="line">    <span class="comment">//char buf[1024] = &#123; 0 &#125;;</span></span><br><span class="line">    <span class="comment">//while (ifs.getline(buf, sizeof(buf))) &#123;</span></span><br><span class="line">    <span class="comment">//    cout &lt;&lt; buf &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//第三种（CPP风格字符串）</span></span><br><span class="line">    <span class="comment">//string buf;</span></span><br><span class="line">    <span class="comment">//while (getline(ifs, buf)) &#123;</span></span><br><span class="line">    <span class="comment">//    cout &lt;&lt; buf &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//第四种（单字符）</span></span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="keyword">while</span> ((c = ifs.<span class="built_in">get</span>()) != EOF)<span class="comment">//EOF=end of file</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; c;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//5.关闭文件</span></span><br><span class="line">    ifs.<span class="built_in">close</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">test01</span>();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
       </tags>
   </entry>
 </search>

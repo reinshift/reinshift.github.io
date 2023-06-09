@@ -1,1 +1,1 @@
-https://reinshift.cn/2023/06/06/blog10-cppDynamicArray/
+https://reinshift.cn/2023/06/09/blog11-DS1/
