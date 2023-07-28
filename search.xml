@@ -1,156 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>今日更新内容</title>
-    <url>/2023/04/28/blog1/</url>
-    <content><![CDATA[<p>以下是今天的更新内容：</p>
-<span id="more"></span>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>增加了新成员：wanko（汪酱） 🐶</p>
-<blockquote>
-<p>但是很遗憾，由于技术有限，没能成功编辑浮空文字</p>
-</blockquote>
-</li>
-<li class="lvl-2">
-<p>增加了基于valine平台的评论功能</p>
-<blockquote>
-<p>但是不知道如何删除评论，所以评论的各位爷要谨言慎行</p>
-</blockquote>
-</li>
-<li class="lvl-2">
-<p>更换了Hexo的Markdown渲染引擎，现在可以呈现emoji表情了</p>
-<blockquote>
-<p>emoji的简码链接： <a href="https://gist.github.com/rxaviers/7360908">简码</a></p>
-</blockquote>
-</li>
-</ul>
-<hr>
-]]></content>
-      <tags>
-        <tag>建站</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数组的动态联编</title>
-    <url>/2023/06/06/blog10-cppDynamicArray/</url>
-    <content><![CDATA[<p>  使用数组声明来创建数组时，将采用静态联编，即数组的长度在编译时设置。这个时候如果在括号里使用变量会报错，这样如果想输入数组长度以控制是做不到的：</p>
-<span id="more"></span>
-<p><img src="https://i2.100024.xyz/2023/06/06/ny90mg.webp#pic_center" alt=""></p>
-<p>  如果想创建一个数组，其长度让用户来输入管理，这个时候就需要用<code>new[]</code>运算符创建数组，采用动态联编（动态数组）。</p>
-<blockquote>
-<p>静态联编：在编译时给数组分配内存被称为静态联编（static binding），意味着数组是在编译时加入到程序中的。</p>
-</blockquote>
-<blockquote>
-<p>动态联编：使用new时，如果在运行阶段需要数组，则创建它；如果不需要，则不创建。还可以在程序运行时选择数组的长度。这被称为动态联编（dynamic binding），意味着数组是在程序运行时创建的。这种数组叫作动态数组（dynamic array）。</p>
-</blockquote>
-<p>  使用静态联编时，必须在编写程序时指定数组的长度；使用动态联编时，程序将在运行时确定数组的长度。</p>
-<p>  了解了这些特性，就可以在程序中这样写：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> num;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Put in the number of people:__\b\b&quot;</span>;</span><br><span class="line">    cin &gt;&gt; num;</span><br><span class="line">    <span class="comment">//int Age[num];</span></span><br><span class="line">    <span class="type">int</span>* p_Age = <span class="keyword">new</span> <span class="type">int</span>[num];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span>;</span><br><span class="line">        cin &gt;&gt; p_Age[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the age of every person is:&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span> &lt;&lt; p_Age[i] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span>[] p_Age;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  当输入10赋值给变量num时，接下来就会创建一个长度为10的数组以储存数据。</p>
-<p>  当然采用这种方式创建数组的最后需要用<code>delete[]</code>来释放其占用的内存。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2023.7.8-14旅游</title>
-    <url>/2023/07/15/blog12-travel2ningbonanjing/</url>
-    <content><![CDATA[<h1>2023.7.8-7.14 游宁波-南京</h1>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-1：宁波南部商务区、鼓楼">Day 1：宁波南部商务区、鼓楼</h2>
-</li>
-</ul>
-<p><img src="https://i2.100024.xyz/2023/07/15/p41mdp.webp" alt=""></p>
-<span id="more"></span>
-<p><img src="https://i2.100024.xyz/2023/07/15/p3z7la.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/p40psb.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/p4143n.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/p4215v.webp" alt=""></p>
-<p>这是第一天下午到达宁波后去逛的，选的地方是宁波相对繁华的地段，给我的感受就是比我家要更有商业气息一些，但是某些地方也有很清晰的城乡界线，新旧之间没有任何的过渡让我觉得有些突兀。顿时觉得“城市”真是一个没有任何新意的概念：鳞次栉比的大厦，见多了就觉得这里可以是其他任何稍微繁华些的地方，但就是不知道这个地名叫宁波。</p>
-<p>晚饭后去了那里的鼓楼，有一个钟楼我挺喜欢，这让我想起小时候我家不远处的钟楼，每天晚上我在窗边的小桌子上写作业时总是会在整点，细数彼岸的钟声，然后想起痛苦的背课文经历。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-2：宁波罗蒙">Day 2：宁波罗蒙</h2>
-</li>
-</ul>
-<p><img src="https://i2.100024.xyz/2023/07/15/pdnm6g.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/pdws7l.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/pdx5cr.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/pdxkwx.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/pdyza9.webp" alt=""></p>
-<p>第二天去了罗蒙，也就是当地的一个室内主题乐园。由于天气炎热，在早上不是最热的时候先体验了室外的项目，中午才回到室内。一天下来感觉精神上是很解压，但是肉体上也很疲惫，总之还是很值得的。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-3：南京夫子庙步行街、秦淮河">Day 3：南京夫子庙步行街、秦淮河</h2>
-</li>
-</ul>
-<p><img src="https://img1.imgtp.com/2023/07/15/PaOo1u9w.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/IV5GIOcm.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/N9dVJzL3.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/LDmHhivI.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/0pZlofH7.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/0g1qoHav.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/ZUu1XU7s.jpg" alt=""></p>
-<p>也是下午从宁波出发到的南京。到之后发现夫子庙附近的城市还是比较陈旧的，与我的想象大相径庭。夜里去住处附近的夫子庙步行街以及沿秦淮河岸简单逛了逛，游客纷杂，到处是售卖景区商品的摊点和商人，身着古装的参观者，甚至还有人力车。或许是因为刚从宁波的市区过来，一时间竟有些恍惚，这是一个光怪陆离的地方，是大娱乐的世界，这一点倒与某句诗中所表达的意思相近。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-4：明孝陵-中山陵">Day 4：明孝陵&amp;中山陵</h2>
-</li>
-</ul>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC5ypQ0.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC5yFwF.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC5szzq.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC5y9yV.md.jpg" alt=""></p>
-<p>明孝陵是朱元璋与其皇后的合葬陵寝，中山陵是孙中山先生的陵寝。遗憾的是我的历史知识并不富足，并且也没有请解说，因此我能看到的东西是非常局限的，没有厚度的。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-5：总统府-鸡鸣寺-玄武湖">Day 5：总统府&amp;鸡鸣寺&amp;玄武湖</h2>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56FjP.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56eAg.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56Anf.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56EB8.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56VHS.md.jpg" alt=""></p>
-</li>
-</ul>
-<p>总统府内部人太多了，也就没有好好拍照片。幸运的是最近的一家茶颜悦色是刚开业的，排队的人并不多，这也是我第一次尝试这个品牌。在鸡鸣寺找大雄宝殿找了很久还是没找到…</p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56d3R.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56wg1.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56aC9.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56N4J.md.jpg" alt=""></p>
-<p>在玄武湖的另一边可以看到鸡鸣寺和明城墙，还有远方的城市。</p>
-<p>最后因为时间还有一些，遂去了附近一个免费参观的古生物博物馆，这里可以满足小朋友们的好奇心，适合带孩子来。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-6：南京博物院">Day 6：南京博物院</h2>
-</li>
-</ul>
-<p>前一天得知需要抢票，本来不抱太大希望，但最后诸友居然都抢到了票，遂立刻打车前往。</p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56b5Q.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56HUg.md.jpg" alt=""></p>
-<p>里面人很多，加上游览顺序不是很好，就花了半天时间参观。一些照片拍的没有思路，就没有放在这里了。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="总结">总结</h2>
-</li>
-</ul>
-<p>最后还有一些遗憾的是遇难同胞纪念馆没有预约到，离住的地方比较远，也就没有去。希望以后有机会再来吧。</p>
-<p>这个暑假或许是最自由的一个假期了，以后不知道能不能像现在一样说走就走。这天气是真的很热，想静下心来游览的难度也很大。但这次旅游还是给了我从多天宅家中回到现实去经历和思考的一次机会，也算是有不小的收获。</p>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>旅游</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据结构note（一）</title>
     <url>/2023/06/09/blog11-DS1/</url>
     <content><![CDATA[<h1>1.1 什么是数据结构？</h1>
@@ -264,6 +114,225 @@
       </tags>
   </entry>
   <entry>
+    <title>2023.7.8-14旅游</title>
+    <url>/2023/07/15/blog12-travel2ningbonanjing/</url>
+    <content><![CDATA[<h1>2023.7.8-7.14 游宁波-南京</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="Day-1：宁波南部商务区、鼓楼">Day 1：宁波南部商务区、鼓楼</h2>
+</li>
+</ul>
+<p><img src="https://i2.100024.xyz/2023/07/15/p41mdp.webp" alt=""></p>
+<span id="more"></span>
+<p><img src="https://i2.100024.xyz/2023/07/15/p3z7la.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/p40psb.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/p4143n.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/p4215v.webp" alt=""></p>
+<p>这是第一天下午到达宁波后去逛的，选的地方是宁波相对繁华的地段，给我的感受就是比我家要更有商业气息一些，但是某些地方也有很清晰的城乡界线，新旧之间没有任何的过渡让我觉得有些突兀。顿时觉得“城市”真是一个没有任何新意的概念：鳞次栉比的大厦，见多了就觉得这里可以是其他任何稍微繁华些的地方，但就是不知道这个地名叫宁波。</p>
+<p>晚饭后去了那里的鼓楼，有一个钟楼我挺喜欢，这让我想起小时候我家不远处的钟楼，每天晚上我在窗边的小桌子上写作业时总是会在整点，细数彼岸的钟声，然后想起痛苦的背课文经历。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="Day-2：宁波罗蒙">Day 2：宁波罗蒙</h2>
+</li>
+</ul>
+<p><img src="https://i2.100024.xyz/2023/07/15/pdnm6g.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/pdws7l.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/pdx5cr.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/pdxkwx.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/pdyza9.webp" alt=""></p>
+<p>第二天去了罗蒙，也就是当地的一个室内主题乐园。由于天气炎热，在早上不是最热的时候先体验了室外的项目，中午才回到室内。一天下来感觉精神上是很解压，但是肉体上也很疲惫，总之还是很值得的。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="Day-3：南京夫子庙步行街、秦淮河">Day 3：南京夫子庙步行街、秦淮河</h2>
+</li>
+</ul>
+<p><img src="https://img1.imgtp.com/2023/07/15/PaOo1u9w.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/IV5GIOcm.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/N9dVJzL3.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/LDmHhivI.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/0pZlofH7.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/0g1qoHav.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/ZUu1XU7s.jpg" alt=""></p>
+<p>也是下午从宁波出发到的南京。到之后发现夫子庙附近的城市还是比较陈旧的，与我的想象大相径庭。夜里去住处附近的夫子庙步行街以及沿秦淮河岸简单逛了逛，游客纷杂，到处是售卖景区商品的摊点和商人，身着古装的参观者，甚至还有人力车。或许是因为刚从宁波的市区过来，一时间竟有些恍惚，这是一个光怪陆离的地方，是大娱乐的世界，这一点倒与某句诗中所表达的意思相近。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="Day-4：明孝陵-中山陵">Day 4：明孝陵&amp;中山陵</h2>
+</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC5ypQ0.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC5yFwF.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC5szzq.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC5y9yV.md.jpg" alt=""></p>
+<p>明孝陵是朱元璋与其皇后的合葬陵寝，中山陵是孙中山先生的陵寝。遗憾的是我的历史知识并不富足，并且也没有请解说，因此我能看到的东西是非常局限的，没有厚度的。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="Day-5：总统府-鸡鸣寺-玄武湖">Day 5：总统府&amp;鸡鸣寺&amp;玄武湖</h2>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56FjP.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56eAg.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56Anf.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56EB8.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56VHS.md.jpg" alt=""></p>
+</li>
+</ul>
+<p>总统府内部人太多了，也就没有好好拍照片。幸运的是最近的一家茶颜悦色是刚开业的，排队的人并不多，这也是我第一次尝试这个品牌。在鸡鸣寺找大雄宝殿找了很久还是没找到…</p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56d3R.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56wg1.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56aC9.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56N4J.md.jpg" alt=""></p>
+<p>在玄武湖的另一边可以看到鸡鸣寺和明城墙，还有远方的城市。</p>
+<p>最后因为时间还有一些，遂去了附近一个免费参观的古生物博物馆，这里可以满足小朋友们的好奇心，适合带孩子来。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="Day-6：南京博物院">Day 6：南京博物院</h2>
+</li>
+</ul>
+<p>前一天得知需要抢票，本来不抱太大希望，但最后诸友居然都抢到了票，遂立刻打车前往。</p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56b5Q.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56HUg.md.jpg" alt=""></p>
+<p>里面人很多，加上游览顺序不是很好，就花了半天时间参观。一些照片拍的没有思路，就没有放在这里了。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="总结">总结</h2>
+</li>
+</ul>
+<p>最后还有一些遗憾的是遇难同胞纪念馆没有预约到，离住的地方比较远，也就没有去。希望以后有机会再来吧。</p>
+<p>这个暑假或许是最自由的一个假期了，以后不知道能不能像现在一样说走就走。这天气是真的很热，想静下心来游览的难度也很大。但这次旅游还是给了我从多天宅家中回到现实去经历和思考的一次机会，也算是有不小的收获。</p>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>旅游</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数组的动态联编</title>
+    <url>/2023/06/06/blog10-cppDynamicArray/</url>
+    <content><![CDATA[<p>  使用数组声明来创建数组时，将采用静态联编，即数组的长度在编译时设置。这个时候如果在括号里使用变量会报错，这样如果想输入数组长度以控制是做不到的：</p>
+<span id="more"></span>
+<p><img src="https://i2.100024.xyz/2023/06/06/ny90mg.webp#pic_center" alt=""></p>
+<p>  如果想创建一个数组，其长度让用户来输入管理，这个时候就需要用<code>new[]</code>运算符创建数组，采用动态联编（动态数组）。</p>
+<blockquote>
+<p>静态联编：在编译时给数组分配内存被称为静态联编（static binding），意味着数组是在编译时加入到程序中的。</p>
+</blockquote>
+<blockquote>
+<p>动态联编：使用new时，如果在运行阶段需要数组，则创建它；如果不需要，则不创建。还可以在程序运行时选择数组的长度。这被称为动态联编（dynamic binding），意味着数组是在程序运行时创建的。这种数组叫作动态数组（dynamic array）。</p>
+</blockquote>
+<p>  使用静态联编时，必须在编写程序时指定数组的长度；使用动态联编时，程序将在运行时确定数组的长度。</p>
+<p>  了解了这些特性，就可以在程序中这样写：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> num;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Put in the number of people:__\b\b&quot;</span>;</span><br><span class="line">    cin &gt;&gt; num;</span><br><span class="line">    <span class="comment">//int Age[num];</span></span><br><span class="line">    <span class="type">int</span>* p_Age = <span class="keyword">new</span> <span class="type">int</span>[num];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span>;</span><br><span class="line">        cin &gt;&gt; p_Age[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the age of every person is:&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span> &lt;&lt; p_Age[i] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span>[] p_Age;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  当输入10赋值给变量num时，接下来就会创建一个长度为10的数组以储存数据。</p>
+<p>  当然采用这种方式创建数组的最后需要用<code>delete[]</code>来释放其占用的内存。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构note（三）</title>
+    <url>/2023/07/28/blog14-DS3/</url>
+    <content><![CDATA[<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="链表与数组、向量的不同之处">链表与数组、向量的不同之处</h2>
+</li>
+</ul>
+<p>链表与数组、向量不同之处在于，其元素的地址可以任意而不要求连续。元素之间通过指针相互联系。虽然其仍要求各元素在逻辑上具线性次序，但对物理地址未作任何限制，也即“动态存储”策略。</p>
+<span id="more"></span>
+<p>引入列表结构的目的，就在于弥补向量结构在解决某些应用问题时，在功能及性能方面的不足。其中的数据，分散为一系列称作<strong>节点</strong>（node）的单位，节点之间通过指针相互索引和访问。为了引入新节点或删除原有节点，只需在局部，调整少量相关节点之间的指针。这就意味着，采用动态存储策略，至少可以大大降低动态操作的成本。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="单向链表">单向链表</h2>
+</li>
+</ul>
+<p>单向链表由结点构成，每个结点包含两个域：指针域和数据域。最后一个数据的指针域赋<code>NULL</code>.</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="单向链表的实现">单向链表的实现</h2>
+<ul class="lvl-2">
+<li class="lvl-4">
+<h3 id="框架的搭建">框架的搭建</h3>
+</li>
+</ul>
+<ol>
+<li class="lvl-5">
+<p>准备头文件<code>LinkList.h</code></p>
+<p>定义两个class：结点和链表，声明一些需要的接口：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"><span class="comment">//结点定义（这里数据域没有用抽象的数据类型，以后会改进）</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">node</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> data;<span class="comment">//数据域</span></span><br><span class="line">    node* next;<span class="comment">//指针域</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//链表定义</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">list</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    node* head;<span class="comment">//指向链表首位node</span></span><br><span class="line">    <span class="type">int</span> size;<span class="comment">//链表结点个数</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//操作接口</span></span><br><span class="line"><span class="comment">//初始化链表</span></span><br><span class="line"><span class="function">list* <span class="title">LinkList_init</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//插入数据</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Insert</span><span class="params">(list* list, <span class="type">int</span> pos, <span class="type">int</span> data)</span></span>;</span><br><span class="line"><span class="comment">//删除指定位置的值</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Del</span><span class="params">(list* list, <span class="type">int</span> pos)</span></span>;</span><br><span class="line"><span class="comment">//获得链表长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_GetSize</span><span class="params">(list* list)</span></span>;</span><br><span class="line"><span class="comment">//返回第一个结点数据</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_FirstData</span><span class="params">(list* list)</span></span>;</span><br><span class="line"><span class="comment">//释放链表内存</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_FreeSpace</span><span class="params">(list* list)</span></span>;</span><br><span class="line"><span class="comment">//查找某个值</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_Search</span><span class="params">(list* list, <span class="type">int</span> data)</span></span>;</span><br><span class="line"><span class="comment">//打印链表结点</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Print</span><span class="params">(list* list)</span></span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-5">
+<p>准备接口定义的文件<code>LinkList.cpp</code></p>
+<p>把每个先前声明好的复制到该文件，并且需要<code>#include &quot;LinkList.h&quot;</code>.</p>
+</li>
+<li class="lvl-5">
+<p>准备用于测试的main函数.</p>
+</li>
+</ol>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p>具体写操作接口定义</p>
+</li>
+</ul>
+<ol>
+<li class="lvl-5">
+<p>初始化链表<code>LinkList_init()</code></p>
+<p>根据前面定义的class，首先要创建一个链表，再分配一个头结点，头结点不保存数据。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//初始化链表</span></span><br><span class="line"><span class="function">list* <span class="title">LinkList_init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    list* L = <span class="keyword">new</span> list;</span><br><span class="line">    L-&gt;size = <span class="number">0</span>;</span><br><span class="line">    L-&gt;head = <span class="keyword">new</span> node;</span><br><span class="line">    L-&gt;head-&gt;data = <span class="literal">NULL</span>;<span class="comment">//头结点不保存数据</span></span><br><span class="line">    L-&gt;head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-5">
+<p>插入数据</p>
+<p>需要处理pos越界的情况以及list、data为NULL的情况，这里由于事先将data设置为了确定的数据类型int，因此理论上可以不进行处理，而这里还是加上了处理的部分以便后续的更改。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//插入数据</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Insert</span><span class="params">(list* list, <span class="type">int</span> pos, <span class="type">int</span> data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (data == <span class="literal">NULL</span> &amp;&amp; data!=<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//友好处理pos越界的情况</span></span><br><span class="line">    <span class="keyword">if</span> (pos&lt;<span class="number">0</span> || pos&gt;list-&gt;size) &#123;</span><br><span class="line">        pos = list-&gt;size;<span class="comment">//让其等于尾部</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//创建新的结点</span></span><br><span class="line">    node* newnode = <span class="keyword">new</span> node;</span><br><span class="line">    newnode-&gt;data = data;</span><br><span class="line">    newnode-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">//找结点</span></span><br><span class="line">    <span class="comment">//辅助指针变量</span></span><br><span class="line">    node* pCurrent = list-&gt;head;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; pos; i++) &#123;</span><br><span class="line">        pCurrent = pCurrent-&gt;next;</span><br><span class="line">    &#125;<span class="comment">//让指针指向pos前的结点位置</span></span><br><span class="line">    <span class="comment">//新结点插入链表</span></span><br><span class="line">    newnode-&gt;next = pCurrent-&gt;next;</span><br><span class="line">    pCurrent-&gt;next = newnode;</span><br><span class="line"></span><br><span class="line">    list-&gt;size++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-5">
+<p>删除指定位置的值</p>
+<p>这里就不能友好的处理pos越界的情况了，需要适当的修改。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 删除指定位置的值</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Del</span><span class="params">(list* list, <span class="type">int</span> pos)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (pos&lt;<span class="number">0</span> || pos&gt;=list-&gt;size) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//定位到删除结点的前一个结点</span></span><br><span class="line">    node* pCurrent = list-&gt;head;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; pos; i++) &#123;</span><br><span class="line">        pCurrent = pCurrent-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//缓存删除的结点</span></span><br><span class="line">    node* delnode = pCurrent-&gt;next;</span><br><span class="line">    pCurrent-&gt;next = delnode-&gt;next;</span><br><span class="line">    <span class="keyword">delete</span> delnode;</span><br><span class="line">    list-&gt;size--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-5">
+<p>获得链表长度</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获得链表长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_GetSize</span><span class="params">(list* list)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> list-&gt;size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-5">
+<p>返回第一个结点的数据</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//返回第一个数据（不是头结点）</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_FirstData</span><span class="params">(list* list)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> list-&gt;head-&gt;next-&gt;data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-5">
+<p>释放链表内存</p>
+<p>辅助指针的设置和前面的2、3思路一样，下面需要遍历的时候同理。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//释放链表内存</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_FreeSpace</span><span class="params">(list* list)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//辅助指针、释放结点内存</span></span><br><span class="line">    node* pCurrent = list-&gt;head;</span><br><span class="line">    <span class="keyword">while</span> (pCurrent != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="comment">//缓存下一个结点</span></span><br><span class="line">        node* pNext = pCurrent-&gt;next;</span><br><span class="line">        <span class="keyword">delete</span> pCurrent;</span><br><span class="line">        pCurrent = pNext;</span><br><span class="line">    &#125;</span><br><span class="line">    list-&gt;size = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">delete</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-5">
+<p>查找某个值</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//查找某个值</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_Search</span><span class="params">(list* list, <span class="type">int</span> data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (data == <span class="literal">NULL</span> &amp;&amp; data != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//遍历</span></span><br><span class="line">    node* pCurrent = list-&gt;head-&gt;next;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (pCurrent != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (pCurrent-&gt;data == data) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">        pCurrent = pCurrent-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-5">
+<p>打印链表结点</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//打印链表结点</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Print</span><span class="params">(list* list)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//辅助指针变量</span></span><br><span class="line">    node* pCurrent = list-&gt;head-&gt;next;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the datum of list are：&quot;</span>;</span><br><span class="line">    <span class="keyword">while</span> (pCurrent != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        cout &lt;&lt; pCurrent-&gt;data;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        pCurrent = pCurrent-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li class="lvl-2">
+<h2 id="测试情况">测试情况</h2>
+</li>
+</ul>
+<p>测试的代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;LinkList.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    list* list = <span class="built_in">LinkList_init</span>();</span><br><span class="line">    <span class="type">int</span> a[<span class="number">9</span>] = &#123; <span class="number">4</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">8</span> &#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">9</span>;i++)&#123;</span><br><span class="line">        <span class="built_in">LinkList_Insert</span>(list, i, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">LinkList_Print</span>(list);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;----after--delete----&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">LinkList_Del</span>(list, <span class="number">3</span>);</span><br><span class="line">    <span class="built_in">LinkList_Print</span>(list);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the first data of the list is: &quot;</span> &lt;&lt; <span class="built_in">LinkList_FirstData</span>(list) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the size of the list is: &quot;</span> &lt;&lt; <span class="built_in">LinkList_GetSize</span>(list) &lt;&lt; endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;the data &#x27;0&#x27; is at: &quot;</span> &lt;&lt; <span class="built_in">LinkList_Search</span>(list, <span class="number">0</span>) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">LinkList_FreeSpace</span>(list);</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<p><img src="https://i2.100024.xyz/2023/07/28/xjf8h8.webp" alt=""></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据结构note（二）</title>
     <url>/2023/07/26/blog13-DS2/</url>
     <content><![CDATA[<h1>算法复杂度的一些简单实例</h1>
@@ -302,7 +371,7 @@
 </li>
 </ul>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">function05</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;hello world!\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Algorithm05</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    n++;</span><br><span class="line">    function05(n);</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        function05(n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=i;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;hello world!\n&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第二个函数里调用了function05函数，故在第二个函数中计算，有$1+n+n^2+\frac{n(n+1)}{2}$次，也即复杂度为 $\mathcal{O}(n^2)$.</p>
+<p>在第二个函数里调用了function05函数，故在第二个函数中计算，有$1+n+n<sup>2+\frac{n(n+1)}{2}$次，也即复杂度为$\mathcal{O}(n</sup>2)$.</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -310,6 +379,56 @@
       </categories>
       <tags>
         <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>今日更新内容</title>
+    <url>/2023/04/28/blog1/</url>
+    <content><![CDATA[<p>以下是今天的更新内容：</p>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>增加了新成员：wanko（汪酱） 🐶</p>
+<blockquote>
+<p>但是很遗憾，由于技术有限，没能成功编辑浮空文字</p>
+</blockquote>
+</li>
+<li class="lvl-2">
+<p>增加了基于valine平台的评论功能</p>
+<blockquote>
+<p>但是不知道如何删除评论，所以评论的各位爷要谨言慎行</p>
+</blockquote>
+</li>
+<li class="lvl-2">
+<p>更换了Hexo的Markdown渲染引擎，现在可以呈现emoji表情了</p>
+<blockquote>
+<p>emoji的简码链接： <a href="https://gist.github.com/rxaviers/7360908">简码</a></p>
+</blockquote>
+</li>
+</ul>
+<hr>
+]]></content>
+      <tags>
+        <tag>建站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>响应式Bilibili视频代码块测试</title>
+    <url>/2023/05/24/blog5/</url>
+    <content><![CDATA[<p>  首先在b站点击分享，复制嵌入代码，再按照如下格式编辑：</p>
+<span id="more"></span>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position: relative; width: 100%; height: 0; padding-bottom: 75%;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;//player.bilibili.com/player.html?aid=986143204&amp;bvid=BV1Ft4y1A73f&amp;cid=851363812&amp;page=1&quot;</span> <span class="attr">scrolling</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">framespacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">allowfullscreen</span>=<span class="string">&quot;true&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>下面是测试的效果：</p>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
+    <iframe src="//player.bilibili.com/player.html?aid=986143204&bvid=BV1Ft4y1A73f&cid=851363812&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
+]]></content>
+      <categories>
+        <category>经验</category>
+        <category>Next美化</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -398,22 +517,33 @@
       </tags>
   </entry>
   <entry>
-    <title>响应式Bilibili视频代码块测试</title>
-    <url>/2023/05/24/blog5/</url>
-    <content><![CDATA[<p>  首先在b站点击分享，复制嵌入代码，再按照如下格式编辑：</p>
+    <title>一些庵野秀明风格的尝试</title>
+    <url>/2023/06/23/goodbye-graduate/</url>
+    <content><![CDATA[<h2 id="再见了，所有的张秀梅">再见了，所有的张秀梅</h2>
+<p>😎</p>
+<p>🤏🕶️</p>
+<p>😭</p>
 <span id="more"></span>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position: relative; width: 100%; height: 0; padding-bottom: 75%;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;//player.bilibili.com/player.html?aid=986143204&amp;bvid=BV1Ft4y1A73f&amp;cid=851363812&amp;page=1&quot;</span> <span class="attr">scrolling</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">framespacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">allowfullscreen</span>=<span class="string">&quot;true&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>下面是测试的效果：</p>
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
-    <iframe src="//player.bilibili.com/player.html?aid=986143204&bvid=BV1Ft4y1A73f&cid=851363812&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-</div>
+<p><img src="https://i2.100024.xyz/2023/06/23/r3edka.webp" alt="1"></p>
+<p><img src="https://i2.100024.xyz/2023/06/23/r3evqt.webp" alt="2"></p>
+<p><img src="https://i2.100024.xyz/2023/06/23/r3f4wp.webp" alt="3"></p>
+<hr>
+<h3 id="参考教程：">参考教程：</h3>
+<ol>
+<li class="lvl-3">
+<p><a href="https://www.bilibili.com/video/BV1Uf4y1n7zK/?spm_id_from=333.788.recommend_more_video.4&amp;vd_source=e86cb514a2080267c3cb770f30a907f6">《One Last Kiss》专辑封面制作</a></p>
+</li>
+<li class="lvl-3">
+<p><a href="https://www.bilibili.com/video/BV14L411S7fu/?spm_id_from=333.999.0.0&amp;vd_source=e86cb514a2080267c3cb770f30a907f6">字体、图片素材和背景音乐等</a></p>
+</li>
+</ol>
 ]]></content>
       <categories>
-        <category>经验</category>
-        <category>Next美化</category>
+        <category>日常</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>毕业</tag>
+        <tag>庵野秀明风格</tag>
       </tags>
   </entry>
   <entry>
@@ -428,6 +558,40 @@
       <categories>
         <category>经验</category>
         <category>Next升级</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo-Next鼠标指针自定义</title>
+    <url>/2023/05/27/blog7/</url>
+    <content><![CDATA[<h4 id="准备材料">准备材料</h4>
+<p>  <code>.cur</code>或者<code>.ico</code>文件，不能太大（我试过超过1MB的素材不可用），<code>.ani</code>动态光标没试成功过。这些资源可以在<a href="https://zhutix.com/tag/cursors/">致美化</a>等途径中找到。</p>
+<span id="more"></span>
+<p>  这些文件建议下载到<code>../themes/source/images</code>中，也可以不下载而采用cdn。</p>
+<p>  这里Next版本为8.16。</p>
+<h4 id="文件修改">文件修改</h4>
+<p>  在<code>yourBlog/themes/next/source/css/_common/scaffolding</code>中找到<code>base.styl</code>，对里面的代码行进行编辑：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">+ <span class="attribute">cursor</span>: <span class="built_in">url</span>(/images/yourArrow.cur), auto;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">var</span>(--body-bg-color);</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--text-color);</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="variable">$font</span>-family-base;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="variable">$font</span>-size-base;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="variable">$line</span>-height-base;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">transition</span>: padding <span class="variable">$transition</span>-ease;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  在添加的这行代码里将<code>yourArrow.cur</code>改为下载的素材名即可。这个地方一般是放指针型鼠标，下面还有一个区域需要编辑：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">+ <span class="attribute">cursor</span>: <span class="built_in">url</span>(/images/yourHand.cur), auto<span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="variable">$link</span>-decoration-color;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--link-color);</span><br><span class="line">  <span class="comment">// For a:not(:any-link)</span></span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">outline</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  这个位置一般放的是手型鼠标，也就是将鼠标悬在链接上会变化成的手型样式，同样将<code>yourHand.cur</code>改成下载的素材名。</p>
+<h4 id="重新部署">重新部署</h4>
+<p>  修改后可以先在本地看看效果，如果成功，最后hexo三件套即可。</p>
+<p>下面再附上很多博客在用的鼠标指针cdn：</p>
+<blockquote>
+<p><a href="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur">https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur</a><br>
+<a href="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur">https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur</a></p>
+</blockquote>
+<p>对应指针型和手型，效果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur" alt="Arrow"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur" alt="Hand"></p>
+<p>用法就是将url括号里的链接替换为上述链接。</p>
+]]></content>
+      <categories>
+        <category>经验</category>
+        <category>Next美化</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
@@ -524,116 +688,6 @@
       </tags>
   </entry>
   <entry>
-    <title>更改waline主题颜色</title>
-    <url>/2023/06/03/blog9-stylDIY/</url>
-    <content><![CDATA[<p>  之前就想自定义waline的样式以适配当前的背景图，但又因为没学过css，也不会自己上传cdn，所以向waline的开发者求助，最后知道了<code>!important</code>大法，希望能给到和我一样没接触过css的博主一些参考。</p>
-<span id="more"></span>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="修改主题配置文件">修改主题配置文件</h3>
-</li>
-</ul>
-<p>  在<code>.../next</code>下的<code>_config.yml</code>文件中搜索<code>custom file paths</code>，这是自定义文件的路径，将<code>#style: source/_data/styles.styl</code>前面的<code>#</code>去掉，并且到这个路径下创建对应的文件夹和文件，这样可以在<code>styles.styl</code>中自定义样式并覆盖主题的样式，并且方便后续的维护和更改。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="定位到需要修改的样式">定位到需要修改的样式</h3>
-</li>
-</ul>
-<p>  在自己的博客页面检查需要修改的元素，比如我要修改waline的按钮颜色，那么右键按钮检查就可以调出开发者工具：</p>
-<p><img src="https://i2.100024.xyz/2023/06/03/qrzy72.webp#pic_center" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/06/03/qrzydi.webp#pic_center" alt=""></p>
-<p>可以看到这个按钮的样式代码，发现这里的颜色统一采用了一个全局样式<code>--waline-theme-color</code>，如果能将这个元素覆盖掉，那就不用一一修改了。</p>
-<p>  将鼠标悬浮到这个按钮后是另一个颜色，这里查看源代码可以看到悬浮时的样式：</p>
-<p><img src="https://i2.100024.xyz/2023/06/03/qyh9ep.webp#pic_center" alt=""></p>
-<p>在<code>active</code>处同样采用了一个全局颜色<code>--waline-active-color</code>，那么要做的就是把这两个颜色覆盖掉。再进行查找可以找到全局声明：</p>
-<p><img src="https://i2.100024.xyz/2023/06/03/qrzvws.webp#pic_center" alt=""></p>
-<p>这里就包含了主题原来的颜色。由于我已经进行了修改，所以图片显示的是已被覆盖的样子。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="important覆盖样式">!important覆盖样式</h3>
-</li>
-</ul>
-<p>  由于waline插件的import采用的是官方提供的cdn，想要在本地修改样式就需要以覆盖的形式。这里我们打开开始所创建的<code>styles.styl</code>，在里面写入：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attr">--waline-theme-color</span>: <span class="number">#4b3425</span> !important;</span><br><span class="line">  <span class="attr">--waline-active-color</span>: <span class="number">#9c8877</span> !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>颜色改成需要的颜色即可。</p>
-<p>  效果可以参考评论区，修改全局样式的好处就是可以做到很方便的统一：</p>
-<p><img src="https://i2.100024.xyz/2023/06/03/rah08z.webp#23pic_center" alt=""></p>
-<p>  可以看到在后面加入<code>!important</code>后，此声明将覆盖任何其他声明。但是这样做会破坏样式表中的固有的级联规则，使得找bug变得困难，所以不推荐大量使用，有条件的还是建议自己将官方css文件进行修改并上传cdn导入自己的主题。</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-        <category>Next美化</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo-Next鼠标指针自定义</title>
-    <url>/2023/05/27/blog7/</url>
-    <content><![CDATA[<h4 id="准备材料">准备材料</h4>
-<p>  <code>.cur</code>或者<code>.ico</code>文件，不能太大（我试过超过1MB的素材不可用），<code>.ani</code>动态光标没试成功过。这些资源可以在<a href="https://zhutix.com/tag/cursors/">致美化</a>等途径中找到。</p>
-<span id="more"></span>
-<p>  这些文件建议下载到<code>../themes/source/images</code>中，也可以不下载而采用cdn。</p>
-<p>  这里Next版本为8.16。</p>
-<h4 id="文件修改">文件修改</h4>
-<p>  在<code>yourBlog/themes/next/source/css/_common/scaffolding</code>中找到<code>base.styl</code>，对里面的代码行进行编辑：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">+ <span class="attribute">cursor</span>: <span class="built_in">url</span>(/images/yourArrow.cur), auto;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">var</span>(--body-bg-color);</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--text-color);</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="variable">$font</span>-family-base;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="variable">$font</span>-size-base;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="variable">$line</span>-height-base;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">transition</span>: padding <span class="variable">$transition</span>-ease;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  在添加的这行代码里将<code>yourArrow.cur</code>改为下载的素材名即可。这个地方一般是放指针型鼠标，下面还有一个区域需要编辑：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">+ <span class="attribute">cursor</span>: <span class="built_in">url</span>(/images/yourHand.cur), auto<span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="variable">$link</span>-decoration-color;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--link-color);</span><br><span class="line">  <span class="comment">// For a:not(:any-link)</span></span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">outline</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  这个位置一般放的是手型鼠标，也就是将鼠标悬在链接上会变化成的手型样式，同样将<code>yourHand.cur</code>改成下载的素材名。</p>
-<h4 id="重新部署">重新部署</h4>
-<p>  修改后可以先在本地看看效果，如果成功，最后hexo三件套即可。</p>
-<p>下面再附上很多博客在用的鼠标指针cdn：</p>
-<blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur">https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur</a><br>
-<a href="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur">https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur</a></p>
-</blockquote>
-<p>对应指针型和手型，效果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur" alt="Arrow"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur" alt="Hand"></p>
-<p>用法就是将url括号里的链接替换为上述链接。</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-        <category>Next美化</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一些庵野秀明风格的尝试</title>
-    <url>/2023/06/23/goodbye-graduate/</url>
-    <content><![CDATA[<h2 id="再见了，所有的张秀梅">再见了，所有的张秀梅</h2>
-<p>😎</p>
-<p>🤏🕶️</p>
-<p>😭</p>
-<span id="more"></span>
-<p><img src="https://i2.100024.xyz/2023/06/23/r3edka.webp" alt="1"></p>
-<p><img src="https://i2.100024.xyz/2023/06/23/r3evqt.webp" alt="2"></p>
-<p><img src="https://i2.100024.xyz/2023/06/23/r3f4wp.webp" alt="3"></p>
-<hr>
-<h3 id="参考教程：">参考教程：</h3>
-<ol>
-<li class="lvl-3">
-<p><a href="https://www.bilibili.com/video/BV1Uf4y1n7zK/?spm_id_from=333.788.recommend_more_video.4&amp;vd_source=e86cb514a2080267c3cb770f30a907f6">《One Last Kiss》专辑封面制作</a></p>
-</li>
-<li class="lvl-3">
-<p><a href="https://www.bilibili.com/video/BV14L411S7fu/?spm_id_from=333.999.0.0&amp;vd_source=e86cb514a2080267c3cb770f30a907f6">字体、图片素材和背景音乐等</a></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>毕业</tag>
-        <tag>庵野秀明风格</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20889;32473;26045;22025;35946;</title>
     <url>/2023/06/18/linbiezengyan/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
@@ -700,28 +754,6 @@
       </tags>
   </entry>
   <entry>
-    <title>20889;32473;25140;26862;31435;</title>
-    <url>/2023/06/18/linbiezengyan3/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="7d9c043b99ff1207d64f46062030ecf6881ba9ed1febda14ff25cf51f8310d2b">ec802132aacd30f27b2d005e2ea7a7a2003c95ca4590b6f5627ed984429de1c1d45329d55a4e5cabdde96c04776f798020f6ac72896463d7f05fc70e33504fe57a63f71173011006dfa9efb45f6978007e289da1942f12fe9eacd199be6eee1b43a11480bd992db1e915154aec2c481971cafe8cff0102ac95ffab2cde88b993715fce3e5e88b55abe0927eff4d9e98a251aea0d64d2bd95398a377f54a16de4476e83109b0265c51054f127dd6ce4dfd78937ca608c8c89808ed16757a6a3c4ac4466fa6a0e5e268580c344fd90e62b9dbf84e1b36cf7eb7b3798e64769e7b4086f1dc27225533c90a01802de84954abfa51076f7899d26f1496731f1a76296f7e865e5acb786648d8b267e77bd1bde49f0b6fcd06d32e836b195170571b085412142a059f2892425ac87afcb606de1873910ae21d429bfeca4a424c8d0faf8092a88315d5f32b8835e6507f72cf59e90ae1c81afad54fa3438beae98af8aebbd240b70e52efa37e6826bec96a55badb42235a437854d7bfd31899343fdb8fc14209a182ae18f0ba037f3c8d4d05d1ea1ba7e04a2caa83dfec579cec677250d621523629566c92109e457f4f5caec35a8207f0ac4657413e160ce582f997a667bc9c3bbe7dfe00f28a2936f6b15d2e3e933ccb52153e42a1f3d0fe2e8b67dfa17a20e876760bab1f1ec1285fe6ca6f719bc74ac9fa251d52c40787dfa4f0aede6ce9b639a3d4e0ca976d2658f52ea0361e9a2ef035c759624adcaab949f83aab74be163cfd51a07e2f7b67b0898efbfdf8a03a2953544daca39a920c95c2546b5f16757d07164a6bdb74e9a384e029fcab4db3eddab772bd02691def0a5022ba30204984f32f5f4ae47c42f0ad240b08e8f2527c654d33beb659020fade76a58c8b5c5a0b2e31487dd41325c1b628197ff3b66e2792697b831acdfe3b2ff34678f27363d99d849cb1596b6c0894bb52eb3ee2d941144e4c362a17d904a531d54f8fc11414cd57b2b0c6ef0829b6515b64dfe82d075727eb3410542f5e93a672216e05b49b387633fa557de5634ca904794c0a665051f62cd5a95e64ecce2b7a45c26fb73f63926e903c4df7f87c10afcfe88180ad4c35004cd0370baae682d5970f4657de5b707914cb54485e244cf7249507b9755edecf4d759ed584fa492df5fd5bcf718fe2c0e1945717bc5743e5ab347b8241ddbfd25830ac97c0dac0a842dad24a0abd5e5535a8c360caa161b93c940e8dd54e2e055f632c4b8c21978aa5e08a1246831d3f86364495c9a059abc121b3b46690f46741fc6c6e22f2efe450b519d6280286efcd10b9ee0999392a5b45d22a8e9252a3c7d30b7a92418ea01efb6503489063de8ef455aa68b73f261c2f9c7557401b66b6a4624cadb1cd38c50e84dd32f6fb7ac601ac8595cc02d979e3181d171b62bf9410c0fa17784b5a7cadf9811cd84a663fb60e7284fd031d2797f2e316195e3da883f39ea9235836408b3c5fef89dbe419248e1724d7ad1aaff9aa7d9b6adc71d3ef5d1d4484d084c797b286e2365c91f1924e9bb931553300a01bf690b5cfa466cf3eadf68143dd9ab22ecddb661d71d4b214617db9d089</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>临别赠言</category>
-      </categories>
-      <tags>
-        <tag>加密内容</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20889;32473;38472;20896;32701;</title>
     <url>/2023/06/20/linbiezengyan6/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
@@ -744,10 +776,97 @@
       </tags>
   </entry>
   <entry>
+    <title>更改waline主题颜色</title>
+    <url>/2023/06/03/blog9-stylDIY/</url>
+    <content><![CDATA[<p>  之前就想自定义waline的样式以适配当前的背景图，但又因为没学过css，也不会自己上传cdn，所以向waline的开发者求助，最后知道了<code>!important</code>大法，希望能给到和我一样没接触过css的博主一些参考。</p>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="修改主题配置文件">修改主题配置文件</h3>
+</li>
+</ul>
+<p>  在<code>.../next</code>下的<code>_config.yml</code>文件中搜索<code>custom file paths</code>，这是自定义文件的路径，将<code>#style: source/_data/styles.styl</code>前面的<code>#</code>去掉，并且到这个路径下创建对应的文件夹和文件，这样可以在<code>styles.styl</code>中自定义样式并覆盖主题的样式，并且方便后续的维护和更改。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="定位到需要修改的样式">定位到需要修改的样式</h3>
+</li>
+</ul>
+<p>  在自己的博客页面检查需要修改的元素，比如我要修改waline的按钮颜色，那么右键按钮检查就可以调出开发者工具：</p>
+<p><img src="https://i2.100024.xyz/2023/06/03/qrzy72.webp#pic_center" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/06/03/qrzydi.webp#pic_center" alt=""></p>
+<p>可以看到这个按钮的样式代码，发现这里的颜色统一采用了一个全局样式<code>--waline-theme-color</code>，如果能将这个元素覆盖掉，那就不用一一修改了。</p>
+<p>  将鼠标悬浮到这个按钮后是另一个颜色，这里查看源代码可以看到悬浮时的样式：</p>
+<p><img src="https://i2.100024.xyz/2023/06/03/qyh9ep.webp#pic_center" alt=""></p>
+<p>在<code>active</code>处同样采用了一个全局颜色<code>--waline-active-color</code>，那么要做的就是把这两个颜色覆盖掉。再进行查找可以找到全局声明：</p>
+<p><img src="https://i2.100024.xyz/2023/06/03/qrzvws.webp#pic_center" alt=""></p>
+<p>这里就包含了主题原来的颜色。由于我已经进行了修改，所以图片显示的是已被覆盖的样子。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="important覆盖样式">!important覆盖样式</h3>
+</li>
+</ul>
+<p>  由于waline插件的import采用的是官方提供的cdn，想要在本地修改样式就需要以覆盖的形式。这里我们打开开始所创建的<code>styles.styl</code>，在里面写入：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-pseudo">:root</span> &#123;</span><br><span class="line">  <span class="attr">--waline-theme-color</span>: <span class="number">#4b3425</span> !important;</span><br><span class="line">  <span class="attr">--waline-active-color</span>: <span class="number">#9c8877</span> !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>颜色改成需要的颜色即可。</p>
+<p>  效果可以参考评论区，修改全局样式的好处就是可以做到很方便的统一：</p>
+<p><img src="https://i2.100024.xyz/2023/06/03/rah08z.webp#23pic_center" alt=""></p>
+<p>  可以看到在后面加入<code>!important</code>后，此声明将覆盖任何其他声明。但是这样做会破坏样式表中的固有的级联规则，使得找bug变得困难，所以不推荐大量使用，有条件的还是建议自己将官方css文件进行修改并上传cdn导入自己的主题。</p>
+]]></content>
+      <categories>
+        <category>经验</category>
+        <category>Next美化</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Css</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20889;32473;21346;24518;25991;</title>
     <url>/2023/06/20/linbiezengyan7/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
   <script id="hbeData" type="hbeData" data-hmacdigest="15d468a53fbf778c09212139afd6855a3c29ddde0741916eeb3404f87d94a97b">05e3a79ef22e0826625230940c5fddce2891a51276951a65bc11c9a7f09f063d289a092c42b9985855000e616059bc04ac7a6ef4c2aaa41fe4354fed28df44d9af1d99832f950f41d9acc97f8c9227a10d8341f0bde486b14350929f8fd25a83bdf1bc695c081871db83049cd691549c9c2b2223a8474054dd21949be105776ed5526761bec5bbe393b11a46a5d54763d5395285da9ae9b9cf9d24a597661e892da109e643eb50b8d2e937822a0626ec0d5bfd00ff600fd95a497ca361001a9783792d346318ce401b205554cff40b44344581289851b357b7949c0bacc5506cbc209be65f8579f4e14146fcdaeb58289c3b22eb877ccac80f637624bdc00978ab5b1094e939483082c58c691530837f38dd6142fbae734817c9d91dc377ba05f2aa0ea7d39b5c413bae4af6345af885b06d62b199bcea42807b4c6f3f0eb94121a46ab2add3e99db0cb6644992777113010eddd5ed2056a8de63e46d3d050318dc8b9d8f5a1cb89d38dbc1dc691d0ef0be4069d58ee30e2f8f9c0e8d2e9009225c0a77f84c2ed6e85c822dc6c3881dcafc8c3da63d51b2dcf14398fcde21fd1967e9099ed26fe13d20cefdc9530128af515f3602e063d5dd4ec8927f2742a7172b1626177ba38dfdb90c304a0cd4d5f08794d470b38432761c65d6f18a2ab6d0505501fe232f15c84acc9a2c62fe2d876d34f2d162a23159211bc49dc2f055b681f101c386fd12efbc6470bb6035117f4edd5cbbd42f89e2c70a538f19478b59efb6635ca3a243a267f8a077a034001c6417ac237362b95eb6faba05b6fe508a9b25abb32d73305ebdf98720ad936e3f7456d4e839f2a8f6e4911f911849408afd68f2ab4f74da5c3b20cb48dd4f1f10800e96f4757fa6f1aa958da1bf1056685367c32fe890baf70cde3a10f6982e026c39abe6de62ebd7e97d7b7bed2a13b35fdabf4a973226b45a8672bdcad41d1ebfdf98756867cd3e9e37d970fcb0b970a9e5ad6fa628631a9d1452d9083d2a9619ca820937d96c20cf1154a5f5959df16b0d73af49a266c268a38ea827aee19a85e4bdddc340f8a7ee61bf78660ba6e</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>临别赠言</category>
+      </categories>
+      <tags>
+        <tag>加密内容</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>my first post</title>
+    <url>/2023/04/27/test/</url>
+    <content><![CDATA[<h1>你好</h1>
+<h2 id="这是我的第一篇个人博客">这是我的第一篇个人博客</h2>
+<span id="more"></span>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Hello World!&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Le vent se lève, il faut tenter de vivre</p>
+</blockquote>
+<p>have fun 😃</p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20889;32473;27611;25391;28009;</title>
+    <url>/2023/06/19/linbiezengyan4/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="9235aec39a00a974192cba804329ffb7b9d0a04972bba6a0eabaef08afdd71ff">5886ab30ca5714d1f9b371b3ffbd606ac2e5302c24784353516fb9e96cad5c5edbf5e98c0e80d26cb9de7b883daea64b55c9e647c6cd2b25142be028c7c45cfa6633e78078773f60330d4f6b0ebe2fe44957a307b410739070f6e5fb465b82c1f638c01b86930646299e23e86c73d3d0c15d44d98c0e2cf9d076f823c5d3715e66e4a17abeb595aa4368fea347f5248494c56a0a36310b38fabb2f2cdb117e95954947664c134e740c3586280a22cc4001b25d12cdd596af60921a08ab46e2eff83c931072fc231bf054f3ef8e03c7efbacdf7299963d2b72b44d0088baf2ac1647e5e41f46457dc52867f6710ddce03235858a655c9560b69319f0c3c1324d82def73c051102bbe2b91ac2ac10786dd3d3901dd9e342d5ec704b1fd68e8dae9e3c432713509b11f423c70c3223185345d8ec4d9c29ef5fd9b47175c44688e523b3d58f573a79e1baf6fe0e85e3354a8aa85092187c4ec3137a68d4ff3fef7e5aef197a6a573933fa63b9756fce52ee9da43a8a0fd92155be3cc7b847e4aeebb77edd25fa02e5d2e05b6e53a45c30fe68735b80f75391afb8bc3ecab81e94587b854e5d51fae1e37533c38628b83652f13577f4526e2a2013bb93d9548dc178945a2bcd398d107d3a588453b917b62b8d42faee86a26be3cd6387c72b7735ff08d2c5f526b6733bf41ae93ccc2db10907e1ebf28bcd709a9fece94848152dcd0501ac6df84bfe0af3bc6cdebbceb87fc2ecf9c458a332253b5831471de8ca9796dfaa0c200b83a503db483359ebcfe35fb42fbed0b51effcc2282fce61bde9cb8fe852122821c95a3e5beda3ab043ef8009489fcd578e6ff0409e5fc6af3a3d5b97b7a8c00316c6785b38f03ec323d0cc21fc63e4c2cc49154b5395414400e4fb6e034e91d64761251bb7e383dd8d64d62aa530e92582e86897c6d86275d6d3562d5254e4d2650b41734c85c211f0a7d1a315ac7df8c5a5dc7869edfb4753bbea98c0cbeb5295a9295ced4c392fe525843f60c3f8bf0ebe0c3793f6557edad5f03cd4f7eeea5ee6a1324e6cd11502a09423a343fa889b04c7b9311bc41840f7d70c118012b145b600eaa0d15bdb6dd40308d576730d286d7f0f1bbdcf215d7220767d3ff5e21e86e9207a8b231a38554400dbc7061a7236901472e299a1e8631bad3e14acc4742bc6c4da920f1e14a182f7a005fe61180de89db66546345d123d2cd32bf1981c853e1f5d68417abfe71df6b55af380d0a8ffe4fd060355a0a73fa6af35c47594a2be080bf7ce3c4131e845a3f2b3256f9603a67ef763345f6c0e41f24fde142fa8173a8d6da02d413f8f12a10aea70720d94fb0c908e36004e9d7eb0870f3eca904c8ce165177055b25f7a9f58f0e066e02263deddd5108b2958243c2982f135ca2ba7abc12c944b94b2eb84a2784eabc4a536910790f430380a96eb56f352de2d44e4809ca5e72e42172ecdcbdb35e05454131c86431d44b1e3ec5279a2ec1c15656a3f72aaf99937674ae5fc56e3c5e71bd6fe305e25e0c8077300a8a070341223abc50305edbbb365000d9299f79940a9c68f610b7ebc43dee35d779e28476ff8248588af7d13af5519cc570f11b0f52bd4f57c6329ccba7451dcdaffc18a9d3216d168ee6efec3965582f51ff65e42300857c42b54fc51fd9abeeccd80ed1a6f9b6fcf9dd3bad9c0be99723e11860d49af328f29c92816fe45b3cafbbd73209d9cc743ed20a9bdbea4abec0db74522a9720267773046d75054bfcb118933c5d22840a34191e4782a144c5c56799e4e0fb783ff221481fd6</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -788,10 +907,10 @@
       </tags>
   </entry>
   <entry>
-    <title>20889;32473;27611;25391;28009;</title>
-    <url>/2023/06/19/linbiezengyan4/</url>
+    <title>20889;32473;25140;26862;31435;</title>
+    <url>/2023/06/18/linbiezengyan3/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="9235aec39a00a974192cba804329ffb7b9d0a04972bba6a0eabaef08afdd71ff">5886ab30ca5714d1f9b371b3ffbd606ac2e5302c24784353516fb9e96cad5c5edbf5e98c0e80d26cb9de7b883daea64b55c9e647c6cd2b25142be028c7c45cfa6633e78078773f60330d4f6b0ebe2fe44957a307b410739070f6e5fb465b82c1f638c01b86930646299e23e86c73d3d0c15d44d98c0e2cf9d076f823c5d3715e66e4a17abeb595aa4368fea347f5248494c56a0a36310b38fabb2f2cdb117e95954947664c134e740c3586280a22cc4001b25d12cdd596af60921a08ab46e2eff83c931072fc231bf054f3ef8e03c7efbacdf7299963d2b72b44d0088baf2ac1647e5e41f46457dc52867f6710ddce03235858a655c9560b69319f0c3c1324d82def73c051102bbe2b91ac2ac10786dd3d3901dd9e342d5ec704b1fd68e8dae9e3c432713509b11f423c70c3223185345d8ec4d9c29ef5fd9b47175c44688e523b3d58f573a79e1baf6fe0e85e3354a8aa85092187c4ec3137a68d4ff3fef7e5aef197a6a573933fa63b9756fce52ee9da43a8a0fd92155be3cc7b847e4aeebb77edd25fa02e5d2e05b6e53a45c30fe68735b80f75391afb8bc3ecab81e94587b854e5d51fae1e37533c38628b83652f13577f4526e2a2013bb93d9548dc178945a2bcd398d107d3a588453b917b62b8d42faee86a26be3cd6387c72b7735ff08d2c5f526b6733bf41ae93ccc2db10907e1ebf28bcd709a9fece94848152dcd0501ac6df84bfe0af3bc6cdebbceb87fc2ecf9c458a332253b5831471de8ca9796dfaa0c200b83a503db483359ebcfe35fb42fbed0b51effcc2282fce61bde9cb8fe852122821c95a3e5beda3ab043ef8009489fcd578e6ff0409e5fc6af3a3d5b97b7a8c00316c6785b38f03ec323d0cc21fc63e4c2cc49154b5395414400e4fb6e034e91d64761251bb7e383dd8d64d62aa530e92582e86897c6d86275d6d3562d5254e4d2650b41734c85c211f0a7d1a315ac7df8c5a5dc7869edfb4753bbea98c0cbeb5295a9295ced4c392fe525843f60c3f8bf0ebe0c3793f6557edad5f03cd4f7eeea5ee6a1324e6cd11502a09423a343fa889b04c7b9311bc41840f7d70c118012b145b600eaa0d15bdb6dd40308d576730d286d7f0f1bbdcf215d7220767d3ff5e21e86e9207a8b231a38554400dbc7061a7236901472e299a1e8631bad3e14acc4742bc6c4da920f1e14a182f7a005fe61180de89db66546345d123d2cd32bf1981c853e1f5d68417abfe71df6b55af380d0a8ffe4fd060355a0a73fa6af35c47594a2be080bf7ce3c4131e845a3f2b3256f9603a67ef763345f6c0e41f24fde142fa8173a8d6da02d413f8f12a10aea70720d94fb0c908e36004e9d7eb0870f3eca904c8ce165177055b25f7a9f58f0e066e02263deddd5108b2958243c2982f135ca2ba7abc12c944b94b2eb84a2784eabc4a536910790f430380a96eb56f352de2d44e4809ca5e72e42172ecdcbdb35e05454131c86431d44b1e3ec5279a2ec1c15656a3f72aaf99937674ae5fc56e3c5e71bd6fe305e25e0c8077300a8a070341223abc50305edbbb365000d9299f79940a9c68f610b7ebc43dee35d779e28476ff8248588af7d13af5519cc570f11b0f52bd4f57c6329ccba7451dcdaffc18a9d3216d168ee6efec3965582f51ff65e42300857c42b54fc51fd9abeeccd80ed1a6f9b6fcf9dd3bad9c0be99723e11860d49af328f29c92816fe45b3cafbbd73209d9cc743ed20a9bdbea4abec0db74522a9720267773046d75054bfcb118933c5d22840a34191e4782a144c5c56799e4e0fb783ff221481fd6</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="7d9c043b99ff1207d64f46062030ecf6881ba9ed1febda14ff25cf51f8310d2b">ec802132aacd30f27b2d005e2ea7a7a2003c95ca4590b6f5627ed984429de1c1d45329d55a4e5cabdde96c04776f798020f6ac72896463d7f05fc70e33504fe57a63f71173011006dfa9efb45f6978007e289da1942f12fe9eacd199be6eee1b43a11480bd992db1e915154aec2c481971cafe8cff0102ac95ffab2cde88b993715fce3e5e88b55abe0927eff4d9e98a251aea0d64d2bd95398a377f54a16de4476e83109b0265c51054f127dd6ce4dfd78937ca608c8c89808ed16757a6a3c4ac4466fa6a0e5e268580c344fd90e62b9dbf84e1b36cf7eb7b3798e64769e7b4086f1dc27225533c90a01802de84954abfa51076f7899d26f1496731f1a76296f7e865e5acb786648d8b267e77bd1bde49f0b6fcd06d32e836b195170571b085412142a059f2892425ac87afcb606de1873910ae21d429bfeca4a424c8d0faf8092a88315d5f32b8835e6507f72cf59e90ae1c81afad54fa3438beae98af8aebbd240b70e52efa37e6826bec96a55badb42235a437854d7bfd31899343fdb8fc14209a182ae18f0ba037f3c8d4d05d1ea1ba7e04a2caa83dfec579cec677250d621523629566c92109e457f4f5caec35a8207f0ac4657413e160ce582f997a667bc9c3bbe7dfe00f28a2936f6b15d2e3e933ccb52153e42a1f3d0fe2e8b67dfa17a20e876760bab1f1ec1285fe6ca6f719bc74ac9fa251d52c40787dfa4f0aede6ce9b639a3d4e0ca976d2658f52ea0361e9a2ef035c759624adcaab949f83aab74be163cfd51a07e2f7b67b0898efbfdf8a03a2953544daca39a920c95c2546b5f16757d07164a6bdb74e9a384e029fcab4db3eddab772bd02691def0a5022ba30204984f32f5f4ae47c42f0ad240b08e8f2527c654d33beb659020fade76a58c8b5c5a0b2e31487dd41325c1b628197ff3b66e2792697b831acdfe3b2ff34678f27363d99d849cb1596b6c0894bb52eb3ee2d941144e4c362a17d904a531d54f8fc11414cd57b2b0c6ef0829b6515b64dfe82d075727eb3410542f5e93a672216e05b49b387633fa557de5634ca904794c0a665051f62cd5a95e64ecce2b7a45c26fb73f63926e903c4df7f87c10afcfe88180ad4c35004cd0370baae682d5970f4657de5b707914cb54485e244cf7249507b9755edecf4d759ed584fa492df5fd5bcf718fe2c0e1945717bc5743e5ab347b8241ddbfd25830ac97c0dac0a842dad24a0abd5e5535a8c360caa161b93c940e8dd54e2e055f632c4b8c21978aa5e08a1246831d3f86364495c9a059abc121b3b46690f46741fc6c6e22f2efe450b519d6280286efcd10b9ee0999392a5b45d22a8e9252a3c7d30b7a92418ea01efb6503489063de8ef455aa68b73f261c2f9c7557401b66b6a4624cadb1cd38c50e84dd32f6fb7ac601ac8595cc02d979e3181d171b62bf9410c0fa17784b5a7cadf9811cd84a663fb60e7284fd031d2797f2e316195e3da883f39ea9235836408b3c5fef89dbe419248e1724d7ad1aaff9aa7d9b6adc71d3ef5d1d4484d084c797b286e2365c91f1924e9bb931553300a01bf690b5cfa466cf3eadf68143dd9ab22ecddb661d71d4b214617db9d089</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -807,25 +926,6 @@
       </categories>
       <tags>
         <tag>加密内容</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>my first post</title>
-    <url>/2023/04/27/test/</url>
-    <content><![CDATA[<h1>你好</h1>
-<h2 id="这是我的第一篇个人博客">这是我的第一篇个人博客</h2>
-<span id="more"></span>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Hello World!&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Le vent se lève, il faut tenter de vivre</p>
-</blockquote>
-<p>have fun 😃</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>建站</tag>
       </tags>
   </entry>
 </search>
