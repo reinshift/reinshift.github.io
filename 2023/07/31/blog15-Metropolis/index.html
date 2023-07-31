@@ -21,28 +21,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"reinshift.cn","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"flipInY"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Here&#39;s something encrypted, password is required to continue reading.">
+    <meta name="description" content="物理背景 固体退火的物理过程和统计性质：   加温：随温度升高，粒子能量增高，与平衡位置的距离增大；   等温：温度升至熔化温度，固体的规则性质被打破，成为液体，粒子可以自由运动和重新排序，消除系统中原先存在的非均匀状态；   冷却：随着温度的下降，粒子能量减弱，运动减小，粒子最终进入平衡状态，固化为具有最小能量的晶体。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20889;32473;21556;23384;21644;">
-<meta property="og:url" content="https://reinshift.cn/2023/06/20/linbiezengyan5/index.html">
+<meta property="og:title" content="模拟退火算法">
+<meta property="og:url" content="https://reinshift.cn/2023/07/31/blog15-Metropolis/index.html">
 <meta property="og:site_name" content="雁来廿陆">
-<meta property="og:description" content="Here&#39;s something encrypted, password is required to continue reading.">
+<meta property="og:description" content="物理背景 固体退火的物理过程和统计性质：   加温：随温度升高，粒子能量增高，与平衡位置的距离增大；   等温：温度升至熔化温度，固体的规则性质被打破，成为液体，粒子可以自由运动和重新排序，消除系统中原先存在的非均匀状态；   冷却：随着温度的下降，粒子能量减弱，运动减小，粒子最终进入平衡状态，固化为具有最小能量的晶体。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-06-19T16:06:53.000Z">
-<meta property="article:modified_time" content="2023-06-20T03:46:27.487Z">
+<meta property="og:image" content="https://i2.100024.xyz/2023/07/31/pmgiw0.webp">
+<meta property="og:image" content="https://i2.100024.xyz/2023/07/31/pqnc2b.webp">
+<meta property="article:published_time" content="2023-07-31T08:04:41.000Z">
+<meta property="article:modified_time" content="2023-07-31T08:45:00.994Z">
 <meta property="article:author" content="雁来廿陆">
-<meta property="article:tag" content="加密内容">
+<meta property="article:tag" content="现代优化算法">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i2.100024.xyz/2023/07/31/pmgiw0.webp">
 
 
-<link rel="canonical" href="https://reinshift.cn/2023/06/20/linbiezengyan5/">
+<link rel="canonical" href="https://reinshift.cn/2023/07/31/blog15-Metropolis/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://reinshift.cn/2023/06/20/linbiezengyan5/","path":"2023/06/20/linbiezengyan5/","title":"20889;32473;21556;23384;21644;"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://reinshift.cn/2023/07/31/blog15-Metropolis/","path":"2023/07/31/blog15-Metropolis/","title":"模拟退火算法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>20889;32473;21556;23384;21644; | 雁来廿陆</title>
+<title>模拟退火算法 | 雁来廿陆</title>
   
 
 
@@ -128,7 +131,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -141,6 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">物理背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3"><span class="nav-number">2.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.</span> <span class="nav-text">算法基本步骤</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -475,7 +479,7 @@ if(canvas.getContext){
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://reinshift.cn/2023/06/20/linbiezengyan5/">
+    <link itemprop="mainEntityOfPage" href="https://reinshift.cn/2023/07/31/blog15-Metropolis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -488,12 +492,12 @@ if(canvas.getContext){
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="20889;32473;21556;23384;21644; | 雁来廿陆">
+      <meta itemprop="name" content="模拟退火算法 | 雁来廿陆">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          20889;32473;21556;23384;21644;
+          模拟退火算法
         </h1>
 
         <div class="post-meta-container">
@@ -505,7 +509,7 @@ if(canvas.getContext){
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-06-20 00:06:53 / 修改时间：11:46:27" itemprop="dateCreated datePublished" datetime="2023-06-20T00:06:53+08:00">2023-06-20</time>
+      <time title="创建时间：2023-07-31 16:04:41 / 修改时间：16:45:00" itemprop="dateCreated datePublished" datetime="2023-07-31T16:04:41+08:00">2023-07-31</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -513,7 +517,11 @@ if(canvas.getContext){
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%B4%E5%88%AB%E8%B5%A0%E8%A8%80/" itemprop="url" rel="index"><span itemprop="name">临别赠言</span></a>
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
         </span>
     </span>
 
@@ -526,8 +534,8 @@ if(canvas.getContext){
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2023/06/20/linbiezengyan5/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2023/06/20/linbiezengyan5/" itemprop="commentCount"></span>
+    <a title="waline" href="/2023/07/31/blog15-Metropolis/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2023/07/31/blog15-Metropolis/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -537,7 +545,7 @@ if(canvas.getContext){
         <i class="far fa-eye"></i>
       </span>
       <span class="post-meta-item-text">阅读次数：</span>
-      <span class="waline-pageview-count" data-path="/2023/06/20/linbiezengyan5/"></span>
+      <span class="waline-pageview-count" data-path="/2023/07/31/blog15-Metropolis/"></span>
     </span>
   
     <span class="post-meta-break"></span>
@@ -546,7 +554,7 @@ if(canvas.getContext){
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>347</span>
+      <span>1.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -563,18 +571,98 @@ if(canvas.getContext){
     
     
     
-    <div class="post-body" itemprop="articleBody"><div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="3b2d7e973a3f3cc6b32ad1cc6072da5400de9addc17f6298c6cee7587028dd79">d356183645db3b418b139bdb9e96d7fbbb3bf0f94a41f93e166cdfeec6d3ecc5d20bc0a999508a810aa3855d33c7f1ef9939d685a664e5c9d210d8239e0313af5475df80a0d40206ccf2081f25bccae12daea88ddec88d8cae3141c5d55c35aa62e2f90dc68244da9033b68a9bfdd9cf0ee59de674be46a338e22999734483ac4157c1996373af3d7a703d5f0bf3075c16f0ce475a1df47b140e3957fc68d7ec65d4a52ed4e0ca0e0edb1da5e426f89da82a20186012e64070337c7e8bb76e0e7deb7ee462aa0536971ff2bf12a39492ebd2325e1422a7f69012d415547ac90c28d63b716007754860082411f3be792a9c9d4e506c531b24b6d7ec8034f92d649456d81398043e6aac869fc8e47dcf07c5197145977a46f916dccadf681ae06d0069e3ca00b6129289382d30de3120cdce3034d77d6287f0e3c2b72edde52f3569eb1d33f01adf549e1b6e0d9da9316ef74bb3517f5105751a7743e70265c9739fbe5cbeeabf99cf6b076fb9da5d5ef7925e9e1caf461027c48c32a718466f2d4eb97585fe2bb1a97eea263e784c66e1b78cb6d80297b89a1ebbc451613b56e4d9b83cfb0c39fc8a0e400d97b2959d0b2182408a57b13f6a91466524a58803824a32ae96f3a513e309f0061e446b1018ee49af0edecf2d85de7863ad21e35b3a3b38e36ad8527e43c7a4f3a149e55e7295d967663c23a36c08683fd4acd0d5da51b8642398b920a33895f070f15739666403faf31f068aacb06326eaf3aa1ccf642424e9ac737391378e64b54555a1998d6e3de0883c10cc2ac76f11c64610b0c775644b88e30814f3d25c3db91a70ca348fea2830093967eba080a9f5b1fb4725315c2dcfc9e1a6aa07491b0ea39a0d52d8f6a7b9a6860232346f62d67fa55e40ac2a502cbf640e84910c1ed5e1dbf55d858e5e0db3307c843e6375936731888889e90b8e3149a215d265343bfcb412e57cfb30df31d365dbd83d6ee1834d47d05d462347b7e938fe1f71bdc5417a575289a6c85fc5aa25366b13ac1ecb32c6c4135db60659c4b05e09a3e1a7f6521a188b9f2048670d24a2b09724753f2c0adfdb03d6765efbf2f06743e7823012d3d7ca3d8cdd3d3f70f76a4bbb77182ce44b9c4b7c36173878117faded5bbfb90c1e14acf1c85855293cdb66cb983754f3bed18d5384e306dfd239a5520239ea00a296dbc5cb2aa4c0c2e96484ebc368962f5b221eb6d2521db66d4619447ff0326626e19aaa7e5c86b2f00e0854251f00c5ff63bbc910a7b9324843dc712dc4e59692e0125c3650e1e5bb099ab94105d11588409db1de3630cf12be557ce9a97905645a2032a2e188c3730d3a24077723c9490fb57c62f9998eb3a65e6f316ddfb81420883c037dab3b1e7f28628b8b4c0ac7252abc9f91db89a30c7e6b338490a787555b9cf3b41d5230f81763aa5e38e80ece0fa0a83283199856b86232d9de99f1f500ccf45a61fc756c4b095e79a41904a60fcf28a7a313c85a58ca759ec69680b012fe6958e7e6c0459858c610e92e4a83e6f68bd1cd69b5f4f757502d7b5dc5f26ebdd87358fb7647f4051d6475</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+    <div class="post-body" itemprop="articleBody"><h2 id="物理背景">物理背景</h2>
+<p>固体退火的物理过程和统计性质：</p>
+<ol>
+<li class="lvl-3">
+<p>加温：随温度升高，粒子能量增高，与平衡位置的距离增大；</p>
+</li>
+<li class="lvl-3">
+<p>等温：温度升至熔化温度，固体的规则性质被打破，成为液体，粒子可以自由运动和重新排序，消除系统中原先存在的非均匀状态；</p>
+</li>
+<li class="lvl-3">
+<p>冷却：随着温度的下降，粒子能量减弱，运动减小，粒子最终进入平衡状态，固化为具有最小能量的晶体。</p>
+</li>
+</ol>
+<span id="more"></span>
+<p>温度$t$下，分子停留在某一状态$r$满足Bolztmann概率分布：</p>
+<p>$$<br>
+P\left\lbrace \bar{E}=E\left( r \right) \right\rbrace =\frac{1}{z\left( t \right)}\exp \left( -\frac{E\left( r \right)}{kt} \right)<br>
+$$</p>
+<p>其中：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>$E\left( r \right)$：状态$r$的能量；</p>
+</li>
+<li class="lvl-2">
+<p>$k$：物理学中的波尔兹曼常数；</p>
+</li>
+<li class="lvl-2">
+<p>$t$：材料温度</p>
+</li>
+<li class="lvl-2">
+<p>$E$：分子能量的一个随机变量；</p>
+</li>
+<li class="lvl-2">
+<p>$z(t)$：概率分布的标准化因子；</p>
+</li>
+<li class="lvl-2">
+<p>$D_0$：最低能量状态的个数；</p>
+</li>
+<li class="lvl-2">
+<p>$D$：状态空间中状态的个数.</p>
+</li>
+</ul>
+<hr>
+<h2 id="基本思想">基本思想</h2>
+<img title="" src="https://i2.100024.xyz/2023/07/31/pmgiw0.webp" alt="" data-align="center" width="257">
+<p>状态迁移准则(Metropolis抽样稳定性条件)</p>
+<p>$$<br>
+\exp \left( \frac{E_i-E_j}{kt} \right) \ge random\left( 0,1 \right)<br>
+$$</p>
+<p>若新状态$j$的能量满足条件，则被用来代替原状态$i$。</p>
+<p>高温下，接受能量差较大的新状态；</p>
+<p>低温下，只接受能量差较小的新状态。</p>
+<blockquote>
+<p>由某一较高的初始温度开始，利用上式在求解域内随机搜索采样，随着温度不断降低，使系统的能量达到最低状态，即相当于能量函数的全局最优解。</p>
+</blockquote>
+<hr>
+<h2 id="算法基本步骤">算法基本步骤</h2>
+<p>设求解优化问题$\min\text{.\ }f\left( x \right) \ x\in R^n$</p>
+<img title="" src="https://i2.100024.xyz/2023/07/31/pqnc2b.webp" alt="" data-align="inline">
+<p>内循环终止条件：</p>
+<ol>
+<li class="lvl-3">
+<p>规定产生有限个候选解；</p>
+</li>
+<li class="lvl-3">
+<p>在连续若干步候选解的目标函数值变化很小；</p>
+</li>
+<li class="lvl-3">
+<p>目标函数值的均值已相当稳定。</p>
+</li>
+</ol>
+<p>外循环终止条件：</p>
+<ol>
+<li class="lvl-3">
+<p>设置一个终止温度$t_e$；</p>
+</li>
+<li class="lvl-3">
+<p>规定外循环的最大迭代次数$k_{max}$；</p>
+</li>
+<li class="lvl-3">
+<p>算法在每个$t_k$值搜索到的最优解的值在若干次迭代内保持不变。</p>
+</li>
+</ol>
+<hr>
+<p>在模拟退火算法中应注意以下问题：（1）理论上，降温过程要足够缓慢，要使得在每一温度下达到热平衡。但在计算机实现中，如果降温速度过缓，所得到的解的性能会较为令人满意，但是算法会太慢，相对于简单的搜索算法不具有明显优势。如果降温速度过快，很可能最终得不到全局最优解。因此使用时要综合考虑解的性能和算法速度，在两者之间采取一种折衷。（2）要确定在每一温度下状态转换的结束准则。实际操作可以考虑当连续 m 次的转换过程没有使状态发生变化时结束该温度下的状态转换。最终温度的确定可以提前定为一个较小的值Te ，或连续几个温度下转换过程没有使状态发生变化算法就结束。（3）选择初始温度和确定某个可行解的邻域的方法也要恰当。</p>
+<hr>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p><input type="checkbox" id="checkbox0"><label for="checkbox0">to be continued…</label></p>
+</li>
+</ul>
+
     </div>
 
     
@@ -583,21 +671,18 @@ if(canvas.getContext){
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%8A%A0%E5%AF%86%E5%86%85%E5%AE%B9/" rel="tag"># 加密内容</a>
+              <a href="/tags/%E7%8E%B0%E4%BB%A3%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" rel="tag"># 现代优化算法</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/06/19/linbiezengyan4/" rel="prev" title="20889;32473;27611;25391;28009;">
-                  <i class="fa fa-chevron-left"></i> 20889;32473;27611;25391;28009;
+                <a href="/2023/07/28/blog14-DS3/" rel="prev" title="数据结构note（三）">
+                  <i class="fa fa-chevron-left"></i> 数据结构note（三）
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/06/20/linbiezengyan6/" rel="next" title="20889;32473;38472;20896;32701;">
-                  20889;32473;38472;20896;32701; <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -692,14 +777,14 @@ if(canvas.getContext){
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
 
 
   <script async src="/js/cursor/fireworks.js"></script>
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"example.reinshift.cn","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","reaction":true,"locale":{"placeholder":"水水水，快来水(～￣▽￣)~"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/tieba"],"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"pageSize":10,"el":"#waline","comment":true,"path":"/2023/06/20/linbiezengyan5/"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"example.reinshift.cn","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","reaction":true,"locale":{"placeholder":"水水水，快来水(～￣▽￣)~"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/tieba"],"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"pageSize":10,"el":"#waline","comment":true,"path":"/2023/07/31/blog15-Metropolis/"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {
