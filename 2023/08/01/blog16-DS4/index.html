@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191212190125865.gif">
 <meta property="og:image" content="https://pic4.zhimg.com/v2-e6b910a48ddfac7dddc2c610cde979bf_b.webp">
 <meta property="article:published_time" content="2023-08-01T08:45:02.000Z">
-<meta property="article:modified_time" content="2023-08-01T08:47:03.466Z">
+<meta property="article:modified_time" content="2023-08-02T09:13:45.081Z">
 <meta property="article:author" content="雁来廿陆">
 <meta property="article:tag" content="数据结构">
 <meta name="twitter:card" content="summary">
@@ -144,7 +144,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">栈和队列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%88-stack-%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E7%89%B9%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">栈(stack)的定义和特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%9F%E5%88%97-queue-%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E7%89%B9%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">队列(queue)的定义和特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%88%E7%9A%84%E5%AE%9E%E7%8E%B0%EF%BC%88%E9%A1%BA%E5%BA%8F%E6%A0%88%EF%BC%89%EF%BC%9A"><span class="nav-number">1.3.</span> <span class="nav-text">栈的实现（顺序栈）：</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">栈和队列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%88-stack-%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E7%89%B9%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">栈(stack)的定义和特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%9F%E5%88%97-queue-%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E7%89%B9%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">队列(queue)的定义和特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%88%E7%9A%84%E5%AE%9E%E7%8E%B0%EF%BC%88%E9%A1%BA%E5%BA%8F%E6%A0%88%EF%BC%89%EF%BC%9A"><span class="nav-number">1.3.</span> <span class="nav-text">栈的实现（顺序栈）：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%9F%E5%88%97%E7%9A%84%E5%AE%9E%E7%8E%B0%EF%BC%88%E5%BE%AA%E7%8E%AF%E9%A1%BA%E5%BA%8F%E9%98%9F%E5%88%97%EF%BC%89%EF%BC%9A"><span class="nav-number">1.4.</span> <span class="nav-text">队列的实现（循环顺序队列）：</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -507,9 +507,15 @@ if(canvas.getContext){
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2023-08-01 16:45:02 / 修改时间：16:47:03" itemprop="dateCreated datePublished" datetime="2023-08-01T16:45:02+08:00">2023-08-01</time>
+      <time title="创建时间：2023-08-01 16:45:02" itemprop="dateCreated datePublished" datetime="2023-08-01T16:45:02+08:00">2023-08-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-08-02 17:13:45" itemprop="dateModified" datetime="2023-08-02T17:13:45+08:00">2023-08-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -554,14 +560,14 @@ if(canvas.getContext){
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.9k</span>
+      <span>4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>4 分钟</span>
     </span>
 </div>
 
@@ -598,7 +604,11 @@ if(canvas.getContext){
 <p><code>teststack.cpp</code>：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stack.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack s = <span class="built_in">Init_Stack</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;栈状态为（1空0非空）：&quot;</span> &lt;&lt; ifEmpty_Stack(&amp;s) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">1</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;栈状态为（1空0非空）：&quot;</span> &lt;&lt; ifEmpty_Stack(&amp;s) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">2</span>);</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">3</span>);</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">5</span>);</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">8</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;栈顶元素为：&quot;</span> &lt;&lt; <span class="built_in">GetTop_Stack</span>(&amp;s) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;现在弹出：&quot;</span> &lt;&lt; <span class="built_in">Pop_Stack</span>(&amp;s) &lt;&lt; endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;此时栈顶元素为：&quot;</span> &lt;&lt; <span class="built_in">GetTop_Stack</span>(&amp;s) &lt;&lt;</span><br><span class="line">        <span class="string">&quot;   栈内元素有：&quot;</span>&lt;&lt;<span class="built_in">Length_Stack</span>(&amp;s)&lt;&lt;<span class="string">&quot;个&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Clear_Stack</span>(&amp;s);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;清除后栈状态为（1空0非空）：&quot;</span> &lt;&lt; ifEmpty_Stack(&amp;s) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Destroy_Stack</span>(&amp;s);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<p>To be continued…</p>
+<h2 id="队列的实现（循环顺序队列）：">队列的实现（循环顺序队列）：</h2>
+<p>由于只申请了MaxQSize大小的内存空间，且队头队尾指针均会在入队和出队的过程中后移，故当队尾溢出时有时并没有真正的超出给定的储存大小，这种现象被称为“假溢出”。解决假溢出的一种方法就是采用循环队列。</p>
+<p>还有一个问题就是，判断队空或队满要比栈空或栈满麻烦一点，因为判断队空/满的条件是一样的，都是队空指针==队尾指针。解决的方法是加一个统计空间的变量或者少用一个存储空间。</p>
+<p>下面仅陈列<code>queue.cpp</code>的定义部分。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;queue.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化队列</span></span><br><span class="line"><span class="function">queue <span class="title">Init_Queue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	queue q;</span><br><span class="line">	q.base = <span class="keyword">new</span> <span class="type">int</span>[MaxQSize];</span><br><span class="line">	q.front = q.rear = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> q; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁队列</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Destroy_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	q-&gt;front = q-&gt;rear;</span><br><span class="line">	<span class="keyword">delete</span> q-&gt;base;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清空队列</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Clear_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	q-&gt;front = q-&gt;rear = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获得队列长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Length_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (q-&gt;rear - q-&gt;front + MaxQSize) % MaxQSize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取队头元素</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetHead_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (q-&gt;front != q-&gt;rear) &#123;</span><br><span class="line">		<span class="keyword">return</span> q-&gt;base[q-&gt;front];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//入队</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">EnQueue</span><span class="params">(queue* q,<span class="type">int</span> data)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//判断队满</span></span><br><span class="line">	<span class="keyword">if</span> ((q-&gt;rear + <span class="number">1</span>) % MaxQSize == q-&gt;front) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	q-&gt;base[q-&gt;rear] = data;</span><br><span class="line">	q-&gt;rear = (q-&gt;rear + <span class="number">1</span>) % MaxQSize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出队</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">DeQueue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//判断队空</span></span><br><span class="line">	<span class="keyword">if</span> (q-&gt;front == q-&gt;rear) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> e = q-&gt;base[q-&gt;front];</span><br><span class="line">	q-&gt;front = (q-&gt;front + <span class="number">1</span>) % MaxQSize;</span><br><span class="line">	<span class="keyword">return</span> e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -655,7 +665,7 @@ if(canvas.getContext){
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">22k</span>
+    <span title="站点总字数">23k</span>
   </span>
 </div>
 <div class="busuanzi-count">
