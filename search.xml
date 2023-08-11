@@ -1,6 +1,156 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>今日更新内容</title>
+    <url>/2023/04/28/blog1/</url>
+    <content><![CDATA[<p>以下是今天的更新内容：</p>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>增加了新成员：wanko（汪酱） 🐶</p>
+<blockquote>
+<p>但是很遗憾，由于技术有限，没能成功编辑浮空文字</p>
+</blockquote>
+</li>
+<li class="lvl-2">
+<p>增加了基于valine平台的评论功能</p>
+<blockquote>
+<p>但是不知道如何删除评论，所以评论的各位爷要谨言慎行</p>
+</blockquote>
+</li>
+<li class="lvl-2">
+<p>更换了Hexo的Markdown渲染引擎，现在可以呈现emoji表情了</p>
+<blockquote>
+<p>emoji的简码链接： <a href="https://gist.github.com/rxaviers/7360908">简码</a></p>
+</blockquote>
+</li>
+</ul>
+<hr>
+]]></content>
+      <tags>
+        <tag>建站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数组的动态联编</title>
+    <url>/2023/06/06/blog10-cppDynamicArray/</url>
+    <content><![CDATA[<p>  使用数组声明来创建数组时，将采用静态联编，即数组的长度在编译时设置。这个时候如果在括号里使用变量会报错，这样如果想输入数组长度以控制是做不到的：</p>
+<span id="more"></span>
+<p><img src="https://i2.100024.xyz/2023/06/06/ny90mg.webp#pic_center" alt=""></p>
+<p>  如果想创建一个数组，其长度让用户来输入管理，这个时候就需要用<code>new[]</code>运算符创建数组，采用动态联编（动态数组）。</p>
+<blockquote>
+<p>静态联编：在编译时给数组分配内存被称为静态联编（static binding），意味着数组是在编译时加入到程序中的。</p>
+</blockquote>
+<blockquote>
+<p>动态联编：使用new时，如果在运行阶段需要数组，则创建它；如果不需要，则不创建。还可以在程序运行时选择数组的长度。这被称为动态联编（dynamic binding），意味着数组是在程序运行时创建的。这种数组叫作动态数组（dynamic array）。</p>
+</blockquote>
+<p>  使用静态联编时，必须在编写程序时指定数组的长度；使用动态联编时，程序将在运行时确定数组的长度。</p>
+<p>  了解了这些特性，就可以在程序中这样写：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> num;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Put in the number of people:__\b\b&quot;</span>;</span><br><span class="line">    cin &gt;&gt; num;</span><br><span class="line">    <span class="comment">//int Age[num];</span></span><br><span class="line">    <span class="type">int</span>* p_Age = <span class="keyword">new</span> <span class="type">int</span>[num];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span>;</span><br><span class="line">        cin &gt;&gt; p_Age[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the age of every person is:&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span> &lt;&lt; p_Age[i] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span>[] p_Age;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  当输入10赋值给变量num时，接下来就会创建一个长度为10的数组以储存数据。</p>
+<p>  当然采用这种方式创建数组的最后需要用<code>delete[]</code>来释放其占用的内存。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2023.7.8-14旅游</title>
+    <url>/2023/07/15/blog12-travel2ningbonanjing/</url>
+    <content><![CDATA[<h1>2023.7.8-7.14 游宁波-南京</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="Day-1：宁波南部商务区、鼓楼">Day 1：宁波南部商务区、鼓楼</h2>
+</li>
+</ul>
+<p><img src="https://i2.100024.xyz/2023/07/15/p41mdp.webp" alt=""></p>
+<span id="more"></span>
+<p><img src="https://i2.100024.xyz/2023/07/15/p3z7la.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/p40psb.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/p4143n.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/p4215v.webp" alt=""></p>
+<p>这是第一天下午到达宁波后去逛的，选的地方是宁波相对繁华的地段，给我的感受就是比我家要更有商业气息一些，但是某些地方也有很清晰的城乡界线，新旧之间没有任何的过渡让我觉得有些突兀。顿时觉得“城市”真是一个没有任何新意的概念：鳞次栉比的大厦，见多了就觉得这里可以是其他任何稍微繁华些的地方，但就是不知道这个地名叫宁波。</p>
+<p>晚饭后去了那里的鼓楼，有一个钟楼我挺喜欢，这让我想起小时候我家不远处的钟楼，每天晚上我在窗边的小桌子上写作业时总是会在整点，细数彼岸的钟声，然后想起痛苦的背课文经历。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="Day-2：宁波罗蒙">Day 2：宁波罗蒙</h2>
+</li>
+</ul>
+<p><img src="https://i2.100024.xyz/2023/07/15/pdnm6g.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/pdws7l.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/pdx5cr.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/pdxkwx.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/pdyza9.webp" alt=""></p>
+<p>第二天去了罗蒙，也就是当地的一个室内主题乐园。由于天气炎热，在早上不是最热的时候先体验了室外的项目，中午才回到室内。一天下来感觉精神上是很解压，但是肉体上也很疲惫，总之还是很值得的。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="Day-3：南京夫子庙步行街、秦淮河">Day 3：南京夫子庙步行街、秦淮河</h2>
+</li>
+</ul>
+<p><img src="https://img1.imgtp.com/2023/07/15/PaOo1u9w.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/IV5GIOcm.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/N9dVJzL3.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/LDmHhivI.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/0pZlofH7.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/0g1qoHav.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/ZUu1XU7s.jpg" alt=""></p>
+<p>也是下午从宁波出发到的南京。到之后发现夫子庙附近的城市还是比较陈旧的，与我的想象大相径庭。夜里去住处附近的夫子庙步行街以及沿秦淮河岸简单逛了逛，游客纷杂，到处是售卖景区商品的摊点和商人，身着古装的参观者，甚至还有人力车。或许是因为刚从宁波的市区过来，一时间竟有些恍惚，这是一个光怪陆离的地方，是大娱乐的世界，这一点倒与某句诗中所表达的意思相近。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="Day-4：明孝陵-中山陵">Day 4：明孝陵&amp;中山陵</h2>
+</li>
+</ul>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC5ypQ0.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC5yFwF.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC5szzq.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC5y9yV.md.jpg" alt=""></p>
+<p>明孝陵是朱元璋与其皇后的合葬陵寝，中山陵是孙中山先生的陵寝。遗憾的是我的历史知识并不富足，并且也没有请解说，因此我能看到的东西是非常局限的，没有厚度的。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="Day-5：总统府-鸡鸣寺-玄武湖">Day 5：总统府&amp;鸡鸣寺&amp;玄武湖</h2>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56FjP.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56eAg.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56Anf.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56EB8.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56VHS.md.jpg" alt=""></p>
+</li>
+</ul>
+<p>总统府内部人太多了，也就没有好好拍照片。幸运的是最近的一家茶颜悦色是刚开业的，排队的人并不多，这也是我第一次尝试这个品牌。在鸡鸣寺找大雄宝殿找了很久还是没找到…</p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56d3R.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56wg1.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56aC9.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56N4J.md.jpg" alt=""></p>
+<p>在玄武湖的另一边可以看到鸡鸣寺和明城墙，还有远方的城市。</p>
+<p>最后因为时间还有一些，遂去了附近一个免费参观的古生物博物馆，这里可以满足小朋友们的好奇心，适合带孩子来。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="Day-6：南京博物院">Day 6：南京博物院</h2>
+</li>
+</ul>
+<p>前一天得知需要抢票，本来不抱太大希望，但最后诸友居然都抢到了票，遂立刻打车前往。</p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56b5Q.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56HUg.md.jpg" alt=""></p>
+<p>里面人很多，加上游览顺序不是很好，就花了半天时间参观。一些照片拍的没有思路，就没有放在这里了。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="总结">总结</h2>
+</li>
+</ul>
+<p>最后还有一些遗憾的是遇难同胞纪念馆没有预约到，离住的地方比较远，也就没有去。希望以后有机会再来吧。</p>
+<p>这个暑假或许是最自由的一个假期了，以后不知道能不能像现在一样说走就走。这天气是真的很热，想静下心来游览的难度也很大。但这次旅游还是给了我从多天宅家中回到现实去经历和思考的一次机会，也算是有不小的收获。</p>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>旅游</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数据结构note（一）</title>
     <url>/2023/06/09/blog11-DS1/</url>
     <content><![CDATA[<h1>1.1 什么是数据结构？</h1>
@@ -114,37 +264,6 @@
       </tags>
   </entry>
   <entry>
-    <title>今日更新内容</title>
-    <url>/2023/04/28/blog1/</url>
-    <content><![CDATA[<p>以下是今天的更新内容：</p>
-<span id="more"></span>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>增加了新成员：wanko（汪酱） 🐶</p>
-<blockquote>
-<p>但是很遗憾，由于技术有限，没能成功编辑浮空文字</p>
-</blockquote>
-</li>
-<li class="lvl-2">
-<p>增加了基于valine平台的评论功能</p>
-<blockquote>
-<p>但是不知道如何删除评论，所以评论的各位爷要谨言慎行</p>
-</blockquote>
-</li>
-<li class="lvl-2">
-<p>更换了Hexo的Markdown渲染引擎，现在可以呈现emoji表情了</p>
-<blockquote>
-<p>emoji的简码链接： <a href="https://gist.github.com/rxaviers/7360908">简码</a></p>
-</blockquote>
-</li>
-</ul>
-<hr>
-]]></content>
-      <tags>
-        <tag>建站</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据结构note（三）</title>
     <url>/2023/07/28/blog14-DS3/</url>
     <content><![CDATA[<ul class="lvl-0">
@@ -235,6 +354,55 @@
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;LinkList.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    list* list = <span class="built_in">LinkList_init</span>();</span><br><span class="line">    <span class="type">int</span> a[<span class="number">9</span>] = &#123; <span class="number">4</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">8</span> &#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">9</span>;i++)&#123;</span><br><span class="line">        <span class="built_in">LinkList_Insert</span>(list, i, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">LinkList_Print</span>(list);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;----after--delete----&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">LinkList_Del</span>(list, <span class="number">3</span>);</span><br><span class="line">    <span class="built_in">LinkList_Print</span>(list);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the first data of the list is: &quot;</span> &lt;&lt; <span class="built_in">LinkList_FirstData</span>(list) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the size of the list is: &quot;</span> &lt;&lt; <span class="built_in">LinkList_GetSize</span>(list) &lt;&lt; endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;the data &#x27;0&#x27; is at: &quot;</span> &lt;&lt; <span class="built_in">LinkList_Search</span>(list, <span class="number">0</span>) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">LinkList_FreeSpace</span>(list);</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>输出：</p>
 <p><img src="https://i2.100024.xyz/2023/07/28/xjf8h8.webp" alt=""></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构note（二）</title>
+    <url>/2023/07/26/blog13-DS2/</url>
+    <content><![CDATA[<h1>算法复杂度的一些简单实例</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="Algorithm01">Algorithm01</h3>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm01</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> sum=<span class="number">0</span>,n=<span class="number">100</span>;</span><br><span class="line">    sum=(<span class="number">1</span>+n)*n/<span class="number">2</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一共进行了三步，这是一个$\mathcal{O}(1)$的算法.</p>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="Algorithm02">Algorithm02</h3>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm02</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>,i&lt;n;i++)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>for循环的执行次数即为$n$，故复杂度为$\mathcal{O}(n)$.</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="Algorithm03">Algorithm03</h3>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm03</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> count=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(count&lt;n)&#123;</span><br><span class="line">        count=count*<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到，要想把while语句走完，根据判断条件和循环节，需要$log_2n$次，忽略声明变量的常数次复杂度，可得复杂度为$\mathcal{O}(\log_2n)$.</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="Algorithm04">Algorithm04</h3>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm04</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=i;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,i+j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>外循环$i=0$时，内循环执行了$n$次；$i=1$时，内循环执行$n-1$次……故循环共执行了$n+(n-1)+…+1=\frac{n(n+1)}{2}$次，取最高次项，复杂度为$\mathcal{O}(n^2)$.</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="Algorithm05">Algorithm05</h3>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">function05</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;hello world!\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Algorithm05</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    n++;</span><br><span class="line">    function05(n);</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        function05(n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=i;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;hello world!\n&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在第二个函数里调用了function05函数，故在第二个函数中计算，有$1+n+n<sup>2+\frac{n(n+1)}{2}$次，也即复杂度为$\mathcal{O}(n</sup>2)$.</p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -348,33 +516,6 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>数组的动态联编</title>
-    <url>/2023/06/06/blog10-cppDynamicArray/</url>
-    <content><![CDATA[<p>  使用数组声明来创建数组时，将采用静态联编，即数组的长度在编译时设置。这个时候如果在括号里使用变量会报错，这样如果想输入数组长度以控制是做不到的：</p>
-<span id="more"></span>
-<p><img src="https://i2.100024.xyz/2023/06/06/ny90mg.webp#pic_center" alt=""></p>
-<p>  如果想创建一个数组，其长度让用户来输入管理，这个时候就需要用<code>new[]</code>运算符创建数组，采用动态联编（动态数组）。</p>
-<blockquote>
-<p>静态联编：在编译时给数组分配内存被称为静态联编（static binding），意味着数组是在编译时加入到程序中的。</p>
-</blockquote>
-<blockquote>
-<p>动态联编：使用new时，如果在运行阶段需要数组，则创建它；如果不需要，则不创建。还可以在程序运行时选择数组的长度。这被称为动态联编（dynamic binding），意味着数组是在程序运行时创建的。这种数组叫作动态数组（dynamic array）。</p>
-</blockquote>
-<p>  使用静态联编时，必须在编写程序时指定数组的长度；使用动态联编时，程序将在运行时确定数组的长度。</p>
-<p>  了解了这些特性，就可以在程序中这样写：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> num;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Put in the number of people:__\b\b&quot;</span>;</span><br><span class="line">    cin &gt;&gt; num;</span><br><span class="line">    <span class="comment">//int Age[num];</span></span><br><span class="line">    <span class="type">int</span>* p_Age = <span class="keyword">new</span> <span class="type">int</span>[num];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span>;</span><br><span class="line">        cin &gt;&gt; p_Age[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the age of every person is:&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span> &lt;&lt; p_Age[i] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span>[] p_Age;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  当输入10赋值给变量num时，接下来就会创建一个长度为10的数组以储存数据。</p>
-<p>  当然采用这种方式创建数组的最后需要用<code>delete[]</code>来释放其占用的内存。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据结构note（四）</title>
     <url>/2023/08/01/blog16-DS4/</url>
     <content><![CDATA[<h1>栈和队列</h1>
@@ -416,98 +557,6 @@ $$</p>
       </categories>
       <tags>
         <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2023.7.8-14旅游</title>
-    <url>/2023/07/15/blog12-travel2ningbonanjing/</url>
-    <content><![CDATA[<h1>2023.7.8-7.14 游宁波-南京</h1>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-1：宁波南部商务区、鼓楼">Day 1：宁波南部商务区、鼓楼</h2>
-</li>
-</ul>
-<p><img src="https://i2.100024.xyz/2023/07/15/p41mdp.webp" alt=""></p>
-<span id="more"></span>
-<p><img src="https://i2.100024.xyz/2023/07/15/p3z7la.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/p40psb.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/p4143n.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/p4215v.webp" alt=""></p>
-<p>这是第一天下午到达宁波后去逛的，选的地方是宁波相对繁华的地段，给我的感受就是比我家要更有商业气息一些，但是某些地方也有很清晰的城乡界线，新旧之间没有任何的过渡让我觉得有些突兀。顿时觉得“城市”真是一个没有任何新意的概念：鳞次栉比的大厦，见多了就觉得这里可以是其他任何稍微繁华些的地方，但就是不知道这个地名叫宁波。</p>
-<p>晚饭后去了那里的鼓楼，有一个钟楼我挺喜欢，这让我想起小时候我家不远处的钟楼，每天晚上我在窗边的小桌子上写作业时总是会在整点，细数彼岸的钟声，然后想起痛苦的背课文经历。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-2：宁波罗蒙">Day 2：宁波罗蒙</h2>
-</li>
-</ul>
-<p><img src="https://i2.100024.xyz/2023/07/15/pdnm6g.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/pdws7l.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/pdx5cr.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/pdxkwx.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/pdyza9.webp" alt=""></p>
-<p>第二天去了罗蒙，也就是当地的一个室内主题乐园。由于天气炎热，在早上不是最热的时候先体验了室外的项目，中午才回到室内。一天下来感觉精神上是很解压，但是肉体上也很疲惫，总之还是很值得的。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-3：南京夫子庙步行街、秦淮河">Day 3：南京夫子庙步行街、秦淮河</h2>
-</li>
-</ul>
-<p><img src="https://img1.imgtp.com/2023/07/15/PaOo1u9w.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/IV5GIOcm.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/N9dVJzL3.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/LDmHhivI.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/0pZlofH7.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/0g1qoHav.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/ZUu1XU7s.jpg" alt=""></p>
-<p>也是下午从宁波出发到的南京。到之后发现夫子庙附近的城市还是比较陈旧的，与我的想象大相径庭。夜里去住处附近的夫子庙步行街以及沿秦淮河岸简单逛了逛，游客纷杂，到处是售卖景区商品的摊点和商人，身着古装的参观者，甚至还有人力车。或许是因为刚从宁波的市区过来，一时间竟有些恍惚，这是一个光怪陆离的地方，是大娱乐的世界，这一点倒与某句诗中所表达的意思相近。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-4：明孝陵-中山陵">Day 4：明孝陵&amp;中山陵</h2>
-</li>
-</ul>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC5ypQ0.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC5yFwF.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC5szzq.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC5y9yV.md.jpg" alt=""></p>
-<p>明孝陵是朱元璋与其皇后的合葬陵寝，中山陵是孙中山先生的陵寝。遗憾的是我的历史知识并不富足，并且也没有请解说，因此我能看到的东西是非常局限的，没有厚度的。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-5：总统府-鸡鸣寺-玄武湖">Day 5：总统府&amp;鸡鸣寺&amp;玄武湖</h2>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56FjP.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56eAg.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56Anf.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56EB8.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56VHS.md.jpg" alt=""></p>
-</li>
-</ul>
-<p>总统府内部人太多了，也就没有好好拍照片。幸运的是最近的一家茶颜悦色是刚开业的，排队的人并不多，这也是我第一次尝试这个品牌。在鸡鸣寺找大雄宝殿找了很久还是没找到…</p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56d3R.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56wg1.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56aC9.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56N4J.md.jpg" alt=""></p>
-<p>在玄武湖的另一边可以看到鸡鸣寺和明城墙，还有远方的城市。</p>
-<p>最后因为时间还有一些，遂去了附近一个免费参观的古生物博物馆，这里可以满足小朋友们的好奇心，适合带孩子来。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-6：南京博物院">Day 6：南京博物院</h2>
-</li>
-</ul>
-<p>前一天得知需要抢票，本来不抱太大希望，但最后诸友居然都抢到了票，遂立刻打车前往。</p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56b5Q.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56HUg.md.jpg" alt=""></p>
-<p>里面人很多，加上游览顺序不是很好，就花了半天时间参观。一些照片拍的没有思路，就没有放在这里了。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="总结">总结</h2>
-</li>
-</ul>
-<p>最后还有一些遗憾的是遇难同胞纪念馆没有预约到，离住的地方比较远，也就没有去。希望以后有机会再来吧。</p>
-<p>这个暑假或许是最自由的一个假期了，以后不知道能不能像现在一样说走就走。这天气是真的很热，想静下心来游览的难度也很大。但这次旅游还是给了我从多天宅家中回到现实去经历和思考的一次机会，也算是有不小的收获。</p>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>旅游</tag>
       </tags>
   </entry>
   <entry>
@@ -627,9 +676,11 @@ $$</p>
 <hr>
 <h2 id="具体实现">具体实现</h2>
 <p>ADT定义：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">char</span> TElemType;<span class="comment">//可修改为其他数据类型</span></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">traverse</span> &#123; DLR = <span class="number">1</span>, LDR, LRD &#125;;<span class="comment">//遍历类型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">class</span> <span class="title class_">BiNode</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	TElemType data;<span class="comment">//数据域</span></span><br><span class="line">	BiNode* lchild, * rchild;<span class="comment">//左孩子、右孩子指针</span></span><br><span class="line">&#125;BiNode,* BiTree;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">char</span> TElemType;<span class="comment">//可修改为其他数据类型</span></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">traverse</span> &#123; DLR = <span class="number">1</span>, LDR, LRD &#125;;<span class="comment">//遍历类型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">class</span> <span class="title class_">BiNode</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    TElemType data;<span class="comment">//数据域</span></span><br><span class="line">    BiNode* lchild, * rchild;<span class="comment">//左孩子、右孩子指针</span></span><br><span class="line">&#125;BiNode,* BiTree;</span><br></pre></td></tr></table></figure>
 <p>操作集：（这里只放了最基本的操作集）</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//判空</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">IsEmpty</span><span class="params">(BiTree BT)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (BT == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//访问二叉树</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Visit</span><span class="params">(BiTree BT)</span> </span>&#123;</span><br><span class="line">	std::cout&lt;&lt;BT-&gt;data;</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//二叉树的遍历</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Traversal</span><span class="params">(BiTree BT,traverse way)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (BT == <span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="keyword">switch</span> (way) &#123;</span><br><span class="line">		<span class="keyword">case</span> DLR: &#123;</span><br><span class="line">			<span class="built_in">Visit</span>(BT);</span><br><span class="line">			<span class="built_in">Traversal</span>(BT-&gt;lchild, DLR);</span><br><span class="line">			<span class="built_in">Traversal</span>(BT-&gt;rchild, DLR);</span><br><span class="line">		&#125;</span><br><span class="line">			  <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> LDR: &#123;</span><br><span class="line">			<span class="built_in">Traversal</span>(BT-&gt;lchild, LDR);</span><br><span class="line">			std::cout &lt;&lt; BT-&gt;data;</span><br><span class="line">			<span class="built_in">Traversal</span>(BT-&gt;rchild, LDR);</span><br><span class="line">		&#125;</span><br><span class="line">			  <span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> LRD: &#123;</span><br><span class="line">			<span class="built_in">Traversal</span>(BT-&gt;lchild, LRD);</span><br><span class="line">			<span class="built_in">Traversal</span>(BT-&gt;rchild, LRD);</span><br><span class="line">			<span class="built_in">Visit</span>(BT);</span><br><span class="line">		&#125;</span><br><span class="line">			  <span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//先序创建二叉树</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CreateBiTree</span><span class="params">(BiTree &amp;T)</span> </span>&#123;</span><br><span class="line">	<span class="type">char</span> ch;</span><br><span class="line">	std::cin &gt;&gt; ch;</span><br><span class="line">	<span class="keyword">if</span> (ch == <span class="string">&#x27;#&#x27;</span>) &#123;</span><br><span class="line">		T = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		T = <span class="keyword">new</span> BiNode;</span><br><span class="line">		T-&gt;data = ch;</span><br><span class="line">		<span class="built_in">CreateBiTree</span>(T-&gt;lchild);</span><br><span class="line">		<span class="built_in">CreateBiTree</span>(T-&gt;rchild);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//判空</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">IsEmpty</span><span class="params">(BiTree BT)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (BT == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//访问二叉树</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Visit</span><span class="params">(BiTree BT)</span> </span>&#123;</span><br><span class="line">    std::cout&lt;&lt;BT-&gt;data;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//二叉树的遍历</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Traversal</span><span class="params">(BiTree BT,traverse way)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (BT == <span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> (way) &#123;</span><br><span class="line">        <span class="keyword">case</span> DLR: &#123;</span><br><span class="line">            <span class="built_in">Visit</span>(BT);</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;lchild, DLR);</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;rchild, DLR);</span><br><span class="line">        &#125;</span><br><span class="line">              <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> LDR: &#123;</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;lchild, LDR);</span><br><span class="line">            std::cout &lt;&lt; BT-&gt;data;</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;rchild, LDR);</span><br><span class="line">        &#125;</span><br><span class="line">              <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> LRD: &#123;</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;lchild, LRD);</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;rchild, LRD);</span><br><span class="line">            <span class="built_in">Visit</span>(BT);</span><br><span class="line">        &#125;</span><br><span class="line">              <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//先序创建二叉树</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CreateBiTree</span><span class="params">(BiTree &amp;T)</span> </span>&#123;</span><br><span class="line">    <span class="type">char</span> ch;</span><br><span class="line">    std::cin &gt;&gt; ch;</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">&#x27;#&#x27;</span>) &#123;</span><br><span class="line">        T = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        T = <span class="keyword">new</span> BiNode;</span><br><span class="line">        T-&gt;data = ch;</span><br><span class="line">        <span class="built_in">CreateBiTree</span>(T-&gt;lchild);</span><br><span class="line">        <span class="built_in">CreateBiTree</span>(T-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里创建二叉树的函数中，由于要对实参进行修改，首先考虑指针，而BiTree已经是BiNode的指针了，再使用指针就会产生指针的指针，这对代码的阅读上不太方便，因此这里采用了引用。</p>
+<p>参考资料：<a href="https://blog.csdn.net/Peealy/article/details/115835700">C++实现先序创建二叉树</a></p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -640,136 +691,144 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>Next主题更改引用blockquote以及内嵌代码code的颜色</title>
-    <url>/2023/05/19/blog4/</url>
-    <content><![CDATA[<h5 id="Next版本：7-8-0">Next版本：7.8.0</h5>
-<p>  因为设置了背景，所以往往有统一颜色的需求，此时占比较大的引用和代码的颜色较为明显，如果采用默认颜色会比较难看。在相同Next主题和版本下，可以这样设置：</p>
+    <title>Matlab复习</title>
+    <url>/2023/08/11/blog18-Matlabreview/</url>
+    <content><![CDATA[<p>自从考完研就把matlab扔了，现在为了后续的工作重新捡回来一些…</p>
+<p>具体内容可看官方文档：<a href="https://ww2.mathworks.cn/help/matlab/index.html?s_tid=hc_panel">MATLAB Documentation</a>，这里只放一些常用的内容。</p>
 <span id="more"></span>
+<h2 id="语言基础">语言基础</h2>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p>块引用</p>
+<p>输入命令</p>
 </li>
 </ul>
-<p>  首先cd到<code>..\next\source\css\_common\scaffolding</code>找到<code>base.styl</code>文件，打开ctrl+F搜索blockquote，对代码进行如下编辑：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#d0a7020d</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">4px</span> solid <span class="number">#d0a702</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--blockquote-color);</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">15px</span>;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">cite</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">5px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其中background是引用块的背景颜色，border-left即左边粗竖线的颜色，对#后面改成自己喜欢的颜色后重新部署即可。</p>
+<p>ans是一个内置变量，储存最近的运算结果。clc为清除命令行窗口，clear为清除工作区变量</p>
+<p>在matlab想要运行一个较长的代码块，往往需要建立脚本文件。</p>
+<p>要输出文本，可以调用disp函数：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;hello world&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>输入命令为input函数，这里可以附上提示性文字：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">reply=input(<span class="string">&#x27;Would you like to see an echo?(y/n):&#x27;</span>,<span class="string">&#x27;s&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>%用于注释一行，%{ %}用于注释多行，%%用于脚本里的代码分块，运行时可以看每一块的运行结果。</p>
+<p>在matlab中分号主要用于控制输出结果是否显示在命令行窗口。所以有时可不用分号。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p>内嵌代码</p>
+<p>矩阵和数组</p>
 </li>
 </ul>
-<p>  cd到<code>..\next\source\css\_variables</code>找到<code>base.styl</code>文件，打开找到code-background，同样将后面的颜色进行修改即可。</p>
-<p>  由于我还没有设置图床，就不放图片演示了😶</p>
-<p>  最后，如果版本不一致，也可以用开发者工具找到源代码进行修改。</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-        <category>Next美化</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>响应式Bilibili视频代码块测试</title>
-    <url>/2023/05/24/blog5/</url>
-    <content><![CDATA[<p>  首先在b站点击分享，复制嵌入代码，再按照如下格式编辑：</p>
-<span id="more"></span>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position: relative; width: 100%; height: 0; padding-bottom: 75%;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;//player.bilibili.com/player.html?aid=986143204&amp;bvid=BV1Ft4y1A73f&amp;cid=851363812&amp;page=1&quot;</span> <span class="attr">scrolling</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">framespacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">allowfullscreen</span>=<span class="string">&quot;true&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>下面是测试的效果：</p>
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
-    <iframe src="//player.bilibili.com/player.html?aid=986143204&bvid=BV1Ft4y1A73f&cid=851363812&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-</div>
-]]></content>
-      <categories>
-        <category>经验</category>
-        <category>Next美化</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构note（二）</title>
-    <url>/2023/07/26/blog13-DS2/</url>
-    <content><![CDATA[<h1>算法复杂度的一些简单实例</h1>
+<p>创建数组的常用函数有：</p>
+<p><code>zeros(n)</code>：返回值为一个n阶矩阵，元素均为0；</p>
+<p><code>zeros(a,b)</code>：返回一个a行b列的全0矩阵；</p>
+<p><code>ones(n)/ones(a,b)</code>：同上二者，元素全为1；</p>
+<p><code>eye(n)</code>：返回n阶单位阵；</p>
+<p><code>diag(n1,n2,..)</code>：创建对角元素为n1,n2,…的对角阵；</p>
+<p><code>linspace(x1,x2,n)</code>：创建一个由区间[x1,x2]中的n个等间距点。n不填时默认为100；</p>
+<p>还有冒号&quot;:&quot;的使用，如1:10就是一个1到10步长为1的向量。a：b：c代表从a到c步长为b的向量。</p>
+<p>确定大小的函数为<code>size(x)</code>：x可以是向量也可以是矩阵</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<h3 id="Algorithm01">Algorithm01</h3>
+<p>数据类型</p>
 </li>
 </ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm01</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> sum=<span class="number">0</span>,n=<span class="number">100</span>;</span><br><span class="line">    sum=(<span class="number">1</span>+n)*n/<span class="number">2</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一共进行了三步，这是一个$\mathcal{O}(1)$的算法.</p>
-<span id="more"></span>
+<p>在matlab中可以不定义元素的数据类型，matlab会默认将数据存储为double类型。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<h3 id="Algorithm02">Algorithm02</h3>
+<p>运算符和基本运算</p>
 </li>
 </ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm02</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>,i&lt;n;i++)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>for循环的执行次数即为$n$，故复杂度为$\mathcal{O}(n)$.</p>
+<p>算术运算、关系运算、逻辑运算、集合运算、按位运算等。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<h3 id="Algorithm03">Algorithm03</h3>
+<p>循环以及条件语句</p>
 </li>
 </ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm03</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> count=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(count&lt;n)&#123;</span><br><span class="line">        count=count*<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看到，要想把while语句走完，根据判断条件和循环节，需要$log_2n$次，忽略声明变量的常数次复杂度，可得复杂度为$\mathcal{O}(\log_2n)$.</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="Algorithm04">Algorithm04</h3>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm04</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=i;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,i+j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>外循环$i=0$时，内循环执行了$n$次；$i=1$时，内循环执行$n-1$次……故循环共执行了$n+(n-1)+…+1=\frac{n(n+1)}{2}$次，取最高次项，复杂度为$\mathcal{O}(n^2)$.</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="Algorithm05">Algorithm05</h3>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">function05</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;hello world!\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Algorithm05</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    n++;</span><br><span class="line">    function05(n);</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        function05(n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=i;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;hello world!\n&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第二个函数里调用了function05函数，故在第二个函数中计算，有$1+n+n<sup>2+\frac{n(n+1)}{2}$次，也即复杂度为$\mathcal{O}(n</sup>2)$.</p>
+<p>条件语法：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> expression</span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">elseif</span> expression</span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>循环语法(for)：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> index=values</span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%例：以 -0.2 为步长递增，并显示值。</span></span><br><span class="line"><span class="keyword">for</span> v=<span class="number">1.0</span>:<span class="number">-0.2</span>:<span class="number">0.0</span></span><br><span class="line">    <span class="built_in">disp</span>(v)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>循环语法(while)：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> expression</span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p><code>break</code>：用于终止循环</p>
+<p><code>continue</code>：将控制传递给 <code>for</code> 或 <code>while</code> 循环的下一迭代</p>
+<p><code>pause</code>：暂时停止执行 MATLAB</p>
+<hr>
+<h2 id="数据导入以及分析">数据导入以及分析</h2>
+<p>一些文本文件：</p>
+<table>
+<thead>
+<tr>
+<th><a href="https://ww2.mathworks.cn/help/matlab/ref/load.html"><code>load</code></a></th>
+<th>将文件变量加载到工作区中</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/save.html"><code>save</code></a></td>
+<td>将工作区变量保存到文件中</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/matlab.io.matfile.html"><code>matfile</code></a></td>
+<td>访问和更改 MAT 文件中的变量，而不必将文件加载到内存中</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/disp.html"><code>disp</code></a></td>
+<td>显示变量的值</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/formatteddisplaytext.html"><code>formattedDisplayText</code></a></td>
+<td>以字符串形式捕获显示输出</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/who.html"><code>who</code></a></td>
+<td>列出工作区中的变量</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/whos.html"><code>whos</code></a></td>
+<td>列出工作区中的变量及大小和类型</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/clear.html"><code>clear</code></a></td>
+<td>从工作区中删除项目、释放系统内存</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/clearvars.html"><code>clearvars</code></a></td>
+<td>清除内存中的变量</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/openvar.html"><code>openvar</code></a></td>
+<td>在变量编辑器或其他图形编辑工具中打开工作区变量</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/workspacebrowser.html"><code>workspace</code></a></td>
+<td>Open Workspace browser to manage workspace</td>
+</tr>
+</tbody>
+</table>
+<p>图像文件常用函数；</p>
+<table>
+<thead>
+<tr>
+<th><a href="https://ww2.mathworks.cn/help/matlab/ref/imread.html"><code>imread</code></a></th>
+<th>从图形文件读取图像</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/imwrite.html"><code>imwrite</code></a></td>
+<td>将图像写入图形文件</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/imshow.html"><code>imshow</code></a></td>
+<td><strong>显示图像</strong></td>
+</tr>
+</tbody>
+</table>
 ]]></content>
       <categories>
         <category>学习</category>
-        <category>数据结构</category>
+        <category>Matlab</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo-Next鼠标指针自定义</title>
-    <url>/2023/05/27/blog7/</url>
-    <content><![CDATA[<h4 id="准备材料">准备材料</h4>
-<p>  <code>.cur</code>或者<code>.ico</code>文件，不能太大（我试过超过1MB的素材不可用），<code>.ani</code>动态光标没试成功过。这些资源可以在<a href="https://zhutix.com/tag/cursors/">致美化</a>等途径中找到。</p>
-<span id="more"></span>
-<p>  这些文件建议下载到<code>../themes/source/images</code>中，也可以不下载而采用cdn。</p>
-<p>  这里Next版本为8.16。</p>
-<h4 id="文件修改">文件修改</h4>
-<p>  在<code>yourBlog/themes/next/source/css/_common/scaffolding</code>中找到<code>base.styl</code>，对里面的代码行进行编辑：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">+ <span class="attribute">cursor</span>: <span class="built_in">url</span>(/images/yourArrow.cur), auto;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">var</span>(--body-bg-color);</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--text-color);</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="variable">$font</span>-family-base;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="variable">$font</span>-size-base;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="variable">$line</span>-height-base;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">transition</span>: padding <span class="variable">$transition</span>-ease;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  在添加的这行代码里将<code>yourArrow.cur</code>改为下载的素材名即可。这个地方一般是放指针型鼠标，下面还有一个区域需要编辑：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">+ <span class="attribute">cursor</span>: <span class="built_in">url</span>(/images/yourHand.cur), auto<span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="variable">$link</span>-decoration-color;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--link-color);</span><br><span class="line">  <span class="comment">// For a:not(:any-link)</span></span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">outline</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  这个位置一般放的是手型鼠标，也就是将鼠标悬在链接上会变化成的手型样式，同样将<code>yourHand.cur</code>改成下载的素材名。</p>
-<h4 id="重新部署">重新部署</h4>
-<p>  修改后可以先在本地看看效果，如果成功，最后hexo三件套即可。</p>
-<p>下面再附上很多博客在用的鼠标指针cdn：</p>
-<blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur">https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur</a><br>
-<a href="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur">https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur</a></p>
-</blockquote>
-<p>对应指针型和手型，效果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur" alt="Arrow"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur" alt="Hand"></p>
-<p>用法就是将url括号里的链接替换为上述链接。</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-        <category>Next美化</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
+        <tag>Matlab</tag>
       </tags>
   </entry>
   <entry>
@@ -827,6 +886,56 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>Next主题更改引用blockquote以及内嵌代码code的颜色</title>
+    <url>/2023/05/19/blog4/</url>
+    <content><![CDATA[<h5 id="Next版本：7-8-0">Next版本：7.8.0</h5>
+<p>  因为设置了背景，所以往往有统一颜色的需求，此时占比较大的引用和代码的颜色较为明显，如果采用默认颜色会比较难看。在相同Next主题和版本下，可以这样设置：</p>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>块引用</p>
+</li>
+</ul>
+<p>  首先cd到<code>..\next\source\css\_common\scaffolding</code>找到<code>base.styl</code>文件，打开ctrl+F搜索blockquote，对代码进行如下编辑：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#d0a7020d</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">4px</span> solid <span class="number">#d0a702</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--blockquote-color);</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">15px</span>;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">cite</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">5px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中background是引用块的背景颜色，border-left即左边粗竖线的颜色，对#后面改成自己喜欢的颜色后重新部署即可。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>内嵌代码</p>
+</li>
+</ul>
+<p>  cd到<code>..\next\source\css\_variables</code>找到<code>base.styl</code>文件，打开找到code-background，同样将后面的颜色进行修改即可。</p>
+<p>  由于我还没有设置图床，就不放图片演示了😶</p>
+<p>  最后，如果版本不一致，也可以用开发者工具找到源代码进行修改。</p>
+]]></content>
+      <categories>
+        <category>经验</category>
+        <category>Next美化</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>响应式Bilibili视频代码块测试</title>
+    <url>/2023/05/24/blog5/</url>
+    <content><![CDATA[<p>  首先在b站点击分享，复制嵌入代码，再按照如下格式编辑：</p>
+<span id="more"></span>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position: relative; width: 100%; height: 0; padding-bottom: 75%;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;//player.bilibili.com/player.html?aid=986143204&amp;bvid=BV1Ft4y1A73f&amp;cid=851363812&amp;page=1&quot;</span> <span class="attr">scrolling</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">framespacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">allowfullscreen</span>=<span class="string">&quot;true&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>下面是测试的效果：</p>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
+    <iframe src="//player.bilibili.com/player.html?aid=986143204&bvid=BV1Ft4y1A73f&cid=851363812&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
+]]></content>
+      <categories>
+        <category>经验</category>
+        <category>Next美化</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>更新Next主题：v7.8-&gt;v8.16</title>
     <url>/2023/05/26/blog6/</url>
     <content><![CDATA[<p>  由于需要换valine为waline或twikoo，以及各种由于Next版本低导致的问题（相关的网络资源少、教程少等等），今天下定决心更新一下版本。</p>
@@ -838,6 +947,40 @@ $$</p>
       <categories>
         <category>经验</category>
         <category>Next升级</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo-Next鼠标指针自定义</title>
+    <url>/2023/05/27/blog7/</url>
+    <content><![CDATA[<h4 id="准备材料">准备材料</h4>
+<p>  <code>.cur</code>或者<code>.ico</code>文件，不能太大（我试过超过1MB的素材不可用），<code>.ani</code>动态光标没试成功过。这些资源可以在<a href="https://zhutix.com/tag/cursors/">致美化</a>等途径中找到。</p>
+<span id="more"></span>
+<p>  这些文件建议下载到<code>../themes/source/images</code>中，也可以不下载而采用cdn。</p>
+<p>  这里Next版本为8.16。</p>
+<h4 id="文件修改">文件修改</h4>
+<p>  在<code>yourBlog/themes/next/source/css/_common/scaffolding</code>中找到<code>base.styl</code>，对里面的代码行进行编辑：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">+ <span class="attribute">cursor</span>: <span class="built_in">url</span>(/images/yourArrow.cur), auto;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">var</span>(--body-bg-color);</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--text-color);</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="variable">$font</span>-family-base;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="variable">$font</span>-size-base;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="variable">$line</span>-height-base;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">transition</span>: padding <span class="variable">$transition</span>-ease;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  在添加的这行代码里将<code>yourArrow.cur</code>改为下载的素材名即可。这个地方一般是放指针型鼠标，下面还有一个区域需要编辑：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">+ <span class="attribute">cursor</span>: <span class="built_in">url</span>(/images/yourHand.cur), auto<span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="variable">$link</span>-decoration-color;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--link-color);</span><br><span class="line">  <span class="comment">// For a:not(:any-link)</span></span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">outline</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  这个位置一般放的是手型鼠标，也就是将鼠标悬在链接上会变化成的手型样式，同样将<code>yourHand.cur</code>改成下载的素材名。</p>
+<h4 id="重新部署">重新部署</h4>
+<p>  修改后可以先在本地看看效果，如果成功，最后hexo三件套即可。</p>
+<p>下面再附上很多博客在用的鼠标指针cdn：</p>
+<blockquote>
+<p><a href="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur">https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur</a><br>
+<a href="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur">https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur</a></p>
+</blockquote>
+<p>对应指针型和手型，效果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur" alt="Arrow"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur" alt="Hand"></p>
+<p>用法就是将url括号里的链接替换为上述链接。</p>
+]]></content>
+      <categories>
+        <category>经验</category>
+        <category>Next美化</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
@@ -934,58 +1077,6 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>一些庵野秀明风格的尝试</title>
-    <url>/2023/06/23/goodbye-graduate/</url>
-    <content><![CDATA[<h2 id="再见了，所有的张秀梅">再见了，所有的张秀梅</h2>
-<p>😎</p>
-<p>🤏🕶️</p>
-<p>😭</p>
-<span id="more"></span>
-<p><img src="https://i2.100024.xyz/2023/06/23/r3edka.webp" alt="1"></p>
-<p><img src="https://i2.100024.xyz/2023/06/23/r3evqt.webp" alt="2"></p>
-<p><img src="https://i2.100024.xyz/2023/06/23/r3f4wp.webp" alt="3"></p>
-<hr>
-<h3 id="参考教程：">参考教程：</h3>
-<ol>
-<li class="lvl-3">
-<p><a href="https://www.bilibili.com/video/BV1Uf4y1n7zK/?spm_id_from=333.788.recommend_more_video.4&amp;vd_source=e86cb514a2080267c3cb770f30a907f6">《One Last Kiss》专辑封面制作</a></p>
-</li>
-<li class="lvl-3">
-<p><a href="https://www.bilibili.com/video/BV14L411S7fu/?spm_id_from=333.999.0.0&amp;vd_source=e86cb514a2080267c3cb770f30a907f6">字体、图片素材和背景音乐等</a></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>毕业</tag>
-        <tag>庵野秀明风格</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20889;32473;26045;22025;35946;</title>
-    <url>/2023/06/18/linbiezengyan/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="7a5e939dbee177c124444d4e5070c2254d4bca5d513f53111bde3cf0c9d40b6e">e80960072eee56390c5704dab6ba0fae854db6dc0f835e374d2013bd94f4e08446a64f0f00b2e823f15c8b4d25422063807c03848af83195d447827db04ea04c11f9e6cc59be5ced9772478f31e7921bab1b8072bca090176edb64c256d9cb08a1f96d5ed9b3865957b5d4689104d11090373b5e76163d612ba0a36891740765c1976f7277f59c5c593087238d40e9ad126c850392c1457fba027cf9c2a5d391274fb74d1a71c88dd02079dc9ba0e8d3ba6ffb414c63ac7298933baa06914741b58cd643218b85dabea50b61721c9265e249e2cc655263fc7dba5889c6aa83961ae314b4ce348a9c59e61c62a21064d3715eae3030b120994e20db3ebe15a7aa3d47c3e029a1d39a8e5c4f5bb57ece3ed42b28d11a171889b742788de07eba7dd9c27fdaff27119bd9f2dc396b1727a43af4c74841f20404d72bad8b8796ac6b8c121d488a69671570633d672c8585176a925e5eba9b1e3e4a675245b1871ce768e50d32debef7cb7033071129ec4bf98cc6a5e30f89281fa26658821f7e3a5d5cdaf1669f909e20ddbfd0be7d07f7da4b9f9adb71127ab03e6e744ebe499ed02fdbdfff21af8aae11efaf5497386c1a34782e0bad69bb8710f43813154e0d22eff26a030f4d47aa28f1596ae6c05f4d6a50ce21af7ef75f9c0fcdd8bc3af04a8f83e5e527d151eae69bd9e7455ddaaa2af222fe1df8025142df6094b10da56bfffa6dc1e8c043a59683c2518f9d0683b2623192fb756538fcdcb6677cd75f6f16959d3b6127282d39c41ae0ef4291bf010aadf09eea0977acfeb11e023399be4814cbd46a09cc259ce2c83c7a27d43158b4e6ade8360db8a15744ebd4e0c8309dc37c45d5292806e6fe1abe26ce08adc466d893da7abb45906e104b3cf72e089f1dda74449cae8943ca379b30063102f86c392ee6bcadbc02d82bbc90ed1ac84aa560abcc83f44cf73276b73c0978509510d49b2302df463f08a234da96a77f274da4276a636ccc6321c7dedb31d1dfd48e5aac3dea1f9c633e48e497ab60f225ce4a47ae0415f348e508a49af8130961705489bb0f4df1b98b0fd79c791e7c96f3c562adc37a7b614045dda449ca08167038b3afa350af25f4ece3e34b49f0c84b72fc35f1ba2ea4e8f80190b994e508d48f7456215381dfe40d11159f1eba61681de87770f50a3628fb948538415ede7bc0d8f2f0b4306d28ada047b173791c743bc27d78beac7e1cb37aceaeb7d2930e2f0c778f1aeab90f7ee73ed408f724022367cc5bea018a4077af1fe23059ef7a039857f5d8d3bd30bdbe40c6953d392779b14d92cc5a41217a36425cd025ba1bc397664f2927af07a3fa92dceb341b1629cd8f1d7f20291afbc42811fb276a07b19498be01fb2a26235fe14303ca1e0b2639247a5ded8c4891e45d247bcf6cc2975c7befeffa21913de8263850ffa0faab433403b100dcc8bdca0798514e38c1848cfbec253f72b510de6383fe5b46719e267b2fabc3cea735cce81474a727945247347cce14714f19e22b75021f8d56d7b6b95a43c19e4682b151f73e6a273d8e3b1db235d3897d81f374fe1c183c0a52b256d6f0c98aa650c7bfdbcf62b7096d9a510d0120e4f957a3f6c3c09a203b8b6aee2d773d28a31e8bb93d083e963cef037d407abca14fc6bb3f5212e92a50fd36bb1cc6b5d85f3c80fc68f0f6adb997f3d0e4986132d4c7781c2aedee4c72b3170218e2e7fa3c66f4d079b6a5471b84a8fe07904d9289c535f9d9be0b85944fa36e7cb7e9d024eaf5222b1d91e6b5e124dbba1080d325533470510479fa23dc405e677a739311f5af3b1b5d1b9510d70b9e0fdb6448b0ac018448803806ff35a5be4c8e432bf554a640eb678d7cf05e8965fb60139b07328e3a6e68b2520c440b94fce46e0f067ae2bdc58ac61626adc33d74e5aaf94530252c891c2701ba572109f31371827ac92fd66ddda68d881584e52134a79783355da4af260e17bebc120e25a433b315d4a8764280bb7e77e0f5a9dc023b53416a466c6f851afe90931a40db98feae2cdb7a4e2bf762cc561eb748004affdef0aeb8f5ebc5fa4dbcc028d70223bbc773b1a7b5947b24d45764564128c4c978bd18e578a5a0ab12331c6038f5ed1bb1fbb9c2f8c49d027d603baadc78490a930d93764793b4d83ff93dd7acdb21e6afc7e1a69a5d34afe0e6fb2929f84421d3cf8b0a41079ed75ee498e7e7fff47f009175b37a55fd41397e43dc29c077ed31f03c991e9c2a1205b6998f850544de3817a970df4b3c97eba5d168ad549e2d807cfac1a52569f78e8f1a67917483662e839a2b704f2abc27f48ee1ceb2901e3b4e8c3e7caaed8f82486ce2ccc3019563624841889b41d4</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>临别赠言</category>
-      </categories>
-      <tags>
-        <tag>加密内容</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>更改waline主题颜色</title>
     <url>/2023/06/03/blog9-stylDIY/</url>
     <content><![CDATA[<p>  之前就想自定义waline的样式以适配当前的背景图，但又因为没学过css，也不会自己上传cdn，所以向waline的开发者求助，最后知道了<code>!important</code>大法，希望能给到和我一样没接触过css的博主一些参考。</p>
@@ -1032,10 +1123,10 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>20889;32473;39038;26159;30003;</title>
-    <url>/2023/06/18/linbiezengyan2/</url>
+    <title>20889;32473;26045;22025;35946;</title>
+    <url>/2023/06/18/linbiezengyan/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="15cfbd87b87bb6f58699d81bed622094af91e9e2c834ae3fd7a65bc4e1f4f3ad">ff237e079a879a02e65405b26b486dd1529cd862ab8dfd048115e1c94775c41337517e9f2dec349b0966dc56c310a4a4467f0c6c33fcbb3f50c6a37c8421136192876c9cf989e8fdd54a428b3063ecf106bda2a143d0c249448fff0b774d9b0f7bcd25d7317d0b870c545ac71bbe62dd7bbbe694fe7ee79f79d5499baab02dd72a1367d60ea463707b4130651e3005dabfe877b5d59439fef114b1bb2908b20250df4c3918db950a37fa9dd5cb65c1cd38ab538b3581ca5938aa0a156880008ca5f1c4769b2fb95bf4d84f0defceeb9fca992d1f8977090f5503af32ca3ed0f9b9858943429f4cfb6bf70b7189dd5b57be65868cd30426bfcb7580b41ea026958c07aa197e167218172285dad3a897405e429d7d85475853121a2fd13b4fa12d492e044a911cfd799bbb61d41d29642a6c1445d3d431880e7b6927f7ebd9799974b560c9a5106ee4f82c4b9ad9d3059c00575d4b91febaea3a41f64059626e135a5058db2540eba6d4adfbdd940e1b613d2e6c1f1aed16c42a7cba2e137050860faf7096b9d1c7ee5e4c84f2dcdf4c53895eb087fad9fac7bfb415cbe058a7a944c57a3550c27b631542772c4dced82fbb5a0dc6b728c61f42579ac08e71085644d8ebc1ac80c16a07cbae690a4350f73660a658c13b4ec717b3641b701937068724eb3be387b49e512de2c63754a4c97d1a8abe1df1a8da6835dd697f197f596357e287e2ffe367d3a7e4fb8cc60def0600bf965be382d79c39d0500928ec072fdcaccbb785b77ff1eb4cdf3ee2ac36405ac6c710b3596405948e6483bd3059258ffb446218005f995ba349840f838cf7d243dd4c81a7781fc9c15b5bfdd4b7859421117994240fcdbb99c7e96e6c260f487106f365475397f8708e4df0ba849fddf522f709374d0aa3a3cf69ff46d9e860918ea57557375d2d25611e30df37fcd20dcf8f9131716aaeeafc33d1d714199acfee6719a958c7d73ab784d9eb0071d813347e9ab83aa06bc5250e2f0c88cca4bf23b6921d6976e177d1a323da55529f62f81b50c818a79a69f8b12d13c1808dd6d1254266c8d5792c5eb0e09c03056645cb905625bb83b54db6a8034564770adedd51d926aa5248d67e2e9f1be1a7d034aed054f045d84ba41ba3e2ded3fef6c9c491683978d3be275ae2b1de6d720286e6b660f21815c3ff0b25771d3484d987cf6034e13f4a1064eea2c58ebd86540c9eae96489423962aa03f8498990abafa6a2cd8577e79177b75497a7b7ea478556e19971b5873b3476418ae2bf3cfe594f765d877a821c76471085fc095b0106edcb3a4a6ec49db8d7eafd209766bb3fd93acf7f361b2bc26dfc419f3d619275331b7e179164d867f77bec53feb60e66de7bb11862f74642df20f55443b750388508632853fdb8a2c43bd6c3141</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="7a5e939dbee177c124444d4e5070c2254d4bca5d513f53111bde3cf0c9d40b6e">e80960072eee56390c5704dab6ba0fae854db6dc0f835e374d2013bd94f4e08446a64f0f00b2e823f15c8b4d25422063807c03848af83195d447827db04ea04c11f9e6cc59be5ced9772478f31e7921bab1b8072bca090176edb64c256d9cb08a1f96d5ed9b3865957b5d4689104d11090373b5e76163d612ba0a36891740765c1976f7277f59c5c593087238d40e9ad126c850392c1457fba027cf9c2a5d391274fb74d1a71c88dd02079dc9ba0e8d3ba6ffb414c63ac7298933baa06914741b58cd643218b85dabea50b61721c9265e249e2cc655263fc7dba5889c6aa83961ae314b4ce348a9c59e61c62a21064d3715eae3030b120994e20db3ebe15a7aa3d47c3e029a1d39a8e5c4f5bb57ece3ed42b28d11a171889b742788de07eba7dd9c27fdaff27119bd9f2dc396b1727a43af4c74841f20404d72bad8b8796ac6b8c121d488a69671570633d672c8585176a925e5eba9b1e3e4a675245b1871ce768e50d32debef7cb7033071129ec4bf98cc6a5e30f89281fa26658821f7e3a5d5cdaf1669f909e20ddbfd0be7d07f7da4b9f9adb71127ab03e6e744ebe499ed02fdbdfff21af8aae11efaf5497386c1a34782e0bad69bb8710f43813154e0d22eff26a030f4d47aa28f1596ae6c05f4d6a50ce21af7ef75f9c0fcdd8bc3af04a8f83e5e527d151eae69bd9e7455ddaaa2af222fe1df8025142df6094b10da56bfffa6dc1e8c043a59683c2518f9d0683b2623192fb756538fcdcb6677cd75f6f16959d3b6127282d39c41ae0ef4291bf010aadf09eea0977acfeb11e023399be4814cbd46a09cc259ce2c83c7a27d43158b4e6ade8360db8a15744ebd4e0c8309dc37c45d5292806e6fe1abe26ce08adc466d893da7abb45906e104b3cf72e089f1dda74449cae8943ca379b30063102f86c392ee6bcadbc02d82bbc90ed1ac84aa560abcc83f44cf73276b73c0978509510d49b2302df463f08a234da96a77f274da4276a636ccc6321c7dedb31d1dfd48e5aac3dea1f9c633e48e497ab60f225ce4a47ae0415f348e508a49af8130961705489bb0f4df1b98b0fd79c791e7c96f3c562adc37a7b614045dda449ca08167038b3afa350af25f4ece3e34b49f0c84b72fc35f1ba2ea4e8f80190b994e508d48f7456215381dfe40d11159f1eba61681de87770f50a3628fb948538415ede7bc0d8f2f0b4306d28ada047b173791c743bc27d78beac7e1cb37aceaeb7d2930e2f0c778f1aeab90f7ee73ed408f724022367cc5bea018a4077af1fe23059ef7a039857f5d8d3bd30bdbe40c6953d392779b14d92cc5a41217a36425cd025ba1bc397664f2927af07a3fa92dceb341b1629cd8f1d7f20291afbc42811fb276a07b19498be01fb2a26235fe14303ca1e0b2639247a5ded8c4891e45d247bcf6cc2975c7befeffa21913de8263850ffa0faab433403b100dcc8bdca0798514e38c1848cfbec253f72b510de6383fe5b46719e267b2fabc3cea735cce81474a727945247347cce14714f19e22b75021f8d56d7b6b95a43c19e4682b151f73e6a273d8e3b1db235d3897d81f374fe1c183c0a52b256d6f0c98aa650c7bfdbcf62b7096d9a510d0120e4f957a3f6c3c09a203b8b6aee2d773d28a31e8bb93d083e963cef037d407abca14fc6bb3f5212e92a50fd36bb1cc6b5d85f3c80fc68f0f6adb997f3d0e4986132d4c7781c2aedee4c72b3170218e2e7fa3c66f4d079b6a5471b84a8fe07904d9289c535f9d9be0b85944fa36e7cb7e9d024eaf5222b1d91e6b5e124dbba1080d325533470510479fa23dc405e677a739311f5af3b1b5d1b9510d70b9e0fdb6448b0ac018448803806ff35a5be4c8e432bf554a640eb678d7cf05e8965fb60139b07328e3a6e68b2520c440b94fce46e0f067ae2bdc58ac61626adc33d74e5aaf94530252c891c2701ba572109f31371827ac92fd66ddda68d881584e52134a79783355da4af260e17bebc120e25a433b315d4a8764280bb7e77e0f5a9dc023b53416a466c6f851afe90931a40db98feae2cdb7a4e2bf762cc561eb748004affdef0aeb8f5ebc5fa4dbcc028d70223bbc773b1a7b5947b24d45764564128c4c978bd18e578a5a0ab12331c6038f5ed1bb1fbb9c2f8c49d027d603baadc78490a930d93764793b4d83ff93dd7acdb21e6afc7e1a69a5d34afe0e6fb2929f84421d3cf8b0a41079ed75ee498e7e7fff47f009175b37a55fd41397e43dc29c077ed31f03c991e9c2a1205b6998f850544de3817a970df4b3c97eba5d168ad549e2d807cfac1a52569f78e8f1a67917483662e839a2b704f2abc27f48ee1ceb2901e3b4e8c3e7caaed8f82486ce2ccc3019563624841889b41d4</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -1076,10 +1167,40 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>20889;32473;21346;24518;25991;</title>
-    <url>/2023/06/20/linbiezengyan7/</url>
+    <title>一些庵野秀明风格的尝试</title>
+    <url>/2023/06/23/goodbye-graduate/</url>
+    <content><![CDATA[<h2 id="再见了，所有的张秀梅">再见了，所有的张秀梅</h2>
+<p>😎</p>
+<p>🤏🕶️</p>
+<p>😭</p>
+<span id="more"></span>
+<p><img src="https://i2.100024.xyz/2023/06/23/r3edka.webp" alt="1"></p>
+<p><img src="https://i2.100024.xyz/2023/06/23/r3evqt.webp" alt="2"></p>
+<p><img src="https://i2.100024.xyz/2023/06/23/r3f4wp.webp" alt="3"></p>
+<hr>
+<h3 id="参考教程：">参考教程：</h3>
+<ol>
+<li class="lvl-3">
+<p><a href="https://www.bilibili.com/video/BV1Uf4y1n7zK/?spm_id_from=333.788.recommend_more_video.4&amp;vd_source=e86cb514a2080267c3cb770f30a907f6">《One Last Kiss》专辑封面制作</a></p>
+</li>
+<li class="lvl-3">
+<p><a href="https://www.bilibili.com/video/BV14L411S7fu/?spm_id_from=333.999.0.0&amp;vd_source=e86cb514a2080267c3cb770f30a907f6">字体、图片素材和背景音乐等</a></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>毕业</tag>
+        <tag>庵野秀明风格</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20889;32473;39038;26159;30003;</title>
+    <url>/2023/06/18/linbiezengyan2/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="15d468a53fbf778c09212139afd6855a3c29ddde0741916eeb3404f87d94a97b">05e3a79ef22e0826625230940c5fddce2891a51276951a65bc11c9a7f09f063d289a092c42b9985855000e616059bc04ac7a6ef4c2aaa41fe4354fed28df44d9af1d99832f950f41d9acc97f8c9227a10d8341f0bde486b14350929f8fd25a83bdf1bc695c081871db83049cd691549c9c2b2223a8474054dd21949be105776ed5526761bec5bbe393b11a46a5d54763d5395285da9ae9b9cf9d24a597661e892da109e643eb50b8d2e937822a0626ec0d5bfd00ff600fd95a497ca361001a9783792d346318ce401b205554cff40b44344581289851b357b7949c0bacc5506cbc209be65f8579f4e14146fcdaeb58289c3b22eb877ccac80f637624bdc00978ab5b1094e939483082c58c691530837f38dd6142fbae734817c9d91dc377ba05f2aa0ea7d39b5c413bae4af6345af885b06d62b199bcea42807b4c6f3f0eb94121a46ab2add3e99db0cb6644992777113010eddd5ed2056a8de63e46d3d050318dc8b9d8f5a1cb89d38dbc1dc691d0ef0be4069d58ee30e2f8f9c0e8d2e9009225c0a77f84c2ed6e85c822dc6c3881dcafc8c3da63d51b2dcf14398fcde21fd1967e9099ed26fe13d20cefdc9530128af515f3602e063d5dd4ec8927f2742a7172b1626177ba38dfdb90c304a0cd4d5f08794d470b38432761c65d6f18a2ab6d0505501fe232f15c84acc9a2c62fe2d876d34f2d162a23159211bc49dc2f055b681f101c386fd12efbc6470bb6035117f4edd5cbbd42f89e2c70a538f19478b59efb6635ca3a243a267f8a077a034001c6417ac237362b95eb6faba05b6fe508a9b25abb32d73305ebdf98720ad936e3f7456d4e839f2a8f6e4911f911849408afd68f2ab4f74da5c3b20cb48dd4f1f10800e96f4757fa6f1aa958da1bf1056685367c32fe890baf70cde3a10f6982e026c39abe6de62ebd7e97d7b7bed2a13b35fdabf4a973226b45a8672bdcad41d1ebfdf98756867cd3e9e37d970fcb0b970a9e5ad6fa628631a9d1452d9083d2a9619ca820937d96c20cf1154a5f5959df16b0d73af49a266c268a38ea827aee19a85e4bdddc340f8a7ee61bf78660ba6e</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="15cfbd87b87bb6f58699d81bed622094af91e9e2c834ae3fd7a65bc4e1f4f3ad">ff237e079a879a02e65405b26b486dd1529cd862ab8dfd048115e1c94775c41337517e9f2dec349b0966dc56c310a4a4467f0c6c33fcbb3f50c6a37c8421136192876c9cf989e8fdd54a428b3063ecf106bda2a143d0c249448fff0b774d9b0f7bcd25d7317d0b870c545ac71bbe62dd7bbbe694fe7ee79f79d5499baab02dd72a1367d60ea463707b4130651e3005dabfe877b5d59439fef114b1bb2908b20250df4c3918db950a37fa9dd5cb65c1cd38ab538b3581ca5938aa0a156880008ca5f1c4769b2fb95bf4d84f0defceeb9fca992d1f8977090f5503af32ca3ed0f9b9858943429f4cfb6bf70b7189dd5b57be65868cd30426bfcb7580b41ea026958c07aa197e167218172285dad3a897405e429d7d85475853121a2fd13b4fa12d492e044a911cfd799bbb61d41d29642a6c1445d3d431880e7b6927f7ebd9799974b560c9a5106ee4f82c4b9ad9d3059c00575d4b91febaea3a41f64059626e135a5058db2540eba6d4adfbdd940e1b613d2e6c1f1aed16c42a7cba2e137050860faf7096b9d1c7ee5e4c84f2dcdf4c53895eb087fad9fac7bfb415cbe058a7a944c57a3550c27b631542772c4dced82fbb5a0dc6b728c61f42579ac08e71085644d8ebc1ac80c16a07cbae690a4350f73660a658c13b4ec717b3641b701937068724eb3be387b49e512de2c63754a4c97d1a8abe1df1a8da6835dd697f197f596357e287e2ffe367d3a7e4fb8cc60def0600bf965be382d79c39d0500928ec072fdcaccbb785b77ff1eb4cdf3ee2ac36405ac6c710b3596405948e6483bd3059258ffb446218005f995ba349840f838cf7d243dd4c81a7781fc9c15b5bfdd4b7859421117994240fcdbb99c7e96e6c260f487106f365475397f8708e4df0ba849fddf522f709374d0aa3a3cf69ff46d9e860918ea57557375d2d25611e30df37fcd20dcf8f9131716aaeeafc33d1d714199acfee6719a958c7d73ab784d9eb0071d813347e9ab83aa06bc5250e2f0c88cca4bf23b6921d6976e177d1a323da55529f62f81b50c818a79a69f8b12d13c1808dd6d1254266c8d5792c5eb0e09c03056645cb905625bb83b54db6a8034564770adedd51d926aa5248d67e2e9f1be1a7d034aed054f045d84ba41ba3e2ded3fef6c9c491683978d3be275ae2b1de6d720286e6b660f21815c3ff0b25771d3484d987cf6034e13f4a1064eea2c58ebd86540c9eae96489423962aa03f8498990abafa6a2cd8577e79177b75497a7b7ea478556e19971b5873b3476418ae2bf3cfe594f765d877a821c76471085fc095b0106edcb3a4a6ec49db8d7eafd209766bb3fd93acf7f361b2bc26dfc419f3d619275331b7e179164d867f77bec53feb60e66de7bb11862f74642df20f55443b750388508632853fdb8a2c43bd6c3141</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -1142,10 +1263,10 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>20889;32473;21556;23384;21644;</title>
-    <url>/2023/06/20/linbiezengyan5/</url>
+    <title>20889;32473;21346;24518;25991;</title>
+    <url>/2023/06/20/linbiezengyan7/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="3b2d7e973a3f3cc6b32ad1cc6072da5400de9addc17f6298c6cee7587028dd79">d356183645db3b418b139bdb9e96d7fbbb3bf0f94a41f93e166cdfeec6d3ecc5d20bc0a999508a810aa3855d33c7f1ef9939d685a664e5c9d210d8239e0313af5475df80a0d40206ccf2081f25bccae12daea88ddec88d8cae3141c5d55c35aa62e2f90dc68244da9033b68a9bfdd9cf0ee59de674be46a338e22999734483ac4157c1996373af3d7a703d5f0bf3075c16f0ce475a1df47b140e3957fc68d7ec65d4a52ed4e0ca0e0edb1da5e426f89da82a20186012e64070337c7e8bb76e0e7deb7ee462aa0536971ff2bf12a39492ebd2325e1422a7f69012d415547ac90c28d63b716007754860082411f3be792a9c9d4e506c531b24b6d7ec8034f92d649456d81398043e6aac869fc8e47dcf07c5197145977a46f916dccadf681ae06d0069e3ca00b6129289382d30de3120cdce3034d77d6287f0e3c2b72edde52f3569eb1d33f01adf549e1b6e0d9da9316ef74bb3517f5105751a7743e70265c9739fbe5cbeeabf99cf6b076fb9da5d5ef7925e9e1caf461027c48c32a718466f2d4eb97585fe2bb1a97eea263e784c66e1b78cb6d80297b89a1ebbc451613b56e4d9b83cfb0c39fc8a0e400d97b2959d0b2182408a57b13f6a91466524a58803824a32ae96f3a513e309f0061e446b1018ee49af0edecf2d85de7863ad21e35b3a3b38e36ad8527e43c7a4f3a149e55e7295d967663c23a36c08683fd4acd0d5da51b8642398b920a33895f070f15739666403faf31f068aacb06326eaf3aa1ccf642424e9ac737391378e64b54555a1998d6e3de0883c10cc2ac76f11c64610b0c775644b88e30814f3d25c3db91a70ca348fea2830093967eba080a9f5b1fb4725315c2dcfc9e1a6aa07491b0ea39a0d52d8f6a7b9a6860232346f62d67fa55e40ac2a502cbf640e84910c1ed5e1dbf55d858e5e0db3307c843e6375936731888889e90b8e3149a215d265343bfcb412e57cfb30df31d365dbd83d6ee1834d47d05d462347b7e938fe1f71bdc5417a575289a6c85fc5aa25366b13ac1ecb32c6c4135db60659c4b05e09a3e1a7f6521a188b9f2048670d24a2b09724753f2c0adfdb03d6765efbf2f06743e7823012d3d7ca3d8cdd3d3f70f76a4bbb77182ce44b9c4b7c36173878117faded5bbfb90c1e14acf1c85855293cdb66cb983754f3bed18d5384e306dfd239a5520239ea00a296dbc5cb2aa4c0c2e96484ebc368962f5b221eb6d2521db66d4619447ff0326626e19aaa7e5c86b2f00e0854251f00c5ff63bbc910a7b9324843dc712dc4e59692e0125c3650e1e5bb099ab94105d11588409db1de3630cf12be557ce9a97905645a2032a2e188c3730d3a24077723c9490fb57c62f9998eb3a65e6f316ddfb81420883c037dab3b1e7f28628b8b4c0ac7252abc9f91db89a30c7e6b338490a787555b9cf3b41d5230f81763aa5e38e80ece0fa0a83283199856b86232d9de99f1f500ccf45a61fc756c4b095e79a41904a60fcf28a7a313c85a58ca759ec69680b012fe6958e7e6c0459858c610e92e4a83e6f68bd1cd69b5f4f757502d7b5dc5f26ebdd87358fb7647f4051d6475</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="15d468a53fbf778c09212139afd6855a3c29ddde0741916eeb3404f87d94a97b">05e3a79ef22e0826625230940c5fddce2891a51276951a65bc11c9a7f09f063d289a092c42b9985855000e616059bc04ac7a6ef4c2aaa41fe4354fed28df44d9af1d99832f950f41d9acc97f8c9227a10d8341f0bde486b14350929f8fd25a83bdf1bc695c081871db83049cd691549c9c2b2223a8474054dd21949be105776ed5526761bec5bbe393b11a46a5d54763d5395285da9ae9b9cf9d24a597661e892da109e643eb50b8d2e937822a0626ec0d5bfd00ff600fd95a497ca361001a9783792d346318ce401b205554cff40b44344581289851b357b7949c0bacc5506cbc209be65f8579f4e14146fcdaeb58289c3b22eb877ccac80f637624bdc00978ab5b1094e939483082c58c691530837f38dd6142fbae734817c9d91dc377ba05f2aa0ea7d39b5c413bae4af6345af885b06d62b199bcea42807b4c6f3f0eb94121a46ab2add3e99db0cb6644992777113010eddd5ed2056a8de63e46d3d050318dc8b9d8f5a1cb89d38dbc1dc691d0ef0be4069d58ee30e2f8f9c0e8d2e9009225c0a77f84c2ed6e85c822dc6c3881dcafc8c3da63d51b2dcf14398fcde21fd1967e9099ed26fe13d20cefdc9530128af515f3602e063d5dd4ec8927f2742a7172b1626177ba38dfdb90c304a0cd4d5f08794d470b38432761c65d6f18a2ab6d0505501fe232f15c84acc9a2c62fe2d876d34f2d162a23159211bc49dc2f055b681f101c386fd12efbc6470bb6035117f4edd5cbbd42f89e2c70a538f19478b59efb6635ca3a243a267f8a077a034001c6417ac237362b95eb6faba05b6fe508a9b25abb32d73305ebdf98720ad936e3f7456d4e839f2a8f6e4911f911849408afd68f2ab4f74da5c3b20cb48dd4f1f10800e96f4757fa6f1aa958da1bf1056685367c32fe890baf70cde3a10f6982e026c39abe6de62ebd7e97d7b7bed2a13b35fdabf4a973226b45a8672bdcad41d1ebfdf98756867cd3e9e37d970fcb0b970a9e5ad6fa628631a9d1452d9083d2a9619ca820937d96c20cf1154a5f5959df16b0d73af49a266c268a38ea827aee19a85e4bdddc340f8a7ee61bf78660ba6e</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -1202,6 +1323,28 @@ $$</p>
       </categories>
       <tags>
         <tag>建站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20889;32473;21556;23384;21644;</title>
+    <url>/2023/06/20/linbiezengyan5/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="3b2d7e973a3f3cc6b32ad1cc6072da5400de9addc17f6298c6cee7587028dd79">d356183645db3b418b139bdb9e96d7fbbb3bf0f94a41f93e166cdfeec6d3ecc5d20bc0a999508a810aa3855d33c7f1ef9939d685a664e5c9d210d8239e0313af5475df80a0d40206ccf2081f25bccae12daea88ddec88d8cae3141c5d55c35aa62e2f90dc68244da9033b68a9bfdd9cf0ee59de674be46a338e22999734483ac4157c1996373af3d7a703d5f0bf3075c16f0ce475a1df47b140e3957fc68d7ec65d4a52ed4e0ca0e0edb1da5e426f89da82a20186012e64070337c7e8bb76e0e7deb7ee462aa0536971ff2bf12a39492ebd2325e1422a7f69012d415547ac90c28d63b716007754860082411f3be792a9c9d4e506c531b24b6d7ec8034f92d649456d81398043e6aac869fc8e47dcf07c5197145977a46f916dccadf681ae06d0069e3ca00b6129289382d30de3120cdce3034d77d6287f0e3c2b72edde52f3569eb1d33f01adf549e1b6e0d9da9316ef74bb3517f5105751a7743e70265c9739fbe5cbeeabf99cf6b076fb9da5d5ef7925e9e1caf461027c48c32a718466f2d4eb97585fe2bb1a97eea263e784c66e1b78cb6d80297b89a1ebbc451613b56e4d9b83cfb0c39fc8a0e400d97b2959d0b2182408a57b13f6a91466524a58803824a32ae96f3a513e309f0061e446b1018ee49af0edecf2d85de7863ad21e35b3a3b38e36ad8527e43c7a4f3a149e55e7295d967663c23a36c08683fd4acd0d5da51b8642398b920a33895f070f15739666403faf31f068aacb06326eaf3aa1ccf642424e9ac737391378e64b54555a1998d6e3de0883c10cc2ac76f11c64610b0c775644b88e30814f3d25c3db91a70ca348fea2830093967eba080a9f5b1fb4725315c2dcfc9e1a6aa07491b0ea39a0d52d8f6a7b9a6860232346f62d67fa55e40ac2a502cbf640e84910c1ed5e1dbf55d858e5e0db3307c843e6375936731888889e90b8e3149a215d265343bfcb412e57cfb30df31d365dbd83d6ee1834d47d05d462347b7e938fe1f71bdc5417a575289a6c85fc5aa25366b13ac1ecb32c6c4135db60659c4b05e09a3e1a7f6521a188b9f2048670d24a2b09724753f2c0adfdb03d6765efbf2f06743e7823012d3d7ca3d8cdd3d3f70f76a4bbb77182ce44b9c4b7c36173878117faded5bbfb90c1e14acf1c85855293cdb66cb983754f3bed18d5384e306dfd239a5520239ea00a296dbc5cb2aa4c0c2e96484ebc368962f5b221eb6d2521db66d4619447ff0326626e19aaa7e5c86b2f00e0854251f00c5ff63bbc910a7b9324843dc712dc4e59692e0125c3650e1e5bb099ab94105d11588409db1de3630cf12be557ce9a97905645a2032a2e188c3730d3a24077723c9490fb57c62f9998eb3a65e6f316ddfb81420883c037dab3b1e7f28628b8b4c0ac7252abc9f91db89a30c7e6b338490a787555b9cf3b41d5230f81763aa5e38e80ece0fa0a83283199856b86232d9de99f1f500ccf45a61fc756c4b095e79a41904a60fcf28a7a313c85a58ca759ec69680b012fe6958e7e6c0459858c610e92e4a83e6f68bd1cd69b5f4f757502d7b5dc5f26ebdd87358fb7647f4051d6475</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>临别赠言</category>
+      </categories>
+      <tags>
+        <tag>加密内容</tag>
       </tags>
   </entry>
 </search>
