@@ -29,7 +29,7 @@
 <meta property="og:description" content="出于将认识的对象按照一些特征进行分类的必要，聚类分析（cluster analyses）作为一种定量方法，将从数据分析的角度，给出一个更准确、细致的分类工具。  1 相似性的刻画 因为要对对象在数量的角度进行分类，所以要引入相似性的概念。相似的东西会被归为一类，这是自然的思想。如果对于一群有待分类的样本点需用$p$个变量描述，则每个样本点可以看成是$R^p$空间中的一个点。因此，很自然地想到可以">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-08-16T13:16:55.000Z">
-<meta property="article:modified_time" content="2023-08-16T13:20:27.019Z">
+<meta property="article:modified_time" content="2023-08-17T09:13:39.786Z">
 <meta property="article:author" content="雁来廿陆">
 <meta property="article:tag" content="多元分析">
 <meta name="twitter:card" content="summary">
@@ -156,7 +156,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -504,9 +504,15 @@ if(canvas.getContext){
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2023-08-16 21:16:55 / 修改时间：21:20:27" itemprop="dateCreated datePublished" datetime="2023-08-16T21:16:55+08:00">2023-08-16</time>
+      <time title="创建时间：2023-08-16 21:16:55" itemprop="dateCreated datePublished" datetime="2023-08-16T21:16:55+08:00">2023-08-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-08-17 17:13:39" itemprop="dateModified" datetime="2023-08-17T17:13:39+08:00">2023-08-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -518,7 +524,7 @@ if(canvas.getContext){
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E7%BB%9F%E8%AE%A1%E6%96%B9%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">统计方法</span></a>
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E5%85%83%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">多元分析</span></a>
         </span>
     </span>
 
@@ -551,14 +557,14 @@ if(canvas.getContext){
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.8k</span>
+      <span>2.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -575,7 +581,7 @@ if(canvas.getContext){
 <p>因为要对对象在数量的角度进行分类，所以要引入相似性的概念。相似的东西会被归为一类，这是自然的思想。如果对于一群有待分类的样本点需用$p$个变量描述，则每个样本点可以看成是$R^p$空间中的一个点。因此，很自然地想到可以用<mark>距离</mark>来度量样本点间的相似程度。</p>
 <span id="more"></span>
 <h4 id="1-1-样本间的相似性度量">1.1 样本间的相似性度量</h4>
-<p>记$\Omega$是样本点集，距离$d(x,y)$是$\Omega\times\Omega\rarr R^+$的一个函数，满足条件：</p>
+<p>记$\Omega$是样本点集，距离$d(x,y)$是$\Omega\times\Omega\rightarrow R^+$的一个函数，满足条件：</p>
 <ol>
 <li class="lvl-3">
 <p>$d(x,y)\ge0,x,y\in\Omega$;</p>
@@ -594,7 +600,7 @@ if(canvas.getContext){
 <p>而其中最常用的是<strong>欧式距离</strong>。其优点是当坐标轴正交旋转时，欧氏距离保持不变。</p>
 <p>要注意采用Minkowski距离时，要采用相同量纲的变量，否则若测量值变异范围悬殊时，建议先进行数据标准化。此外，还应避免变量的多重相关性。其造成的信息重叠会片面强调某些变量的重要性。由于这些缺点的存在，一个改进的距离就是<strong>马氏距离</strong>，定义如下：</p>
 <p>$$<br>
-d\left( x,y \right) =\sqrt{\left( x-y \right) ^T\Sigma ^{-1}\left( x-y \right)}<br>
+d( x,y ) =\sqrt{( x-y ) ^T\Sigma ^{-1}( x-y )}<br>
 $$</p>
 <p>x，y来自p维总体Z的样本观测值，$\Sigma$是Z的协方差矩阵。实际中$\Sigma$往往不知道，需要用样本协方差估计。马氏距离对所有线性变换是不变的，因此不受量纲影响。</p>
 <h4 id="1-2-类与类间的相似性度量">1.2 类与类间的相似性度量</h4>
@@ -603,10 +609,10 @@ $$</p>
 <li class="lvl-3">
 <p>最短距离法：</p>
 <p>$$<br>
-D\left( G_1,G_2 \right) =\underset{\begin{array}{c}<br>
+D( G_1,G_2) =\underset{\begin{array}{c}<br>
 x_i\in G_1\<br>
 y_j\in G_2\<br>
-\end{array}}{\min}\left{ d\left( x_i,y_j \right) \right}<br>
+\end{array}}{\min}{ d( x_i,y_j)}<br>
 $$</p>
 </li>
 <li class="lvl-3">
@@ -616,7 +622,7 @@ $$</p>
 <li class="lvl-3">
 <p>重心法：</p>
 <p>$$<br>
-D\left( G_1,G_2 \right) =d\left( \bar{x},\bar{y} \right)<br>
+D(G_1,G_2) =d(\bar{x},\bar{y})<br>
 $$</p>
 </li>
 <li class="lvl-3">
@@ -657,18 +663,9 @@ $$</p>
 <ol>
 <li class="lvl-3">
 <p>相关系数</p>
-<p>记变量$x_j$的取值$(x_{1j},x_{2j},…,x_{nj})^T \in R^n(j=1,2,…,m)$，则可以用两变量$x_j$与$x_k$的样本相关系数作为他们的相似性度量：（形成一个相关度矩阵）</p>
-<p>$$<br>
-r_{jk}=\frac{\sum_{i=1}^n{\left( x_{ij}-\bar{x}<em>j \right) \left( x</em>{ik}-\bar{x}<em>k \right)}}{\left[ \sum</em>{i=1}^n{\left( x_{ij}-\bar{x}<em>j \right) <sup>2}\sum_{i=1}</sup>n{\left( x</em>{ik}-\bar{x}_k \right) ^2} \right]}<br>
-$$</p>
 </li>
 <li class="lvl-3">
 <p>夹角余弦</p>
-<p>类似的有用夹角余弦定义的度量：</p>
-<p>$$<br>
-r_{jk}=\frac{\sum_{i=1}^n{x_{ij}x_{ik}}}{\left( \sum_{i=1}<sup>n{x_{ij}</sup>2\sum_{i=1}<sup>n{x_{ik}</sup>2}} \right) ^{1/2}}<br>
-$$</p>
-<p>$|r_{jk}|$越接近1则说明越相关。</p>
 </li>
 </ol>
 <h4 id="3-2-变量聚类法">3.2 变量聚类法</h4>
@@ -695,6 +692,9 @@ $$</p>
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2023/08/17/blog20-PCA%20/" rel="next" title="主成分分析（PCA）">
+                  主成分分析（PCA） <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -730,7 +730,7 @@ $$</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">30k</span>
+    <span title="站点总字数">31k</span>
   </span>
 </div>
 <div class="busuanzi-count">
