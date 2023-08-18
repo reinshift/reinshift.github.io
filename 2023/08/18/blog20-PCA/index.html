@@ -21,25 +21,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"reinshift.cn","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"flipInY"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="起风了，唯有努力生存。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="雁来廿陆">
-<meta property="og:url" content="https://reinshift.cn/archives/2023/08/index.html">
+    <meta name="description" content="主成分分析的主要目的是希望用较少的变量去解释原来资料中的大部分变异，将我们手中许多相关性很高的变量转化成彼此相互独立或不相关的变量。实际上是一种降维的方法。 1 基本思想及方法 p个随机变量$X_1,…,X_p$，其线性组合构成一个可能的主成分：$c_1X_1+\cdots+c_pX_p$（说白了就是一个旋转平移的变换）。如果能使$Var(c_1X_1+\cdots+c_pX_p)$达到最大，则能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="主成分分析（PCA）">
+<meta property="og:url" content="https://reinshift.cn/2023/08/18/blog20-PCA/index.html">
 <meta property="og:site_name" content="雁来廿陆">
-<meta property="og:description" content="起风了，唯有努力生存。">
+<meta property="og:description" content="主成分分析的主要目的是希望用较少的变量去解释原来资料中的大部分变异，将我们手中许多相关性很高的变量转化成彼此相互独立或不相关的变量。实际上是一种降维的方法。 1 基本思想及方法 p个随机变量$X_1,…,X_p$，其线性组合构成一个可能的主成分：$c_1X_1+\cdots+c_pX_p$（说白了就是一个旋转平移的变换）。如果能使$Var(c_1X_1+\cdots+c_pX_p)$达到最大，则能">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-08-18T06:45:36.000Z">
+<meta property="article:modified_time" content="2023-08-18T06:47:56.906Z">
 <meta property="article:author" content="雁来廿陆">
+<meta property="article:tag" content="多元分析">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://reinshift.cn/archives/2023/08/">
+<link rel="canonical" href="https://reinshift.cn/2023/08/18/blog20-PCA/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/2023/08/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://reinshift.cn/2023/08/18/blog20-PCA/","path":"2023/08/18/blog20-PCA/","title":"主成分分析（PCA）"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>归档 | 雁来廿陆</title>
+<title>主成分分析（PCA） | 雁来廿陆</title>
   
 
 
@@ -72,7 +75,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">雁来廿陆</h1>
+      <p class="site-title">雁来廿陆</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -125,7 +128,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -138,6 +141,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3%E5%8F%8A%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">1 基本思想及方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%B8%BB%E6%88%90%E5%88%86%E4%BC%B0%E8%AE%A1"><span class="nav-number">2.</span> <span class="nav-text">2 主成分估计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E7%89%B9%E5%BE%81%E5%80%BC%E5%9B%A0%E5%AD%90%E7%9A%84%E7%AD%9B%E9%80%89"><span class="nav-number">3.</span> <span class="nav-text">3 特征值因子的筛选</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">4 实际应用</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -461,130 +465,170 @@ if(canvas.getContext){
 
     </div>
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 30 篇日志。 继续努力。</span>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://reinshift.cn/2023/08/18/blog20-PCA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="雁来廿陆">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="雁来廿陆">
+      <meta itemprop="description" content="起风了，唯有努力生存。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="主成分分析（PCA） | 雁来廿陆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          主成分分析（PCA）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
+
+      <time title="创建时间：2023-08-18 14:45:36 / 修改时间：14:47:56" itemprop="dateCreated datePublished" datetime="2023-08-18T14:45:36+08:00">2023-08-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E5%A4%9A%E5%85%83%E5%88%86%E6%9E%90/" itemprop="url" rel="index"><span itemprop="name">多元分析</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2023/08/18/blog20-PCA/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2023/08/18/blog20-PCA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="waline-pageview-count" data-path="/2023/08/18/blog20-PCA/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>主成分分析的主要目的是希望用较少的变量去解释原来资料中的大部分变异，将我们手中许多相关性很高的变量转化成彼此相互独立或不相关的变量。实际上是一种降维的方法。</p>
+<h3 id="1-基本思想及方法">1 基本思想及方法</h3>
+<p>p个随机变量$X_1,…,X_p$，其线性组合构成一个可能的主成分：$c_1X_1+\cdots+c_pX_p$（说白了就是一个旋转平移的变换）。如果能使$Var(c_1X_1+\cdots+c_pX_p)$达到最大，则能最大程度的保留信息。通常还要加限制：$c_1<sup>2+\cdots+c_p</sup>2=1$，在此约束下求最优解。易见这个解是一个p维单位向量（这样可以构成一个旋转矩阵）。</p>
+<p>这样找到一个解的话就获得了一个主成分。然而一个主成分不足以代表原有的p个变量，因此还需要寻找更多个。这些主成分不应该有重叠的信息，统计上的描述就是让两两主成分的协方差为零，几何上就是两两主成分的方向正交。</p>
+<span id="more"></span>
+<p>过程（简洁版）：</p>
+<ol>
+<li class="lvl-3">
+<p>去中心化（把坐标原点放在数据中心）</p>
+</li>
+<li class="lvl-3">
+<p>找坐标系（找到方差最大的方向）</p>
+</li>
+</ol>
+<h3 id="2-主成分估计">2 主成分估计</h3>
+<p>详细的证明可以见相关教材，这里写结论。</p>
+<p>设有 p 个回归（自）变量，它在第i次试验中的取值为$X_i=(x_{i1},\cdots,x_{ip})^T$，$(i=1,2,\cdots,n)$，可以写成矩阵形式：$X=(X_1,X_2,\cdots,X_n)$.这里假设已经进行了去中心化。</p>
+<p>根据协方差矩阵的公式，设其协方差矩阵为$C$，则$C=\frac{X^TX}{n-1}$.</p>
+<p>$C$的特征向量就是主成分的方向，特征值就是该主成分的贡献度，也就是上述坐标轴方向的方差。贡献度低的方向若被省去就是降维了。</p>
+<h3 id="3-特征值因子的筛选">3 特征值因子的筛选</h3>
+<p>降维需要一个标准，自然不能说省去就省去。这里一个实用的方法也是经常采用的方式是考虑贡献率，即保持删去的特征向量的特征值$\lambda_{r+1},\lambda_{r+2},\cdots,\lambda_p$的和占所有特征值之和$\Sigma\lambda_i$的$15%$以下。</p>
+<p>但是单纯考虑累积贡献率有时是不够的，还需要考虑选择的主成分对原始变量的贡献值，我们用相关系数的平方和来表示，如果选取的主成分为$z_1,z_2,\cdots,z_r$，则它们对原变量$x_i$的贡献值为：</p>
+<p>$$<br>
+\rho_i=\sum_{j=1}<sup>r{r</sup>2( z_j,x_i)}<br>
+$$</p>
+<p>这里括号代表向量内积。有些例子可以说明，单纯考虑贡献率会导致降维降的太多而丢失信息，这里就不附上了。</p>
+<h3 id="4-实际应用">4 实际应用</h3>
+<p>在实际的应用中，如果可以分析得到的主成分，赋予其字面意义，会更有说服力。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-08-18T14:45:36+08:00"
-              content="2023-08-18">
-          08-18
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/08/18/blog20-PCA/" itemprop="url">
-            <span itemprop="name">主成分分析（PCA）</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%A4%9A%E5%85%83%E5%88%86%E6%9E%90/" rel="tag"># 多元分析</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/08/16/blog19-ClusterAnalyse/" rel="prev" title="聚类分析">
+                  <i class="fa fa-chevron-left"></i> 聚类分析
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-08-16T21:16:55+08:00"
-              content="2023-08-16">
-          08-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/08/16/blog19-ClusterAnalyse/" itemprop="url">
-            <span itemprop="name">聚类分析</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-08-11T15:19:40+08:00"
-              content="2023-08-11">
-          08-11
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/08/11/blog18-Matlabreview/" itemprop="url">
-            <span itemprop="name">Matlab复习</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-08-09T16:42:27+08:00"
-              content="2023-08-09">
-          08-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/08/09/blog17-DS5/" itemprop="url">
-            <span itemprop="name">数据结构note（五）</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-08-01T16:45:02+08:00"
-              content="2023-08-01">
-          08-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/08/01/blog16-DS4/" itemprop="url">
-            <span itemprop="name">数据结构note（四）</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
 
+
+
+
+    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -667,14 +711,14 @@ if(canvas.getContext){
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
 
 
   <script async src="/js/cursor/fireworks.js"></script>
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"example.reinshift.cn","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","reaction":true,"locale":{"placeholder":"水水水，快来水(～￣▽￣)~"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/tieba"],"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"pageSize":10,"el":"#waline","comment":true,"path":"/archives/2023/08/"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"example.reinshift.cn","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","reaction":true,"locale":{"placeholder":"水水水，快来水(～￣▽￣)~"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/tieba"],"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"pageSize":10,"el":"#waline","comment":true,"path":"/2023/08/18/blog20-PCA/"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {

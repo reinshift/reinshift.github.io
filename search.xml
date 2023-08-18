@@ -172,6 +172,55 @@
       </tags>
   </entry>
   <entry>
+    <title>数据结构note（二）</title>
+    <url>/2023/07/26/blog13-DS2/</url>
+    <content><![CDATA[<h1>算法复杂度的一些简单实例</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="Algorithm01">Algorithm01</h3>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm01</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> sum=<span class="number">0</span>,n=<span class="number">100</span>;</span><br><span class="line">    sum=(<span class="number">1</span>+n)*n/<span class="number">2</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一共进行了三步，这是一个$\mathcal{O}(1)$的算法.</p>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="Algorithm02">Algorithm02</h3>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm02</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>,i&lt;n;i++)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>for循环的执行次数即为$n$，故复杂度为$\mathcal{O}(n)$.</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="Algorithm03">Algorithm03</h3>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm03</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> count=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(count&lt;n)&#123;</span><br><span class="line">        count=count*<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到，要想把while语句走完，根据判断条件和循环节，需要$log_2n$次，忽略声明变量的常数次复杂度，可得复杂度为$\mathcal{O}(\log_2n)$.</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="Algorithm04">Algorithm04</h3>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm04</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=i;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,i+j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>外循环$i=0$时，内循环执行了$n$次；$i=1$时，内循环执行$n-1$次……故循环共执行了$n+(n-1)+…+1=\frac{n(n+1)}{2}$次，取最高次项，复杂度为$\mathcal{O}(n^2)$.</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="Algorithm05">Algorithm05</h3>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">function05</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;hello world!\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Algorithm05</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    n++;</span><br><span class="line">    function05(n);</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        function05(n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=i;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;hello world!\n&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在第二个函数里调用了function05函数，故在第二个函数中计算，有$1+n+n<sup>2+\frac{n(n+1)}{2}$次，也即复杂度为$\mathcal{O}(n</sup>2)$.</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2023.7.8-14旅游</title>
     <url>/2023/07/15/blog12-travel2ningbonanjing/</url>
     <content><![CDATA[<h1>2023.7.8-7.14 游宁波-南京</h1>
@@ -261,55 +310,6 @@
       </categories>
       <tags>
         <tag>旅游</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构note（二）</title>
-    <url>/2023/07/26/blog13-DS2/</url>
-    <content><![CDATA[<h1>算法复杂度的一些简单实例</h1>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="Algorithm01">Algorithm01</h3>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm01</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> sum=<span class="number">0</span>,n=<span class="number">100</span>;</span><br><span class="line">    sum=(<span class="number">1</span>+n)*n/<span class="number">2</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一共进行了三步，这是一个$\mathcal{O}(1)$的算法.</p>
-<span id="more"></span>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="Algorithm02">Algorithm02</h3>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm02</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>,i&lt;n;i++)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>for循环的执行次数即为$n$，故复杂度为$\mathcal{O}(n)$.</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="Algorithm03">Algorithm03</h3>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm03</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> count=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(count&lt;n)&#123;</span><br><span class="line">        count=count*<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看到，要想把while语句走完，根据判断条件和循环节，需要$log_2n$次，忽略声明变量的常数次复杂度，可得复杂度为$\mathcal{O}(\log_2n)$.</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="Algorithm04">Algorithm04</h3>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm04</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=i;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,i+j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>外循环$i=0$时，内循环执行了$n$次；$i=1$时，内循环执行$n-1$次……故循环共执行了$n+(n-1)+…+1=\frac{n(n+1)}{2}$次，取最高次项，复杂度为$\mathcal{O}(n^2)$.</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="Algorithm05">Algorithm05</h3>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">function05</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;hello world!\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Algorithm05</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    n++;</span><br><span class="line">    function05(n);</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        function05(n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=i;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;hello world!\n&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第二个函数里调用了function05函数，故在第二个函数中计算，有$1+n+n<sup>2+\frac{n(n+1)}{2}$次，也即复杂度为$\mathcal{O}(n</sup>2)$.</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -563,137 +563,6 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>数据结构note（五）</title>
-    <url>/2023/08/09/blog17-DS5/</url>
-    <content><![CDATA[<h2 id="树的定义">树的定义</h2>
-<p>树(Tree)是n(n&gt;=0)个结点的有限集。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>若n=0，称为空树；</p>
-</li>
-<li class="lvl-2">
-<p>若n&gt;0，则它满足如下两个条件：</p>
-</li>
-</ul>
-<span id="more"></span>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>有且仅有一个特定的称为<strong>根</strong>(Root)的结点；</p>
-</li>
-<li class="lvl-2">
-<p>其余结点可分为m(m&gt;=0)个互不相交的有限集T1,T2,…,Tm，其中每一个集合本身又是一棵树，并称为根的子树(Subtree)。</p>
-</li>
-</ul>
-<h2 id="基本术语">基本术语</h2>
-<p>结点：数据元素以及指向子树的分支（特殊：没有前驱结点的结点叫根结点）</p>
-<p>结点的度：结点拥有的子树的个数</p>
-<p>叶子结点/终端结点：度=0的结点</p>
-<p>分支结点：度≠0的结点，且除了根节点的分支结点称为内部结点</p>
-<p>结点的子树的根称为该节点的孩子，该节点称为孩子的双亲。</p>
-<p>根节点看成第一层，其孩子看成第二层，以此类推。双亲位于同一层上的结点称为堂兄弟。从根到该结点所经过分支上的所有结点称为结点的祖先，以某结点为根的子树中的任一结点称为结点的子孙。</p>
-<p>树的度：树内各结点的度的最大值</p>
-<p>树的深度/高度：树中结点的最大层次</p>
-<p>有序树：树中结点的各个子树从左往右有次序（最左边为第一个孩子）</p>
-<p>无序树：树中结点的各个子树无次序</p>
-<p>森林：是m(m≥0)棵互不相交的树的集合（一棵树也是森林，把根节点删除后也能成为森林）</p>
-<h2 id="二叉树">二叉树</h2>
-<p>二叉树也即每个结点最多只有两个“叉”的树，研究二叉树的意义在于，普通树若不转化为二叉树，则运算很难实现。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>二叉树结构简单、规律性强；</p>
-</li>
-<li class="lvl-2">
-<p>可以证明所有树对应唯一的二叉树，不失一般性。</p>
-</li>
-</ul>
-<p>特点：</p>
-<ol>
-<li class="lvl-3">
-<p>每个结点最多有两个孩子（二叉树不存在度大于2的结点）</p>
-</li>
-<li class="lvl-3">
-<p>子树有左右之分，顺序不能颠倒</p>
-</li>
-<li class="lvl-3">
-<p>可以是空集，可以有空左子树和空右子树</p>
-</li>
-</ol>
-<blockquote>
-<p>注：二叉树不是树的特殊情况，它们是两个概念。</p>
-</blockquote>
-<blockquote>
-<p>具有三个结点的二叉树可能有几种不同形态？普通树呢？</p>
-<p>答：二叉树有五种：左—（左，右）；左—左—左；左—左—右；左—右—左；左—右—右。</p>
-<p>普通树则只有两种。所以说二叉树和树是两个概念。</p>
-</blockquote>
-<p>性质：</p>
-<ol>
-<li class="lvl-3">
-<p>在二叉树的第i层上至多有$2^{i-1}$个结点(i≥1)，至少有1个结点。</p>
-</li>
-<li class="lvl-3">
-<p>深度为k的二叉树至多有$2^k-1$个结点，至少k个结点。（k≥1，等比数列求和可证明）</p>
-</li>
-<li class="lvl-3">
-<p>对任何一棵二叉树T，如果叶子数为$n_0$，度为2的结点数为$n_2$，则$n_0=n_2+1$。</p>
-</li>
-</ol>
-<h3 id="满二叉树">满二叉树</h3>
-<p>深度为k且有$2^k-1$个结点的二叉树称为<strong>满二叉树</strong>。其叶子结点均在最底层。</p>
-<p>对满二叉树结点位置进行编号，规则是自上而下，自左而右。</p>
-<h3 id="完全二叉树">完全二叉树</h3>
-<p>深度为k具有n个结点的二叉树，当且仅当每一个结点都与深度为k的满二叉树中编号1~n的结点<strong>一一对应</strong>时，称之为<strong>完全二叉树</strong>。</p>
-<blockquote>
-<p>注：在满二叉树中从最后一个结点开始，连续去掉任意个结点，即是一棵完全二叉树。</p>
-</blockquote>
-<p>完全二叉树的叶子只可能分布在层次最大的两层，对任意结点，如果其右子树的最大层数为i，则其左子树的最大层次必为i或i+1。</p>
-<p>具有n个结点的完全二叉树的深度为$\lfloor log_2n\rfloor+1$，这里$\lfloor x \rfloor$是指不大于x的最大整数，即向下取整。</p>
-<p>设某个孩子结点的编号是i，则其双亲的编号是$\lfloor i/2 \rfloor$，这个孩子的左孩子编号为$2i$，右孩子为$2i+1$。</p>
-<h2 id="二叉树的链式储存（二叉链表）">二叉树的链式储存（二叉链表）</h2>
-<p>顺序储存有空间冗余过大的缺点，最好用于满二叉树和完全二叉树。这里主要介绍链式储存。</p>
-<p>在n个结点的二叉链表中，有n+1个空指针域。这是因为总共2n个链域，除了根结点外每个结点都有一个双亲，所以有n-1个结点的链域存放指针。故空指针数目=2n-(n-1)=n+!。</p>
-<h3 id="二叉树的遍历">二叉树的遍历</h3>
-<p>即顺着某一条搜索路径巡访二叉树的结点，使得每个结点都被且仅被访问一次。</p>
-<p>遍历的目的是得到树中所有结点的一个线性排列。</p>
-<p>遍历是树结构插入、删除、修改、查找和排序运算的前提，是一切运算的基础和核心。</p>
-<h3 id="遍历方法（一）">遍历方法（一）</h3>
-<p>假设L：遍历左子树；D：访问根结点；R：遍历右子树</p>
-<p>则遍历整个二叉树的方案有：DLR/DRL/LDR/LRD/RDL/RLD六种。</p>
-<p>若规定先左后右，按根结点的访问顺序命名，则只有三种：</p>
-<p>DLR：先（根）序遍历；</p>
-<p>LDR：中（根）序遍历；</p>
-<p>LRD：后（根）序遍历。</p>
-<h3 id="通过已知中序和任意其他序确定唯一的二叉树">通过已知中序和任意其他序确定唯一的二叉树</h3>
-<p>例：已知二叉树的先序和中序，构造出相应的二叉树。</p>
-<p>先序：ABCDEFGHIJ</p>
-<p>中序：CDBFEAIHGJ</p>
-<p>这类确定的方法是先通过先序的第一个结点结合其在中序的位置确定左右子树的结点分配，在这里先序第一个结点为A，即根结点为A，A在中序的位置可以确定左子树包含CDBFE，右子树包含IHGJ，这样以此类推，就可以确定如下二叉树。</p>
-<img title="" src="https://i2.100024.xyz/2023/08/07/pm9xfs.webp" alt="" data-align="center" width="209">
-<p>在这个例子中就可以明显看出中序的作用了。</p>
-<h3 id="遍历方法（二）">遍历方法（二）</h3>
-<p>前面的方法是将二叉树看为L，D，R三个部分，这里的层次遍历法则是将二叉树按照层次顺序来遍历，即：从根节点开始，按从上到下，从左到右的方式访问每一个结点，每个结点仅访问一次。</p>
-<p>算法思路是结合<strong>队列</strong>，①将根结点入队，②队不为空时循环：从队列中出列一个结点p，访问它；若它有左孩子则左孩子进队，有右孩子则右孩子进队。下面视频的2:54处有很形象的介绍。</p>
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
-    <iframe src="//player.bilibili.com/player.html?aid=82837069&bvid=BV1nJ411V7bd&cid=152257156&page=91" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-</div>
-<hr>
-<h2 id="具体实现">具体实现</h2>
-<p>ADT定义：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">char</span> TElemType;<span class="comment">//可修改为其他数据类型</span></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">traverse</span> &#123; DLR = <span class="number">1</span>, LDR, LRD &#125;;<span class="comment">//遍历类型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">class</span> <span class="title class_">BiNode</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    TElemType data;<span class="comment">//数据域</span></span><br><span class="line">    BiNode* lchild, * rchild;<span class="comment">//左孩子、右孩子指针</span></span><br><span class="line">&#125;BiNode,* BiTree;</span><br></pre></td></tr></table></figure>
-<p>操作集：（这里只放了最基本的操作集）</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//判空</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">IsEmpty</span><span class="params">(BiTree BT)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (BT == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//访问二叉树</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Visit</span><span class="params">(BiTree BT)</span> </span>&#123;</span><br><span class="line">    std::cout&lt;&lt;BT-&gt;data;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//二叉树的遍历</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Traversal</span><span class="params">(BiTree BT,traverse way)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (BT == <span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> (way) &#123;</span><br><span class="line">        <span class="keyword">case</span> DLR: &#123;</span><br><span class="line">            <span class="built_in">Visit</span>(BT);</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;lchild, DLR);</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;rchild, DLR);</span><br><span class="line">        &#125;</span><br><span class="line">              <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> LDR: &#123;</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;lchild, LDR);</span><br><span class="line">            std::cout &lt;&lt; BT-&gt;data;</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;rchild, LDR);</span><br><span class="line">        &#125;</span><br><span class="line">              <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> LRD: &#123;</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;lchild, LRD);</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;rchild, LRD);</span><br><span class="line">            <span class="built_in">Visit</span>(BT);</span><br><span class="line">        &#125;</span><br><span class="line">              <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//先序创建二叉树</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CreateBiTree</span><span class="params">(BiTree &amp;T)</span> </span>&#123;</span><br><span class="line">    <span class="type">char</span> ch;</span><br><span class="line">    std::cin &gt;&gt; ch;</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">&#x27;#&#x27;</span>) &#123;</span><br><span class="line">        T = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        T = <span class="keyword">new</span> BiNode;</span><br><span class="line">        T-&gt;data = ch;</span><br><span class="line">        <span class="built_in">CreateBiTree</span>(T-&gt;lchild);</span><br><span class="line">        <span class="built_in">CreateBiTree</span>(T-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这里创建二叉树的函数中，由于要对实参进行修改，首先考虑指针，而BiTree已经是BiNode的指针了，再使用指针就会产生指针的指针，这对代码的阅读上不太方便，因此这里采用了引用。</p>
-<p>参考资料：<a href="https://blog.csdn.net/Peealy/article/details/115835700">C++实现先序创建二叉树</a></p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Matlab复习</title>
     <url>/2023/08/11/blog18-Matlabreview/</url>
     <content><![CDATA[<p>自从考完研就把matlab扔了，现在为了后续的工作重新捡回来一些…</p>
@@ -835,6 +704,158 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>数据结构note（五）</title>
+    <url>/2023/08/09/blog17-DS5/</url>
+    <content><![CDATA[<h2 id="树的定义">树的定义</h2>
+<p>树(Tree)是n(n&gt;=0)个结点的有限集。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>若n=0，称为空树；</p>
+</li>
+<li class="lvl-2">
+<p>若n&gt;0，则它满足如下两个条件：</p>
+</li>
+</ul>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>有且仅有一个特定的称为<strong>根</strong>(Root)的结点；</p>
+</li>
+<li class="lvl-2">
+<p>其余结点可分为m(m&gt;=0)个互不相交的有限集T1,T2,…,Tm，其中每一个集合本身又是一棵树，并称为根的子树(Subtree)。</p>
+</li>
+</ul>
+<h2 id="基本术语">基本术语</h2>
+<p>结点：数据元素以及指向子树的分支（特殊：没有前驱结点的结点叫根结点）</p>
+<p>结点的度：结点拥有的子树的个数</p>
+<p>叶子结点/终端结点：度=0的结点</p>
+<p>分支结点：度≠0的结点，且除了根节点的分支结点称为内部结点</p>
+<p>结点的子树的根称为该节点的孩子，该节点称为孩子的双亲。</p>
+<p>根节点看成第一层，其孩子看成第二层，以此类推。双亲位于同一层上的结点称为堂兄弟。从根到该结点所经过分支上的所有结点称为结点的祖先，以某结点为根的子树中的任一结点称为结点的子孙。</p>
+<p>树的度：树内各结点的度的最大值</p>
+<p>树的深度/高度：树中结点的最大层次</p>
+<p>有序树：树中结点的各个子树从左往右有次序（最左边为第一个孩子）</p>
+<p>无序树：树中结点的各个子树无次序</p>
+<p>森林：是m(m≥0)棵互不相交的树的集合（一棵树也是森林，把根节点删除后也能成为森林）</p>
+<h2 id="二叉树">二叉树</h2>
+<p>二叉树也即每个结点最多只有两个“叉”的树，研究二叉树的意义在于，普通树若不转化为二叉树，则运算很难实现。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>二叉树结构简单、规律性强；</p>
+</li>
+<li class="lvl-2">
+<p>可以证明所有树对应唯一的二叉树，不失一般性。</p>
+</li>
+</ul>
+<p>特点：</p>
+<ol>
+<li class="lvl-3">
+<p>每个结点最多有两个孩子（二叉树不存在度大于2的结点）</p>
+</li>
+<li class="lvl-3">
+<p>子树有左右之分，顺序不能颠倒</p>
+</li>
+<li class="lvl-3">
+<p>可以是空集，可以有空左子树和空右子树</p>
+</li>
+</ol>
+<blockquote>
+<p>注：二叉树不是树的特殊情况，它们是两个概念。</p>
+</blockquote>
+<blockquote>
+<p>具有三个结点的二叉树可能有几种不同形态？普通树呢？</p>
+<p>答：二叉树有五种：左—（左，右）；左—左—左；左—左—右；左—右—左；左—右—右。</p>
+<p>普通树则只有两种。所以说二叉树和树是两个概念。</p>
+</blockquote>
+<p>性质：</p>
+<ol>
+<li class="lvl-3">
+<p>在二叉树的第i层上至多有$2^{i-1}$个结点(i≥1)，至少有1个结点。</p>
+</li>
+<li class="lvl-3">
+<p>深度为k的二叉树至多有$2^k-1$个结点，至少k个结点。（k≥1，等比数列求和可证明）</p>
+</li>
+<li class="lvl-3">
+<p>对任何一棵二叉树T，如果叶子数为$n_0$，度为2的结点数为$n_2$，则$n_0=n_2+1$。</p>
+</li>
+</ol>
+<h3 id="满二叉树">满二叉树</h3>
+<p>深度为k且有$2^k-1$个结点的二叉树称为<strong>满二叉树</strong>。其叶子结点均在最底层。</p>
+<p>对满二叉树结点位置进行编号，规则是自上而下，自左而右。</p>
+<h3 id="完全二叉树">完全二叉树</h3>
+<p>深度为k具有n个结点的二叉树，当且仅当每一个结点都与深度为k的满二叉树中编号1~n的结点<strong>一一对应</strong>时，称之为<strong>完全二叉树</strong>。</p>
+<blockquote>
+<p>注：在满二叉树中从最后一个结点开始，连续去掉任意个结点，即是一棵完全二叉树。</p>
+</blockquote>
+<p>完全二叉树的叶子只可能分布在层次最大的两层，对任意结点，如果其右子树的最大层数为i，则其左子树的最大层次必为i或i+1。</p>
+<p>具有n个结点的完全二叉树的深度为$\lfloor log_2n\rfloor+1$，这里$\lfloor x \rfloor$是指不大于x的最大整数，即向下取整。</p>
+<p>设某个孩子结点的编号是i，则其双亲的编号是$\lfloor i/2 \rfloor$，这个孩子的左孩子编号为$2i$，右孩子为$2i+1$。</p>
+<h2 id="二叉树的链式储存（二叉链表）">二叉树的链式储存（二叉链表）</h2>
+<p>顺序储存有空间冗余过大的缺点，最好用于满二叉树和完全二叉树。这里主要介绍链式储存。</p>
+<p>在n个结点的二叉链表中，有n+1个空指针域。这是因为总共2n个链域，除了根结点外每个结点都有一个双亲，所以有n-1个结点的链域存放指针。故空指针数目=2n-(n-1)=n+!。</p>
+<h3 id="二叉树的遍历">二叉树的遍历</h3>
+<p>即顺着某一条搜索路径巡访二叉树的结点，使得每个结点都被且仅被访问一次。</p>
+<p>遍历的目的是得到树中所有结点的一个线性排列。</p>
+<p>遍历是树结构插入、删除、修改、查找和排序运算的前提，是一切运算的基础和核心。</p>
+<h3 id="遍历方法（一）">遍历方法（一）</h3>
+<p>假设L：遍历左子树；D：访问根结点；R：遍历右子树</p>
+<p>则遍历整个二叉树的方案有：DLR/DRL/LDR/LRD/RDL/RLD六种。</p>
+<p>若规定先左后右，按根结点的访问顺序命名，则只有三种：</p>
+<p>DLR：先（根）序遍历；</p>
+<p>LDR：中（根）序遍历；</p>
+<p>LRD：后（根）序遍历。</p>
+<h3 id="通过已知中序和任意其他序确定唯一的二叉树">通过已知中序和任意其他序确定唯一的二叉树</h3>
+<p>例：已知二叉树的先序和中序，构造出相应的二叉树。</p>
+<p>先序：ABCDEFGHIJ</p>
+<p>中序：CDBFEAIHGJ</p>
+<p>这类确定的方法是先通过先序的第一个结点结合其在中序的位置确定左右子树的结点分配，在这里先序第一个结点为A，即根结点为A，A在中序的位置可以确定左子树包含CDBFE，右子树包含IHGJ，这样以此类推，就可以确定如下二叉树。</p>
+<img title="" src="https://i2.100024.xyz/2023/08/07/pm9xfs.webp" alt="" data-align="center" width="209">
+<p>在这个例子中就可以明显看出中序的作用了。</p>
+<h3 id="遍历方法（二）">遍历方法（二）</h3>
+<p>前面的方法是将二叉树看为L，D，R三个部分，这里的层次遍历法则是将二叉树按照层次顺序来遍历，即：从根节点开始，按从上到下，从左到右的方式访问每一个结点，每个结点仅访问一次。</p>
+<p>算法思路是结合<strong>队列</strong>，①将根结点入队，②队不为空时循环：从队列中出列一个结点p，访问它；若它有左孩子则左孩子进队，有右孩子则右孩子进队。下面视频的2:54处有很形象的介绍。</p>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
+    <iframe src="//player.bilibili.com/player.html?aid=82837069&bvid=BV1nJ411V7bd&cid=152257156&page=91" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
+<hr>
+<h2 id="具体实现">具体实现</h2>
+<p>ADT定义：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">char</span> TElemType;<span class="comment">//可修改为其他数据类型</span></span><br><span class="line"><span class="keyword">enum</span> <span class="title class_">traverse</span> &#123; DLR = <span class="number">1</span>, LDR, LRD &#125;;<span class="comment">//遍历类型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">class</span> <span class="title class_">BiNode</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    TElemType data;<span class="comment">//数据域</span></span><br><span class="line">    BiNode* lchild, * rchild;<span class="comment">//左孩子、右孩子指针</span></span><br><span class="line">&#125;BiNode,* BiTree;</span><br></pre></td></tr></table></figure>
+<p>操作集：（这里只放了最基本的操作集）</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//判空</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">IsEmpty</span><span class="params">(BiTree BT)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (BT == <span class="literal">NULL</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//访问二叉树</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Visit</span><span class="params">(BiTree BT)</span> </span>&#123;</span><br><span class="line">    std::cout&lt;&lt;BT-&gt;data;</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//二叉树的遍历</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Traversal</span><span class="params">(BiTree BT,traverse way)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (BT == <span class="literal">NULL</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">switch</span> (way) &#123;</span><br><span class="line">        <span class="keyword">case</span> DLR: &#123;</span><br><span class="line">            <span class="built_in">Visit</span>(BT);</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;lchild, DLR);</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;rchild, DLR);</span><br><span class="line">        &#125;</span><br><span class="line">              <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> LDR: &#123;</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;lchild, LDR);</span><br><span class="line">            std::cout &lt;&lt; BT-&gt;data;</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;rchild, LDR);</span><br><span class="line">        &#125;</span><br><span class="line">              <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> LRD: &#123;</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;lchild, LRD);</span><br><span class="line">            <span class="built_in">Traversal</span>(BT-&gt;rchild, LRD);</span><br><span class="line">            <span class="built_in">Visit</span>(BT);</span><br><span class="line">        &#125;</span><br><span class="line">              <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//先序创建二叉树</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">CreateBiTree</span><span class="params">(BiTree &amp;T)</span> </span>&#123;</span><br><span class="line">    <span class="type">char</span> ch;</span><br><span class="line">    std::cin &gt;&gt; ch;</span><br><span class="line">    <span class="keyword">if</span> (ch == <span class="string">&#x27;#&#x27;</span>) &#123;</span><br><span class="line">        T = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        T = <span class="keyword">new</span> BiNode;</span><br><span class="line">        T-&gt;data = ch;</span><br><span class="line">        <span class="built_in">CreateBiTree</span>(T-&gt;lchild);</span><br><span class="line">        <span class="built_in">CreateBiTree</span>(T-&gt;rchild);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里创建二叉树的函数中，由于要对实参进行修改，首先考虑指针，而BiTree已经是BiNode的指针了，再使用指针就会产生指针的指针，这对代码的阅读上不太方便，因此这里采用了引用。</p>
+<p>参考资料：<a href="https://blog.csdn.net/Peealy/article/details/115835700">C++实现先序创建二叉树</a></p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>备案与毕业</title>
+    <url>/2023/05/13/blog2/</url>
+    <content><![CDATA[<p>  经历了长达十多天的备案，终于在昨天过审了。</p>
+<span id="more"></span>
+<p>  根据规定，这段时间不能访问域名，也就一直没有更新。昨晚九点得知过审后遂启动域名，奇怪的是<code>hexo cl</code>,<code>hexo g</code>都能使用，唯独<code>hexo d</code>一直报错，无法成功部署。</p>
+<p>  <code>hexo s</code>本地渲染也没问题，并且在家也没有出现过这种情况，那么猜测就是网络的问题，我想备案的这几天从家里到学校了，网络的影响应该很大。网上找了很多教程，最后搞到凌晨1点，发现断开学校宽带，连手机热点就解决了🤣难绷…</p>
+<p>  十几天内，我给网站添加了“关于”板块，用<code>&amp;emsp;</code>进行首行缩进；参与了毕业论文的答辩，也拍了毕业照，本科生涯渐渐以倒数计时，朋友们都在抓紧时间记录、分享以及欢庆。这让我想到高中毕业时，每个人都在留言板上写一句话，我用当时所学的vb语言写了一小段代码，具体内容我难以记起，大致内容就是有一个按钮，按下就可以将系统时间暂停。</p>
+<p>  还有一位令人怀念的朋友这样写：</p>
+<blockquote>
+<p>“明天会更好。”</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
+        <tag>人生</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>聚类分析</title>
     <url>/2023/08/16/blog19-ClusterAnalyse/</url>
     <content><![CDATA[<blockquote>
@@ -945,7 +966,7 @@ $$</p>
   </entry>
   <entry>
     <title>主成分分析（PCA）</title>
-    <url>/2023/08/17/blog20-PCA%20/</url>
+    <url>/2023/08/18/blog20-PCA/</url>
     <content><![CDATA[<p>主成分分析的主要目的是希望用较少的变量去解释原来资料中的大部分变异，将我们手中许多相关性很高的变量转化成彼此相互独立或不相关的变量。实际上是一种降维的方法。</p>
 <h3 id="1-基本思想及方法">1 基本思想及方法</h3>
 <p>p个随机变量$X_1,…,X_p$，其线性组合构成一个可能的主成分：$c_1X_1+\cdots+c_pX_p$（说白了就是一个旋转平移的变换）。如果能使$Var(c_1X_1+\cdots+c_pX_p)$达到最大，则能最大程度的保留信息。通常还要加限制：$c_1<sup>2+\cdots+c_p</sup>2=1$，在此约束下求最优解。易见这个解是一个p维单位向量（这样可以构成一个旋转矩阵）。</p>
@@ -981,60 +1002,6 @@ $$</p>
       </categories>
       <tags>
         <tag>多元分析</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo d错误：spawn failed的一种解决方法</title>
-    <url>/2023/05/15/blog3/</url>
-    <content><![CDATA[<p>  继上一条，这几天内部署断断续续的报错，网上的教程都不适用，和朋友交流后终于有了一个稳定的解决方法。</p>
-<span id="more"></span>
-<p>  报错内容大概是这样：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Please make sure you have the correct access rights</span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">Error: Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt;(D:\Blog\node_modules hexo-util\lib\spawn.js:51:21)</span><br><span class="line">    at ChildProcess.emit (node:events:513:28)</span><br><span class="line">    at cp.emit (D:\Blog\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/chid_process:291:12)</span><br></pre></td></tr></table></figure>
-<p>  确定是网络的原因后，可以作如下尝试：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>获取steam++这款软件（github可以搜索到，也有其他选择）</p>
-</li>
-<li class="lvl-2">
-<p>打开steam++并加速github</p>
-</li>
-<li class="lvl-2">
-<p>命令行输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:443</span><br><span class="line">git config --global https.proxy http://127.0.0.1:443</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-2">
-<p>最后<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>应该就能成功了🥰</p>
-</li>
-</ul>
-<p>  这篇文章希望给一些同样有该问题但网上教程都不适用的朋友一点参考。</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>建站</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>备案与毕业</title>
-    <url>/2023/05/13/blog2/</url>
-    <content><![CDATA[<p>  经历了长达十多天的备案，终于在昨天过审了。</p>
-<span id="more"></span>
-<p>  根据规定，这段时间不能访问域名，也就一直没有更新。昨晚九点得知过审后遂启动域名，奇怪的是<code>hexo cl</code>,<code>hexo g</code>都能使用，唯独<code>hexo d</code>一直报错，无法成功部署。</p>
-<p>  <code>hexo s</code>本地渲染也没问题，并且在家也没有出现过这种情况，那么猜测就是网络的问题，我想备案的这几天从家里到学校了，网络的影响应该很大。网上找了很多教程，最后搞到凌晨1点，发现断开学校宽带，连手机热点就解决了🤣难绷…</p>
-<p>  十几天内，我给网站添加了“关于”板块，用<code>&amp;emsp;</code>进行首行缩进；参与了毕业论文的答辩，也拍了毕业照，本科生涯渐渐以倒数计时，朋友们都在抓紧时间记录、分享以及欢庆。这让我想到高中毕业时，每个人都在留言板上写一句话，我用当时所学的vb语言写了一小段代码，具体内容我难以记起，大致内容就是有一个按钮，按下就可以将系统时间暂停。</p>
-<p>  还有一位令人怀念的朋友这样写：</p>
-<blockquote>
-<p>“明天会更好。”</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>建站</tag>
-        <tag>人生</tag>
       </tags>
   </entry>
   <entry>
@@ -1099,6 +1066,40 @@ $$</p>
       <categories>
         <category>经验</category>
         <category>Next升级</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo-Next鼠标指针自定义</title>
+    <url>/2023/05/27/blog7/</url>
+    <content><![CDATA[<h4 id="准备材料">准备材料</h4>
+<p>  <code>.cur</code>或者<code>.ico</code>文件，不能太大（我试过超过1MB的素材不可用），<code>.ani</code>动态光标没试成功过。这些资源可以在<a href="https://zhutix.com/tag/cursors/">致美化</a>等途径中找到。</p>
+<span id="more"></span>
+<p>  这些文件建议下载到<code>../themes/source/images</code>中，也可以不下载而采用cdn。</p>
+<p>  这里Next版本为8.16。</p>
+<h4 id="文件修改">文件修改</h4>
+<p>  在<code>yourBlog/themes/next/source/css/_common/scaffolding</code>中找到<code>base.styl</code>，对里面的代码行进行编辑：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">+ <span class="attribute">cursor</span>: <span class="built_in">url</span>(/images/yourArrow.cur), auto;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">var</span>(--body-bg-color);</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--text-color);</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="variable">$font</span>-family-base;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="variable">$font</span>-size-base;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="variable">$line</span>-height-base;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">transition</span>: padding <span class="variable">$transition</span>-ease;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  在添加的这行代码里将<code>yourArrow.cur</code>改为下载的素材名即可。这个地方一般是放指针型鼠标，下面还有一个区域需要编辑：</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">+ <span class="attribute">cursor</span>: <span class="built_in">url</span>(/images/yourHand.cur), auto<span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="variable">$link</span>-decoration-color;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--link-color);</span><br><span class="line">  <span class="comment">// For a:not(:any-link)</span></span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">outline</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  这个位置一般放的是手型鼠标，也就是将鼠标悬在链接上会变化成的手型样式，同样将<code>yourHand.cur</code>改成下载的素材名。</p>
+<h4 id="重新部署">重新部署</h4>
+<p>  修改后可以先在本地看看效果，如果成功，最后hexo三件套即可。</p>
+<p>下面再附上很多博客在用的鼠标指针cdn：</p>
+<blockquote>
+<p><a href="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur">https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur</a><br>
+<a href="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur">https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur</a></p>
+</blockquote>
+<p>对应指针型和手型，效果：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur" alt="Arrow"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur" alt="Hand"></p>
+<p>用法就是将url括号里的链接替换为上述链接。</p>
+]]></content>
+      <categories>
+        <category>经验</category>
+        <category>Next美化</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
@@ -1195,6 +1196,39 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>hexo d错误：spawn failed的一种解决方法</title>
+    <url>/2023/05/15/blog3/</url>
+    <content><![CDATA[<p>  继上一条，这几天内部署断断续续的报错，网上的教程都不适用，和朋友交流后终于有了一个稳定的解决方法。</p>
+<span id="more"></span>
+<p>  报错内容大概是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Please make sure you have the correct access rights</span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">Error: Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt;(D:\Blog\node_modules hexo-util\lib\spawn.js:51:21)</span><br><span class="line">    at ChildProcess.emit (node:events:513:28)</span><br><span class="line">    at cp.emit (D:\Blog\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/chid_process:291:12)</span><br></pre></td></tr></table></figure>
+<p>  确定是网络的原因后，可以作如下尝试：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>获取steam++这款软件（github可以搜索到，也有其他选择）</p>
+</li>
+<li class="lvl-2">
+<p>打开steam++并加速github</p>
+</li>
+<li class="lvl-2">
+<p>命令行输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:443</span><br><span class="line">git config --global https.proxy http://127.0.0.1:443</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>最后<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>应该就能成功了🥰</p>
+</li>
+</ul>
+<p>  这篇文章希望给一些同样有该问题但网上教程都不适用的朋友一点参考。</p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>更改waline主题颜色</title>
     <url>/2023/06/03/blog9-stylDIY/</url>
     <content><![CDATA[<p>  之前就想自定义waline的样式以适配当前的背景图，但又因为没学过css，也不会自己上传cdn，所以向waline的开发者求助，最后知道了<code>!important</code>大法，希望能给到和我一样没接触过css的博主一些参考。</p>
@@ -1241,6 +1275,28 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>20889;32473;26045;22025;35946;</title>
+    <url>/2023/06/18/linbiezengyan/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="7a5e939dbee177c124444d4e5070c2254d4bca5d513f53111bde3cf0c9d40b6e">e80960072eee56390c5704dab6ba0fae854db6dc0f835e374d2013bd94f4e08446a64f0f00b2e823f15c8b4d25422063807c03848af83195d447827db04ea04c11f9e6cc59be5ced9772478f31e7921bab1b8072bca090176edb64c256d9cb08a1f96d5ed9b3865957b5d4689104d11090373b5e76163d612ba0a36891740765c1976f7277f59c5c593087238d40e9ad126c850392c1457fba027cf9c2a5d391274fb74d1a71c88dd02079dc9ba0e8d3ba6ffb414c63ac7298933baa06914741b58cd643218b85dabea50b61721c9265e249e2cc655263fc7dba5889c6aa83961ae314b4ce348a9c59e61c62a21064d3715eae3030b120994e20db3ebe15a7aa3d47c3e029a1d39a8e5c4f5bb57ece3ed42b28d11a171889b742788de07eba7dd9c27fdaff27119bd9f2dc396b1727a43af4c74841f20404d72bad8b8796ac6b8c121d488a69671570633d672c8585176a925e5eba9b1e3e4a675245b1871ce768e50d32debef7cb7033071129ec4bf98cc6a5e30f89281fa26658821f7e3a5d5cdaf1669f909e20ddbfd0be7d07f7da4b9f9adb71127ab03e6e744ebe499ed02fdbdfff21af8aae11efaf5497386c1a34782e0bad69bb8710f43813154e0d22eff26a030f4d47aa28f1596ae6c05f4d6a50ce21af7ef75f9c0fcdd8bc3af04a8f83e5e527d151eae69bd9e7455ddaaa2af222fe1df8025142df6094b10da56bfffa6dc1e8c043a59683c2518f9d0683b2623192fb756538fcdcb6677cd75f6f16959d3b6127282d39c41ae0ef4291bf010aadf09eea0977acfeb11e023399be4814cbd46a09cc259ce2c83c7a27d43158b4e6ade8360db8a15744ebd4e0c8309dc37c45d5292806e6fe1abe26ce08adc466d893da7abb45906e104b3cf72e089f1dda74449cae8943ca379b30063102f86c392ee6bcadbc02d82bbc90ed1ac84aa560abcc83f44cf73276b73c0978509510d49b2302df463f08a234da96a77f274da4276a636ccc6321c7dedb31d1dfd48e5aac3dea1f9c633e48e497ab60f225ce4a47ae0415f348e508a49af8130961705489bb0f4df1b98b0fd79c791e7c96f3c562adc37a7b614045dda449ca08167038b3afa350af25f4ece3e34b49f0c84b72fc35f1ba2ea4e8f80190b994e508d48f7456215381dfe40d11159f1eba61681de87770f50a3628fb948538415ede7bc0d8f2f0b4306d28ada047b173791c743bc27d78beac7e1cb37aceaeb7d2930e2f0c778f1aeab90f7ee73ed408f724022367cc5bea018a4077af1fe23059ef7a039857f5d8d3bd30bdbe40c6953d392779b14d92cc5a41217a36425cd025ba1bc397664f2927af07a3fa92dceb341b1629cd8f1d7f20291afbc42811fb276a07b19498be01fb2a26235fe14303ca1e0b2639247a5ded8c4891e45d247bcf6cc2975c7befeffa21913de8263850ffa0faab433403b100dcc8bdca0798514e38c1848cfbec253f72b510de6383fe5b46719e267b2fabc3cea735cce81474a727945247347cce14714f19e22b75021f8d56d7b6b95a43c19e4682b151f73e6a273d8e3b1db235d3897d81f374fe1c183c0a52b256d6f0c98aa650c7bfdbcf62b7096d9a510d0120e4f957a3f6c3c09a203b8b6aee2d773d28a31e8bb93d083e963cef037d407abca14fc6bb3f5212e92a50fd36bb1cc6b5d85f3c80fc68f0f6adb997f3d0e4986132d4c7781c2aedee4c72b3170218e2e7fa3c66f4d079b6a5471b84a8fe07904d9289c535f9d9be0b85944fa36e7cb7e9d024eaf5222b1d91e6b5e124dbba1080d325533470510479fa23dc405e677a739311f5af3b1b5d1b9510d70b9e0fdb6448b0ac018448803806ff35a5be4c8e432bf554a640eb678d7cf05e8965fb60139b07328e3a6e68b2520c440b94fce46e0f067ae2bdc58ac61626adc33d74e5aaf94530252c891c2701ba572109f31371827ac92fd66ddda68d881584e52134a79783355da4af260e17bebc120e25a433b315d4a8764280bb7e77e0f5a9dc023b53416a466c6f851afe90931a40db98feae2cdb7a4e2bf762cc561eb748004affdef0aeb8f5ebc5fa4dbcc028d70223bbc773b1a7b5947b24d45764564128c4c978bd18e578a5a0ab12331c6038f5ed1bb1fbb9c2f8c49d027d603baadc78490a930d93764793b4d83ff93dd7acdb21e6afc7e1a69a5d34afe0e6fb2929f84421d3cf8b0a41079ed75ee498e7e7fff47f009175b37a55fd41397e43dc29c077ed31f03c991e9c2a1205b6998f850544de3817a970df4b3c97eba5d168ad549e2d807cfac1a52569f78e8f1a67917483662e839a2b704f2abc27f48ee1ceb2901e3b4e8c3e7caaed8f82486ce2ccc3019563624841889b41d4</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>临别赠言</category>
+      </categories>
+      <tags>
+        <tag>加密内容</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一些庵野秀明风格的尝试</title>
     <url>/2023/06/23/goodbye-graduate/</url>
     <content><![CDATA[<h2 id="再见了，所有的张秀梅">再见了，所有的张秀梅</h2>
@@ -1271,10 +1327,10 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>20889;32473;26045;22025;35946;</title>
-    <url>/2023/06/18/linbiezengyan/</url>
+    <title>20889;32473;39038;26159;30003;</title>
+    <url>/2023/06/18/linbiezengyan2/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="7a5e939dbee177c124444d4e5070c2254d4bca5d513f53111bde3cf0c9d40b6e">e80960072eee56390c5704dab6ba0fae854db6dc0f835e374d2013bd94f4e08446a64f0f00b2e823f15c8b4d25422063807c03848af83195d447827db04ea04c11f9e6cc59be5ced9772478f31e7921bab1b8072bca090176edb64c256d9cb08a1f96d5ed9b3865957b5d4689104d11090373b5e76163d612ba0a36891740765c1976f7277f59c5c593087238d40e9ad126c850392c1457fba027cf9c2a5d391274fb74d1a71c88dd02079dc9ba0e8d3ba6ffb414c63ac7298933baa06914741b58cd643218b85dabea50b61721c9265e249e2cc655263fc7dba5889c6aa83961ae314b4ce348a9c59e61c62a21064d3715eae3030b120994e20db3ebe15a7aa3d47c3e029a1d39a8e5c4f5bb57ece3ed42b28d11a171889b742788de07eba7dd9c27fdaff27119bd9f2dc396b1727a43af4c74841f20404d72bad8b8796ac6b8c121d488a69671570633d672c8585176a925e5eba9b1e3e4a675245b1871ce768e50d32debef7cb7033071129ec4bf98cc6a5e30f89281fa26658821f7e3a5d5cdaf1669f909e20ddbfd0be7d07f7da4b9f9adb71127ab03e6e744ebe499ed02fdbdfff21af8aae11efaf5497386c1a34782e0bad69bb8710f43813154e0d22eff26a030f4d47aa28f1596ae6c05f4d6a50ce21af7ef75f9c0fcdd8bc3af04a8f83e5e527d151eae69bd9e7455ddaaa2af222fe1df8025142df6094b10da56bfffa6dc1e8c043a59683c2518f9d0683b2623192fb756538fcdcb6677cd75f6f16959d3b6127282d39c41ae0ef4291bf010aadf09eea0977acfeb11e023399be4814cbd46a09cc259ce2c83c7a27d43158b4e6ade8360db8a15744ebd4e0c8309dc37c45d5292806e6fe1abe26ce08adc466d893da7abb45906e104b3cf72e089f1dda74449cae8943ca379b30063102f86c392ee6bcadbc02d82bbc90ed1ac84aa560abcc83f44cf73276b73c0978509510d49b2302df463f08a234da96a77f274da4276a636ccc6321c7dedb31d1dfd48e5aac3dea1f9c633e48e497ab60f225ce4a47ae0415f348e508a49af8130961705489bb0f4df1b98b0fd79c791e7c96f3c562adc37a7b614045dda449ca08167038b3afa350af25f4ece3e34b49f0c84b72fc35f1ba2ea4e8f80190b994e508d48f7456215381dfe40d11159f1eba61681de87770f50a3628fb948538415ede7bc0d8f2f0b4306d28ada047b173791c743bc27d78beac7e1cb37aceaeb7d2930e2f0c778f1aeab90f7ee73ed408f724022367cc5bea018a4077af1fe23059ef7a039857f5d8d3bd30bdbe40c6953d392779b14d92cc5a41217a36425cd025ba1bc397664f2927af07a3fa92dceb341b1629cd8f1d7f20291afbc42811fb276a07b19498be01fb2a26235fe14303ca1e0b2639247a5ded8c4891e45d247bcf6cc2975c7befeffa21913de8263850ffa0faab433403b100dcc8bdca0798514e38c1848cfbec253f72b510de6383fe5b46719e267b2fabc3cea735cce81474a727945247347cce14714f19e22b75021f8d56d7b6b95a43c19e4682b151f73e6a273d8e3b1db235d3897d81f374fe1c183c0a52b256d6f0c98aa650c7bfdbcf62b7096d9a510d0120e4f957a3f6c3c09a203b8b6aee2d773d28a31e8bb93d083e963cef037d407abca14fc6bb3f5212e92a50fd36bb1cc6b5d85f3c80fc68f0f6adb997f3d0e4986132d4c7781c2aedee4c72b3170218e2e7fa3c66f4d079b6a5471b84a8fe07904d9289c535f9d9be0b85944fa36e7cb7e9d024eaf5222b1d91e6b5e124dbba1080d325533470510479fa23dc405e677a739311f5af3b1b5d1b9510d70b9e0fdb6448b0ac018448803806ff35a5be4c8e432bf554a640eb678d7cf05e8965fb60139b07328e3a6e68b2520c440b94fce46e0f067ae2bdc58ac61626adc33d74e5aaf94530252c891c2701ba572109f31371827ac92fd66ddda68d881584e52134a79783355da4af260e17bebc120e25a433b315d4a8764280bb7e77e0f5a9dc023b53416a466c6f851afe90931a40db98feae2cdb7a4e2bf762cc561eb748004affdef0aeb8f5ebc5fa4dbcc028d70223bbc773b1a7b5947b24d45764564128c4c978bd18e578a5a0ab12331c6038f5ed1bb1fbb9c2f8c49d027d603baadc78490a930d93764793b4d83ff93dd7acdb21e6afc7e1a69a5d34afe0e6fb2929f84421d3cf8b0a41079ed75ee498e7e7fff47f009175b37a55fd41397e43dc29c077ed31f03c991e9c2a1205b6998f850544de3817a970df4b3c97eba5d168ad549e2d807cfac1a52569f78e8f1a67917483662e839a2b704f2abc27f48ee1ceb2901e3b4e8c3e7caaed8f82486ce2ccc3019563624841889b41d4</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="15cfbd87b87bb6f58699d81bed622094af91e9e2c834ae3fd7a65bc4e1f4f3ad">ff237e079a879a02e65405b26b486dd1529cd862ab8dfd048115e1c94775c41337517e9f2dec349b0966dc56c310a4a4467f0c6c33fcbb3f50c6a37c8421136192876c9cf989e8fdd54a428b3063ecf106bda2a143d0c249448fff0b774d9b0f7bcd25d7317d0b870c545ac71bbe62dd7bbbe694fe7ee79f79d5499baab02dd72a1367d60ea463707b4130651e3005dabfe877b5d59439fef114b1bb2908b20250df4c3918db950a37fa9dd5cb65c1cd38ab538b3581ca5938aa0a156880008ca5f1c4769b2fb95bf4d84f0defceeb9fca992d1f8977090f5503af32ca3ed0f9b9858943429f4cfb6bf70b7189dd5b57be65868cd30426bfcb7580b41ea026958c07aa197e167218172285dad3a897405e429d7d85475853121a2fd13b4fa12d492e044a911cfd799bbb61d41d29642a6c1445d3d431880e7b6927f7ebd9799974b560c9a5106ee4f82c4b9ad9d3059c00575d4b91febaea3a41f64059626e135a5058db2540eba6d4adfbdd940e1b613d2e6c1f1aed16c42a7cba2e137050860faf7096b9d1c7ee5e4c84f2dcdf4c53895eb087fad9fac7bfb415cbe058a7a944c57a3550c27b631542772c4dced82fbb5a0dc6b728c61f42579ac08e71085644d8ebc1ac80c16a07cbae690a4350f73660a658c13b4ec717b3641b701937068724eb3be387b49e512de2c63754a4c97d1a8abe1df1a8da6835dd697f197f596357e287e2ffe367d3a7e4fb8cc60def0600bf965be382d79c39d0500928ec072fdcaccbb785b77ff1eb4cdf3ee2ac36405ac6c710b3596405948e6483bd3059258ffb446218005f995ba349840f838cf7d243dd4c81a7781fc9c15b5bfdd4b7859421117994240fcdbb99c7e96e6c260f487106f365475397f8708e4df0ba849fddf522f709374d0aa3a3cf69ff46d9e860918ea57557375d2d25611e30df37fcd20dcf8f9131716aaeeafc33d1d714199acfee6719a958c7d73ab784d9eb0071d813347e9ab83aa06bc5250e2f0c88cca4bf23b6921d6976e177d1a323da55529f62f81b50c818a79a69f8b12d13c1808dd6d1254266c8d5792c5eb0e09c03056645cb905625bb83b54db6a8034564770adedd51d926aa5248d67e2e9f1be1a7d034aed054f045d84ba41ba3e2ded3fef6c9c491683978d3be275ae2b1de6d720286e6b660f21815c3ff0b25771d3484d987cf6034e13f4a1064eea2c58ebd86540c9eae96489423962aa03f8498990abafa6a2cd8577e79177b75497a7b7ea478556e19971b5873b3476418ae2bf3cfe594f765d877a821c76471085fc095b0106edcb3a4a6ec49db8d7eafd209766bb3fd93acf7f361b2bc26dfc419f3d619275331b7e179164d867f77bec53feb60e66de7bb11862f74642df20f55443b750388508632853fdb8a2c43bd6c3141</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -1315,28 +1371,6 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>20889;32473;39038;26159;30003;</title>
-    <url>/2023/06/18/linbiezengyan2/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="15cfbd87b87bb6f58699d81bed622094af91e9e2c834ae3fd7a65bc4e1f4f3ad">ff237e079a879a02e65405b26b486dd1529cd862ab8dfd048115e1c94775c41337517e9f2dec349b0966dc56c310a4a4467f0c6c33fcbb3f50c6a37c8421136192876c9cf989e8fdd54a428b3063ecf106bda2a143d0c249448fff0b774d9b0f7bcd25d7317d0b870c545ac71bbe62dd7bbbe694fe7ee79f79d5499baab02dd72a1367d60ea463707b4130651e3005dabfe877b5d59439fef114b1bb2908b20250df4c3918db950a37fa9dd5cb65c1cd38ab538b3581ca5938aa0a156880008ca5f1c4769b2fb95bf4d84f0defceeb9fca992d1f8977090f5503af32ca3ed0f9b9858943429f4cfb6bf70b7189dd5b57be65868cd30426bfcb7580b41ea026958c07aa197e167218172285dad3a897405e429d7d85475853121a2fd13b4fa12d492e044a911cfd799bbb61d41d29642a6c1445d3d431880e7b6927f7ebd9799974b560c9a5106ee4f82c4b9ad9d3059c00575d4b91febaea3a41f64059626e135a5058db2540eba6d4adfbdd940e1b613d2e6c1f1aed16c42a7cba2e137050860faf7096b9d1c7ee5e4c84f2dcdf4c53895eb087fad9fac7bfb415cbe058a7a944c57a3550c27b631542772c4dced82fbb5a0dc6b728c61f42579ac08e71085644d8ebc1ac80c16a07cbae690a4350f73660a658c13b4ec717b3641b701937068724eb3be387b49e512de2c63754a4c97d1a8abe1df1a8da6835dd697f197f596357e287e2ffe367d3a7e4fb8cc60def0600bf965be382d79c39d0500928ec072fdcaccbb785b77ff1eb4cdf3ee2ac36405ac6c710b3596405948e6483bd3059258ffb446218005f995ba349840f838cf7d243dd4c81a7781fc9c15b5bfdd4b7859421117994240fcdbb99c7e96e6c260f487106f365475397f8708e4df0ba849fddf522f709374d0aa3a3cf69ff46d9e860918ea57557375d2d25611e30df37fcd20dcf8f9131716aaeeafc33d1d714199acfee6719a958c7d73ab784d9eb0071d813347e9ab83aa06bc5250e2f0c88cca4bf23b6921d6976e177d1a323da55529f62f81b50c818a79a69f8b12d13c1808dd6d1254266c8d5792c5eb0e09c03056645cb905625bb83b54db6a8034564770adedd51d926aa5248d67e2e9f1be1a7d034aed054f045d84ba41ba3e2ded3fef6c9c491683978d3be275ae2b1de6d720286e6b660f21815c3ff0b25771d3484d987cf6034e13f4a1064eea2c58ebd86540c9eae96489423962aa03f8498990abafa6a2cd8577e79177b75497a7b7ea478556e19971b5873b3476418ae2bf3cfe594f765d877a821c76471085fc095b0106edcb3a4a6ec49db8d7eafd209766bb3fd93acf7f361b2bc26dfc419f3d619275331b7e179164d867f77bec53feb60e66de7bb11862f74642df20f55443b750388508632853fdb8a2c43bd6c3141</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>临别赠言</category>
-      </categories>
-      <tags>
-        <tag>加密内容</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20889;32473;25140;26862;31435;</title>
     <url>/2023/06/18/linbiezengyan3/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
@@ -1359,88 +1393,10 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>Hexo-Next鼠标指针自定义</title>
-    <url>/2023/05/27/blog7/</url>
-    <content><![CDATA[<h4 id="准备材料">准备材料</h4>
-<p>  <code>.cur</code>或者<code>.ico</code>文件，不能太大（我试过超过1MB的素材不可用），<code>.ani</code>动态光标没试成功过。这些资源可以在<a href="https://zhutix.com/tag/cursors/">致美化</a>等途径中找到。</p>
-<span id="more"></span>
-<p>  这些文件建议下载到<code>../themes/source/images</code>中，也可以不下载而采用cdn。</p>
-<p>  这里Next版本为8.16。</p>
-<h4 id="文件修改">文件修改</h4>
-<p>  在<code>yourBlog/themes/next/source/css/_common/scaffolding</code>中找到<code>base.styl</code>，对里面的代码行进行编辑：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">+ <span class="attribute">cursor</span>: <span class="built_in">url</span>(/images/yourArrow.cur), auto;</span><br><span class="line">  <span class="attribute">background</span>: <span class="built_in">var</span>(--body-bg-color);</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--text-color);</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="variable">$font</span>-family-base;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="variable">$font</span>-size-base;</span><br><span class="line">  <span class="attribute">line-height</span>: <span class="variable">$line</span>-height-base;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">position</span>: relative;</span><br><span class="line">  <span class="attribute">transition</span>: padding <span class="variable">$transition</span>-ease;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  在添加的这行代码里将<code>yourArrow.cur</code>改为下载的素材名即可。这个地方一般是放指针型鼠标，下面还有一个区域需要编辑：</p>
-<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span> &#123;</span><br><span class="line">+ <span class="attribute">cursor</span>: <span class="built_in">url</span>(/images/yourHand.cur), auto<span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">1px</span> solid <span class="variable">$link</span>-decoration-color;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--link-color);</span><br><span class="line">  <span class="comment">// For a:not(:any-link)</span></span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">outline</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  这个位置一般放的是手型鼠标，也就是将鼠标悬在链接上会变化成的手型样式，同样将<code>yourHand.cur</code>改成下载的素材名。</p>
-<h4 id="重新部署">重新部署</h4>
-<p>  修改后可以先在本地看看效果，如果成功，最后hexo三件套即可。</p>
-<p>下面再附上很多博客在用的鼠标指针cdn：</p>
-<blockquote>
-<p><a href="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur">https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur</a><br>
-<a href="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur">https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur</a></p>
-</blockquote>
-<p>对应指针型和手型，效果：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur" alt="Arrow"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur" alt="Hand"></p>
-<p>用法就是将url括号里的链接替换为上述链接。</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-        <category>Next美化</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20889;32473;21556;23384;21644;</title>
     <url>/2023/06/20/linbiezengyan5/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
   <script id="hbeData" type="hbeData" data-hmacdigest="3b2d7e973a3f3cc6b32ad1cc6072da5400de9addc17f6298c6cee7587028dd79">d356183645db3b418b139bdb9e96d7fbbb3bf0f94a41f93e166cdfeec6d3ecc5d20bc0a999508a810aa3855d33c7f1ef9939d685a664e5c9d210d8239e0313af5475df80a0d40206ccf2081f25bccae12daea88ddec88d8cae3141c5d55c35aa62e2f90dc68244da9033b68a9bfdd9cf0ee59de674be46a338e22999734483ac4157c1996373af3d7a703d5f0bf3075c16f0ce475a1df47b140e3957fc68d7ec65d4a52ed4e0ca0e0edb1da5e426f89da82a20186012e64070337c7e8bb76e0e7deb7ee462aa0536971ff2bf12a39492ebd2325e1422a7f69012d415547ac90c28d63b716007754860082411f3be792a9c9d4e506c531b24b6d7ec8034f92d649456d81398043e6aac869fc8e47dcf07c5197145977a46f916dccadf681ae06d0069e3ca00b6129289382d30de3120cdce3034d77d6287f0e3c2b72edde52f3569eb1d33f01adf549e1b6e0d9da9316ef74bb3517f5105751a7743e70265c9739fbe5cbeeabf99cf6b076fb9da5d5ef7925e9e1caf461027c48c32a718466f2d4eb97585fe2bb1a97eea263e784c66e1b78cb6d80297b89a1ebbc451613b56e4d9b83cfb0c39fc8a0e400d97b2959d0b2182408a57b13f6a91466524a58803824a32ae96f3a513e309f0061e446b1018ee49af0edecf2d85de7863ad21e35b3a3b38e36ad8527e43c7a4f3a149e55e7295d967663c23a36c08683fd4acd0d5da51b8642398b920a33895f070f15739666403faf31f068aacb06326eaf3aa1ccf642424e9ac737391378e64b54555a1998d6e3de0883c10cc2ac76f11c64610b0c775644b88e30814f3d25c3db91a70ca348fea2830093967eba080a9f5b1fb4725315c2dcfc9e1a6aa07491b0ea39a0d52d8f6a7b9a6860232346f62d67fa55e40ac2a502cbf640e84910c1ed5e1dbf55d858e5e0db3307c843e6375936731888889e90b8e3149a215d265343bfcb412e57cfb30df31d365dbd83d6ee1834d47d05d462347b7e938fe1f71bdc5417a575289a6c85fc5aa25366b13ac1ecb32c6c4135db60659c4b05e09a3e1a7f6521a188b9f2048670d24a2b09724753f2c0adfdb03d6765efbf2f06743e7823012d3d7ca3d8cdd3d3f70f76a4bbb77182ce44b9c4b7c36173878117faded5bbfb90c1e14acf1c85855293cdb66cb983754f3bed18d5384e306dfd239a5520239ea00a296dbc5cb2aa4c0c2e96484ebc368962f5b221eb6d2521db66d4619447ff0326626e19aaa7e5c86b2f00e0854251f00c5ff63bbc910a7b9324843dc712dc4e59692e0125c3650e1e5bb099ab94105d11588409db1de3630cf12be557ce9a97905645a2032a2e188c3730d3a24077723c9490fb57c62f9998eb3a65e6f316ddfb81420883c037dab3b1e7f28628b8b4c0ac7252abc9f91db89a30c7e6b338490a787555b9cf3b41d5230f81763aa5e38e80ece0fa0a83283199856b86232d9de99f1f500ccf45a61fc756c4b095e79a41904a60fcf28a7a313c85a58ca759ec69680b012fe6958e7e6c0459858c610e92e4a83e6f68bd1cd69b5f4f757502d7b5dc5f26ebdd87358fb7647f4051d6475</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>临别赠言</category>
-      </categories>
-      <tags>
-        <tag>加密内容</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20889;32473;27611;25391;28009;</title>
-    <url>/2023/06/19/linbiezengyan4/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="9235aec39a00a974192cba804329ffb7b9d0a04972bba6a0eabaef08afdd71ff">5886ab30ca5714d1f9b371b3ffbd606ac2e5302c24784353516fb9e96cad5c5edbf5e98c0e80d26cb9de7b883daea64b55c9e647c6cd2b25142be028c7c45cfa6633e78078773f60330d4f6b0ebe2fe44957a307b410739070f6e5fb465b82c1f638c01b86930646299e23e86c73d3d0c15d44d98c0e2cf9d076f823c5d3715e66e4a17abeb595aa4368fea347f5248494c56a0a36310b38fabb2f2cdb117e95954947664c134e740c3586280a22cc4001b25d12cdd596af60921a08ab46e2eff83c931072fc231bf054f3ef8e03c7efbacdf7299963d2b72b44d0088baf2ac1647e5e41f46457dc52867f6710ddce03235858a655c9560b69319f0c3c1324d82def73c051102bbe2b91ac2ac10786dd3d3901dd9e342d5ec704b1fd68e8dae9e3c432713509b11f423c70c3223185345d8ec4d9c29ef5fd9b47175c44688e523b3d58f573a79e1baf6fe0e85e3354a8aa85092187c4ec3137a68d4ff3fef7e5aef197a6a573933fa63b9756fce52ee9da43a8a0fd92155be3cc7b847e4aeebb77edd25fa02e5d2e05b6e53a45c30fe68735b80f75391afb8bc3ecab81e94587b854e5d51fae1e37533c38628b83652f13577f4526e2a2013bb93d9548dc178945a2bcd398d107d3a588453b917b62b8d42faee86a26be3cd6387c72b7735ff08d2c5f526b6733bf41ae93ccc2db10907e1ebf28bcd709a9fece94848152dcd0501ac6df84bfe0af3bc6cdebbceb87fc2ecf9c458a332253b5831471de8ca9796dfaa0c200b83a503db483359ebcfe35fb42fbed0b51effcc2282fce61bde9cb8fe852122821c95a3e5beda3ab043ef8009489fcd578e6ff0409e5fc6af3a3d5b97b7a8c00316c6785b38f03ec323d0cc21fc63e4c2cc49154b5395414400e4fb6e034e91d64761251bb7e383dd8d64d62aa530e92582e86897c6d86275d6d3562d5254e4d2650b41734c85c211f0a7d1a315ac7df8c5a5dc7869edfb4753bbea98c0cbeb5295a9295ced4c392fe525843f60c3f8bf0ebe0c3793f6557edad5f03cd4f7eeea5ee6a1324e6cd11502a09423a343fa889b04c7b9311bc41840f7d70c118012b145b600eaa0d15bdb6dd40308d576730d286d7f0f1bbdcf215d7220767d3ff5e21e86e9207a8b231a38554400dbc7061a7236901472e299a1e8631bad3e14acc4742bc6c4da920f1e14a182f7a005fe61180de89db66546345d123d2cd32bf1981c853e1f5d68417abfe71df6b55af380d0a8ffe4fd060355a0a73fa6af35c47594a2be080bf7ce3c4131e845a3f2b3256f9603a67ef763345f6c0e41f24fde142fa8173a8d6da02d413f8f12a10aea70720d94fb0c908e36004e9d7eb0870f3eca904c8ce165177055b25f7a9f58f0e066e02263deddd5108b2958243c2982f135ca2ba7abc12c944b94b2eb84a2784eabc4a536910790f430380a96eb56f352de2d44e4809ca5e72e42172ecdcbdb35e05454131c86431d44b1e3ec5279a2ec1c15656a3f72aaf99937674ae5fc56e3c5e71bd6fe305e25e0c8077300a8a070341223abc50305edbbb365000d9299f79940a9c68f610b7ebc43dee35d779e28476ff8248588af7d13af5519cc570f11b0f52bd4f57c6329ccba7451dcdaffc18a9d3216d168ee6efec3965582f51ff65e42300857c42b54fc51fd9abeeccd80ed1a6f9b6fcf9dd3bad9c0be99723e11860d49af328f29c92816fe45b3cafbbd73209d9cc743ed20a9bdbea4abec0db74522a9720267773046d75054bfcb118933c5d22840a34191e4782a144c5c56799e4e0fb783ff221481fd6</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>临别赠言</category>
-      </categories>
-      <tags>
-        <tag>加密内容</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20889;32473;38472;20896;32701;</title>
-    <url>/2023/06/20/linbiezengyan6/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="eea363d381570195adf5757bda85ee8cfb4db36916a7769198700ed1b0cb6dfb">252de0c40a526c5d2c6146bc176ba6897ceba1c050033e3f27cd0b69d493cc47b2c632709ef3f04b6cc5992b02a4fa4ce780d3b10b7d93c882991269dda47163bb78b21871082bad93c42e48bd8facd65d22e028cb62adb411a223ccf11343d0182d799e95b52a5eaae59098a163834b290e674535fd814c40a6be0c5a012bc39a722be7179a648688555580b77d4a17b31d0ecec55607c9caea77afbaa1a2440828604eccd9c2b1427a91ddb390b94eee566ef7387098e3543b5cc2f68e902c54bac290fcf4994af5d9f655c436e607e7ec78bbbfc0fb9949174cb05865a34279f8afc359c001606c9aec41e29525269e88595d5c4a34b7b77e500bc3752779a3556667bdd1bf2fbf5fc911913ce1c15a146cfb40f376e0cc31c67b057807c2142ee4347755ef0dad6bd490d6af70b4a45b98a6d8ff6c3556e8fc980eaf0c998aaa1b02075c85abbe074baa92798fce8d977a68c742bfe115309d41d1555957c2cff51c61cd7ca8e7d41ab29d9e41dfc393b9f2817374b4906a65a1731de21396b038cd1acfb524e4a8592777210300bd687d78df2618c062fd97345ca0a3dd3dbfce1b1a5b7a2dc998649ce9ebb4ccf228de0abfd81eeb31dbfbb7989d5d74b623c05e2c04b9d84bf490e6008784c4a9cc34cd44c51c6b731251d97d028952445ebf85f998e8e20dcc9ccade7663bda1fb6d57256759523f22999e468b06e927eadc76bfbd941eaaee96e49898ac8edbaa63f648866d2a01f458c41355afb8d59574a076d8aa214c24982865d2f78c272582ab886ebb3dda3c6cd9c9f3fd34f07cab534deb14d380139c92915a5417ac76e618035dad5e8392ed5df7facdd415964dc969cd53c40c13a9c4d93601ed907fbe8663640a924d5357f1c0dc509ce5cd37d0db89e5903e7bc74a114385ca78fa1a23abf3bd76232533f7c8e3ae4d254c55b81f85897dc28b83ee2e43bf70964a19775c8ef7d900f2cf539c14ad9ab5b76092d58f40c209b0132ae0f475c4231ce149cfe19401f80aedd8e777264703c4ee1cf4ffef57c955a2b9d5bc6095650de16bf7e7fe0fc21ba682d23c6633f63960ec41a0f200458e4e8e648816005f77168cf44dc038b92096a2f270fa345225cf1fe821ca47d53be4c0be36e7d45debc453fee9f367051ae3e8e639ac1b4d0f0750d28f9f62213c09fd44640b7bbc257ca161c21f7295453e55b634dc1b3ef3d43b61a9e9782916665766d020700979ac6e1ec89b47413e64ee0366dd1f9e7493a9e9bb7f985bd7e3a98b3a580a8209b1d6ae49a312e7a5adc520208a28fb3948e88e6c8e9f6d3866e3df7fb5f07849b1b85496eec53aedd506ac31935aee457637fe9e2dd71d78c871c87bc507aee26eb63b4302ef5e92b214593ce32b296ebb6e0c664a1d0b9e512a3e47fa8f4bd100d032eff3640a3fb75fe41767f4bfc91a5d3752385f461a0cfd33817b4f7ead2791e19f697f1c7f9ca4f029e26af5c1dd136316be8772956a482b6909c08d46bad22e36d85a373a9c0d67fd6fbf2ab1ed4f12b2774ea5affbea8b56dbb96892e4dd5afe2820920d35ded22a967f109682f757a476962fd4df914bf6c977bbb45a6a3a4942553cbb40381209c6542c1d23305b23f01bff6552893e26141a884df204a8868a988b20e28ab7598bcd6f1a386c6a66e40e14b86a65a46413871bf2c4fe79c65601bf0a4e3a21118c22</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -1497,6 +1453,50 @@ $$</p>
       </categories>
       <tags>
         <tag>建站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20889;32473;27611;25391;28009;</title>
+    <url>/2023/06/19/linbiezengyan4/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="9235aec39a00a974192cba804329ffb7b9d0a04972bba6a0eabaef08afdd71ff">5886ab30ca5714d1f9b371b3ffbd606ac2e5302c24784353516fb9e96cad5c5edbf5e98c0e80d26cb9de7b883daea64b55c9e647c6cd2b25142be028c7c45cfa6633e78078773f60330d4f6b0ebe2fe44957a307b410739070f6e5fb465b82c1f638c01b86930646299e23e86c73d3d0c15d44d98c0e2cf9d076f823c5d3715e66e4a17abeb595aa4368fea347f5248494c56a0a36310b38fabb2f2cdb117e95954947664c134e740c3586280a22cc4001b25d12cdd596af60921a08ab46e2eff83c931072fc231bf054f3ef8e03c7efbacdf7299963d2b72b44d0088baf2ac1647e5e41f46457dc52867f6710ddce03235858a655c9560b69319f0c3c1324d82def73c051102bbe2b91ac2ac10786dd3d3901dd9e342d5ec704b1fd68e8dae9e3c432713509b11f423c70c3223185345d8ec4d9c29ef5fd9b47175c44688e523b3d58f573a79e1baf6fe0e85e3354a8aa85092187c4ec3137a68d4ff3fef7e5aef197a6a573933fa63b9756fce52ee9da43a8a0fd92155be3cc7b847e4aeebb77edd25fa02e5d2e05b6e53a45c30fe68735b80f75391afb8bc3ecab81e94587b854e5d51fae1e37533c38628b83652f13577f4526e2a2013bb93d9548dc178945a2bcd398d107d3a588453b917b62b8d42faee86a26be3cd6387c72b7735ff08d2c5f526b6733bf41ae93ccc2db10907e1ebf28bcd709a9fece94848152dcd0501ac6df84bfe0af3bc6cdebbceb87fc2ecf9c458a332253b5831471de8ca9796dfaa0c200b83a503db483359ebcfe35fb42fbed0b51effcc2282fce61bde9cb8fe852122821c95a3e5beda3ab043ef8009489fcd578e6ff0409e5fc6af3a3d5b97b7a8c00316c6785b38f03ec323d0cc21fc63e4c2cc49154b5395414400e4fb6e034e91d64761251bb7e383dd8d64d62aa530e92582e86897c6d86275d6d3562d5254e4d2650b41734c85c211f0a7d1a315ac7df8c5a5dc7869edfb4753bbea98c0cbeb5295a9295ced4c392fe525843f60c3f8bf0ebe0c3793f6557edad5f03cd4f7eeea5ee6a1324e6cd11502a09423a343fa889b04c7b9311bc41840f7d70c118012b145b600eaa0d15bdb6dd40308d576730d286d7f0f1bbdcf215d7220767d3ff5e21e86e9207a8b231a38554400dbc7061a7236901472e299a1e8631bad3e14acc4742bc6c4da920f1e14a182f7a005fe61180de89db66546345d123d2cd32bf1981c853e1f5d68417abfe71df6b55af380d0a8ffe4fd060355a0a73fa6af35c47594a2be080bf7ce3c4131e845a3f2b3256f9603a67ef763345f6c0e41f24fde142fa8173a8d6da02d413f8f12a10aea70720d94fb0c908e36004e9d7eb0870f3eca904c8ce165177055b25f7a9f58f0e066e02263deddd5108b2958243c2982f135ca2ba7abc12c944b94b2eb84a2784eabc4a536910790f430380a96eb56f352de2d44e4809ca5e72e42172ecdcbdb35e05454131c86431d44b1e3ec5279a2ec1c15656a3f72aaf99937674ae5fc56e3c5e71bd6fe305e25e0c8077300a8a070341223abc50305edbbb365000d9299f79940a9c68f610b7ebc43dee35d779e28476ff8248588af7d13af5519cc570f11b0f52bd4f57c6329ccba7451dcdaffc18a9d3216d168ee6efec3965582f51ff65e42300857c42b54fc51fd9abeeccd80ed1a6f9b6fcf9dd3bad9c0be99723e11860d49af328f29c92816fe45b3cafbbd73209d9cc743ed20a9bdbea4abec0db74522a9720267773046d75054bfcb118933c5d22840a34191e4782a144c5c56799e4e0fb783ff221481fd6</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>临别赠言</category>
+      </categories>
+      <tags>
+        <tag>加密内容</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20889;32473;38472;20896;32701;</title>
+    <url>/2023/06/20/linbiezengyan6/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="eea363d381570195adf5757bda85ee8cfb4db36916a7769198700ed1b0cb6dfb">252de0c40a526c5d2c6146bc176ba6897ceba1c050033e3f27cd0b69d493cc47b2c632709ef3f04b6cc5992b02a4fa4ce780d3b10b7d93c882991269dda47163bb78b21871082bad93c42e48bd8facd65d22e028cb62adb411a223ccf11343d0182d799e95b52a5eaae59098a163834b290e674535fd814c40a6be0c5a012bc39a722be7179a648688555580b77d4a17b31d0ecec55607c9caea77afbaa1a2440828604eccd9c2b1427a91ddb390b94eee566ef7387098e3543b5cc2f68e902c54bac290fcf4994af5d9f655c436e607e7ec78bbbfc0fb9949174cb05865a34279f8afc359c001606c9aec41e29525269e88595d5c4a34b7b77e500bc3752779a3556667bdd1bf2fbf5fc911913ce1c15a146cfb40f376e0cc31c67b057807c2142ee4347755ef0dad6bd490d6af70b4a45b98a6d8ff6c3556e8fc980eaf0c998aaa1b02075c85abbe074baa92798fce8d977a68c742bfe115309d41d1555957c2cff51c61cd7ca8e7d41ab29d9e41dfc393b9f2817374b4906a65a1731de21396b038cd1acfb524e4a8592777210300bd687d78df2618c062fd97345ca0a3dd3dbfce1b1a5b7a2dc998649ce9ebb4ccf228de0abfd81eeb31dbfbb7989d5d74b623c05e2c04b9d84bf490e6008784c4a9cc34cd44c51c6b731251d97d028952445ebf85f998e8e20dcc9ccade7663bda1fb6d57256759523f22999e468b06e927eadc76bfbd941eaaee96e49898ac8edbaa63f648866d2a01f458c41355afb8d59574a076d8aa214c24982865d2f78c272582ab886ebb3dda3c6cd9c9f3fd34f07cab534deb14d380139c92915a5417ac76e618035dad5e8392ed5df7facdd415964dc969cd53c40c13a9c4d93601ed907fbe8663640a924d5357f1c0dc509ce5cd37d0db89e5903e7bc74a114385ca78fa1a23abf3bd76232533f7c8e3ae4d254c55b81f85897dc28b83ee2e43bf70964a19775c8ef7d900f2cf539c14ad9ab5b76092d58f40c209b0132ae0f475c4231ce149cfe19401f80aedd8e777264703c4ee1cf4ffef57c955a2b9d5bc6095650de16bf7e7fe0fc21ba682d23c6633f63960ec41a0f200458e4e8e648816005f77168cf44dc038b92096a2f270fa345225cf1fe821ca47d53be4c0be36e7d45debc453fee9f367051ae3e8e639ac1b4d0f0750d28f9f62213c09fd44640b7bbc257ca161c21f7295453e55b634dc1b3ef3d43b61a9e9782916665766d020700979ac6e1ec89b47413e64ee0366dd1f9e7493a9e9bb7f985bd7e3a98b3a580a8209b1d6ae49a312e7a5adc520208a28fb3948e88e6c8e9f6d3866e3df7fb5f07849b1b85496eec53aedd506ac31935aee457637fe9e2dd71d78c871c87bc507aee26eb63b4302ef5e92b214593ce32b296ebb6e0c664a1d0b9e512a3e47fa8f4bd100d032eff3640a3fb75fe41767f4bfc91a5d3752385f461a0cfd33817b4f7ead2791e19f697f1c7f9ca4f029e26af5c1dd136316be8772956a482b6909c08d46bad22e36d85a373a9c0d67fd6fbf2ab1ed4f12b2774ea5affbea8b56dbb96892e4dd5afe2820920d35ded22a967f109682f757a476962fd4df914bf6c977bbb45a6a3a4942553cbb40381209c6542c1d23305b23f01bff6552893e26141a884df204a8868a988b20e28ab7598bcd6f1a386c6a66e40e14b86a65a46413871bf2c4fe79c65601bf0a4e3a21118c22</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>临别赠言</category>
+      </categories>
+      <tags>
+        <tag>加密内容</tag>
       </tags>
   </entry>
 </search>
