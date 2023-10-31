@@ -21,28 +21,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"reinshift.cn","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"flipInY"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="起风了，唯有努力生存。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="https://reinshift.cn/tags/index.html">
+    <meta name="description" content="一起来阅读一下Vásárhelyi的一篇论文：Optimized flocking of autonomous drones in confined environments.  Gábor Vásárhelyi et al. ,Optimized flocking of autonomous drones in confined environments.Sci. Robot.3,eaat353">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Optimized flocking of autonomous drones in confined environments">
+<meta property="og:url" content="https://reinshift.cn/2023/10/31/blog24-readingpaper/index.html">
 <meta property="og:site_name" content="雁来廿陆">
-<meta property="og:description" content="起风了，唯有努力生存。">
+<meta property="og:description" content="一起来阅读一下Vásárhelyi的一篇论文：Optimized flocking of autonomous drones in confined environments.  Gábor Vásárhelyi et al. ,Optimized flocking of autonomous drones in confined environments.Sci. Robot.3,eaat353">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-04-27T06:29:27.000Z">
-<meta property="article:modified_time" content="2023-05-28T13:28:54.834Z">
+<meta property="article:published_time" content="2023-10-31T05:46:57.000Z">
+<meta property="article:modified_time" content="2023-10-31T05:51:18.552Z">
 <meta property="article:author" content="雁来廿陆">
+<meta property="article:tag" content="论文">
+<meta property="article:tag" content="无人机集群">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://reinshift.cn/tags/">
+<link rel="canonical" href="https://reinshift.cn/2023/10/31/blog24-readingpaper/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"https://reinshift.cn/tags/index.html","path":"tags/index.html","title":"标签"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://reinshift.cn/2023/10/31/blog24-readingpaper/","path":"2023/10/31/blog24-readingpaper/","title":"Optimized flocking of autonomous drones in confined environments"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签 | 雁来廿陆
-</title>
+<title>Optimized flocking of autonomous drones in confined environments | 雁来廿陆</title>
   
 
 
@@ -128,7 +129,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -141,6 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">引入</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9B%86%E7%BE%A4%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%BE%E8%AE%A1%E9%9D%A2%E4%B8%B4%E8%AF%B8%E5%A4%9A%E6%8C%91%E6%88%98%EF%BC%9A"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">集群模型的设计面临诸多挑战：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AC%E6%96%87%E6%89%80%E5%BE%97%E7%BB%93%E6%9E%9C%EF%BC%9A"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">本文所得结果：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E8%BF%9B%E5%8C%96%E7%AE%97%E6%B3%95%E4%BC%98%E5%8C%96%E9%B8%9F%E7%BE%A4%E6%A8%A1%E5%9E%8B%E5%AE%9E%E4%BE%8B"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">通过进化算法优化鸟群模型实例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9F%E5%BA%A6%E7%9A%84%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">速度的可扩展性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%90%E5%91%98%E6%95%B0%E9%87%8F%E7%9A%84%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7%E5%92%8C%E9%9B%86%E4%BD%93%E9%81%BF%E9%9A%9C"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">成员数量的可扩展性和集体避障</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%B7%E5%A4%96%E9%A3%9E%E8%A1%8C%E7%9A%84%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="nav-number">2.0.0.4.</span> <span class="nav-text">户外飞行的实验结果</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">其他材料和研究方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%88%E5%89%8D%E5%B7%A5%E4%BD%9C%EF%BC%9A%E5%8F%AF%E8%B0%83%E5%8F%82%E7%9A%84%E8%87%AA%E6%8E%A8%E5%8A%A8%E9%B8%9F%E7%BE%A4%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">先前工作：可调参的自推动鸟群模型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%A5%E5%8A%9B%E9%A1%B9"><span class="nav-number">3.0.0.2.</span> <span class="nav-text">斥力项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%9F%E5%BA%A6%E5%90%8C%E6%AD%A5%E9%A1%B9"><span class="nav-number">3.0.0.3.</span> <span class="nav-text">速度同步项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8E%E5%A2%99%E5%A3%81%E5%92%8C%E9%9A%9C%E7%A2%8D%E7%89%A9%E7%9A%84%E4%BA%A4%E4%BA%92"><span class="nav-number">3.0.0.4.</span> <span class="nav-text">与墙壁和障碍物的交互</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E9%A9%B1%E5%8A%A8%E9%A1%B9"><span class="nav-number">3.0.0.5.</span> <span class="nav-text">自驱动项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E6%9C%9F%E6%9C%9B%E5%90%88%E9%80%9F%E5%BA%A6"><span class="nav-number">3.0.0.6.</span> <span class="nav-text">最终期望合速度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E8%AF%AF%E5%B7%AE%E7%9A%84%E5%A4%84%E7%90%86"><span class="nav-number">3.0.0.7.</span> <span class="nav-text">一些误差的处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BA%8F%E5%8F%82%E6%95%B0"><span class="nav-number">3.0.0.8.</span> <span class="nav-text">序参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%82%E5%BA%94%E5%BA%A6%E5%87%BD%E6%95%B0"><span class="nav-number">3.0.0.9.</span> <span class="nav-text">适应度函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%A0%E4%BA%BA%E6%9C%BA%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.0.0.10.</span> <span class="nav-text">无人机设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%E6%9D%90%E6%96%99"><span class="nav-number">3.0.0.11.</span> <span class="nav-text">补充材料</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -476,43 +478,255 @@ if(canvas.getContext){
 
     </div>
 
-    <div class="main-inner page posts-expand">
+    <div class="main-inner post posts-expand">
 
 
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://reinshift.cn/2023/10/31/blog24-readingpaper/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="雁来廿陆">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="雁来廿陆">
+      <meta itemprop="description" content="起风了，唯有努力生存。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Optimized flocking of autonomous drones in confined environments | 雁来廿陆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Optimized flocking of autonomous drones in confined environments
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-10-31 13:46:57 / 修改时间：13:51:18" itemprop="dateCreated datePublished" datetime="2023-10-31T13:46:57+08:00">2023-10-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%9B%86%E7%BE%A4/" itemprop="url" rel="index"><span itemprop="name">无人机集群</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
     
-    
-    
-    <div class="post-block" lang="zh-CN"><header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">标签
-</h1>
-
-<div class="post-meta-container">
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2023/10/31/blog24-readingpaper/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2023/10/31/blog24-readingpaper/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="waline-pageview-count" data-path="/2023/10/31/blog24-readingpaper/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
 </div>
 
-</header>
+        </div>
+      </header>
 
-      
-      
-      <div class="post-body"><div class="tag-cloud">
-  <div class="tag-cloud-title">
-    目前共计 18 个标签
-  </div>
-  <div class="tag-cloud-tags">
-    <a href="/tags/C/" style="font-size: 15.6px;" class="tag-cloud-2">C++</a> <a href="/tags/Css/" style="font-size: 12px;" class="tag-cloud-0">Css</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 12px;" class="tag-cloud-0">C语言</a> <a href="/tags/Hexo/" style="font-size: 26.4px;" class="tag-cloud-8">Hexo</a> <a href="/tags/Matlab/" style="font-size: 12px;" class="tag-cloud-0">Matlab</a> <a href="/tags/%E4%BA%BA%E7%94%9F/" style="font-size: 12px;" class="tag-cloud-0">人生</a> <a href="/tags/%E5%8A%A0%E5%AF%86%E5%86%85%E5%AE%B9/" style="font-size: 30px;" class="tag-cloud-10">加密内容</a> <a href="/tags/%E5%A4%9A%E5%85%83%E5%88%86%E6%9E%90/" style="font-size: 15.6px;" class="tag-cloud-2">多元分析</a> <a href="/tags/%E5%BA%B5%E9%87%8E%E7%A7%80%E6%98%8E%E9%A3%8E%E6%A0%BC/" style="font-size: 12px;" class="tag-cloud-0">庵野秀明风格</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 19.2px;" class="tag-cloud-4">建站</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 22.8px;" class="tag-cloud-6">数据结构</a> <a href="/tags/%E6%97%85%E6%B8%B8/" style="font-size: 12px;" class="tag-cloud-0">旅游</a> <a href="/tags/%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%9B%86%E7%BE%A4/" style="font-size: 12px;" class="tag-cloud-0">无人机集群</a> <a href="/tags/%E6%99%BA%E8%83%BD%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/" style="font-size: 15.6px;" class="tag-cloud-2">智能优化算法</a> <a href="/tags/%E6%AF%95%E4%B8%9A/" style="font-size: 12px;" class="tag-cloud-0">毕业</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E9%A1%B9%E7%9B%AE/" style="font-size: 12px;" class="tag-cloud-0">游戏项目</a> <a href="/tags/%E7%A0%94%E8%B5%9B/" style="font-size: 12px;" class="tag-cloud-0">研赛</a> <a href="/tags/%E8%AE%BA%E6%96%87/" style="font-size: 12px;" class="tag-cloud-0">论文</a>
-  </div>
-</div>
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>一起来阅读一下Vásárhelyi的一篇论文：<em>Optimized flocking of autonomous drones in confined environments.</em></p>
+<blockquote>
+<p>Gábor Vásárhelyi et al. ,Optimized flocking of autonomous drones in confined environments.Sci. Robot.3,eaat3536(2018).DOI:10.1126/scirobotics.aat3536</p>
+</blockquote>
+<span id="more"></span>
+<h1>引入</h1>
+<p>集群模型基于自然界动物的集群行为建立。</p>
+<p>只需考虑三种相互作用：短距离排斥、中距离的速度保持一致、长距离的吸引。</p>
+<p>然而这种模型的实现是困难的。理想化的模型很少有行之有效的方案。</p>
+<h4 id="集群模型的设计面临诸多挑战：">集群模型的设计面临诸多挑战：</h4>
+<ol>
+<li class="lvl-3">
+<p>现实差距：理想化的模型在仿真时稳定，但在现实环境下会有很多问题；</p>
+</li>
+<li class="lvl-3">
+<p>适应性：基于开放环境以及周期性边界条件开发的集群模型不一定适用于有约束、有障碍物的环境；</p>
+</li>
+<li class="lvl-3">
+<p>可扩展性：对于更大规模、更大速度的集群，运动模式可能会不稳定；</p>
+</li>
+<li class="lvl-3">
+<p>高维度：大量复杂非线性耦合参数需要调整。</p>
+</li>
+</ol>
+<p>本文所基于的前置工作：提出了具有集群和编队飞行的10成员无人机群，但轨迹振荡且扩展性不好。</p>
+<p>同步集群行为、自主避障的大型分布式无人机群的建立是亟待解决的任务。</p>
+<p>运动约束的显式处理是基于速度一致化交互实现的，关键在于放弃通常使用的局部相互作用的固定空间边界，取而代之的是距离和速度差异的预期最佳关系来动态确定相互作用的范围。</p>
+<p>求解方法：Evolutionary Algorithms进化算法中的<strong>CMA-ES</strong>算法（协方差矩阵自适应演化策略）</p>
+<h4 id="本文所得结果：">本文所得结果：</h4>
+<ol>
+<li class="lvl-3">
+<p>鸟群模型，通过保持速度和距离差之间的平衡处理运动约束；</p>
+</li>
+<li class="lvl-3">
+<p>提出了一个通过优化复杂、多噪、现实环境中的自组织群体行为，设计单个无人机控制器的方法；</p>
+</li>
+<li class="lvl-3">
+<p>通过对该系统的仿真模拟，展示了对广泛速度范围和群体规模的普适性和可扩展性；</p>
+</li>
+<li class="lvl-3">
+<p>用30架四旋翼无人机演示该框架，实现在有约束空间中的完全自主、同步的户外飞行，以及集体避碰、避障。</p>
+</li>
+</ol>
+<h1>结果</h1>
+<h4 id="通过进化算法优化鸟群模型实例">通过进化算法优化鸟群模型实例</h4>
+<p>step1：在边长为250的方形无障碍物区域仿真优化，$v<sup>{flock}=4,6,8;v</sup>{max}=6,8,10$m/s，种群规模100，最大迭代次数150，最后在归一化等操作后，对应三个鸟群速度的适应度函数值为$0.92,0.87,0.8$，其中四个适应度的值恰好为1，对应完全无碰撞和不丢失连接的情况。<br>
+step2：对每个速度进行100次并行随机仿真，这里遇到了一些碰撞问题，解决的方法有两种，本文选择第二种：优化后手动增加成员间距离（斥力），在减少集群中整体速度相关性不至于影响结果的情况下。<br>
+step3：进化参数设置的优点——算法在成员的相斥和保持速度一致的交互中发现了意想不到的设置：1.与预期的强硬斥力相反，优化结果认为更广泛更平滑的斥力更可取；2.近邻成员间的速度维齐应最大化，并且最大程度与距离无关，在速度差别上只允许较小的空间，以加快集体转弯的进程。</p>
+<h4 id="速度的可扩展性">速度的可扩展性</h4>
+<p>为了证明可扩展性，采用更高的集群速度：$16和32$m/s，超过了大多数鸟类迁徙速度，并且在环境设置中更改了两个参数：将通信范围从80增加至$160和320$以及将仿真区域的边长从250增加至500和1000m，分别对应上述两个速度。这些变化是由于速度变大而通信延迟不变所自然得到的。得到的结果也较好。</p>
+<h4 id="成员数量的可扩展性和集体避障">成员数量的可扩展性和集体避障</h4>
+<p>增加成员是可行的，但是也带来了容易碰撞的问题，这时候需要减轻成员的压力，比如可以在区域内增加障碍物。障碍物可以类似周围墙壁的属性进行初始化。在仿真中集群的大小在30到1000之间，集群速度在$4到32$m/s之间，并且沿途有不同类型的障碍物。总的来说该模型的效果较好，可以作为通用的框架。</p>
+<h4 id="户外飞行的实验结果">户外飞行的实验结果</h4>
+<p>仿真时计算并记录了一些参数的变化（$\Phi<sup>{corr}、\Phi</sup>{vel}、\min r_{ij} \And \bar{r_{ij}<sup>{min}}、\Phi</sup>{LAP}$）来评估仿真测试的质量。这里附上了$v=4,6,8m/s$时对应“对角线飞行、有障碍飞行、圆形飞行”集群行为的各个参数随时间的变化的曲线图，并总结了这些曲线的特点。</p>
+<h1>其他材料和研究方法</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h4 id="先前工作：可调参的自推动鸟群模型">先前工作：可调参的自推动鸟群模型</h4>
+</li>
+<li class="lvl-2">
+<h4 id="斥力项">斥力项</h4>
+</li>
+<li class="lvl-2">
+<h4 id="速度同步项">速度同步项</h4>
+</li>
+<li class="lvl-2">
+<h4 id="与墙壁和障碍物的交互">与墙壁和障碍物的交互</h4>
+</li>
+<li class="lvl-2">
+<h4 id="自驱动项">自驱动项</h4>
+</li>
+<li class="lvl-2">
+<h4 id="最终期望合速度">最终期望合速度</h4>
+<ul class="lvl-2">
+<li class="lvl-6">使用框架：github开源框架<a target="_blank" rel="noopener" href="https://github.com/csviragh/robotsim">csviragh</a></li>
+</ul>
+</li>
+<li class="lvl-2">
+<h4 id="一些误差的处理">一些误差的处理</h4>
+<ul class="lvl-2">
+<li class="lvl-4">通信延迟</li>
+<li class="lvl-4">惯性</li>
+<li class="lvl-4">传感器刷新率</li>
+<li class="lvl-4">通信局域性</li>
+<li class="lvl-4">机载传感器误差</li>
+<li class="lvl-4">外界噪声</li>
+</ul>
+</li>
+<li class="lvl-2">
+<h4 id="序参数">序参数</h4>
+<p>$\Phi^{corr}\rightarrow 1$、$\Phi^{coll}\rightarrow 0$、$\Phi^{wall}\rightarrow 0$、$\Phi^{vel}\rightarrow v<sup>{flock}$、$N</sup>{min}\gt N/5$<br>
+这里存在问题：$\Phi<sup>{coll}$、$\Phi</sup>{wall}$中的$\Theta<br>
+$函数中的参数符号问题。</p>
+</li>
+<li class="lvl-2">
+<h4 id="适应度函数">适应度函数</h4>
+<p>使用了三个传递函数来限制值域从0到1.适应度函数为：<br>
+$$<br>
+F=F^{speed}\cdot F^{coll}\cdot F^{disc}\cdot F^{cluster}\cdot F^{wall}\cdot F^{corr}<br>
+$$</p>
+</li>
+<li class="lvl-2">
+<h4 id="无人机设置">无人机设置</h4>
+<p>这部分涉及无人机领域的知识。</p>
+<h4 id="补充材料">补充材料</h4>
+<p>Movie1：有100架无人机的前代鸟群模型仿真（基于算法A）<br>
+Movie2；进化算法优化后的100架无人机新鸟群模型（基于算法B）<br>
+Movie3：展示该模型的可扩展性（不同速度、无人机规模、是否有障碍物以及障碍物的形状等）<br>
+Movie4-6：30架无人机分别在4、6、8m/s速度下对应对角线、避障、圆形编队飞行行为的仿真</p>
+</li>
+</ul>
+<p>此外作者还制作了一个介绍该项目以及部分仿真演示的视频，非常有艺术性：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=E4XpyG4eMKE&amp;list=PLVomP3HX5rF0GEf-RHnKYVgQK6igvEDB_&amp;index=1">Optimized flocking of autonomous drones in confined environments</a></p>
 
-      </div>
-      
-      
-      
     </div>
 
     
     
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%BA%E6%96%87/" rel="tag"># 论文</a>
+              <a href="/tags/%E6%97%A0%E4%BA%BA%E6%9C%BA%E9%9B%86%E7%BE%A4/" rel="tag"># 无人机集群</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/10/10/blog23-Cgame/" rel="prev" title="基于easyx库的C语言制作游戏尝试">
+                  <i class="fa fa-chevron-left"></i> 基于easyx库的C语言制作游戏尝试
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
 
 
+
+
+
+
+    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -595,14 +809,14 @@ if(canvas.getContext){
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
 
 
   <script async src="/js/cursor/fireworks.js"></script>
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"example.reinshift.cn","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","reaction":true,"locale":{"placeholder":"水水水，快来水(～￣▽￣)~"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/tieba"],"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"pageSize":10,"el":"#waline","comment":true,"path":"/tags/"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"example.reinshift.cn","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","reaction":true,"locale":{"placeholder":"水水水，快来水(～￣▽￣)~"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/tieba"],"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"pageSize":10,"el":"#waline","comment":true,"path":"/2023/10/31/blog24-readingpaper/"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {
