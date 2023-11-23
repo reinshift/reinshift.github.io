@@ -21,25 +21,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"reinshift.cn","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.16.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"flipInY"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="起风了，唯有努力生存。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="雁来廿陆">
-<meta property="og:url" content="https://reinshift.cn/archives/index.html">
+    <meta name="description" content="PageRank的基本思想 PageRank算法是谷歌搜索引擎中用于评估网页重要性的核心算法之一。该算法由谷歌创始人拉里·佩奇和谢尔盖·布林在1998年提出，并成为谷歌搜索引擎的基础。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PageRank算法">
+<meta property="og:url" content="https://reinshift.cn/2023/11/23/blog25-PaperRank/index.html">
 <meta property="og:site_name" content="雁来廿陆">
-<meta property="og:description" content="起风了，唯有努力生存。">
+<meta property="og:description" content="PageRank的基本思想 PageRank算法是谷歌搜索引擎中用于评估网页重要性的核心算法之一。该算法由谷歌创始人拉里·佩奇和谢尔盖·布林在1998年提出，并成为谷歌搜索引擎的基础。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-11-23T13:04:09.000Z">
+<meta property="article:modified_time" content="2023-11-23T13:55:51.686Z">
 <meta property="article:author" content="雁来廿陆">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="网络">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://reinshift.cn/archives/">
+<link rel="canonical" href="https://reinshift.cn/2023/11/23/blog25-PaperRank/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://reinshift.cn/2023/11/23/blog25-PaperRank/","path":"2023/11/23/blog25-PaperRank/","title":"PageRank算法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>归档 | 雁来廿陆</title>
+<title>PageRank算法 | 雁来廿陆</title>
   
 
 
@@ -72,7 +76,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">雁来廿陆</h1>
+      <p class="site-title">雁来廿陆</p>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -125,7 +129,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -138,6 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#PageRank%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3"><span class="nav-number">1.</span> <span class="nav-text">PageRank的基本思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PageRank%E7%9A%84%E4%B8%80%E8%88%AC%E5%AE%9A%E4%B9%89"><span class="nav-number">2.</span> <span class="nav-text">PageRank的一般定义</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -473,234 +478,164 @@ if(canvas.getContext){
 
     </div>
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://reinshift.cn/2023/11/23/blog25-PaperRank/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="雁来廿陆">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="雁来廿陆">
+      <meta itemprop="description" content="起风了，唯有努力生存。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PageRank算法 | 雁来廿陆">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PageRank算法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-11-23 21:04:09 / 修改时间：21:55:51" itemprop="dateCreated datePublished" datetime="2023-11-23T21:04:09+08:00">2023-11-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">算法</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2023/11/23/blog25-PaperRank/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2023/11/23/blog25-PaperRank/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="waline-pageview-count" data-path="/2023/11/23/blog25-PaperRank/"></span>
+    </span>
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>956</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h3 id="PageRank的基本思想">PageRank的基本思想</h3>
+<p>PageRank算法是谷歌搜索引擎中用于评估网页重要性的核心算法之一。该算法由谷歌创始人拉里·佩奇和谢尔盖·布林在1998年提出，并成为谷歌搜索引擎的基础。</p>
+<span id="more"></span>
+<p>PageRank算法的核心思想是，通过分析网页之间的链接关系，将网页作为节点，将所有网络转化为一个有向图。<strong>它认为被更多网页指向的网页更重要</strong>，从而定义了每个网页的重要程度，即PageRank值，简称PR值。</p>
+<p>假设互联网是一个有向图，在其基础上定义随机游走模型，即一阶马尔可夫链，表示网页浏览者在互联网上随机浏览网页的过程。假设浏览者在每个网页依照连接出去的超链接以等概率跳转到下一个网页，并在网上持续不断进行这样的随机跳转，这个过程形成一阶马尔可夫链。PageRank表示这个马尔可夫链的平稳分布。每个网页的PageRank值就是平稳概率。</p>
+<h3 id="PageRank的一般定义">PageRank的一般定义</h3>
+<p>给定一个含有$n$个结点$v_i,i=1,2,\cdots,n$的任意有向图，则每个节点的PR值一般定义如下式：<br>
+$$<br>
+PR(v_i)=d(\sum_{v_j \in N(v_i)}\frac{PR(v_j)}{DE(v_j)})+\frac{1-d}{n},i=1,2,\cdots,n.<br>
+$$<br>
+其中$d$为阻尼系数由经验决定，一般令$d=0.85$，$DE(v_j)$为节点$v_j$的度，$N(v_i)$为$v_i$的邻居节点。并且有$\sum_{i=1}^{n} PR(v_i)=1$.</p>
+<p>在实际应用中PR值往往是一个时变的数，由迭代产生每个时刻的PR值。对于第$i$个节点，$t=0$时每个节点的PR值相等为$\frac{1}{n}$。$t&gt;0$时，PR值定义如下：<br>
+$$<br>
+PR_i(t)=d(\sum_{v_j \in N(v_i)}\frac{\rho_{ij} PR_j(t)}{DE(v_j)})+\frac{1-d}{n},i=1,2,\cdots,n.<br>
+$$<br>
+其中$\rho_{ij}=DE(v_i)+DE(v_j)$代表了边的权值。这样待迭代至最终就可以生成每个节点的PR值。</p>
+<blockquote>
+<p>参考文献：<br>
+CDS-Based Topology Control in FANETs via Power and Position Optimization.<br>
+DOI：10.1109/LWC.2020.3009666</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+              <a href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag"># 网络</a>
+          </div>
+
         
-        <span class="collection-header">还行! 目前共计 35 篇日志。 继续努力。</span>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-11-23T21:04:09+08:00"
-              content="2023-11-23">
-          11-23
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/11/23/blog25-PaperRank/" itemprop="url">
-            <span itemprop="name">PageRank算法</span>
-          </a>
-      </div>
-
-      
-    </header>
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/10/31/blog24-readingpaper/" rel="prev" title="Optimized flocking of autonomous drones in confined environments">
+                  <i class="fa fa-chevron-left"></i> Optimized flocking of autonomous drones in confined environments
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-10-31T13:46:57+08:00"
-              content="2023-10-31">
-          10-31
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/10/31/blog24-readingpaper/" itemprop="url">
-            <span itemprop="name">Optimized flocking of autonomous drones in confined environments</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-10-10T13:55:49+08:00"
-              content="2023-10-10">
-          10-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/10/10/blog23-Cgame/" itemprop="url">
-            <span itemprop="name">基于easyx库的C语言制作游戏尝试</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-09-27T16:32:28+08:00"
-              content="2023-09-27">
-          09-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/09/27/blog22-2023B/" itemprop="url">
-            <span itemprop="name">第一次研赛心得体会</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-08-25T17:12:43+08:00"
-              content="2023-08-25">
-          08-25
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/08/25/blog21-AOA/" itemprop="url">
-            <span itemprop="name">算术优化算法（AOA）</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-08-18T14:45:36+08:00"
-              content="2023-08-18">
-          08-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/08/18/blog20-PCA/" itemprop="url">
-            <span itemprop="name">主成分分析（PCA）</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-08-16T21:16:55+08:00"
-              content="2023-08-16">
-          08-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/08/16/blog19-ClusterAnalyse/" itemprop="url">
-            <span itemprop="name">聚类分析</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-08-11T15:19:40+08:00"
-              content="2023-08-11">
-          08-11
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/08/11/blog18-Matlabreview/" itemprop="url">
-            <span itemprop="name">Matlab复习</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-08-09T16:42:27+08:00"
-              content="2023-08-09">
-          08-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/08/09/blog17-DS5/" itemprop="url">
-            <span itemprop="name">数据结构note（五）</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-08-01T16:45:02+08:00"
-              content="2023-08-01">
-          08-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2023/08/01/blog16-DS4/" itemprop="url">
-            <span itemprop="name">数据结构note（四）</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
 
+
+
+
+    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -783,14 +718,14 @@ if(canvas.getContext){
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 
 
 
   <script async src="/js/cursor/fireworks.js"></script>
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"example.reinshift.cn","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","reaction":true,"locale":{"placeholder":"水水水，快来水(～￣▽￣)~"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/tieba"],"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"pageSize":10,"el":"#waline","comment":true,"path":"/archives/"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"example.reinshift.cn","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","reaction":true,"locale":{"placeholder":"水水水，快来水(～￣▽￣)~"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo","https://unpkg.com/@waline/emojis@1.0.1/bilibili","https://unpkg.com/@waline/emojis@1.0.1/tieba"],"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"pageSize":10,"el":"#waline","comment":true,"path":"/2023/11/23/blog25-PaperRank/"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {
