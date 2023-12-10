@@ -2610,6 +2610,9 @@ header.header {
   --waline-theme-color: #4b3425 !important;
   --waline-active-color: #9c8877 !important;
 }
+.bangumi-info-item {
+  border-right: 1px solid #555 !important;
+}
 body {
   background: url("/images/oreo.png");
   background-repeat: no-repeat;
