@@ -1,116 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>数据结构note（一）</title>
-    <url>/2023/06/09/blog11-DS1/</url>
-    <content><![CDATA[<h1>1.1 什么是数据结构？</h1>
-<blockquote>
-<p>“数据结构是数据对象，以及存在于该对象的实例和组成实例的数据元素之间的各种联系。这些联系可以通过定义相关的函数给出。”——Sartaj Sahni.</p>
-</blockquote>
+    <title>今日更新内容</title>
+    <url>/2023/04/28/blog1/</url>
+    <content><![CDATA[<p>以下是今天的更新内容：</p>
 <span id="more"></span>
 <ul class="lvl-0">
 <li class="lvl-2">
-<p>解决问题方法的效率，跟数据的组织方式有关</p>
+<p>增加了新成员：wanko（汪酱） 🐶</p>
+<blockquote>
+<p>但是很遗憾，由于技术有限，没能成功编辑浮空文字</p>
+</blockquote>
 </li>
 <li class="lvl-2">
-<p>解决问题方法的效率，跟空间的利用效率有关</p>
+<p>增加了基于valine平台的评论功能</p>
+<blockquote>
+<p>但是不知道如何删除评论，所以评论的各位爷要谨言慎行</p>
+</blockquote>
 </li>
 <li class="lvl-2">
-<p>解决问题方法的效率，跟算法的巧妙程度有关</p>
+<p>更换了Hexo的Markdown渲染引擎，现在可以呈现emoji表情了</p>
+<blockquote>
+<p>emoji的简码链接： <a href="https://gist.github.com/rxaviers/7360908">简码</a></p>
+</blockquote>
 </li>
 </ul>
-<h3 id="抽象数据类型">抽象数据类型</h3>
-<ol>
-<li class="lvl-3">
-<p>数据结构（比如C++里的class）：</p>
-<ol>
-<li class="lvl-6">
-<p>数据对象集</p>
-</li>
-<li class="lvl-6">
-<p>数据集合相关联的操作集</p>
-</li>
-</ol>
-</li>
-<li class="lvl-3">
-<p>抽象：</p>
-<ol>
-<li class="lvl-6">
-<p>与存放数据的机器无关</p>
-</li>
-<li class="lvl-6">
-<p>与数据存储的物理结构无关</p>
-</li>
-<li class="lvl-6">
-<p>与实现操作的算法和编程语言均无关</p>
-</li>
-</ol>
-</li>
-</ol>
-<h1>1.2 什么是算法？</h1>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>一个有限的指令集</p>
-</li>
-<li class="lvl-2">
-<p>接受一些输入（或不需要）</p>
-</li>
-<li class="lvl-2">
-<p>产生输出</p>
-</li>
-<li class="lvl-2">
-<p>在有限步骤后终止</p>
-</li>
-<li class="lvl-2">
-<p>每条指令必须</p>
-<ul class="lvl-2">
-<li class="lvl-4">
-<p>有充分明确的目标，不可以有歧义</p>
-</li>
-<li class="lvl-4">
-<p>计算机的处理能力范围内</p>
-</li>
-<li class="lvl-4">
-<p>描述不依赖计算机语言和具体实现手段</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="什么是好的算法？">什么是好的算法？</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>空间复杂度$S(n)$</p>
-</li>
-<li class="lvl-2">
-<p>时间复杂度$T(n)$：$O(\log n)\le O(n)\le O(n\log n) \le O(n^{2}) \le O(2^{n})\le O(n!)$</p>
-<ul class="lvl-2">
-<li class="lvl-4">
-<p>若两段算法分别有复杂度$T_1(n)=O(f_1(n))$和$T_2(n)=O(f_2(n))$，则：</p>
-<ul class="lvl-4">
-<li class="lvl-6">
-<p>$T_1(n)+T_2(n)=\max(O(f_1(n)),O(f_2(n)))$</p>
-</li>
-<li class="lvl-6">
-<p>$T_1(n)\times T_2(n)=O(f_1(n)\times f_2(n))$</p>
-</li>
-</ul>
-</li>
-<li class="lvl-4">
-<p>一个for循环的时间复杂度等于循环次数乘以循环体代码的复杂度</p>
-</li>
-<li class="lvl-4">
-<p>if-else结构的复杂度取决于if的条件判断复杂度和两个分支部分的复杂度，总体取三者中最大</p>
-</li>
-</ul>
-</li>
-</ul>
+<hr>
 ]]></content>
-      <categories>
-        <category>学习</category>
-        <category>数据结构</category>
-      </categories>
       <tags>
-        <tag>数据结构</tag>
+        <tag>建站</tag>
       </tags>
   </entry>
   <entry>
@@ -230,37 +148,6 @@
       </categories>
       <tags>
         <tag>旅游</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>今日更新内容</title>
-    <url>/2023/04/28/blog1/</url>
-    <content><![CDATA[<p>以下是今天的更新内容：</p>
-<span id="more"></span>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>增加了新成员：wanko（汪酱） 🐶</p>
-<blockquote>
-<p>但是很遗憾，由于技术有限，没能成功编辑浮空文字</p>
-</blockquote>
-</li>
-<li class="lvl-2">
-<p>增加了基于valine平台的评论功能</p>
-<blockquote>
-<p>但是不知道如何删除评论，所以评论的各位爷要谨言慎行</p>
-</blockquote>
-</li>
-<li class="lvl-2">
-<p>更换了Hexo的Markdown渲染引擎，现在可以呈现emoji表情了</p>
-<blockquote>
-<p>emoji的简码链接： <a href="https://gist.github.com/rxaviers/7360908">简码</a></p>
-</blockquote>
-</li>
-</ul>
-<hr>
-]]></content>
-      <tags>
-        <tag>建站</tag>
       </tags>
   </entry>
   <entry>
@@ -413,6 +300,163 @@
       </tags>
   </entry>
   <entry>
+    <title>数据结构note（四）</title>
+    <url>/2023/08/01/blog16-DS4/</url>
+    <content><![CDATA[<h1>栈和队列</h1>
+<p>栈和队列是限定插入和删除只能在表的“端点”进行的<u>线性表</u>。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>栈：其特点可以概括为“<strong>后进先出</strong>”。生活中比如手电筒的电池、手枪的弹匣等都可以视作“栈”，插入从尾部，删除也从尾部。（从一端插入和删除）</p>
+</li>
+<li class="lvl-2">
+<p>队列：特点为“<strong>先进先出</strong>”，比如排队时最前面的人是最早来到这个队列也将最先离开队伍，插入从队尾插入，删除从队头删除。（从两端）</p>
+</li>
+</ul>
+<p>由于这两类结构分别所具有的这些特性在某些问题求解过程中也出现，故算法中也应利用“栈和队列”。</p>
+<span id="more"></span>
+<h2 id="栈-stack-的定义和特点">栈(stack)的定义和特点</h2>
+<img title="" src="https://img-blog.csdnimg.cn/20191212190125865.gif" alt="" data-align="center" width="373">
+<p>后进先出(Last In First Out)的线性表，简称<strong>LIFO</strong>结构，表尾an端称为栈顶（Top），表头a1端称为栈头（Base），通常用S表示栈。</p>
+<h2 id="队列-queue-的定义和特点">队列(queue)的定义和特点</h2>
+<img title="" src="https://pic4.zhimg.com/v2-e6b910a48ddfac7dddc2c610cde979bf_b.webp" alt="" width="243" data-align="center">
+<p>先进先出(First In First Out)的线性表，简称<strong>FIFO</strong>结构，在表的一端（表尾）插入，在另一端（表头）删除。通常用Q表示队列。</p>
+<hr>
+<h2 id="栈的实现（顺序栈）：">栈的实现（顺序栈）：</h2>
+<p><code>stack.h</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> Maxsize 5<span class="comment">//最大容量</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">stack</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> stacksize; <span class="comment">//表示栈可使用的最大容量</span></span><br><span class="line">    <span class="type">int</span>* top;<span class="comment">//指向栈顶元素之上的位置</span></span><br><span class="line">    <span class="type">int</span>* base;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="function">stack <span class="title">Init_Stack</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Destroy_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断栈是否空</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">ifEmpty_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//求栈长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Length_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取栈顶元素</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetTop_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清空栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Clear_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//入栈（插入元素）</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Push_Stack</span><span class="params">(stack* s, <span class="type">int</span> e)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出栈（弹出元素）</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Pop_Stack</span><span class="params">(stack* s)</span></span>;</span><br></pre></td></tr></table></figure>
+<p><code>stack.cpp</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stack.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="function">stack <span class="title">Init_Stack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    stack s;</span><br><span class="line">    s.stacksize = Maxsize;</span><br><span class="line">    s.base = <span class="keyword">new</span> <span class="type">int</span>[Maxsize];</span><br><span class="line">    s.top = s.base;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Destroy_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s-&gt;base != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">delete</span> s-&gt;base;</span><br><span class="line">        s-&gt;stacksize = <span class="number">0</span>;</span><br><span class="line">        s-&gt;base = s-&gt;top = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断栈是否空</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">ifEmpty_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s-&gt;top == s-&gt;base) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//求栈长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Length_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> s-&gt;top-s-&gt;base;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取栈顶元素</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetTop_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> *(s-&gt;top<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清空栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Clear_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(s-&gt;base != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        s-&gt;top = s-&gt;base;</span><br><span class="line">    &#125;<span class="comment">//top指针指向栈底即可</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//入栈（插入元素）</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Push_Stack</span><span class="params">(stack* s, <span class="type">int</span> e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s-&gt;top-s-&gt;base == s-&gt;stacksize) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;<span class="comment">//判断是否满栈</span></span><br><span class="line">    *s-&gt;top = e;</span><br><span class="line">    s-&gt;top++;</span><br><span class="line">    <span class="comment">//上面的两步可以合并成一步：*s-&gt;top++ = e;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出栈（弹出元素）</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Pop_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s-&gt;top == s-&gt;base) &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;当前为空栈&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;<span class="comment">//判断是否空栈</span></span><br><span class="line">    s-&gt;top--;</span><br><span class="line">    <span class="keyword">return</span> *s-&gt;top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>teststack.cpp</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stack.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack s = <span class="built_in">Init_Stack</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;栈状态为（1空0非空）：&quot;</span> &lt;&lt; ifEmpty_Stack(&amp;s) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">1</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;栈状态为（1空0非空）：&quot;</span> &lt;&lt; ifEmpty_Stack(&amp;s) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">2</span>);</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">3</span>);</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">5</span>);</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">8</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;栈顶元素为：&quot;</span> &lt;&lt; <span class="built_in">GetTop_Stack</span>(&amp;s) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;现在弹出：&quot;</span> &lt;&lt; <span class="built_in">Pop_Stack</span>(&amp;s) &lt;&lt; endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;此时栈顶元素为：&quot;</span> &lt;&lt; <span class="built_in">GetTop_Stack</span>(&amp;s) &lt;&lt;</span><br><span class="line">        <span class="string">&quot;   栈内元素有：&quot;</span>&lt;&lt;<span class="built_in">Length_Stack</span>(&amp;s)&lt;&lt;<span class="string">&quot;个&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Clear_Stack</span>(&amp;s);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;清除后栈状态为（1空0非空）：&quot;</span> &lt;&lt; ifEmpty_Stack(&amp;s) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Destroy_Stack</span>(&amp;s);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="队列的实现（循环顺序队列）：">队列的实现（循环顺序队列）：</h2>
+<p>由于只申请了MaxQSize大小的内存空间，且队头队尾指针均会在入队和出队的过程中后移，故当队尾溢出时有时并没有真正的超出给定的储存大小，这种现象被称为“假溢出”。解决假溢出的一种方法就是采用循环队列。</p>
+<p>还有一个问题就是，判断队空或队满要比栈空或栈满麻烦一点，因为判断队空/满的条件是一样的，都是队空指针==队尾指针。解决的方法是加一个统计空间的变量或者少用一个存储空间。</p>
+<p>下面仅陈列<code>queue.cpp</code>的定义部分。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;queue.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化队列</span></span><br><span class="line"><span class="function">queue <span class="title">Init_Queue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	queue q;</span><br><span class="line">	q.base = <span class="keyword">new</span> <span class="type">int</span>[MaxQSize];</span><br><span class="line">	q.front = q.rear = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> q; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁队列</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Destroy_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	q-&gt;front = q-&gt;rear;</span><br><span class="line">	<span class="keyword">delete</span> q-&gt;base;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清空队列</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Clear_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	q-&gt;front = q-&gt;rear = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获得队列长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Length_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (q-&gt;rear - q-&gt;front + MaxQSize) % MaxQSize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取队头元素</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetHead_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (q-&gt;front != q-&gt;rear) &#123;</span><br><span class="line">		<span class="keyword">return</span> q-&gt;base[q-&gt;front];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//入队</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">EnQueue</span><span class="params">(queue* q,<span class="type">int</span> data)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//判断队满</span></span><br><span class="line">	<span class="keyword">if</span> ((q-&gt;rear + <span class="number">1</span>) % MaxQSize == q-&gt;front) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	q-&gt;base[q-&gt;rear] = data;</span><br><span class="line">	q-&gt;rear = (q-&gt;rear + <span class="number">1</span>) % MaxQSize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出队</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">DeQueue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//判断队空</span></span><br><span class="line">	<span class="keyword">if</span> (q-&gt;front == q-&gt;rear) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> e = q-&gt;base[q-&gt;front];</span><br><span class="line">	q-&gt;front = (q-&gt;front + <span class="number">1</span>) % MaxQSize;</span><br><span class="line">	<span class="keyword">return</span> e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构note（一）</title>
+    <url>/2023/06/09/blog11-DS1/</url>
+    <content><![CDATA[<h1>1.1 什么是数据结构？</h1>
+<blockquote>
+<p>“数据结构是数据对象，以及存在于该对象的实例和组成实例的数据元素之间的各种联系。这些联系可以通过定义相关的函数给出。”——Sartaj Sahni.</p>
+</blockquote>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>解决问题方法的效率，跟数据的组织方式有关</p>
+</li>
+<li class="lvl-2">
+<p>解决问题方法的效率，跟空间的利用效率有关</p>
+</li>
+<li class="lvl-2">
+<p>解决问题方法的效率，跟算法的巧妙程度有关</p>
+</li>
+</ul>
+<h3 id="抽象数据类型">抽象数据类型</h3>
+<ol>
+<li class="lvl-3">
+<p>数据结构（比如C++里的class）：</p>
+<ol>
+<li class="lvl-6">
+<p>数据对象集</p>
+</li>
+<li class="lvl-6">
+<p>数据集合相关联的操作集</p>
+</li>
+</ol>
+</li>
+<li class="lvl-3">
+<p>抽象：</p>
+<ol>
+<li class="lvl-6">
+<p>与存放数据的机器无关</p>
+</li>
+<li class="lvl-6">
+<p>与数据存储的物理结构无关</p>
+</li>
+<li class="lvl-6">
+<p>与实现操作的算法和编程语言均无关</p>
+</li>
+</ol>
+</li>
+</ol>
+<h1>1.2 什么是算法？</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>一个有限的指令集</p>
+</li>
+<li class="lvl-2">
+<p>接受一些输入（或不需要）</p>
+</li>
+<li class="lvl-2">
+<p>产生输出</p>
+</li>
+<li class="lvl-2">
+<p>在有限步骤后终止</p>
+</li>
+<li class="lvl-2">
+<p>每条指令必须</p>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p>有充分明确的目标，不可以有歧义</p>
+</li>
+<li class="lvl-4">
+<p>计算机的处理能力范围内</p>
+</li>
+<li class="lvl-4">
+<p>描述不依赖计算机语言和具体实现手段</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="什么是好的算法？">什么是好的算法？</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>空间复杂度$S(n)$</p>
+</li>
+<li class="lvl-2">
+<p>时间复杂度$T(n)$：$O(\log n)\le O(n)\le O(n\log n) \le O(n^{2}) \le O(2^{n})\le O(n!)$</p>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p>若两段算法分别有复杂度$T_1(n)=O(f_1(n))$和$T_2(n)=O(f_2(n))$，则：</p>
+<ul class="lvl-4">
+<li class="lvl-6">
+<p>$T_1(n)+T_2(n)=\max(O(f_1(n)),O(f_2(n)))$</p>
+</li>
+<li class="lvl-6">
+<p>$T_1(n)\times T_2(n)=O(f_1(n)\times f_2(n))$</p>
+</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p>一个for循环的时间复杂度等于循环次数乘以循环体代码的复杂度</p>
+</li>
+<li class="lvl-4">
+<p>if-else结构的复杂度取决于if的条件判断复杂度和两个分支部分的复杂度，总体取三者中最大</p>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>模拟退火算法</title>
     <url>/2023/07/31/blog15-Metropolis/</url>
     <content><![CDATA[<h2 id="引入">引入</h2>
@@ -516,50 +560,6 @@ $$</p>
       </categories>
       <tags>
         <tag>智能优化算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构note（四）</title>
-    <url>/2023/08/01/blog16-DS4/</url>
-    <content><![CDATA[<h1>栈和队列</h1>
-<p>栈和队列是限定插入和删除只能在表的“端点”进行的<u>线性表</u>。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>栈：其特点可以概括为“<strong>后进先出</strong>”。生活中比如手电筒的电池、手枪的弹匣等都可以视作“栈”，插入从尾部，删除也从尾部。（从一端插入和删除）</p>
-</li>
-<li class="lvl-2">
-<p>队列：特点为“<strong>先进先出</strong>”，比如排队时最前面的人是最早来到这个队列也将最先离开队伍，插入从队尾插入，删除从队头删除。（从两端）</p>
-</li>
-</ul>
-<p>由于这两类结构分别所具有的这些特性在某些问题求解过程中也出现，故算法中也应利用“栈和队列”。</p>
-<span id="more"></span>
-<h2 id="栈-stack-的定义和特点">栈(stack)的定义和特点</h2>
-<img title="" src="https://img-blog.csdnimg.cn/20191212190125865.gif" alt="" data-align="center" width="373">
-<p>后进先出(Last In First Out)的线性表，简称<strong>LIFO</strong>结构，表尾an端称为栈顶（Top），表头a1端称为栈头（Base），通常用S表示栈。</p>
-<h2 id="队列-queue-的定义和特点">队列(queue)的定义和特点</h2>
-<img title="" src="https://pic4.zhimg.com/v2-e6b910a48ddfac7dddc2c610cde979bf_b.webp" alt="" width="243" data-align="center">
-<p>先进先出(First In First Out)的线性表，简称<strong>FIFO</strong>结构，在表的一端（表尾）插入，在另一端（表头）删除。通常用Q表示队列。</p>
-<hr>
-<h2 id="栈的实现（顺序栈）：">栈的实现（顺序栈）：</h2>
-<p><code>stack.h</code>：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> Maxsize 5<span class="comment">//最大容量</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">stack</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> stacksize; <span class="comment">//表示栈可使用的最大容量</span></span><br><span class="line">    <span class="type">int</span>* top;<span class="comment">//指向栈顶元素之上的位置</span></span><br><span class="line">    <span class="type">int</span>* base;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="function">stack <span class="title">Init_Stack</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Destroy_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断栈是否空</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">ifEmpty_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//求栈长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Length_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取栈顶元素</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetTop_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清空栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Clear_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//入栈（插入元素）</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Push_Stack</span><span class="params">(stack* s, <span class="type">int</span> e)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出栈（弹出元素）</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Pop_Stack</span><span class="params">(stack* s)</span></span>;</span><br></pre></td></tr></table></figure>
-<p><code>stack.cpp</code>：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stack.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="function">stack <span class="title">Init_Stack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    stack s;</span><br><span class="line">    s.stacksize = Maxsize;</span><br><span class="line">    s.base = <span class="keyword">new</span> <span class="type">int</span>[Maxsize];</span><br><span class="line">    s.top = s.base;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Destroy_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s-&gt;base != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">delete</span> s-&gt;base;</span><br><span class="line">        s-&gt;stacksize = <span class="number">0</span>;</span><br><span class="line">        s-&gt;base = s-&gt;top = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断栈是否空</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">ifEmpty_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s-&gt;top == s-&gt;base) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//求栈长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Length_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> s-&gt;top-s-&gt;base;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取栈顶元素</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetTop_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> *(s-&gt;top<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清空栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Clear_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(s-&gt;base != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        s-&gt;top = s-&gt;base;</span><br><span class="line">    &#125;<span class="comment">//top指针指向栈底即可</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//入栈（插入元素）</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Push_Stack</span><span class="params">(stack* s, <span class="type">int</span> e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s-&gt;top-s-&gt;base == s-&gt;stacksize) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;<span class="comment">//判断是否满栈</span></span><br><span class="line">    *s-&gt;top = e;</span><br><span class="line">    s-&gt;top++;</span><br><span class="line">    <span class="comment">//上面的两步可以合并成一步：*s-&gt;top++ = e;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出栈（弹出元素）</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Pop_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s-&gt;top == s-&gt;base) &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;当前为空栈&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;<span class="comment">//判断是否空栈</span></span><br><span class="line">    s-&gt;top--;</span><br><span class="line">    <span class="keyword">return</span> *s-&gt;top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>teststack.cpp</code>：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stack.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack s = <span class="built_in">Init_Stack</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;栈状态为（1空0非空）：&quot;</span> &lt;&lt; ifEmpty_Stack(&amp;s) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">1</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;栈状态为（1空0非空）：&quot;</span> &lt;&lt; ifEmpty_Stack(&amp;s) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">2</span>);</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">3</span>);</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">5</span>);</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">8</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;栈顶元素为：&quot;</span> &lt;&lt; <span class="built_in">GetTop_Stack</span>(&amp;s) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;现在弹出：&quot;</span> &lt;&lt; <span class="built_in">Pop_Stack</span>(&amp;s) &lt;&lt; endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;此时栈顶元素为：&quot;</span> &lt;&lt; <span class="built_in">GetTop_Stack</span>(&amp;s) &lt;&lt;</span><br><span class="line">        <span class="string">&quot;   栈内元素有：&quot;</span>&lt;&lt;<span class="built_in">Length_Stack</span>(&amp;s)&lt;&lt;<span class="string">&quot;个&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Clear_Stack</span>(&amp;s);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;清除后栈状态为（1空0非空）：&quot;</span> &lt;&lt; ifEmpty_Stack(&amp;s) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Destroy_Stack</span>(&amp;s);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="队列的实现（循环顺序队列）：">队列的实现（循环顺序队列）：</h2>
-<p>由于只申请了MaxQSize大小的内存空间，且队头队尾指针均会在入队和出队的过程中后移，故当队尾溢出时有时并没有真正的超出给定的储存大小，这种现象被称为“假溢出”。解决假溢出的一种方法就是采用循环队列。</p>
-<p>还有一个问题就是，判断队空或队满要比栈空或栈满麻烦一点，因为判断队空/满的条件是一样的，都是队空指针==队尾指针。解决的方法是加一个统计空间的变量或者少用一个存储空间。</p>
-<p>下面仅陈列<code>queue.cpp</code>的定义部分。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;queue.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化队列</span></span><br><span class="line"><span class="function">queue <span class="title">Init_Queue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	queue q;</span><br><span class="line">	q.base = <span class="keyword">new</span> <span class="type">int</span>[MaxQSize];</span><br><span class="line">	q.front = q.rear = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> q; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁队列</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Destroy_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	q-&gt;front = q-&gt;rear;</span><br><span class="line">	<span class="keyword">delete</span> q-&gt;base;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清空队列</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Clear_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	q-&gt;front = q-&gt;rear = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获得队列长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Length_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (q-&gt;rear - q-&gt;front + MaxQSize) % MaxQSize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取队头元素</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetHead_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (q-&gt;front != q-&gt;rear) &#123;</span><br><span class="line">		<span class="keyword">return</span> q-&gt;base[q-&gt;front];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//入队</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">EnQueue</span><span class="params">(queue* q,<span class="type">int</span> data)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//判断队满</span></span><br><span class="line">	<span class="keyword">if</span> ((q-&gt;rear + <span class="number">1</span>) % MaxQSize == q-&gt;front) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	q-&gt;base[q-&gt;rear] = data;</span><br><span class="line">	q-&gt;rear = (q-&gt;rear + <span class="number">1</span>) % MaxQSize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出队</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">DeQueue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//判断队空</span></span><br><span class="line">	<span class="keyword">if</span> (q-&gt;front == q-&gt;rear) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> e = q-&gt;base[q-&gt;front];</span><br><span class="line">	q-&gt;front = (q-&gt;front + <span class="number">1</span>) % MaxQSize;</span><br><span class="line">	<span class="keyword">return</span> e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -691,6 +691,147 @@ $$</p>
       </categories>
       <tags>
         <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Matlab复习</title>
+    <url>/2023/08/11/blog18-Matlabreview/</url>
+    <content><![CDATA[<p>自从考完研就把matlab扔了，现在为了后续的工作重新捡回来一些…</p>
+<p>具体内容可看官方文档：<a href="https://ww2.mathworks.cn/help/matlab/index.html?s_tid=hc_panel">MATLAB Documentation</a>，这里只放一些常用的内容。</p>
+<span id="more"></span>
+<h2 id="语言基础">语言基础</h2>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>输入命令</p>
+</li>
+</ul>
+<p>ans是一个内置变量，储存最近的运算结果。clc为清除命令行窗口，clear为清除工作区变量</p>
+<p>在matlab想要运行一个较长的代码块，往往需要建立脚本文件。</p>
+<p>要输出文本，可以调用disp函数：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;hello world&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>输入命令为input函数，这里可以附上提示性文字：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">reply=input(<span class="string">&#x27;Would you like to see an echo?(y/n):&#x27;</span>,<span class="string">&#x27;s&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p>%用于注释一行，%{ %}用于注释多行，%%用于脚本里的代码分块，运行时可以看每一块的运行结果。</p>
+<p>在matlab中分号主要用于控制输出结果是否显示在命令行窗口。所以有时可不用分号。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>矩阵和数组</p>
+</li>
+</ul>
+<p>创建数组的常用函数有：</p>
+<p><code>zeros(n)</code>：返回值为一个n阶矩阵，元素均为0；</p>
+<p><code>zeros(a,b)</code>：返回一个a行b列的全0矩阵；</p>
+<p><code>ones(n)/ones(a,b)</code>：同上二者，元素全为1；</p>
+<p><code>eye(n)</code>：返回n阶单位阵；</p>
+<p><code>diag(n1,n2,..)</code>：创建对角元素为n1,n2,…的对角阵；</p>
+<p><code>linspace(x1,x2,n)</code>：创建一个由区间[x1,x2]中的n个等间距点。n不填时默认为100；</p>
+<p>还有冒号&quot;:&quot;的使用，如1:10就是一个1到10步长为1的向量。a：b：c代表从a到c步长为b的向量。</p>
+<p>确定大小的函数为<code>size(x)</code>：x可以是向量也可以是矩阵</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>数据类型</p>
+</li>
+</ul>
+<p>在matlab中可以不定义元素的数据类型，matlab会默认将数据存储为double类型。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>运算符和基本运算</p>
+</li>
+</ul>
+<p>算术运算、关系运算、逻辑运算、集合运算、按位运算等。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>循环以及条件语句</p>
+</li>
+</ul>
+<p>条件语法：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> expression</span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">elseif</span> expression</span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>循环语法(for)：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> index=values</span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%例：以 -0.2 为步长递增，并显示值。</span></span><br><span class="line"><span class="keyword">for</span> v=<span class="number">1.0</span>:<span class="number">-0.2</span>:<span class="number">0.0</span></span><br><span class="line">    <span class="built_in">disp</span>(v)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>循环语法(while)：</p>
+<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> expression</span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p><code>break</code>：用于终止循环</p>
+<p><code>continue</code>：将控制传递给 <code>for</code> 或 <code>while</code> 循环的下一迭代</p>
+<p><code>pause</code>：暂时停止执行 MATLAB</p>
+<hr>
+<h2 id="数据导入以及分析">数据导入以及分析</h2>
+<p>一些文本文件：</p>
+<table>
+<thead>
+<tr>
+<th><a href="https://ww2.mathworks.cn/help/matlab/ref/load.html"><code>load</code></a></th>
+<th>将文件变量加载到工作区中</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/save.html"><code>save</code></a></td>
+<td>将工作区变量保存到文件中</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/matlab.io.matfile.html"><code>matfile</code></a></td>
+<td>访问和更改 MAT 文件中的变量，而不必将文件加载到内存中</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/disp.html"><code>disp</code></a></td>
+<td>显示变量的值</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/formatteddisplaytext.html"><code>formattedDisplayText</code></a></td>
+<td>以字符串形式捕获显示输出</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/who.html"><code>who</code></a></td>
+<td>列出工作区中的变量</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/whos.html"><code>whos</code></a></td>
+<td>列出工作区中的变量及大小和类型</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/clear.html"><code>clear</code></a></td>
+<td>从工作区中删除项目、释放系统内存</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/clearvars.html"><code>clearvars</code></a></td>
+<td>清除内存中的变量</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/openvar.html"><code>openvar</code></a></td>
+<td>在变量编辑器或其他图形编辑工具中打开工作区变量</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/workspacebrowser.html"><code>workspace</code></a></td>
+<td>Open Workspace browser to manage workspace</td>
+</tr>
+</tbody>
+</table>
+<p>图像文件常用函数；</p>
+<table>
+<thead>
+<tr>
+<th><a href="https://ww2.mathworks.cn/help/matlab/ref/imread.html"><code>imread</code></a></th>
+<th>从图形文件读取图像</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/imwrite.html"><code>imwrite</code></a></td>
+<td>将图像写入图形文件</td>
+</tr>
+<tr>
+<td><a href="https://ww2.mathworks.cn/help/matlab/ref/imshow.html"><code>imshow</code></a></td>
+<td><strong>显示图像</strong></td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>Matlab</category>
+      </categories>
+      <tags>
+        <tag>Matlab</tag>
       </tags>
   </entry>
   <entry>
@@ -846,147 +987,6 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>Matlab复习</title>
-    <url>/2023/08/11/blog18-Matlabreview/</url>
-    <content><![CDATA[<p>自从考完研就把matlab扔了，现在为了后续的工作重新捡回来一些…</p>
-<p>具体内容可看官方文档：<a href="https://ww2.mathworks.cn/help/matlab/index.html?s_tid=hc_panel">MATLAB Documentation</a>，这里只放一些常用的内容。</p>
-<span id="more"></span>
-<h2 id="语言基础">语言基础</h2>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>输入命令</p>
-</li>
-</ul>
-<p>ans是一个内置变量，储存最近的运算结果。clc为清除命令行窗口，clear为清除工作区变量</p>
-<p>在matlab想要运行一个较长的代码块，往往需要建立脚本文件。</p>
-<p>要输出文本，可以调用disp函数：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="built_in">disp</span>(<span class="string">&#x27;hello world&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>输入命令为input函数，这里可以附上提示性文字：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line">reply=input(<span class="string">&#x27;Would you like to see an echo?(y/n):&#x27;</span>,<span class="string">&#x27;s&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p>%用于注释一行，%{ %}用于注释多行，%%用于脚本里的代码分块，运行时可以看每一块的运行结果。</p>
-<p>在matlab中分号主要用于控制输出结果是否显示在命令行窗口。所以有时可不用分号。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>矩阵和数组</p>
-</li>
-</ul>
-<p>创建数组的常用函数有：</p>
-<p><code>zeros(n)</code>：返回值为一个n阶矩阵，元素均为0；</p>
-<p><code>zeros(a,b)</code>：返回一个a行b列的全0矩阵；</p>
-<p><code>ones(n)/ones(a,b)</code>：同上二者，元素全为1；</p>
-<p><code>eye(n)</code>：返回n阶单位阵；</p>
-<p><code>diag(n1,n2,..)</code>：创建对角元素为n1,n2,…的对角阵；</p>
-<p><code>linspace(x1,x2,n)</code>：创建一个由区间[x1,x2]中的n个等间距点。n不填时默认为100；</p>
-<p>还有冒号&quot;:&quot;的使用，如1:10就是一个1到10步长为1的向量。a：b：c代表从a到c步长为b的向量。</p>
-<p>确定大小的函数为<code>size(x)</code>：x可以是向量也可以是矩阵</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>数据类型</p>
-</li>
-</ul>
-<p>在matlab中可以不定义元素的数据类型，matlab会默认将数据存储为double类型。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>运算符和基本运算</p>
-</li>
-</ul>
-<p>算术运算、关系运算、逻辑运算、集合运算、按位运算等。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>循环以及条件语句</p>
-</li>
-</ul>
-<p>条件语法：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> expression</span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">elseif</span> expression</span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>循环语法(for)：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> index=values</span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%例：以 -0.2 为步长递增，并显示值。</span></span><br><span class="line"><span class="keyword">for</span> v=<span class="number">1.0</span>:<span class="number">-0.2</span>:<span class="number">0.0</span></span><br><span class="line">    <span class="built_in">disp</span>(v)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p>循环语法(while)：</p>
-<figure class="highlight matlab"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> expression</span><br><span class="line">    statements</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
-<p><code>break</code>：用于终止循环</p>
-<p><code>continue</code>：将控制传递给 <code>for</code> 或 <code>while</code> 循环的下一迭代</p>
-<p><code>pause</code>：暂时停止执行 MATLAB</p>
-<hr>
-<h2 id="数据导入以及分析">数据导入以及分析</h2>
-<p>一些文本文件：</p>
-<table>
-<thead>
-<tr>
-<th><a href="https://ww2.mathworks.cn/help/matlab/ref/load.html"><code>load</code></a></th>
-<th>将文件变量加载到工作区中</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://ww2.mathworks.cn/help/matlab/ref/save.html"><code>save</code></a></td>
-<td>将工作区变量保存到文件中</td>
-</tr>
-<tr>
-<td><a href="https://ww2.mathworks.cn/help/matlab/ref/matlab.io.matfile.html"><code>matfile</code></a></td>
-<td>访问和更改 MAT 文件中的变量，而不必将文件加载到内存中</td>
-</tr>
-<tr>
-<td><a href="https://ww2.mathworks.cn/help/matlab/ref/disp.html"><code>disp</code></a></td>
-<td>显示变量的值</td>
-</tr>
-<tr>
-<td><a href="https://ww2.mathworks.cn/help/matlab/ref/formatteddisplaytext.html"><code>formattedDisplayText</code></a></td>
-<td>以字符串形式捕获显示输出</td>
-</tr>
-<tr>
-<td><a href="https://ww2.mathworks.cn/help/matlab/ref/who.html"><code>who</code></a></td>
-<td>列出工作区中的变量</td>
-</tr>
-<tr>
-<td><a href="https://ww2.mathworks.cn/help/matlab/ref/whos.html"><code>whos</code></a></td>
-<td>列出工作区中的变量及大小和类型</td>
-</tr>
-<tr>
-<td><a href="https://ww2.mathworks.cn/help/matlab/ref/clear.html"><code>clear</code></a></td>
-<td>从工作区中删除项目、释放系统内存</td>
-</tr>
-<tr>
-<td><a href="https://ww2.mathworks.cn/help/matlab/ref/clearvars.html"><code>clearvars</code></a></td>
-<td>清除内存中的变量</td>
-</tr>
-<tr>
-<td><a href="https://ww2.mathworks.cn/help/matlab/ref/openvar.html"><code>openvar</code></a></td>
-<td>在变量编辑器或其他图形编辑工具中打开工作区变量</td>
-</tr>
-<tr>
-<td><a href="https://ww2.mathworks.cn/help/matlab/ref/workspacebrowser.html"><code>workspace</code></a></td>
-<td>Open Workspace browser to manage workspace</td>
-</tr>
-</tbody>
-</table>
-<p>图像文件常用函数；</p>
-<table>
-<thead>
-<tr>
-<th><a href="https://ww2.mathworks.cn/help/matlab/ref/imread.html"><code>imread</code></a></th>
-<th>从图形文件读取图像</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><a href="https://ww2.mathworks.cn/help/matlab/ref/imwrite.html"><code>imwrite</code></a></td>
-<td>将图像写入图形文件</td>
-</tr>
-<tr>
-<td><a href="https://ww2.mathworks.cn/help/matlab/ref/imshow.html"><code>imshow</code></a></td>
-<td><strong>显示图像</strong></td>
-</tr>
-</tbody>
-</table>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>Matlab</category>
-      </categories>
-      <tags>
-        <tag>Matlab</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>备案与毕业</title>
     <url>/2023/05/13/blog2/</url>
     <content><![CDATA[<p>  经历了长达十多天的备案，终于在昨天过审了。</p>
@@ -1005,46 +1005,6 @@ $$</p>
       <tags>
         <tag>建站</tag>
         <tag>人生</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>主成分分析（PCA）</title>
-    <url>/2023/08/18/blog20-PCA/</url>
-    <content><![CDATA[<p>主成分分析的主要目的是希望用较少的变量去解释原来资料中的大部分变异，将我们手中许多相关性很高的变量转化成彼此相互独立或不相关的变量。实际上是一种降维的方法。</p>
-<h3 id="1-基本思想及方法">1 基本思想及方法</h3>
-<p>p个随机变量$X_1,…,X_p$，其线性组合构成一个可能的主成分：$c_1X_1+\cdots+c_pX_p$（说白了就是一个旋转平移的变换）。如果能使$Var(c_1X_1+\cdots+c_pX_p)$达到最大，则能最大程度的保留信息。通常还要加限制：$c_1<sup>2+\cdots+c_p</sup>2=1$，在此约束下求最优解。易见这个解是一个p维单位向量（这样可以构成一个旋转矩阵）。</p>
-<p>这样找到一个解的话就获得了一个主成分。然而一个主成分不足以代表原有的p个变量，因此还需要寻找更多个。这些主成分不应该有重叠的信息，统计上的描述就是让两两主成分的协方差为零，几何上就是两两主成分的方向正交。</p>
-<span id="more"></span>
-<p>过程（简洁版）：</p>
-<ol>
-<li class="lvl-3">
-<p>去中心化（把坐标原点放在数据中心）</p>
-</li>
-<li class="lvl-3">
-<p>找坐标系（找到方差最大的方向）</p>
-</li>
-</ol>
-<h3 id="2-主成分估计">2 主成分估计</h3>
-<p>详细的证明可以见相关教材，这里写结论。</p>
-<p>设有 p 个回归（自）变量，它在第i次试验中的取值为$X_i=(x_{i1},\cdots,x_{ip})^T$，$(i=1,2,\cdots,n)$，可以写成矩阵形式：$X=(X_1,X_2,\cdots,X_n)$.这里假设已经进行了去中心化。</p>
-<p>根据协方差矩阵的公式，设其协方差矩阵为$C$，则$C=\frac{X^TX}{n-1}$.</p>
-<p>$C$的特征向量就是主成分的方向，特征值就是该主成分的贡献度，也就是上述坐标轴方向的方差。贡献度低的方向若被省去就是降维了。</p>
-<h3 id="3-特征值因子的筛选">3 特征值因子的筛选</h3>
-<p>降维需要一个标准，自然不能说省去就省去。这里一个实用的方法也是经常采用的方式是考虑贡献率，即保持删去的特征向量的特征值$\lambda_{r+1},\lambda_{r+2},\cdots,\lambda_p$的和占所有特征值之和$\Sigma\lambda_i$的$15%$以下。</p>
-<p>但是单纯考虑累积贡献率有时是不够的，还需要考虑选择的主成分对原始变量的贡献值，我们用相关系数的平方和来表示，如果选取的主成分为$z_1,z_2,\cdots,z_r$，则它们对原变量$x_i$的贡献值为：</p>
-<p>$$<br>
-\rho_i=\sum_{j=1}<sup>r{r</sup>2( z_j,x_i)}<br>
-$$</p>
-<p>这里括号代表向量内积。有些例子可以说明，单纯考虑贡献率会导致降维降的太多而丢失信息，这里就不附上了。</p>
-<h3 id="4-实际应用">4 实际应用</h3>
-<p>在实际的应用中，如果可以分析得到的主成分，赋予其字面意义，会更有说服力。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>多元分析</category>
-      </categories>
-      <tags>
-        <tag>多元分析</tag>
       </tags>
   </entry>
   <entry>
@@ -1162,6 +1122,67 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>主成分分析（PCA）</title>
+    <url>/2023/08/18/blog20-PCA/</url>
+    <content><![CDATA[<p>主成分分析的主要目的是希望用较少的变量去解释原来资料中的大部分变异，将我们手中许多相关性很高的变量转化成彼此相互独立或不相关的变量。实际上是一种降维的方法。</p>
+<h3 id="1-基本思想及方法">1 基本思想及方法</h3>
+<p>p个随机变量$X_1,…,X_p$，其线性组合构成一个可能的主成分：$c_1X_1+\cdots+c_pX_p$（说白了就是一个旋转平移的变换）。如果能使$Var(c_1X_1+\cdots+c_pX_p)$达到最大，则能最大程度的保留信息。通常还要加限制：$c_1<sup>2+\cdots+c_p</sup>2=1$，在此约束下求最优解。易见这个解是一个p维单位向量（这样可以构成一个旋转矩阵）。</p>
+<p>这样找到一个解的话就获得了一个主成分。然而一个主成分不足以代表原有的p个变量，因此还需要寻找更多个。这些主成分不应该有重叠的信息，统计上的描述就是让两两主成分的协方差为零，几何上就是两两主成分的方向正交。</p>
+<span id="more"></span>
+<p>过程（简洁版）：</p>
+<ol>
+<li class="lvl-3">
+<p>去中心化（把坐标原点放在数据中心）</p>
+</li>
+<li class="lvl-3">
+<p>找坐标系（找到方差最大的方向）</p>
+</li>
+</ol>
+<h3 id="2-主成分估计">2 主成分估计</h3>
+<p>详细的证明可以见相关教材，这里写结论。</p>
+<p>设有 p 个回归（自）变量，它在第i次试验中的取值为$X_i=(x_{i1},\cdots,x_{ip})^T$，$(i=1,2,\cdots,n)$，可以写成矩阵形式：$X=(X_1,X_2,\cdots,X_n)$.这里假设已经进行了去中心化。</p>
+<p>根据协方差矩阵的公式，设其协方差矩阵为$C$，则$C=\frac{X^TX}{n-1}$.</p>
+<p>$C$的特征向量就是主成分的方向，特征值就是该主成分的贡献度，也就是上述坐标轴方向的方差。贡献度低的方向若被省去就是降维了。</p>
+<h3 id="3-特征值因子的筛选">3 特征值因子的筛选</h3>
+<p>降维需要一个标准，自然不能说省去就省去。这里一个实用的方法也是经常采用的方式是考虑贡献率，即保持删去的特征向量的特征值$\lambda_{r+1},\lambda_{r+2},\cdots,\lambda_p$的和占所有特征值之和$\Sigma\lambda_i$的$15%$以下。</p>
+<p>但是单纯考虑累积贡献率有时是不够的，还需要考虑选择的主成分对原始变量的贡献值，我们用相关系数的平方和来表示，如果选取的主成分为$z_1,z_2,\cdots,z_r$，则它们对原变量$x_i$的贡献值为：</p>
+<p>$$<br>
+\rho_i=\sum_{j=1}<sup>r{r</sup>2( z_j,x_i)}<br>
+$$</p>
+<p>这里括号代表向量内积。有些例子可以说明，单纯考虑贡献率会导致降维降的太多而丢失信息，这里就不附上了。</p>
+<h3 id="4-实际应用">4 实际应用</h3>
+<p>在实际的应用中，如果可以分析得到的主成分，赋予其字面意义，会更有说服力。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>多元分析</category>
+      </categories>
+      <tags>
+        <tag>多元分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于easyx库的C语言制作游戏尝试</title>
+    <url>/2023/10/10/blog23-Cgame/</url>
+    <content><![CDATA[<p>  为了快速熟悉C，我决定跟着网上的游戏项目视频做来练手，一方面能熟悉语言和算法，另一方面也能丰富经验。<br>
+<img src="https://i2.100024.xyz/2023/10/10/mbrcq7.webp" alt="界面预览"></p>
+<span id="more"></span>
+<p>  初次接触到的是一个横板跑酷类游戏，实现的过程很朴素，希望之后有能力来魔改一下。最后我认为跟做一次项目确实适合练手，可以学到很多纸面上学不到的东西，当然最好还是听一遍思路再自己动手实现，如果只是跟着做的话收获还是相当有限的。<br>
+<img src="https://i2.100024.xyz/2023/10/10/mbrguw.webp" alt="部分代码"></p>
+<blockquote>
+<p>参考视频：<a href="https://www.bilibili.com/video/BV1Ca411k7wU/?spm_id_from=333.999.0.0">【程序员ROCK】C语言项目</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+        <tag>游戏项目</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>第一次研赛心得体会</title>
     <url>/2023/09/27/blog22-2023B/</url>
     <content><![CDATA[<h3 id="2023华为杯研究生数学建模竞赛B题">2023华为杯研究生数学建模竞赛B题</h3>
@@ -1197,215 +1218,6 @@ $$</p>
       </categories>
       <tags>
         <tag>研赛</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基于easyx库的C语言制作游戏尝试</title>
-    <url>/2023/10/10/blog23-Cgame/</url>
-    <content><![CDATA[<p>  为了快速熟悉C，我决定跟着网上的游戏项目视频做来练手，一方面能熟悉语言和算法，另一方面也能丰富经验。<br>
-<img src="https://i2.100024.xyz/2023/10/10/mbrcq7.webp" alt="界面预览"></p>
-<span id="more"></span>
-<p>  初次接触到的是一个横板跑酷类游戏，实现的过程很朴素，希望之后有能力来魔改一下。最后我认为跟做一次项目确实适合练手，可以学到很多纸面上学不到的东西，当然最好还是听一遍思路再自己动手实现，如果只是跟着做的话收获还是相当有限的。<br>
-<img src="https://i2.100024.xyz/2023/10/10/mbrguw.webp" alt="部分代码"></p>
-<blockquote>
-<p>参考视频：<a href="https://www.bilibili.com/video/BV1Ca411k7wU/?spm_id_from=333.999.0.0">【程序员ROCK】C语言项目</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-        <tag>游戏项目</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo d错误：spawn failed的一种解决方法</title>
-    <url>/2023/05/15/blog3/</url>
-    <content><![CDATA[<p>  继上一条，这几天内部署断断续续的报错，网上的教程都不适用，和朋友交流后终于有了一个稳定的解决方法。</p>
-<span id="more"></span>
-<p>  报错内容大概是这样：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Please make sure you have the correct access rights</span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">Error: Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt;(D:\Blog\node_modules hexo-util\lib\spawn.js:51:21)</span><br><span class="line">    at ChildProcess.emit (node:events:513:28)</span><br><span class="line">    at cp.emit (D:\Blog\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/chid_process:291:12)</span><br></pre></td></tr></table></figure>
-<p>  确定是网络的原因后，可以作如下尝试：</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>获取steam++这款软件（github可以搜索到，也有其他选择）</p>
-</li>
-<li class="lvl-2">
-<p>打开steam++并加速github</p>
-</li>
-<li class="lvl-2">
-<p>命令行输入</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:443</span><br><span class="line">git config --global https.proxy http://127.0.0.1:443</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-2">
-<p>最后<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>应该就能成功了🥰</p>
-</li>
-</ul>
-<p>  这篇文章希望给一些同样有该问题但网上教程都不适用的朋友一点参考。</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>建站</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>C++文本操作：文本文件的读写</title>
-    <url>/2023/05/30/blog8-cpptxtwrite/</url>
-    <content><![CDATA[<h3 id="写文件">写文件</h3>
-<ol>
-<li class="lvl-3">
-<p>包含头文件：<code>#include &lt;fstream&gt;</code></p>
-</li>
-<li class="lvl-3">
-<p>创建流对象：<code>ofstream ofs;</code></p>
-<span id="more"></span>
-</li>
-<li class="lvl-3">
-<p>打开文件：<code>ofs.open(&quot;Url&quot;,打开方式)</code></p>
-<p>（如果路径处只写了文件名，则会保存在同级文件夹下）</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">打开方式</th>
-<th style="text-align:left">解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">ios::in</td>
-<td style="text-align:left">为读文件而打开文件</td>
-</tr>
-<tr>
-<td style="text-align:left">ios::out</td>
-<td style="text-align:left">为写文件而打开文件</td>
-</tr>
-<tr>
-<td style="text-align:left">ios::ate</td>
-<td style="text-align:left">初始位置为文件尾</td>
-</tr>
-<tr>
-<td style="text-align:left">ios::app</td>
-<td style="text-align:left">追加方式写文件</td>
-</tr>
-<tr>
-<td style="text-align:left">ios::trunc</td>
-<td style="text-align:left">先删除，再创建</td>
-</tr>
-<tr>
-<td style="text-align:left">ios::binary</td>
-<td style="text-align:left">二进制方式</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li class="lvl-3">
-<p>写数据：<code>ofs &lt;&lt; &quot;写入的数据&quot;</code>（可以加入<code>&lt;&lt; endl;</code>来换行）</p>
-</li>
-<li class="lvl-3">
-<p>关闭文件：<code>ofs.close();</code></p>
-</li>
-</ol>
-<h5 id="示例：">示例：</h5>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fstream&gt;</span><span class="comment">//1.头文件的包含</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//2.创建流对象</span></span><br><span class="line">    ofstream ofs;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.指定打开方式</span></span><br><span class="line">    ofs.<span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>, ios::out);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.写内容</span></span><br><span class="line">    ofs &lt;&lt; <span class="string">&quot;姓名：张三&quot;</span> &lt;&lt; endl;</span><br><span class="line">    ofs &lt;&lt; <span class="string">&quot;性别：男&quot;</span> &lt;&lt; endl;</span><br><span class="line">    ofs &lt;&lt; <span class="string">&quot;年龄：18&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//5.关闭文件</span></span><br><span class="line">    ofs.<span class="built_in">close</span>();</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;写入成功！&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">test01</span>();</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="读文件">读文件</h3>
-<ol>
-<li class="lvl-3">
-<p>包含头文件：<code>#include &lt;fstream&gt;</code></p>
-</li>
-<li class="lvl-3">
-<p>创建流对象：<code>ofstream ifs;</code></p>
-</li>
-<li class="lvl-3">
-<p>打开文件并判断是否成功打开：<code>ifs.open(&quot;Url&quot;,打开方式)</code></p>
-<p>（判断打开方式见代码）</p>
-</li>
-<li class="lvl-3">
-<p>读数据：有四种方式，各有特点</p>
-</li>
-<li class="lvl-3">
-<p>关闭文件：<code>ifs.close();</code></p>
-</li>
-</ol>
-<h5 id="示例：-v2">示例：</h5>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fstream&gt;</span><span class="comment">//1.包含头文件</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//2.创建流对象</span></span><br><span class="line">    ifstream ifs;</span><br><span class="line">    <span class="comment">//3.打开文件并判断是否打开成功</span></span><br><span class="line">    ifs.<span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>, ios::in);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!ifs.<span class="built_in">is_open</span>()) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;文件打开失败&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//4.读数据</span></span><br><span class="line">    <span class="comment">//第一种（C风格字符串1）</span></span><br><span class="line">    <span class="comment">//char buf[1024] = &#123; 0 &#125;;</span></span><br><span class="line">    <span class="comment">//while (ifs &gt;&gt; buf) &#123;</span></span><br><span class="line">    <span class="comment">//    cout &lt;&lt; buf &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//第二种（C风格字符串2）</span></span><br><span class="line">    <span class="comment">//char buf[1024] = &#123; 0 &#125;;</span></span><br><span class="line">    <span class="comment">//while (ifs.getline(buf, sizeof(buf))) &#123;</span></span><br><span class="line">    <span class="comment">//    cout &lt;&lt; buf &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//第三种（CPP风格字符串）</span></span><br><span class="line">    <span class="comment">//string buf;</span></span><br><span class="line">    <span class="comment">//while (getline(ifs, buf)) &#123;</span></span><br><span class="line">    <span class="comment">//    cout &lt;&lt; buf &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//第四种（单字符）</span></span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="keyword">while</span> ((c = ifs.<span class="built_in">get</span>()) != EOF)<span class="comment">//EOF=end of file</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; c;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//5.关闭文件</span></span><br><span class="line">    ifs.<span class="built_in">close</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">test01</span>();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Next主题更改引用blockquote以及内嵌代码code的颜色</title>
-    <url>/2023/05/19/blog4/</url>
-    <content><![CDATA[<h5 id="Next版本：7-8-0">Next版本：7.8.0</h5>
-<p>  因为设置了背景，所以往往有统一颜色的需求，此时占比较大的引用和代码的颜色较为明显，如果采用默认颜色会比较难看。在相同Next主题和版本下，可以这样设置：</p>
-<span id="more"></span>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>块引用</p>
-</li>
-</ul>
-<p>  首先cd到<code>..\next\source\css\_common\scaffolding</code>找到<code>base.styl</code>文件，打开ctrl+F搜索blockquote，对代码进行如下编辑：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#d0a7020d</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">4px</span> solid <span class="number">#d0a702</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--blockquote-color);</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">15px</span>;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">cite</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">5px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其中background是引用块的背景颜色，border-left即左边粗竖线的颜色，对#后面改成自己喜欢的颜色后重新部署即可。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>内嵌代码</p>
-</li>
-</ul>
-<p>  cd到<code>..\next\source\css\_variables</code>找到<code>base.styl</code>文件，打开找到code-background，同样将后面的颜色进行修改即可。</p>
-<p>  由于我还没有设置图床，就不放图片演示了😶</p>
-<p>  最后，如果版本不一致，也可以用开发者工具找到源代码进行修改。</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-        <category>Next美化</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PageRank算法</title>
-    <url>/2023/11/23/blog25-PaperRank/</url>
-    <content><![CDATA[<h3 id="PageRank的基本思想">PageRank的基本思想</h3>
-<p>PageRank算法是谷歌搜索引擎中用于评估网页重要性的核心算法之一。该算法由谷歌创始人拉里·佩奇和谢尔盖·布林在1998年提出，并成为谷歌搜索引擎的基础。</p>
-<span id="more"></span>
-<p>PageRank算法的核心思想是，通过分析网页之间的链接关系，将网页作为节点，将所有网络转化为一个有向图。<strong>它认为被更多网页指向的网页更重要</strong>（比如说博客，大佬的博客有很多友链，我只有少数大佬的友链，说明我的博客很垃圾），从而定义了每个网页的重要程度，即PageRank值，简称PR值。</p>
-<p>假设互联网是一个有向图，在其基础上定义随机游走模型，即一阶马尔可夫链，表示网页浏览者在互联网上随机浏览网页的过程。假设浏览者在每个网页依照连接出去的超链接以等概率跳转到下一个网页，并在网上持续不断进行这样的随机跳转，这个过程形成一阶马尔可夫链。PageRank表示这个马尔可夫链的平稳分布。每个网页的PageRank值就是平稳概率。</p>
-<h3 id="PageRank的一般定义">PageRank的一般定义</h3>
-<p>给定一个含有$n$个结点$v_i,i=1,2,\cdots,n$的任意有向图，则每个节点的PR值一般定义如下式：<br>
-$$<br>
-PR(v_i)=d(\sum_{v_j \in N(v_i)}\frac{PR(v_j)}{DE(v_j)})+\frac{1-d}{n},i=1,2,\cdots,n.<br>
-$$<br>
-其中$d$为阻尼系数由经验决定，一般令$d=0.85$，$DE(v_j)$为节点$v_j$的度，$N(v_i)$为$v_i$的邻居节点。并且有$\sum_{i=1}^{n} PR(v_i)=1$.</p>
-<p>在实际应用中PR值往往是一个时变的数，由迭代产生每个时刻的PR值。对于第$i$个节点，$t=0$时每个节点的PR值相等为$\frac{1}{n}$。$t&gt;0$时，PR值定义如下：<br>
-$$<br>
-PR_i(t)=d(\sum_{v_j \in N(v_i)}\frac{\rho_{ij} PR_j(t)}{DE(v_j)})+\frac{1-d}{n},i=1,2,\cdots,n.<br>
-$$<br>
-其中$\rho_{ij}=DE(v_i)+DE(v_j)$代表了边的权值。这样待迭代至最终就可以生成每个节点的PR值。</p>
-<blockquote>
-<p>参考文献：<br>
-CDS-Based Topology Control in FANETs via Power and Position Optimization.<br>
-DOI：10.1109/LWC.2020.3009666</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>网络</tag>
       </tags>
   </entry>
   <entry>
@@ -1534,19 +1346,88 @@ Movie4-6：30架无人机分别在4、6、8m/s速度下对应对角线、避障�
       </tags>
   </entry>
   <entry>
-    <title>更新Next主题：v7.8-&gt;v8.16</title>
-    <url>/2023/05/26/blog6/</url>
-    <content><![CDATA[<p>  由于需要换valine为waline或twikoo，以及各种由于Next版本低导致的问题（相关的网络资源少、教程少等等），今天下定决心更新一下版本。</p>
+    <title>PageRank算法</title>
+    <url>/2023/11/23/blog25-PaperRank/</url>
+    <content><![CDATA[<h3 id="PageRank的基本思想">PageRank的基本思想</h3>
+<p>PageRank算法是谷歌搜索引擎中用于评估网页重要性的核心算法之一。该算法由谷歌创始人拉里·佩奇和谢尔盖·布林在1998年提出，并成为谷歌搜索引擎的基础。</p>
 <span id="more"></span>
-<h4 id="Hexo-version-6-3；Next-version-7-8">Hexo version: 6.3；Next version:7.8</h4>
-<p>  知道更新版本有一定的风险，于是做好了旧版本的备份。最终没有太大的损失，只是先前自定义的一些样式由于文件发生改变而失效，这些会在后续重新补充。</p>
-<p>  更新版本参考教程：<a href="https://drifter-games.com/2021/nextupdate/">https://drifter-games.com/2021/nextupdate/</a></p>
+<p>PageRank算法的核心思想是，通过分析网页之间的链接关系，将网页作为节点，将所有网络转化为一个有向图。<strong>它认为被更多网页指向的网页更重要</strong>（比如说博客，大佬的博客有很多友链，我只有少数大佬的友链，说明我的博客很垃圾），从而定义了每个网页的重要程度，即PageRank值，简称PR值。</p>
+<p>假设互联网是一个有向图，在其基础上定义随机游走模型，即一阶马尔可夫链，表示网页浏览者在互联网上随机浏览网页的过程。假设浏览者在每个网页依照连接出去的超链接以等概率跳转到下一个网页，并在网上持续不断进行这样的随机跳转，这个过程形成一阶马尔可夫链。PageRank表示这个马尔可夫链的平稳分布。每个网页的PageRank值就是平稳概率。</p>
+<h3 id="PageRank的一般定义">PageRank的一般定义</h3>
+<p>给定一个含有$n$个结点$v_i,i=1,2,\cdots,n$的任意有向图，则每个节点的PR值一般定义如下式：<br>
+$$<br>
+PR(v_i)=d(\sum_{v_j \in N(v_i)}\frac{PR(v_j)}{DE(v_j)})+\frac{1-d}{n},i=1,2,\cdots,n.<br>
+$$<br>
+其中$d$为阻尼系数由经验决定，一般令$d=0.85$，$DE(v_j)$为节点$v_j$的度，$N(v_i)$为$v_i$的邻居节点。并且有$\sum_{i=1}^{n} PR(v_i)=1$.</p>
+<p>在实际应用中PR值往往是一个时变的数，由迭代产生每个时刻的PR值。对于第$i$个节点，$t=0$时每个节点的PR值相等为$\frac{1}{n}$。$t&gt;0$时，PR值定义如下：<br>
+$$<br>
+PR_i(t)=d(\sum_{v_j \in N(v_i)}\frac{\rho_{ij} PR_j(t)}{DE(v_j)})+\frac{1-d}{n},i=1,2,\cdots,n.<br>
+$$<br>
+其中$\rho_{ij}=DE(v_i)+DE(v_j)$代表了边的权值。这样待迭代至最终就可以生成每个节点的PR值。</p>
+<blockquote>
+<p>参考文献：<br>
+CDS-Based Topology Control in FANETs via Power and Position Optimization.<br>
+DOI：10.1109/LWC.2020.3009666</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>响应式Bilibili视频代码块测试</title>
+    <url>/2023/05/24/blog5/</url>
+    <content><![CDATA[<p>  首先在b站点击分享，复制嵌入代码，再按照如下格式编辑：</p>
+<span id="more"></span>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position: relative; width: 100%; height: 0; padding-bottom: 75%;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;//player.bilibili.com/player.html?aid=986143204&amp;bvid=BV1Ft4y1A73f&amp;cid=851363812&amp;page=1&quot;</span> <span class="attr">scrolling</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">framespacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">allowfullscreen</span>=<span class="string">&quot;true&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>下面是测试的效果：</p>
+<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
+    <iframe src="//player.bilibili.com/player.html?aid=986143204&bvid=BV1Ft4y1A73f&cid=851363812&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+</div>
 ]]></content>
       <categories>
         <category>经验</category>
-        <category>Next升级</category>
+        <category>Next美化</category>
       </categories>
       <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo d错误：spawn failed的一种解决方法</title>
+    <url>/2023/05/15/blog3/</url>
+    <content><![CDATA[<p>  继上一条，这几天内部署断断续续的报错，网上的教程都不适用，和朋友交流后终于有了一个稳定的解决方法。</p>
+<span id="more"></span>
+<p>  报错内容大概是这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Please make sure you have the correct access rights</span><br><span class="line">FATAL Something&#x27;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">Error: Spawn failed</span><br><span class="line">    at ChildProcess.&lt;anonymous&gt;(D:\Blog\node_modules hexo-util\lib\spawn.js:51:21)</span><br><span class="line">    at ChildProcess.emit (node:events:513:28)</span><br><span class="line">    at cp.emit (D:\Blog\node_modules\cross-spawn\lib\enoent.js:34:29)</span><br><span class="line">    at ChildProcess._handle.onexit (node:internal/chid_process:291:12)</span><br></pre></td></tr></table></figure>
+<p>  确定是网络的原因后，可以作如下尝试：</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>获取steam++这款软件（github可以搜索到，也有其他选择）</p>
+</li>
+<li class="lvl-2">
+<p>打开steam++并加速github</p>
+</li>
+<li class="lvl-2">
+<p>命令行输入</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global http.proxy http://127.0.0.1:443</span><br><span class="line">git config --global https.proxy http://127.0.0.1:443</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-2">
+<p>最后<code>hexo clean &amp;&amp; hexo g &amp;&amp; hexo d</code>应该就能成功了🥰</p>
+</li>
+</ul>
+<p>  这篇文章希望给一些同样有该问题但网上教程都不适用的朋友一点参考。</p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
         <tag>Hexo</tag>
       </tags>
   </entry>
@@ -1582,6 +1463,144 @@ Movie4-6：30架无人机分别在4、6、8m/s速度下对应对角线、避障�
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>更新Next主题：v7.8-&gt;v8.16</title>
+    <url>/2023/05/26/blog6/</url>
+    <content><![CDATA[<p>  由于需要换valine为waline或twikoo，以及各种由于Next版本低导致的问题（相关的网络资源少、教程少等等），今天下定决心更新一下版本。</p>
+<span id="more"></span>
+<h4 id="Hexo-version-6-3；Next-version-7-8">Hexo version: 6.3；Next version:7.8</h4>
+<p>  知道更新版本有一定的风险，于是做好了旧版本的备份。最终没有太大的损失，只是先前自定义的一些样式由于文件发生改变而失效，这些会在后续重新补充。</p>
+<p>  更新版本参考教程：<a href="https://drifter-games.com/2021/nextupdate/">https://drifter-games.com/2021/nextupdate/</a></p>
+]]></content>
+      <categories>
+        <category>经验</category>
+        <category>Next升级</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Next主题更改引用blockquote以及内嵌代码code的颜色</title>
+    <url>/2023/05/19/blog4/</url>
+    <content><![CDATA[<h5 id="Next版本：7-8-0">Next版本：7.8.0</h5>
+<p>  因为设置了背景，所以往往有统一颜色的需求，此时占比较大的引用和代码的颜色较为明显，如果采用默认颜色会比较难看。在相同Next主题和版本下，可以这样设置：</p>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>块引用</p>
+</li>
+</ul>
+<p>  首先cd到<code>..\next\source\css\_common\scaffolding</code>找到<code>base.styl</code>文件，打开ctrl+F搜索blockquote，对代码进行如下编辑：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#d0a7020d</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">4px</span> solid <span class="number">#d0a702</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--blockquote-color);</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">15px</span>;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">cite</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">5px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中background是引用块的背景颜色，border-left即左边粗竖线的颜色，对#后面改成自己喜欢的颜色后重新部署即可。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>内嵌代码</p>
+</li>
+</ul>
+<p>  cd到<code>..\next\source\css\_variables</code>找到<code>base.styl</code>文件，打开找到code-background，同样将后面的颜色进行修改即可。</p>
+<p>  由于我还没有设置图床，就不放图片演示了😶</p>
+<p>  最后，如果版本不一致，也可以用开发者工具找到源代码进行修改。</p>
+]]></content>
+      <categories>
+        <category>经验</category>
+        <category>Next美化</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>C++文本操作：文本文件的读写</title>
+    <url>/2023/05/30/blog8-cpptxtwrite/</url>
+    <content><![CDATA[<h3 id="写文件">写文件</h3>
+<ol>
+<li class="lvl-3">
+<p>包含头文件：<code>#include &lt;fstream&gt;</code></p>
+</li>
+<li class="lvl-3">
+<p>创建流对象：<code>ofstream ofs;</code></p>
+<span id="more"></span>
+</li>
+<li class="lvl-3">
+<p>打开文件：<code>ofs.open(&quot;Url&quot;,打开方式)</code></p>
+<p>（如果路径处只写了文件名，则会保存在同级文件夹下）</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">打开方式</th>
+<th style="text-align:left">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ios::in</td>
+<td style="text-align:left">为读文件而打开文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::out</td>
+<td style="text-align:left">为写文件而打开文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::ate</td>
+<td style="text-align:left">初始位置为文件尾</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::app</td>
+<td style="text-align:left">追加方式写文件</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::trunc</td>
+<td style="text-align:left">先删除，再创建</td>
+</tr>
+<tr>
+<td style="text-align:left">ios::binary</td>
+<td style="text-align:left">二进制方式</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li class="lvl-3">
+<p>写数据：<code>ofs &lt;&lt; &quot;写入的数据&quot;</code>（可以加入<code>&lt;&lt; endl;</code>来换行）</p>
+</li>
+<li class="lvl-3">
+<p>关闭文件：<code>ofs.close();</code></p>
+</li>
+</ol>
+<h5 id="示例：">示例：</h5>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fstream&gt;</span><span class="comment">//1.头文件的包含</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//2.创建流对象</span></span><br><span class="line">    ofstream ofs;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.指定打开方式</span></span><br><span class="line">    ofs.<span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>, ios::out);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.写内容</span></span><br><span class="line">    ofs &lt;&lt; <span class="string">&quot;姓名：张三&quot;</span> &lt;&lt; endl;</span><br><span class="line">    ofs &lt;&lt; <span class="string">&quot;性别：男&quot;</span> &lt;&lt; endl;</span><br><span class="line">    ofs &lt;&lt; <span class="string">&quot;年龄：18&quot;</span> &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//5.关闭文件</span></span><br><span class="line">    ofs.<span class="built_in">close</span>();</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;写入成功！&quot;</span> &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">test01</span>();</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="读文件">读文件</h3>
+<ol>
+<li class="lvl-3">
+<p>包含头文件：<code>#include &lt;fstream&gt;</code></p>
+</li>
+<li class="lvl-3">
+<p>创建流对象：<code>ofstream ifs;</code></p>
+</li>
+<li class="lvl-3">
+<p>打开文件并判断是否成功打开：<code>ifs.open(&quot;Url&quot;,打开方式)</code></p>
+<p>（判断打开方式见代码）</p>
+</li>
+<li class="lvl-3">
+<p>读数据：有四种方式，各有特点</p>
+</li>
+<li class="lvl-3">
+<p>关闭文件：<code>ifs.close();</code></p>
+</li>
+</ol>
+<h5 id="示例：-v2">示例：</h5>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;fstream&gt;</span><span class="comment">//1.包含头文件</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">test01</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//2.创建流对象</span></span><br><span class="line">    ifstream ifs;</span><br><span class="line">    <span class="comment">//3.打开文件并判断是否打开成功</span></span><br><span class="line">    ifs.<span class="built_in">open</span>(<span class="string">&quot;test.txt&quot;</span>, ios::in);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!ifs.<span class="built_in">is_open</span>()) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;文件打开失败&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//4.读数据</span></span><br><span class="line">    <span class="comment">//第一种（C风格字符串1）</span></span><br><span class="line">    <span class="comment">//char buf[1024] = &#123; 0 &#125;;</span></span><br><span class="line">    <span class="comment">//while (ifs &gt;&gt; buf) &#123;</span></span><br><span class="line">    <span class="comment">//    cout &lt;&lt; buf &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//第二种（C风格字符串2）</span></span><br><span class="line">    <span class="comment">//char buf[1024] = &#123; 0 &#125;;</span></span><br><span class="line">    <span class="comment">//while (ifs.getline(buf, sizeof(buf))) &#123;</span></span><br><span class="line">    <span class="comment">//    cout &lt;&lt; buf &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//第三种（CPP风格字符串）</span></span><br><span class="line">    <span class="comment">//string buf;</span></span><br><span class="line">    <span class="comment">//while (getline(ifs, buf)) &#123;</span></span><br><span class="line">    <span class="comment">//    cout &lt;&lt; buf &lt;&lt; endl;</span></span><br><span class="line">    <span class="comment">//&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//第四种（单字符）</span></span><br><span class="line">    <span class="type">char</span> c;</span><br><span class="line">    <span class="keyword">while</span> ((c = ifs.<span class="built_in">get</span>()) != EOF)<span class="comment">//EOF=end of file</span></span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; c;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//5.关闭文件</span></span><br><span class="line">    ifs.<span class="built_in">close</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">test01</span>();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
       </tags>
   </entry>
   <entry>
@@ -1631,6 +1650,50 @@ Movie4-6：30架无人机分别在4、6、8m/s速度下对应对角线、避障�
       </tags>
   </entry>
   <entry>
+    <title>20889;32473;26045;22025;35946;</title>
+    <url>/2023/06/18/linbiezengyan/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="7a5e939dbee177c124444d4e5070c2254d4bca5d513f53111bde3cf0c9d40b6e">e80960072eee56390c5704dab6ba0fae854db6dc0f835e374d2013bd94f4e08446a64f0f00b2e823f15c8b4d25422063807c03848af83195d447827db04ea04c11f9e6cc59be5ced9772478f31e7921bab1b8072bca090176edb64c256d9cb08a1f96d5ed9b3865957b5d4689104d11090373b5e76163d612ba0a36891740765c1976f7277f59c5c593087238d40e9ad126c850392c1457fba027cf9c2a5d391274fb74d1a71c88dd02079dc9ba0e8d3ba6ffb414c63ac7298933baa06914741b58cd643218b85dabea50b61721c9265e249e2cc655263fc7dba5889c6aa83961ae314b4ce348a9c59e61c62a21064d3715eae3030b120994e20db3ebe15a7aa3d47c3e029a1d39a8e5c4f5bb57ece3ed42b28d11a171889b742788de07eba7dd9c27fdaff27119bd9f2dc396b1727a43af4c74841f20404d72bad8b8796ac6b8c121d488a69671570633d672c8585176a925e5eba9b1e3e4a675245b1871ce768e50d32debef7cb7033071129ec4bf98cc6a5e30f89281fa26658821f7e3a5d5cdaf1669f909e20ddbfd0be7d07f7da4b9f9adb71127ab03e6e744ebe499ed02fdbdfff21af8aae11efaf5497386c1a34782e0bad69bb8710f43813154e0d22eff26a030f4d47aa28f1596ae6c05f4d6a50ce21af7ef75f9c0fcdd8bc3af04a8f83e5e527d151eae69bd9e7455ddaaa2af222fe1df8025142df6094b10da56bfffa6dc1e8c043a59683c2518f9d0683b2623192fb756538fcdcb6677cd75f6f16959d3b6127282d39c41ae0ef4291bf010aadf09eea0977acfeb11e023399be4814cbd46a09cc259ce2c83c7a27d43158b4e6ade8360db8a15744ebd4e0c8309dc37c45d5292806e6fe1abe26ce08adc466d893da7abb45906e104b3cf72e089f1dda74449cae8943ca379b30063102f86c392ee6bcadbc02d82bbc90ed1ac84aa560abcc83f44cf73276b73c0978509510d49b2302df463f08a234da96a77f274da4276a636ccc6321c7dedb31d1dfd48e5aac3dea1f9c633e48e497ab60f225ce4a47ae0415f348e508a49af8130961705489bb0f4df1b98b0fd79c791e7c96f3c562adc37a7b614045dda449ca08167038b3afa350af25f4ece3e34b49f0c84b72fc35f1ba2ea4e8f80190b994e508d48f7456215381dfe40d11159f1eba61681de87770f50a3628fb948538415ede7bc0d8f2f0b4306d28ada047b173791c743bc27d78beac7e1cb37aceaeb7d2930e2f0c778f1aeab90f7ee73ed408f724022367cc5bea018a4077af1fe23059ef7a039857f5d8d3bd30bdbe40c6953d392779b14d92cc5a41217a36425cd025ba1bc397664f2927af07a3fa92dceb341b1629cd8f1d7f20291afbc42811fb276a07b19498be01fb2a26235fe14303ca1e0b2639247a5ded8c4891e45d247bcf6cc2975c7befeffa21913de8263850ffa0faab433403b100dcc8bdca0798514e38c1848cfbec253f72b510de6383fe5b46719e267b2fabc3cea735cce81474a727945247347cce14714f19e22b75021f8d56d7b6b95a43c19e4682b151f73e6a273d8e3b1db235d3897d81f374fe1c183c0a52b256d6f0c98aa650c7bfdbcf62b7096d9a510d0120e4f957a3f6c3c09a203b8b6aee2d773d28a31e8bb93d083e963cef037d407abca14fc6bb3f5212e92a50fd36bb1cc6b5d85f3c80fc68f0f6adb997f3d0e4986132d4c7781c2aedee4c72b3170218e2e7fa3c66f4d079b6a5471b84a8fe07904d9289c535f9d9be0b85944fa36e7cb7e9d024eaf5222b1d91e6b5e124dbba1080d325533470510479fa23dc405e677a739311f5af3b1b5d1b9510d70b9e0fdb6448b0ac018448803806ff35a5be4c8e432bf554a640eb678d7cf05e8965fb60139b07328e3a6e68b2520c440b94fce46e0f067ae2bdc58ac61626adc33d74e5aaf94530252c891c2701ba572109f31371827ac92fd66ddda68d881584e52134a79783355da4af260e17bebc120e25a433b315d4a8764280bb7e77e0f5a9dc023b53416a466c6f851afe90931a40db98feae2cdb7a4e2bf762cc561eb748004affdef0aeb8f5ebc5fa4dbcc028d70223bbc773b1a7b5947b24d45764564128c4c978bd18e578a5a0ab12331c6038f5ed1bb1fbb9c2f8c49d027d603baadc78490a930d93764793b4d83ff93dd7acdb21e6afc7e1a69a5d34afe0e6fb2929f84421d3cf8b0a41079ed75ee498e7e7fff47f009175b37a55fd41397e43dc29c077ed31f03c991e9c2a1205b6998f850544de3817a970df4b3c97eba5d168ad549e2d807cfac1a52569f78e8f1a67917483662e839a2b704f2abc27f48ee1ceb2901e3b4e8c3e7caaed8f82486ce2ccc3019563624841889b41d4</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>临别赠言</category>
+      </categories>
+      <tags>
+        <tag>加密内容</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20889;32473;24464;36827;24179;</title>
+    <url>/2023/06/18/linbiezengyan1/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="a2a6a4f54239b08c2a35d71290ca5e93f33c5c0a34518647e4a8f7f838e98137">65735b815448ad3a63446ef12ba35639330eb3e3b37cd7a17fb2f2c0c867a0e05e21f825603638338db11dd61e6de0e4343d4c7fd577c1e4a0d20aa95bde770060beb77c3eb135578c065f70508d42d04403ed9e8a6884a333a7128c8074971e28f83015cfaafb293c5b92a7a080c2d4c41bec5aa4fe54fdcb438184384c385e9b803992c2e3a0b9a0ea5c871a81a10b15c4933166a4117e3aefe7d20de7b1404379a05364f1a1b7584360f255a75fd3dce80574732e58021c7256271e60e988a404b3125f0f57b0fc3ec2c7f9a4b6eda498259cc73d7e71721862ce3714351eea19a746bd8f2df8b1ad7617e4c89499748710c211745fbfd505da2c1d6db22f337b530b29c0419ba18df7c9495ba769de429250e12e54efe17a73e0a6f03e80eac0b724bb1d0e6f81262adb64ee45bced1a72ee7056d65281f490710333ccddbd6eb10966299e7d92f624e6bb17bb649c2032cbafb056a230db197484d4687b494be916353461dfa16babdb5ac37ddf7e26c6c758607aef3ab4b06e87860c33e6d0bdd288ee4416111b21a09573317f6b662e9f670431283b06734cb25018d9cc90de62f53a362bf6a37c439e5d761c8363bebc48710d0c3f2ed469fd3d4db8c716900746402f4df31bc30f009824fadea47cb4f0570c16096c4232219f1b89589dad0cb1352dffd376f220516199973b349cd4dea769a9cbc2b068e4378c404ff385d8da3fe16262fc71fa1eaeb2860101228ec5f7023b31a1f986c7d8c1c1f1ad0e6db959cb049ae5021de01bdf123d3ddd5d0e81c60db40c06f58ea1363dcab0305e062335b6bdb40dd30ecbadc6d2d640df2522d2f8abbd2dd0915ddfe6d3a17ee352b42fd65343f4cb72a8323c65a4472822b29e3a0012a1386c5fe8f6a59953473eee900e2c0f6d667d80cf14a8411d948c0a489c03e86282253a2c7fcf26fbe60bb8cfa157294e4b3cd863ec94392dc9f985a8e3f79c9b659de9dd3478e1b00cee8af17ea6feb7f982cbbc77d949d13119e53a21700f211b8546c83bbb554d21d11d3e5951ceb909008a2bdd2006ed748ef9639ac362a7b11bb853feed961961d523a9d900dbbacffa3e1aa7c7c49cb1a6e01041eb3471f3811fcb858fa19c296193b2328e1841af2c87b4ab9287e5d181aadfb3cdda3d6d535d785f0a3e27822f2b06ce448f572bfde45578bc7d2ee65a642cc0cfe5ec05a4ae5024b2823af07f93f75864727019880fb9f7ad78ead1493fc5d5febca0620eb3b0915b0fcef0d02b9a5e3fa9087de7f843df73c81ca0675a7a506c0852265640189159427b2afc805f584c60824633f0e1ed5525782cef841d187dffa47c5ddc7e29373d16ef107a88e6c7f42de9b5abec3e4bc214f98c8bc6fc667271803dd2054e06b2951305fa39385df73c001a6f7a293282d397b95dfaedcd66d467fb4356b892276cd8e5e9044452283913b80773b07eeb96ed22c24690bb90103677b04332</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>临别赠言</category>
+      </categories>
+      <tags>
+        <tag>加密内容</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>一些庵野秀明风格的尝试</title>
     <url>/2023/06/23/goodbye-graduate/</url>
     <content><![CDATA[<h2 id="再见了，所有的张秀梅">再见了，所有的张秀梅</h2>
@@ -1658,69 +1721,6 @@ Movie4-6：30架无人机分别在4、6、8m/s速度下对应对角线、避障�
       <tags>
         <tag>毕业</tag>
         <tag>庵野秀明风格</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20889;32473;24464;36827;24179;</title>
-    <url>/2023/06/18/linbiezengyan1/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="a2a6a4f54239b08c2a35d71290ca5e93f33c5c0a34518647e4a8f7f838e98137">65735b815448ad3a63446ef12ba35639330eb3e3b37cd7a17fb2f2c0c867a0e05e21f825603638338db11dd61e6de0e4343d4c7fd577c1e4a0d20aa95bde770060beb77c3eb135578c065f70508d42d04403ed9e8a6884a333a7128c8074971e28f83015cfaafb293c5b92a7a080c2d4c41bec5aa4fe54fdcb438184384c385e9b803992c2e3a0b9a0ea5c871a81a10b15c4933166a4117e3aefe7d20de7b1404379a05364f1a1b7584360f255a75fd3dce80574732e58021c7256271e60e988a404b3125f0f57b0fc3ec2c7f9a4b6eda498259cc73d7e71721862ce3714351eea19a746bd8f2df8b1ad7617e4c89499748710c211745fbfd505da2c1d6db22f337b530b29c0419ba18df7c9495ba769de429250e12e54efe17a73e0a6f03e80eac0b724bb1d0e6f81262adb64ee45bced1a72ee7056d65281f490710333ccddbd6eb10966299e7d92f624e6bb17bb649c2032cbafb056a230db197484d4687b494be916353461dfa16babdb5ac37ddf7e26c6c758607aef3ab4b06e87860c33e6d0bdd288ee4416111b21a09573317f6b662e9f670431283b06734cb25018d9cc90de62f53a362bf6a37c439e5d761c8363bebc48710d0c3f2ed469fd3d4db8c716900746402f4df31bc30f009824fadea47cb4f0570c16096c4232219f1b89589dad0cb1352dffd376f220516199973b349cd4dea769a9cbc2b068e4378c404ff385d8da3fe16262fc71fa1eaeb2860101228ec5f7023b31a1f986c7d8c1c1f1ad0e6db959cb049ae5021de01bdf123d3ddd5d0e81c60db40c06f58ea1363dcab0305e062335b6bdb40dd30ecbadc6d2d640df2522d2f8abbd2dd0915ddfe6d3a17ee352b42fd65343f4cb72a8323c65a4472822b29e3a0012a1386c5fe8f6a59953473eee900e2c0f6d667d80cf14a8411d948c0a489c03e86282253a2c7fcf26fbe60bb8cfa157294e4b3cd863ec94392dc9f985a8e3f79c9b659de9dd3478e1b00cee8af17ea6feb7f982cbbc77d949d13119e53a21700f211b8546c83bbb554d21d11d3e5951ceb909008a2bdd2006ed748ef9639ac362a7b11bb853feed961961d523a9d900dbbacffa3e1aa7c7c49cb1a6e01041eb3471f3811fcb858fa19c296193b2328e1841af2c87b4ab9287e5d181aadfb3cdda3d6d535d785f0a3e27822f2b06ce448f572bfde45578bc7d2ee65a642cc0cfe5ec05a4ae5024b2823af07f93f75864727019880fb9f7ad78ead1493fc5d5febca0620eb3b0915b0fcef0d02b9a5e3fa9087de7f843df73c81ca0675a7a506c0852265640189159427b2afc805f584c60824633f0e1ed5525782cef841d187dffa47c5ddc7e29373d16ef107a88e6c7f42de9b5abec3e4bc214f98c8bc6fc667271803dd2054e06b2951305fa39385df73c001a6f7a293282d397b95dfaedcd66d467fb4356b892276cd8e5e9044452283913b80773b07eeb96ed22c24690bb90103677b04332</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>临别赠言</category>
-      </categories>
-      <tags>
-        <tag>加密内容</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20889;32473;26045;22025;35946;</title>
-    <url>/2023/06/18/linbiezengyan/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="7a5e939dbee177c124444d4e5070c2254d4bca5d513f53111bde3cf0c9d40b6e">e80960072eee56390c5704dab6ba0fae854db6dc0f835e374d2013bd94f4e08446a64f0f00b2e823f15c8b4d25422063807c03848af83195d447827db04ea04c11f9e6cc59be5ced9772478f31e7921bab1b8072bca090176edb64c256d9cb08a1f96d5ed9b3865957b5d4689104d11090373b5e76163d612ba0a36891740765c1976f7277f59c5c593087238d40e9ad126c850392c1457fba027cf9c2a5d391274fb74d1a71c88dd02079dc9ba0e8d3ba6ffb414c63ac7298933baa06914741b58cd643218b85dabea50b61721c9265e249e2cc655263fc7dba5889c6aa83961ae314b4ce348a9c59e61c62a21064d3715eae3030b120994e20db3ebe15a7aa3d47c3e029a1d39a8e5c4f5bb57ece3ed42b28d11a171889b742788de07eba7dd9c27fdaff27119bd9f2dc396b1727a43af4c74841f20404d72bad8b8796ac6b8c121d488a69671570633d672c8585176a925e5eba9b1e3e4a675245b1871ce768e50d32debef7cb7033071129ec4bf98cc6a5e30f89281fa26658821f7e3a5d5cdaf1669f909e20ddbfd0be7d07f7da4b9f9adb71127ab03e6e744ebe499ed02fdbdfff21af8aae11efaf5497386c1a34782e0bad69bb8710f43813154e0d22eff26a030f4d47aa28f1596ae6c05f4d6a50ce21af7ef75f9c0fcdd8bc3af04a8f83e5e527d151eae69bd9e7455ddaaa2af222fe1df8025142df6094b10da56bfffa6dc1e8c043a59683c2518f9d0683b2623192fb756538fcdcb6677cd75f6f16959d3b6127282d39c41ae0ef4291bf010aadf09eea0977acfeb11e023399be4814cbd46a09cc259ce2c83c7a27d43158b4e6ade8360db8a15744ebd4e0c8309dc37c45d5292806e6fe1abe26ce08adc466d893da7abb45906e104b3cf72e089f1dda74449cae8943ca379b30063102f86c392ee6bcadbc02d82bbc90ed1ac84aa560abcc83f44cf73276b73c0978509510d49b2302df463f08a234da96a77f274da4276a636ccc6321c7dedb31d1dfd48e5aac3dea1f9c633e48e497ab60f225ce4a47ae0415f348e508a49af8130961705489bb0f4df1b98b0fd79c791e7c96f3c562adc37a7b614045dda449ca08167038b3afa350af25f4ece3e34b49f0c84b72fc35f1ba2ea4e8f80190b994e508d48f7456215381dfe40d11159f1eba61681de87770f50a3628fb948538415ede7bc0d8f2f0b4306d28ada047b173791c743bc27d78beac7e1cb37aceaeb7d2930e2f0c778f1aeab90f7ee73ed408f724022367cc5bea018a4077af1fe23059ef7a039857f5d8d3bd30bdbe40c6953d392779b14d92cc5a41217a36425cd025ba1bc397664f2927af07a3fa92dceb341b1629cd8f1d7f20291afbc42811fb276a07b19498be01fb2a26235fe14303ca1e0b2639247a5ded8c4891e45d247bcf6cc2975c7befeffa21913de8263850ffa0faab433403b100dcc8bdca0798514e38c1848cfbec253f72b510de6383fe5b46719e267b2fabc3cea735cce81474a727945247347cce14714f19e22b75021f8d56d7b6b95a43c19e4682b151f73e6a273d8e3b1db235d3897d81f374fe1c183c0a52b256d6f0c98aa650c7bfdbcf62b7096d9a510d0120e4f957a3f6c3c09a203b8b6aee2d773d28a31e8bb93d083e963cef037d407abca14fc6bb3f5212e92a50fd36bb1cc6b5d85f3c80fc68f0f6adb997f3d0e4986132d4c7781c2aedee4c72b3170218e2e7fa3c66f4d079b6a5471b84a8fe07904d9289c535f9d9be0b85944fa36e7cb7e9d024eaf5222b1d91e6b5e124dbba1080d325533470510479fa23dc405e677a739311f5af3b1b5d1b9510d70b9e0fdb6448b0ac018448803806ff35a5be4c8e432bf554a640eb678d7cf05e8965fb60139b07328e3a6e68b2520c440b94fce46e0f067ae2bdc58ac61626adc33d74e5aaf94530252c891c2701ba572109f31371827ac92fd66ddda68d881584e52134a79783355da4af260e17bebc120e25a433b315d4a8764280bb7e77e0f5a9dc023b53416a466c6f851afe90931a40db98feae2cdb7a4e2bf762cc561eb748004affdef0aeb8f5ebc5fa4dbcc028d70223bbc773b1a7b5947b24d45764564128c4c978bd18e578a5a0ab12331c6038f5ed1bb1fbb9c2f8c49d027d603baadc78490a930d93764793b4d83ff93dd7acdb21e6afc7e1a69a5d34afe0e6fb2929f84421d3cf8b0a41079ed75ee498e7e7fff47f009175b37a55fd41397e43dc29c077ed31f03c991e9c2a1205b6998f850544de3817a970df4b3c97eba5d168ad549e2d807cfac1a52569f78e8f1a67917483662e839a2b704f2abc27f48ee1ceb2901e3b4e8c3e7caaed8f82486ce2ccc3019563624841889b41d4</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>临别赠言</category>
-      </categories>
-      <tags>
-        <tag>加密内容</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>响应式Bilibili视频代码块测试</title>
-    <url>/2023/05/24/blog5/</url>
-    <content><![CDATA[<p>  首先在b站点击分享，复制嵌入代码，再按照如下格式编辑：</p>
-<span id="more"></span>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;position: relative; width: 100%; height: 0; padding-bottom: 75%;&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;//player.bilibili.com/player.html?aid=986143204&amp;bvid=BV1Ft4y1A73f&amp;cid=851363812&amp;page=1&quot;</span> <span class="attr">scrolling</span>=<span class="string">&quot;no&quot;</span> <span class="attr">border</span>=<span class="string">&quot;0&quot;</span> <span class="attr">frameborder</span>=<span class="string">&quot;no&quot;</span> <span class="attr">framespacing</span>=<span class="string">&quot;0&quot;</span> <span class="attr">allowfullscreen</span>=<span class="string">&quot;true&quot;</span>&gt;</span> <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>下面是测试的效果：</p>
-<div style="position: relative; width: 100%; height: 0; padding-bottom: 75%;">
-    <iframe src="//player.bilibili.com/player.html?aid=986143204&bvid=BV1Ft4y1A73f&cid=851363812&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-</div>
-]]></content>
-      <categories>
-        <category>经验</category>
-        <category>Next美化</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1790,25 +1790,22 @@ Movie4-6：30架无人机分别在4、6、8m/s速度下对应对角线、避障�
       </tags>
   </entry>
   <entry>
-    <title>20889;32473;21556;23384;21644;</title>
-    <url>/2023/06/20/linbiezengyan5/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="3b2d7e973a3f3cc6b32ad1cc6072da5400de9addc17f6298c6cee7587028dd79">d356183645db3b418b139bdb9e96d7fbbb3bf0f94a41f93e166cdfeec6d3ecc5d20bc0a999508a810aa3855d33c7f1ef9939d685a664e5c9d210d8239e0313af5475df80a0d40206ccf2081f25bccae12daea88ddec88d8cae3141c5d55c35aa62e2f90dc68244da9033b68a9bfdd9cf0ee59de674be46a338e22999734483ac4157c1996373af3d7a703d5f0bf3075c16f0ce475a1df47b140e3957fc68d7ec65d4a52ed4e0ca0e0edb1da5e426f89da82a20186012e64070337c7e8bb76e0e7deb7ee462aa0536971ff2bf12a39492ebd2325e1422a7f69012d415547ac90c28d63b716007754860082411f3be792a9c9d4e506c531b24b6d7ec8034f92d649456d81398043e6aac869fc8e47dcf07c5197145977a46f916dccadf681ae06d0069e3ca00b6129289382d30de3120cdce3034d77d6287f0e3c2b72edde52f3569eb1d33f01adf549e1b6e0d9da9316ef74bb3517f5105751a7743e70265c9739fbe5cbeeabf99cf6b076fb9da5d5ef7925e9e1caf461027c48c32a718466f2d4eb97585fe2bb1a97eea263e784c66e1b78cb6d80297b89a1ebbc451613b56e4d9b83cfb0c39fc8a0e400d97b2959d0b2182408a57b13f6a91466524a58803824a32ae96f3a513e309f0061e446b1018ee49af0edecf2d85de7863ad21e35b3a3b38e36ad8527e43c7a4f3a149e55e7295d967663c23a36c08683fd4acd0d5da51b8642398b920a33895f070f15739666403faf31f068aacb06326eaf3aa1ccf642424e9ac737391378e64b54555a1998d6e3de0883c10cc2ac76f11c64610b0c775644b88e30814f3d25c3db91a70ca348fea2830093967eba080a9f5b1fb4725315c2dcfc9e1a6aa07491b0ea39a0d52d8f6a7b9a6860232346f62d67fa55e40ac2a502cbf640e84910c1ed5e1dbf55d858e5e0db3307c843e6375936731888889e90b8e3149a215d265343bfcb412e57cfb30df31d365dbd83d6ee1834d47d05d462347b7e938fe1f71bdc5417a575289a6c85fc5aa25366b13ac1ecb32c6c4135db60659c4b05e09a3e1a7f6521a188b9f2048670d24a2b09724753f2c0adfdb03d6765efbf2f06743e7823012d3d7ca3d8cdd3d3f70f76a4bbb77182ce44b9c4b7c36173878117faded5bbfb90c1e14acf1c85855293cdb66cb983754f3bed18d5384e306dfd239a5520239ea00a296dbc5cb2aa4c0c2e96484ebc368962f5b221eb6d2521db66d4619447ff0326626e19aaa7e5c86b2f00e0854251f00c5ff63bbc910a7b9324843dc712dc4e59692e0125c3650e1e5bb099ab94105d11588409db1de3630cf12be557ce9a97905645a2032a2e188c3730d3a24077723c9490fb57c62f9998eb3a65e6f316ddfb81420883c037dab3b1e7f28628b8b4c0ac7252abc9f91db89a30c7e6b338490a787555b9cf3b41d5230f81763aa5e38e80ece0fa0a83283199856b86232d9de99f1f500ccf45a61fc756c4b095e79a41904a60fcf28a7a313c85a58ca759ec69680b012fe6958e7e6c0459858c610e92e4a83e6f68bd1cd69b5f4f757502d7b5dc5f26ebdd87358fb7647f4051d6475</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+    <title>my first post</title>
+    <url>/2023/04/27/test/</url>
+    <content><![CDATA[<h1>你好</h1>
+<h2 id="这是我的第一篇个人博客">这是我的第一篇个人博客</h2>
+<span id="more"></span>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Hello World!&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Le vent se lève, il faut tenter de vivre</p>
+</blockquote>
+<p>have fun 😃</p>
+]]></content>
       <categories>
-        <category>临别赠言</category>
+        <category>经验</category>
       </categories>
       <tags>
-        <tag>加密内容</tag>
+        <tag>建站</tag>
       </tags>
   </entry>
   <entry>
@@ -1834,22 +1831,25 @@ Movie4-6：30架无人机分别在4、6、8m/s速度下对应对角线、避障�
       </tags>
   </entry>
   <entry>
-    <title>my first post</title>
-    <url>/2023/04/27/test/</url>
-    <content><![CDATA[<h1>你好</h1>
-<h2 id="这是我的第一篇个人博客">这是我的第一篇个人博客</h2>
-<span id="more"></span>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Hello World!&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Le vent se lève, il faut tenter de vivre</p>
-</blockquote>
-<p>have fun 😃</p>
-]]></content>
+    <title>20889;32473;21556;23384;21644;</title>
+    <url>/2023/06/20/linbiezengyan5/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="3b2d7e973a3f3cc6b32ad1cc6072da5400de9addc17f6298c6cee7587028dd79">d356183645db3b418b139bdb9e96d7fbbb3bf0f94a41f93e166cdfeec6d3ecc5d20bc0a999508a810aa3855d33c7f1ef9939d685a664e5c9d210d8239e0313af5475df80a0d40206ccf2081f25bccae12daea88ddec88d8cae3141c5d55c35aa62e2f90dc68244da9033b68a9bfdd9cf0ee59de674be46a338e22999734483ac4157c1996373af3d7a703d5f0bf3075c16f0ce475a1df47b140e3957fc68d7ec65d4a52ed4e0ca0e0edb1da5e426f89da82a20186012e64070337c7e8bb76e0e7deb7ee462aa0536971ff2bf12a39492ebd2325e1422a7f69012d415547ac90c28d63b716007754860082411f3be792a9c9d4e506c531b24b6d7ec8034f92d649456d81398043e6aac869fc8e47dcf07c5197145977a46f916dccadf681ae06d0069e3ca00b6129289382d30de3120cdce3034d77d6287f0e3c2b72edde52f3569eb1d33f01adf549e1b6e0d9da9316ef74bb3517f5105751a7743e70265c9739fbe5cbeeabf99cf6b076fb9da5d5ef7925e9e1caf461027c48c32a718466f2d4eb97585fe2bb1a97eea263e784c66e1b78cb6d80297b89a1ebbc451613b56e4d9b83cfb0c39fc8a0e400d97b2959d0b2182408a57b13f6a91466524a58803824a32ae96f3a513e309f0061e446b1018ee49af0edecf2d85de7863ad21e35b3a3b38e36ad8527e43c7a4f3a149e55e7295d967663c23a36c08683fd4acd0d5da51b8642398b920a33895f070f15739666403faf31f068aacb06326eaf3aa1ccf642424e9ac737391378e64b54555a1998d6e3de0883c10cc2ac76f11c64610b0c775644b88e30814f3d25c3db91a70ca348fea2830093967eba080a9f5b1fb4725315c2dcfc9e1a6aa07491b0ea39a0d52d8f6a7b9a6860232346f62d67fa55e40ac2a502cbf640e84910c1ed5e1dbf55d858e5e0db3307c843e6375936731888889e90b8e3149a215d265343bfcb412e57cfb30df31d365dbd83d6ee1834d47d05d462347b7e938fe1f71bdc5417a575289a6c85fc5aa25366b13ac1ecb32c6c4135db60659c4b05e09a3e1a7f6521a188b9f2048670d24a2b09724753f2c0adfdb03d6765efbf2f06743e7823012d3d7ca3d8cdd3d3f70f76a4bbb77182ce44b9c4b7c36173878117faded5bbfb90c1e14acf1c85855293cdb66cb983754f3bed18d5384e306dfd239a5520239ea00a296dbc5cb2aa4c0c2e96484ebc368962f5b221eb6d2521db66d4619447ff0326626e19aaa7e5c86b2f00e0854251f00c5ff63bbc910a7b9324843dc712dc4e59692e0125c3650e1e5bb099ab94105d11588409db1de3630cf12be557ce9a97905645a2032a2e188c3730d3a24077723c9490fb57c62f9998eb3a65e6f316ddfb81420883c037dab3b1e7f28628b8b4c0ac7252abc9f91db89a30c7e6b338490a787555b9cf3b41d5230f81763aa5e38e80ece0fa0a83283199856b86232d9de99f1f500ccf45a61fc756c4b095e79a41904a60fcf28a7a313c85a58ca759ec69680b012fe6958e7e6c0459858c610e92e4a83e6f68bd1cd69b5f4f757502d7b5dc5f26ebdd87358fb7647f4051d6475</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
       <categories>
-        <category>经验</category>
+        <category>临别赠言</category>
       </categories>
       <tags>
-        <tag>建站</tag>
+        <tag>加密内容</tag>
       </tags>
   </entry>
   <entry>
