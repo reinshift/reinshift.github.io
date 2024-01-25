@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>数组的动态联编</title>
+    <url>/2023/06/06/blog10-cppDynamicArray/</url>
+    <content><![CDATA[<p>  使用数组声明来创建数组时，将采用静态联编，即数组的长度在编译时设置。这个时候如果在括号里使用变量会报错，这样如果想输入数组长度以控制是做不到的：</p>
+<span id="more"></span>
+<p><img src="https://i2.100024.xyz/2023/06/06/ny90mg.webp#pic_center" alt=""></p>
+<p>  如果想创建一个数组，其长度让用户来输入管理，这个时候就需要用<code>new[]</code>运算符创建数组，采用动态联编（动态数组）。</p>
+<blockquote>
+<p>静态联编：在编译时给数组分配内存被称为静态联编（static binding），意味着数组是在编译时加入到程序中的。</p>
+</blockquote>
+<blockquote>
+<p>动态联编：使用new时，如果在运行阶段需要数组，则创建它；如果不需要，则不创建。还可以在程序运行时选择数组的长度。这被称为动态联编（dynamic binding），意味着数组是在程序运行时创建的。这种数组叫作动态数组（dynamic array）。</p>
+</blockquote>
+<p>  使用静态联编时，必须在编写程序时指定数组的长度；使用动态联编时，程序将在运行时确定数组的长度。</p>
+<p>  了解了这些特性，就可以在程序中这样写：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> num;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Put in the number of people:__\b\b&quot;</span>;</span><br><span class="line">    cin &gt;&gt; num;</span><br><span class="line">    <span class="comment">//int Age[num];</span></span><br><span class="line">    <span class="type">int</span>* p_Age = <span class="keyword">new</span> <span class="type">int</span>[num];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span>;</span><br><span class="line">        cin &gt;&gt; p_Age[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the age of every person is:&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span> &lt;&lt; p_Age[i] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span>[] p_Age;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  当输入10赋值给变量num时，接下来就会创建一个长度为10的数组以储存数据。</p>
+<p>  当然采用这种方式创建数组的最后需要用<code>delete[]</code>来释放其占用的内存。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>今日更新内容</title>
     <url>/2023/04/28/blog1/</url>
     <content><![CDATA[<p>以下是今天的更新内容：</p>
@@ -29,125 +56,6 @@
 ]]></content>
       <tags>
         <tag>建站</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数组的动态联编</title>
-    <url>/2023/06/06/blog10-cppDynamicArray/</url>
-    <content><![CDATA[<p>  使用数组声明来创建数组时，将采用静态联编，即数组的长度在编译时设置。这个时候如果在括号里使用变量会报错，这样如果想输入数组长度以控制是做不到的：</p>
-<span id="more"></span>
-<p><img src="https://i2.100024.xyz/2023/06/06/ny90mg.webp#pic_center" alt=""></p>
-<p>  如果想创建一个数组，其长度让用户来输入管理，这个时候就需要用<code>new[]</code>运算符创建数组，采用动态联编（动态数组）。</p>
-<blockquote>
-<p>静态联编：在编译时给数组分配内存被称为静态联编（static binding），意味着数组是在编译时加入到程序中的。</p>
-</blockquote>
-<blockquote>
-<p>动态联编：使用new时，如果在运行阶段需要数组，则创建它；如果不需要，则不创建。还可以在程序运行时选择数组的长度。这被称为动态联编（dynamic binding），意味着数组是在程序运行时创建的。这种数组叫作动态数组（dynamic array）。</p>
-</blockquote>
-<p>  使用静态联编时，必须在编写程序时指定数组的长度；使用动态联编时，程序将在运行时确定数组的长度。</p>
-<p>  了解了这些特性，就可以在程序中这样写：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> num;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Put in the number of people:__\b\b&quot;</span>;</span><br><span class="line">    cin &gt;&gt; num;</span><br><span class="line">    <span class="comment">//int Age[num];</span></span><br><span class="line">    <span class="type">int</span>* p_Age = <span class="keyword">new</span> <span class="type">int</span>[num];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span>;</span><br><span class="line">        cin &gt;&gt; p_Age[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the age of every person is:&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span> &lt;&lt; p_Age[i] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span>[] p_Age;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  当输入10赋值给变量num时，接下来就会创建一个长度为10的数组以储存数据。</p>
-<p>  当然采用这种方式创建数组的最后需要用<code>delete[]</code>来释放其占用的内存。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>2023.7.8-14旅游</title>
-    <url>/2023/07/15/blog12-travel2ningbonanjing/</url>
-    <content><![CDATA[<h1>2023.7.8-7.14 游宁波-南京</h1>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-1：宁波南部商务区、鼓楼">Day 1：宁波南部商务区、鼓楼</h2>
-</li>
-</ul>
-<p><img src="https://i2.100024.xyz/2023/07/15/p41mdp.webp" alt=""></p>
-<span id="more"></span>
-<p><img src="https://i2.100024.xyz/2023/07/15/p3z7la.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/p40psb.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/p4143n.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/p4215v.webp" alt=""></p>
-<p>这是第一天下午到达宁波后去逛的，选的地方是宁波相对繁华的地段，给我的感受就是比我家要更有商业气息一些，但是某些地方也有很清晰的城乡界线，新旧之间没有任何的过渡让我觉得有些突兀。顿时觉得“城市”真是一个没有任何新意的概念：鳞次栉比的大厦，见多了就觉得这里可以是其他任何稍微繁华些的地方，但就是不知道这个地名叫宁波。</p>
-<p>晚饭后去了那里的鼓楼，有一个钟楼我挺喜欢，这让我想起小时候我家不远处的钟楼，每天晚上我在窗边的小桌子上写作业时总是会在整点，细数彼岸的钟声，然后想起痛苦的背课文经历。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-2：宁波罗蒙">Day 2：宁波罗蒙</h2>
-</li>
-</ul>
-<p><img src="https://i2.100024.xyz/2023/07/15/pdnm6g.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/pdws7l.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/pdx5cr.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/pdxkwx.webp" alt=""></p>
-<p><img src="https://i2.100024.xyz/2023/07/15/pdyza9.webp" alt=""></p>
-<p>第二天去了罗蒙，也就是当地的一个室内主题乐园。由于天气炎热，在早上不是最热的时候先体验了室外的项目，中午才回到室内。一天下来感觉精神上是很解压，但是肉体上也很疲惫，总之还是很值得的。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-3：南京夫子庙步行街、秦淮河">Day 3：南京夫子庙步行街、秦淮河</h2>
-</li>
-</ul>
-<p><img src="https://img1.imgtp.com/2023/07/15/PaOo1u9w.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/IV5GIOcm.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/N9dVJzL3.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/LDmHhivI.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/0pZlofH7.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/0g1qoHav.jpg" alt=""></p>
-<p><img src="https://img1.imgtp.com/2023/07/15/ZUu1XU7s.jpg" alt=""></p>
-<p>也是下午从宁波出发到的南京。到之后发现夫子庙附近的城市还是比较陈旧的，与我的想象大相径庭。夜里去住处附近的夫子庙步行街以及沿秦淮河岸简单逛了逛，游客纷杂，到处是售卖景区商品的摊点和商人，身着古装的参观者，甚至还有人力车。或许是因为刚从宁波的市区过来，一时间竟有些恍惚，这是一个光怪陆离的地方，是大娱乐的世界，这一点倒与某句诗中所表达的意思相近。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-4：明孝陵-中山陵">Day 4：明孝陵&amp;中山陵</h2>
-</li>
-</ul>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC5ypQ0.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC5yFwF.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC5szzq.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC5y9yV.md.jpg" alt=""></p>
-<p>明孝陵是朱元璋与其皇后的合葬陵寝，中山陵是孙中山先生的陵寝。遗憾的是我的历史知识并不富足，并且也没有请解说，因此我能看到的东西是非常局限的，没有厚度的。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-5：总统府-鸡鸣寺-玄武湖">Day 5：总统府&amp;鸡鸣寺&amp;玄武湖</h2>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56FjP.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56eAg.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56Anf.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56EB8.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56VHS.md.jpg" alt=""></p>
-</li>
-</ul>
-<p>总统府内部人太多了，也就没有好好拍照片。幸运的是最近的一家茶颜悦色是刚开业的，排队的人并不多，这也是我第一次尝试这个品牌。在鸡鸣寺找大雄宝殿找了很久还是没找到…</p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56d3R.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56wg1.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56aC9.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56N4J.md.jpg" alt=""></p>
-<p>在玄武湖的另一边可以看到鸡鸣寺和明城墙，还有远方的城市。</p>
-<p>最后因为时间还有一些，遂去了附近一个免费参观的古生物博物馆，这里可以满足小朋友们的好奇心，适合带孩子来。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="Day-6：南京博物院">Day 6：南京博物院</h2>
-</li>
-</ul>
-<p>前一天得知需要抢票，本来不抱太大希望，但最后诸友居然都抢到了票，遂立刻打车前往。</p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56b5Q.md.jpg" alt=""></p>
-<p><img src="https://s1.ax1x.com/2023/07/15/pC56HUg.md.jpg" alt=""></p>
-<p>里面人很多，加上游览顺序不是很好，就花了半天时间参观。一些照片拍的没有思路，就没有放在这里了。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h2 id="总结">总结</h2>
-</li>
-</ul>
-<p>最后还有一些遗憾的是遇难同胞纪念馆没有预约到，离住的地方比较远，也就没有去。希望以后有机会再来吧。</p>
-<p>这个暑假或许是最自由的一个假期了，以后不知道能不能像现在一样说走就走。这天气是真的很热，想静下心来游览的难度也很大。但这次旅游还是给了我从多天宅家中回到现实去经历和思考的一次机会，也算是有不小的收获。</p>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>旅游</tag>
       </tags>
   </entry>
   <entry>
@@ -313,103 +221,95 @@
       </tags>
   </entry>
   <entry>
-    <title>数据结构note（三）</title>
-    <url>/2023/07/28/blog14-DS3/</url>
-    <content><![CDATA[<ul class="lvl-0">
+    <title>2023.7.8-14旅游</title>
+    <url>/2023/07/15/blog12-travel2ningbonanjing/</url>
+    <content><![CDATA[<h1>2023.7.8-7.14 游宁波-南京</h1>
+<ul class="lvl-0">
 <li class="lvl-2">
-<h2 id="链表与数组、向量的不同之处">链表与数组、向量的不同之处</h2>
+<h2 id="Day-1：宁波南部商务区、鼓楼">Day 1：宁波南部商务区、鼓楼</h2>
 </li>
 </ul>
-<p>链表与数组、向量不同之处在于，其元素的地址可以任意而不要求连续。元素之间通过指针相互联系。虽然其仍要求各元素在逻辑上具线性次序，但对物理地址未作任何限制，也即“动态存储”策略。</p>
+<p><img src="https://i2.100024.xyz/2023/07/15/p41mdp.webp" alt=""></p>
 <span id="more"></span>
-<p>引入列表结构的目的，就在于弥补向量结构在解决某些应用问题时，在功能及性能方面的不足。其中的数据，分散为一系列称作<strong>节点</strong>（node）的单位，节点之间通过指针相互索引和访问。为了引入新节点或删除原有节点，只需在局部，调整少量相关节点之间的指针。这就意味着，采用动态存储策略，至少可以大大降低动态操作的成本。</p>
+<p><img src="https://i2.100024.xyz/2023/07/15/p3z7la.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/p40psb.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/p4143n.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/p4215v.webp" alt=""></p>
+<p>这是第一天下午到达宁波后去逛的，选的地方是宁波相对繁华的地段，给我的感受就是比我家要更有商业气息一些，但是某些地方也有很清晰的城乡界线，新旧之间没有任何的过渡让我觉得有些突兀。顿时觉得“城市”真是一个没有任何新意的概念：鳞次栉比的大厦，见多了就觉得这里可以是其他任何稍微繁华些的地方，但就是不知道这个地名叫宁波。</p>
+<p>晚饭后去了那里的鼓楼，有一个钟楼我挺喜欢，这让我想起小时候我家不远处的钟楼，每天晚上我在窗边的小桌子上写作业时总是会在整点，细数彼岸的钟声，然后想起痛苦的背课文经历。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<h2 id="单向链表">单向链表</h2>
+<h2 id="Day-2：宁波罗蒙">Day 2：宁波罗蒙</h2>
 </li>
 </ul>
-<p>单向链表由结点构成，每个结点包含两个域：指针域和数据域。最后一个数据的指针域赋<code>NULL</code>.</p>
+<p><img src="https://i2.100024.xyz/2023/07/15/pdnm6g.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/pdws7l.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/pdx5cr.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/pdxkwx.webp" alt=""></p>
+<p><img src="https://i2.100024.xyz/2023/07/15/pdyza9.webp" alt=""></p>
+<p>第二天去了罗蒙，也就是当地的一个室内主题乐园。由于天气炎热，在早上不是最热的时候先体验了室外的项目，中午才回到室内。一天下来感觉精神上是很解压，但是肉体上也很疲惫，总之还是很值得的。</p>
 <ul class="lvl-0">
 <li class="lvl-2">
-<h2 id="单向链表的实现">单向链表的实现</h2>
-<ul class="lvl-2">
-<li class="lvl-4">
-<h3 id="框架的搭建">框架的搭建</h3>
+<h2 id="Day-3：南京夫子庙步行街、秦淮河">Day 3：南京夫子庙步行街、秦淮河</h2>
 </li>
 </ul>
-<ol>
-<li class="lvl-5">
-<p>准备头文件<code>LinkList.h</code></p>
-<p>定义两个class：结点和链表，声明一些需要的接口：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"><span class="comment">//结点定义（这里数据域没有用抽象的数据类型，以后会改进）</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">node</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> data;<span class="comment">//数据域</span></span><br><span class="line">    node* next;<span class="comment">//指针域</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//链表定义</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">list</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    node* head;<span class="comment">//指向链表首位node</span></span><br><span class="line">    <span class="type">int</span> size;<span class="comment">//链表结点个数</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//操作接口</span></span><br><span class="line"><span class="comment">//初始化链表</span></span><br><span class="line"><span class="function">list* <span class="title">LinkList_init</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//插入数据</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Insert</span><span class="params">(list* list, <span class="type">int</span> pos, <span class="type">int</span> data)</span></span>;</span><br><span class="line"><span class="comment">//删除指定位置的值</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Del</span><span class="params">(list* list, <span class="type">int</span> pos)</span></span>;</span><br><span class="line"><span class="comment">//获得链表长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_GetSize</span><span class="params">(list* list)</span></span>;</span><br><span class="line"><span class="comment">//返回第一个结点数据</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_FirstData</span><span class="params">(list* list)</span></span>;</span><br><span class="line"><span class="comment">//释放链表内存</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_FreeSpace</span><span class="params">(list* list)</span></span>;</span><br><span class="line"><span class="comment">//查找某个值</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_Search</span><span class="params">(list* list, <span class="type">int</span> data)</span></span>;</span><br><span class="line"><span class="comment">//打印链表结点</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Print</span><span class="params">(list* list)</span></span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-5">
-<p>准备接口定义的文件<code>LinkList.cpp</code></p>
-<p>把每个先前声明好的复制到该文件，并且需要<code>#include &quot;LinkList.h&quot;</code>.</p>
-</li>
-<li class="lvl-5">
-<p>准备用于测试的main函数.</p>
-</li>
-</ol>
-<ul class="lvl-2">
-<li class="lvl-4">
-<p>具体写操作接口定义</p>
-</li>
-</ul>
-<ol>
-<li class="lvl-5">
-<p>初始化链表<code>LinkList_init()</code></p>
-<p>根据前面定义的class，首先要创建一个链表，再分配一个头结点，头结点不保存数据。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//初始化链表</span></span><br><span class="line"><span class="function">list* <span class="title">LinkList_init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    list* L = <span class="keyword">new</span> list;</span><br><span class="line">    L-&gt;size = <span class="number">0</span>;</span><br><span class="line">    L-&gt;head = <span class="keyword">new</span> node;</span><br><span class="line">    L-&gt;head-&gt;data = <span class="literal">NULL</span>;<span class="comment">//头结点不保存数据</span></span><br><span class="line">    L-&gt;head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-5">
-<p>插入数据</p>
-<p>需要处理pos越界的情况以及list、data为NULL的情况，这里由于事先将data设置为了确定的数据类型int，因此理论上可以不进行处理，而这里还是加上了处理的部分以便后续的更改。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//插入数据</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Insert</span><span class="params">(list* list, <span class="type">int</span> pos, <span class="type">int</span> data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (data == <span class="literal">NULL</span> &amp;&amp; data!=<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//友好处理pos越界的情况</span></span><br><span class="line">    <span class="keyword">if</span> (pos&lt;<span class="number">0</span> || pos&gt;list-&gt;size) &#123;</span><br><span class="line">        pos = list-&gt;size;<span class="comment">//让其等于尾部</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//创建新的结点</span></span><br><span class="line">    node* newnode = <span class="keyword">new</span> node;</span><br><span class="line">    newnode-&gt;data = data;</span><br><span class="line">    newnode-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">//找结点</span></span><br><span class="line">    <span class="comment">//辅助指针变量</span></span><br><span class="line">    node* pCurrent = list-&gt;head;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; pos; i++) &#123;</span><br><span class="line">        pCurrent = pCurrent-&gt;next;</span><br><span class="line">    &#125;<span class="comment">//让指针指向pos前的结点位置</span></span><br><span class="line">    <span class="comment">//新结点插入链表</span></span><br><span class="line">    newnode-&gt;next = pCurrent-&gt;next;</span><br><span class="line">    pCurrent-&gt;next = newnode;</span><br><span class="line"></span><br><span class="line">    list-&gt;size++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-5">
-<p>删除指定位置的值</p>
-<p>这里就不能友好的处理pos越界的情况了，需要适当的修改。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 删除指定位置的值</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Del</span><span class="params">(list* list, <span class="type">int</span> pos)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (pos&lt;<span class="number">0</span> || pos&gt;=list-&gt;size) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//定位到删除结点的前一个结点</span></span><br><span class="line">    node* pCurrent = list-&gt;head;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; pos; i++) &#123;</span><br><span class="line">        pCurrent = pCurrent-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//缓存删除的结点</span></span><br><span class="line">    node* delnode = pCurrent-&gt;next;</span><br><span class="line">    pCurrent-&gt;next = delnode-&gt;next;</span><br><span class="line">    <span class="keyword">delete</span> delnode;</span><br><span class="line">    list-&gt;size--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-5">
-<p>获得链表长度</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获得链表长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_GetSize</span><span class="params">(list* list)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> list-&gt;size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-5">
-<p>返回第一个结点的数据</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//返回第一个数据（不是头结点）</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_FirstData</span><span class="params">(list* list)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> list-&gt;head-&gt;next-&gt;data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-5">
-<p>释放链表内存</p>
-<p>辅助指针的设置和前面的2、3思路一样，下面需要遍历的时候同理。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//释放链表内存</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_FreeSpace</span><span class="params">(list* list)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//辅助指针、释放结点内存</span></span><br><span class="line">    node* pCurrent = list-&gt;head;</span><br><span class="line">    <span class="keyword">while</span> (pCurrent != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="comment">//缓存下一个结点</span></span><br><span class="line">        node* pNext = pCurrent-&gt;next;</span><br><span class="line">        <span class="keyword">delete</span> pCurrent;</span><br><span class="line">        pCurrent = pNext;</span><br><span class="line">    &#125;</span><br><span class="line">    list-&gt;size = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">delete</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-5">
-<p>查找某个值</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//查找某个值</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_Search</span><span class="params">(list* list, <span class="type">int</span> data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (data == <span class="literal">NULL</span> &amp;&amp; data != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//遍历</span></span><br><span class="line">    node* pCurrent = list-&gt;head-&gt;next;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (pCurrent != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (pCurrent-&gt;data == data) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">        pCurrent = pCurrent-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li class="lvl-5">
-<p>打印链表结点</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//打印链表结点</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Print</span><span class="params">(list* list)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//辅助指针变量</span></span><br><span class="line">    node* pCurrent = list-&gt;head-&gt;next;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the datum of list are：&quot;</span>;</span><br><span class="line">    <span class="keyword">while</span> (pCurrent != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        cout &lt;&lt; pCurrent-&gt;data;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        pCurrent = pCurrent-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
+<p><img src="https://img1.imgtp.com/2023/07/15/PaOo1u9w.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/IV5GIOcm.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/N9dVJzL3.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/LDmHhivI.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/0pZlofH7.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/0g1qoHav.jpg" alt=""></p>
+<p><img src="https://img1.imgtp.com/2023/07/15/ZUu1XU7s.jpg" alt=""></p>
+<p>也是下午从宁波出发到的南京。到之后发现夫子庙附近的城市还是比较陈旧的，与我的想象大相径庭。夜里去住处附近的夫子庙步行街以及沿秦淮河岸简单逛了逛，游客纷杂，到处是售卖景区商品的摊点和商人，身着古装的参观者，甚至还有人力车。或许是因为刚从宁波的市区过来，一时间竟有些恍惚，这是一个光怪陆离的地方，是大娱乐的世界，这一点倒与某句诗中所表达的意思相近。</p>
+<ul class="lvl-0">
 <li class="lvl-2">
-<h2 id="测试情况">测试情况</h2>
+<h2 id="Day-4：明孝陵-中山陵">Day 4：明孝陵&amp;中山陵</h2>
 </li>
 </ul>
-<p>测试的代码如下：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;LinkList.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    list* list = <span class="built_in">LinkList_init</span>();</span><br><span class="line">    <span class="type">int</span> a[<span class="number">9</span>] = &#123; <span class="number">4</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">8</span> &#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">9</span>;i++)&#123;</span><br><span class="line">        <span class="built_in">LinkList_Insert</span>(list, i, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">LinkList_Print</span>(list);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;----after--delete----&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">LinkList_Del</span>(list, <span class="number">3</span>);</span><br><span class="line">    <span class="built_in">LinkList_Print</span>(list);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the first data of the list is: &quot;</span> &lt;&lt; <span class="built_in">LinkList_FirstData</span>(list) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the size of the list is: &quot;</span> &lt;&lt; <span class="built_in">LinkList_GetSize</span>(list) &lt;&lt; endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;the data &#x27;0&#x27; is at: &quot;</span> &lt;&lt; <span class="built_in">LinkList_Search</span>(list, <span class="number">0</span>) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">LinkList_FreeSpace</span>(list);</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<p><img src="https://i2.100024.xyz/2023/07/28/xjf8h8.webp" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC5ypQ0.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC5yFwF.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC5szzq.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC5y9yV.md.jpg" alt=""></p>
+<p>明孝陵是朱元璋与其皇后的合葬陵寝，中山陵是孙中山先生的陵寝。遗憾的是我的历史知识并不富足，并且也没有请解说，因此我能看到的东西是非常局限的，没有厚度的。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="Day-5：总统府-鸡鸣寺-玄武湖">Day 5：总统府&amp;鸡鸣寺&amp;玄武湖</h2>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56FjP.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56eAg.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56Anf.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56EB8.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56VHS.md.jpg" alt=""></p>
+</li>
+</ul>
+<p>总统府内部人太多了，也就没有好好拍照片。幸运的是最近的一家茶颜悦色是刚开业的，排队的人并不多，这也是我第一次尝试这个品牌。在鸡鸣寺找大雄宝殿找了很久还是没找到…</p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56d3R.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56wg1.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56aC9.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56N4J.md.jpg" alt=""></p>
+<p>在玄武湖的另一边可以看到鸡鸣寺和明城墙，还有远方的城市。</p>
+<p>最后因为时间还有一些，遂去了附近一个免费参观的古生物博物馆，这里可以满足小朋友们的好奇心，适合带孩子来。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="Day-6：南京博物院">Day 6：南京博物院</h2>
+</li>
+</ul>
+<p>前一天得知需要抢票，本来不抱太大希望，但最后诸友居然都抢到了票，遂立刻打车前往。</p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56b5Q.md.jpg" alt=""></p>
+<p><img src="https://s1.ax1x.com/2023/07/15/pC56HUg.md.jpg" alt=""></p>
+<p>里面人很多，加上游览顺序不是很好，就花了半天时间参观。一些照片拍的没有思路，就没有放在这里了。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="总结">总结</h2>
+</li>
+</ul>
+<p>最后还有一些遗憾的是遇难同胞纪念馆没有预约到，离住的地方比较远，也就没有去。希望以后有机会再来吧。</p>
+<p>这个暑假或许是最自由的一个假期了，以后不知道能不能像现在一样说走就走。这天气是真的很热，想静下心来游览的难度也很大。但这次旅游还是给了我从多天宅家中回到现实去经历和思考的一次机会，也算是有不小的收获。</p>
 ]]></content>
       <categories>
-        <category>学习</category>
-        <category>数据结构</category>
+        <category>日常</category>
       </categories>
       <tags>
-        <tag>数据结构</tag>
+        <tag>旅游</tag>
       </tags>
   </entry>
   <entry>
@@ -519,40 +419,96 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>数据结构note（四）</title>
-    <url>/2023/08/01/blog16-DS4/</url>
-    <content><![CDATA[<h1>栈和队列</h1>
-<p>栈和队列是限定插入和删除只能在表的“端点”进行的<u>线性表</u>。</p>
-<ul class="lvl-0">
+    <title>数据结构note（三）</title>
+    <url>/2023/07/28/blog14-DS3/</url>
+    <content><![CDATA[<ul class="lvl-0">
 <li class="lvl-2">
-<p>栈：其特点可以概括为“<strong>后进先出</strong>”。生活中比如手电筒的电池、手枪的弹匣等都可以视作“栈”，插入从尾部，删除也从尾部。（从一端插入和删除）</p>
-</li>
-<li class="lvl-2">
-<p>队列：特点为“<strong>先进先出</strong>”，比如排队时最前面的人是最早来到这个队列也将最先离开队伍，插入从队尾插入，删除从队头删除。（从两端）</p>
+<h2 id="链表与数组、向量的不同之处">链表与数组、向量的不同之处</h2>
 </li>
 </ul>
-<p>由于这两类结构分别所具有的这些特性在某些问题求解过程中也出现，故算法中也应利用“栈和队列”。</p>
+<p>链表与数组、向量不同之处在于，其元素的地址可以任意而不要求连续。元素之间通过指针相互联系。虽然其仍要求各元素在逻辑上具线性次序，但对物理地址未作任何限制，也即“动态存储”策略。</p>
 <span id="more"></span>
-<h2 id="栈-stack-的定义和特点">栈(stack)的定义和特点</h2>
-<img title="" src="https://img-blog.csdnimg.cn/20191212190125865.gif" alt="" data-align="center" width="373">
-<p>后进先出(Last In First Out)的线性表，简称<strong>LIFO</strong>结构，表尾an端称为栈顶（Top），表头a1端称为栈头（Base），通常用S表示栈。</p>
-<h2 id="队列-queue-的定义和特点">队列(queue)的定义和特点</h2>
-<img title="" src="https://pic4.zhimg.com/v2-e6b910a48ddfac7dddc2c610cde979bf_b.webp" alt="" width="243" data-align="center">
-<p>先进先出(First In First Out)的线性表，简称<strong>FIFO</strong>结构，在表的一端（表尾）插入，在另一端（表头）删除。通常用Q表示队列。</p>
-<hr>
-<h2 id="栈的实现（顺序栈）：">栈的实现（顺序栈）：</h2>
-<p><code>stack.h</code>：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> Maxsize 5<span class="comment">//最大容量</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">stack</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> stacksize; <span class="comment">//表示栈可使用的最大容量</span></span><br><span class="line">    <span class="type">int</span>* top;<span class="comment">//指向栈顶元素之上的位置</span></span><br><span class="line">    <span class="type">int</span>* base;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="function">stack <span class="title">Init_Stack</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Destroy_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断栈是否空</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">ifEmpty_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//求栈长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Length_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取栈顶元素</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetTop_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清空栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Clear_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//入栈（插入元素）</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Push_Stack</span><span class="params">(stack* s, <span class="type">int</span> e)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出栈（弹出元素）</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Pop_Stack</span><span class="params">(stack* s)</span></span>;</span><br></pre></td></tr></table></figure>
-<p><code>stack.cpp</code>：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stack.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="function">stack <span class="title">Init_Stack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    stack s;</span><br><span class="line">    s.stacksize = Maxsize;</span><br><span class="line">    s.base = <span class="keyword">new</span> <span class="type">int</span>[Maxsize];</span><br><span class="line">    s.top = s.base;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Destroy_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s-&gt;base != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">delete</span> s-&gt;base;</span><br><span class="line">        s-&gt;stacksize = <span class="number">0</span>;</span><br><span class="line">        s-&gt;base = s-&gt;top = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断栈是否空</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">ifEmpty_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s-&gt;top == s-&gt;base) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//求栈长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Length_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> s-&gt;top-s-&gt;base;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取栈顶元素</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetTop_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> *(s-&gt;top<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清空栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Clear_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(s-&gt;base != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        s-&gt;top = s-&gt;base;</span><br><span class="line">    &#125;<span class="comment">//top指针指向栈底即可</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//入栈（插入元素）</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Push_Stack</span><span class="params">(stack* s, <span class="type">int</span> e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s-&gt;top-s-&gt;base == s-&gt;stacksize) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;<span class="comment">//判断是否满栈</span></span><br><span class="line">    *s-&gt;top = e;</span><br><span class="line">    s-&gt;top++;</span><br><span class="line">    <span class="comment">//上面的两步可以合并成一步：*s-&gt;top++ = e;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出栈（弹出元素）</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Pop_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s-&gt;top == s-&gt;base) &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;当前为空栈&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;<span class="comment">//判断是否空栈</span></span><br><span class="line">    s-&gt;top--;</span><br><span class="line">    <span class="keyword">return</span> *s-&gt;top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>teststack.cpp</code>：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stack.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack s = <span class="built_in">Init_Stack</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;栈状态为（1空0非空）：&quot;</span> &lt;&lt; ifEmpty_Stack(&amp;s) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">1</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;栈状态为（1空0非空）：&quot;</span> &lt;&lt; ifEmpty_Stack(&amp;s) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">2</span>);</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">3</span>);</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">5</span>);</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">8</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;栈顶元素为：&quot;</span> &lt;&lt; <span class="built_in">GetTop_Stack</span>(&amp;s) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;现在弹出：&quot;</span> &lt;&lt; <span class="built_in">Pop_Stack</span>(&amp;s) &lt;&lt; endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;此时栈顶元素为：&quot;</span> &lt;&lt; <span class="built_in">GetTop_Stack</span>(&amp;s) &lt;&lt;</span><br><span class="line">        <span class="string">&quot;   栈内元素有：&quot;</span>&lt;&lt;<span class="built_in">Length_Stack</span>(&amp;s)&lt;&lt;<span class="string">&quot;个&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Clear_Stack</span>(&amp;s);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;清除后栈状态为（1空0非空）：&quot;</span> &lt;&lt; ifEmpty_Stack(&amp;s) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Destroy_Stack</span>(&amp;s);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="队列的实现（循环顺序队列）：">队列的实现（循环顺序队列）：</h2>
-<p>由于只申请了MaxQSize大小的内存空间，且队头队尾指针均会在入队和出队的过程中后移，故当队尾溢出时有时并没有真正的超出给定的储存大小，这种现象被称为“假溢出”。解决假溢出的一种方法就是采用循环队列。</p>
-<p>还有一个问题就是，判断队空或队满要比栈空或栈满麻烦一点，因为判断队空/满的条件是一样的，都是队空指针==队尾指针。解决的方法是加一个统计空间的变量或者少用一个存储空间。</p>
-<p>下面仅陈列<code>queue.cpp</code>的定义部分。</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;queue.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化队列</span></span><br><span class="line"><span class="function">queue <span class="title">Init_Queue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	queue q;</span><br><span class="line">	q.base = <span class="keyword">new</span> <span class="type">int</span>[MaxQSize];</span><br><span class="line">	q.front = q.rear = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> q; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁队列</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Destroy_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	q-&gt;front = q-&gt;rear;</span><br><span class="line">	<span class="keyword">delete</span> q-&gt;base;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清空队列</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Clear_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	q-&gt;front = q-&gt;rear = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获得队列长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Length_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (q-&gt;rear - q-&gt;front + MaxQSize) % MaxQSize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取队头元素</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetHead_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (q-&gt;front != q-&gt;rear) &#123;</span><br><span class="line">		<span class="keyword">return</span> q-&gt;base[q-&gt;front];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//入队</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">EnQueue</span><span class="params">(queue* q,<span class="type">int</span> data)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//判断队满</span></span><br><span class="line">	<span class="keyword">if</span> ((q-&gt;rear + <span class="number">1</span>) % MaxQSize == q-&gt;front) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	q-&gt;base[q-&gt;rear] = data;</span><br><span class="line">	q-&gt;rear = (q-&gt;rear + <span class="number">1</span>) % MaxQSize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出队</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">DeQueue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//判断队空</span></span><br><span class="line">	<span class="keyword">if</span> (q-&gt;front == q-&gt;rear) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> e = q-&gt;base[q-&gt;front];</span><br><span class="line">	q-&gt;front = (q-&gt;front + <span class="number">1</span>) % MaxQSize;</span><br><span class="line">	<span class="keyword">return</span> e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>引入列表结构的目的，就在于弥补向量结构在解决某些应用问题时，在功能及性能方面的不足。其中的数据，分散为一系列称作<strong>节点</strong>（node）的单位，节点之间通过指针相互索引和访问。为了引入新节点或删除原有节点，只需在局部，调整少量相关节点之间的指针。这就意味着，采用动态存储策略，至少可以大大降低动态操作的成本。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="单向链表">单向链表</h2>
+</li>
+</ul>
+<p>单向链表由结点构成，每个结点包含两个域：指针域和数据域。最后一个数据的指针域赋<code>NULL</code>.</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h2 id="单向链表的实现">单向链表的实现</h2>
+<ul class="lvl-2">
+<li class="lvl-4">
+<h3 id="框架的搭建">框架的搭建</h3>
+</li>
+</ul>
+<ol>
+<li class="lvl-5">
+<p>准备头文件<code>LinkList.h</code></p>
+<p>定义两个class：结点和链表，声明一些需要的接口：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"><span class="comment">//结点定义（这里数据域没有用抽象的数据类型，以后会改进）</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">node</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> data;<span class="comment">//数据域</span></span><br><span class="line">    node* next;<span class="comment">//指针域</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//链表定义</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">list</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    node* head;<span class="comment">//指向链表首位node</span></span><br><span class="line">    <span class="type">int</span> size;<span class="comment">//链表结点个数</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//操作接口</span></span><br><span class="line"><span class="comment">//初始化链表</span></span><br><span class="line"><span class="function">list* <span class="title">LinkList_init</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//插入数据</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Insert</span><span class="params">(list* list, <span class="type">int</span> pos, <span class="type">int</span> data)</span></span>;</span><br><span class="line"><span class="comment">//删除指定位置的值</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Del</span><span class="params">(list* list, <span class="type">int</span> pos)</span></span>;</span><br><span class="line"><span class="comment">//获得链表长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_GetSize</span><span class="params">(list* list)</span></span>;</span><br><span class="line"><span class="comment">//返回第一个结点数据</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_FirstData</span><span class="params">(list* list)</span></span>;</span><br><span class="line"><span class="comment">//释放链表内存</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_FreeSpace</span><span class="params">(list* list)</span></span>;</span><br><span class="line"><span class="comment">//查找某个值</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_Search</span><span class="params">(list* list, <span class="type">int</span> data)</span></span>;</span><br><span class="line"><span class="comment">//打印链表结点</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Print</span><span class="params">(list* list)</span></span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-5">
+<p>准备接口定义的文件<code>LinkList.cpp</code></p>
+<p>把每个先前声明好的复制到该文件，并且需要<code>#include &quot;LinkList.h&quot;</code>.</p>
+</li>
+<li class="lvl-5">
+<p>准备用于测试的main函数.</p>
+</li>
+</ol>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p>具体写操作接口定义</p>
+</li>
+</ul>
+<ol>
+<li class="lvl-5">
+<p>初始化链表<code>LinkList_init()</code></p>
+<p>根据前面定义的class，首先要创建一个链表，再分配一个头结点，头结点不保存数据。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//初始化链表</span></span><br><span class="line"><span class="function">list* <span class="title">LinkList_init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    list* L = <span class="keyword">new</span> list;</span><br><span class="line">    L-&gt;size = <span class="number">0</span>;</span><br><span class="line">    L-&gt;head = <span class="keyword">new</span> node;</span><br><span class="line">    L-&gt;head-&gt;data = <span class="literal">NULL</span>;<span class="comment">//头结点不保存数据</span></span><br><span class="line">    L-&gt;head-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-5">
+<p>插入数据</p>
+<p>需要处理pos越界的情况以及list、data为NULL的情况，这里由于事先将data设置为了确定的数据类型int，因此理论上可以不进行处理，而这里还是加上了处理的部分以便后续的更改。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//插入数据</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Insert</span><span class="params">(list* list, <span class="type">int</span> pos, <span class="type">int</span> data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (data == <span class="literal">NULL</span> &amp;&amp; data!=<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//友好处理pos越界的情况</span></span><br><span class="line">    <span class="keyword">if</span> (pos&lt;<span class="number">0</span> || pos&gt;list-&gt;size) &#123;</span><br><span class="line">        pos = list-&gt;size;<span class="comment">//让其等于尾部</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//创建新的结点</span></span><br><span class="line">    node* newnode = <span class="keyword">new</span> node;</span><br><span class="line">    newnode-&gt;data = data;</span><br><span class="line">    newnode-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">//找结点</span></span><br><span class="line">    <span class="comment">//辅助指针变量</span></span><br><span class="line">    node* pCurrent = list-&gt;head;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; pos; i++) &#123;</span><br><span class="line">        pCurrent = pCurrent-&gt;next;</span><br><span class="line">    &#125;<span class="comment">//让指针指向pos前的结点位置</span></span><br><span class="line">    <span class="comment">//新结点插入链表</span></span><br><span class="line">    newnode-&gt;next = pCurrent-&gt;next;</span><br><span class="line">    pCurrent-&gt;next = newnode;</span><br><span class="line"></span><br><span class="line">    list-&gt;size++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-5">
+<p>删除指定位置的值</p>
+<p>这里就不能友好的处理pos越界的情况了，需要适当的修改。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 删除指定位置的值</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Del</span><span class="params">(list* list, <span class="type">int</span> pos)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (pos&lt;<span class="number">0</span> || pos&gt;=list-&gt;size) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//定位到删除结点的前一个结点</span></span><br><span class="line">    node* pCurrent = list-&gt;head;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; pos; i++) &#123;</span><br><span class="line">        pCurrent = pCurrent-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//缓存删除的结点</span></span><br><span class="line">    node* delnode = pCurrent-&gt;next;</span><br><span class="line">    pCurrent-&gt;next = delnode-&gt;next;</span><br><span class="line">    <span class="keyword">delete</span> delnode;</span><br><span class="line">    list-&gt;size--;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-5">
+<p>获得链表长度</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//获得链表长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_GetSize</span><span class="params">(list* list)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> list-&gt;size;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-5">
+<p>返回第一个结点的数据</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//返回第一个数据（不是头结点）</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_FirstData</span><span class="params">(list* list)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> list-&gt;head-&gt;next-&gt;data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-5">
+<p>释放链表内存</p>
+<p>辅助指针的设置和前面的2、3思路一样，下面需要遍历的时候同理。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//释放链表内存</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_FreeSpace</span><span class="params">(list* list)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//辅助指针、释放结点内存</span></span><br><span class="line">    node* pCurrent = list-&gt;head;</span><br><span class="line">    <span class="keyword">while</span> (pCurrent != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="comment">//缓存下一个结点</span></span><br><span class="line">        node* pNext = pCurrent-&gt;next;</span><br><span class="line">        <span class="keyword">delete</span> pCurrent;</span><br><span class="line">        pCurrent = pNext;</span><br><span class="line">    &#125;</span><br><span class="line">    list-&gt;size = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">delete</span> list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-5">
+<p>查找某个值</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//查找某个值</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">LinkList_Search</span><span class="params">(list* list, <span class="type">int</span> data)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (data == <span class="literal">NULL</span> &amp;&amp; data != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//遍历</span></span><br><span class="line">    node* pCurrent = list-&gt;head-&gt;next;</span><br><span class="line">    <span class="type">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (pCurrent != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (pCurrent-&gt;data == data) &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">        pCurrent = pCurrent-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li class="lvl-5">
+<p>打印链表结点</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//打印链表结点</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">LinkList_Print</span><span class="params">(list* list)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (list == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//辅助指针变量</span></span><br><span class="line">    node* pCurrent = list-&gt;head-&gt;next;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the datum of list are：&quot;</span>;</span><br><span class="line">    <span class="keyword">while</span> (pCurrent != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        cout &lt;&lt; pCurrent-&gt;data;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        pCurrent = pCurrent-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li class="lvl-2">
+<h2 id="测试情况">测试情况</h2>
+</li>
+</ul>
+<p>测试的代码如下：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;LinkList.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    list* list = <span class="built_in">LinkList_init</span>();</span><br><span class="line">    <span class="type">int</span> a[<span class="number">9</span>] = &#123; <span class="number">4</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">1</span>,<span class="number">5</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">0</span>,<span class="number">8</span> &#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">9</span>;i++)&#123;</span><br><span class="line">        <span class="built_in">LinkList_Insert</span>(list, i, a[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">LinkList_Print</span>(list);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;----after--delete----&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">LinkList_Del</span>(list, <span class="number">3</span>);</span><br><span class="line">    <span class="built_in">LinkList_Print</span>(list);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the first data of the list is: &quot;</span> &lt;&lt; <span class="built_in">LinkList_FirstData</span>(list) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the size of the list is: &quot;</span> &lt;&lt; <span class="built_in">LinkList_GetSize</span>(list) &lt;&lt; endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;the data &#x27;0&#x27; is at: &quot;</span> &lt;&lt; <span class="built_in">LinkList_Search</span>(list, <span class="number">0</span>) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">LinkList_FreeSpace</span>(list);</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<p><img src="https://i2.100024.xyz/2023/07/28/xjf8h8.webp" alt=""></p>
 ]]></content>
       <categories>
         <category>学习</category>
@@ -835,6 +791,50 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>数据结构note（四）</title>
+    <url>/2023/08/01/blog16-DS4/</url>
+    <content><![CDATA[<h1>栈和队列</h1>
+<p>栈和队列是限定插入和删除只能在表的“端点”进行的<u>线性表</u>。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>栈：其特点可以概括为“<strong>后进先出</strong>”。生活中比如手电筒的电池、手枪的弹匣等都可以视作“栈”，插入从尾部，删除也从尾部。（从一端插入和删除）</p>
+</li>
+<li class="lvl-2">
+<p>队列：特点为“<strong>先进先出</strong>”，比如排队时最前面的人是最早来到这个队列也将最先离开队伍，插入从队尾插入，删除从队头删除。（从两端）</p>
+</li>
+</ul>
+<p>由于这两类结构分别所具有的这些特性在某些问题求解过程中也出现，故算法中也应利用“栈和队列”。</p>
+<span id="more"></span>
+<h2 id="栈-stack-的定义和特点">栈(stack)的定义和特点</h2>
+<img title="" src="https://img-blog.csdnimg.cn/20191212190125865.gif" alt="" data-align="center" width="373">
+<p>后进先出(Last In First Out)的线性表，简称<strong>LIFO</strong>结构，表尾an端称为栈顶（Top），表头a1端称为栈头（Base），通常用S表示栈。</p>
+<h2 id="队列-queue-的定义和特点">队列(queue)的定义和特点</h2>
+<img title="" src="https://pic4.zhimg.com/v2-e6b910a48ddfac7dddc2c610cde979bf_b.webp" alt="" width="243" data-align="center">
+<p>先进先出(First In First Out)的线性表，简称<strong>FIFO</strong>结构，在表的一端（表尾）插入，在另一端（表头）删除。通常用Q表示队列。</p>
+<hr>
+<h2 id="栈的实现（顺序栈）：">栈的实现（顺序栈）：</h2>
+<p><code>stack.h</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">pragma</span> once</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> Maxsize 5<span class="comment">//最大容量</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">stack</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> stacksize; <span class="comment">//表示栈可使用的最大容量</span></span><br><span class="line">    <span class="type">int</span>* top;<span class="comment">//指向栈顶元素之上的位置</span></span><br><span class="line">    <span class="type">int</span>* base;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="function">stack <span class="title">Init_Stack</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Destroy_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断栈是否空</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">ifEmpty_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//求栈长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Length_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取栈顶元素</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetTop_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清空栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Clear_Stack</span><span class="params">(stack* s)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//入栈（插入元素）</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Push_Stack</span><span class="params">(stack* s, <span class="type">int</span> e)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出栈（弹出元素）</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Pop_Stack</span><span class="params">(stack* s)</span></span>;</span><br></pre></td></tr></table></figure>
+<p><code>stack.cpp</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stack.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化</span></span><br><span class="line"><span class="function">stack <span class="title">Init_Stack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    stack s;</span><br><span class="line">    s.stacksize = Maxsize;</span><br><span class="line">    s.base = <span class="keyword">new</span> <span class="type">int</span>[Maxsize];</span><br><span class="line">    s.top = s.base;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Destroy_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s-&gt;base != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">delete</span> s-&gt;base;</span><br><span class="line">        s-&gt;stacksize = <span class="number">0</span>;</span><br><span class="line">        s-&gt;base = s-&gt;top = <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断栈是否空</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">ifEmpty_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s-&gt;top == s-&gt;base) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//求栈长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Length_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> s-&gt;top-s-&gt;base;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取栈顶元素</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetTop_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> *(s-&gt;top<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清空栈</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Clear_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(s-&gt;base != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        s-&gt;top = s-&gt;base;</span><br><span class="line">    &#125;<span class="comment">//top指针指向栈底即可</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//入栈（插入元素）</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Push_Stack</span><span class="params">(stack* s, <span class="type">int</span> e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s-&gt;top-s-&gt;base == s-&gt;stacksize) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;<span class="comment">//判断是否满栈</span></span><br><span class="line">    *s-&gt;top = e;</span><br><span class="line">    s-&gt;top++;</span><br><span class="line">    <span class="comment">//上面的两步可以合并成一步：*s-&gt;top++ = e;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出栈（弹出元素）</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Pop_Stack</span><span class="params">(stack* s)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s-&gt;top == s-&gt;base) &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;当前为空栈&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;<span class="comment">//判断是否空栈</span></span><br><span class="line">    s-&gt;top--;</span><br><span class="line">    <span class="keyword">return</span> *s-&gt;top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>teststack.cpp</code>：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;stack.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    stack s = <span class="built_in">Init_Stack</span>();</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;栈状态为（1空0非空）：&quot;</span> &lt;&lt; ifEmpty_Stack(&amp;s) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">1</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;栈状态为（1空0非空）：&quot;</span> &lt;&lt; ifEmpty_Stack(&amp;s) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">2</span>);</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">3</span>);</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">5</span>);</span><br><span class="line">    <span class="built_in">Push_Stack</span>(&amp;s, <span class="number">8</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;栈顶元素为：&quot;</span> &lt;&lt; <span class="built_in">GetTop_Stack</span>(&amp;s) &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;现在弹出：&quot;</span> &lt;&lt; <span class="built_in">Pop_Stack</span>(&amp;s) &lt;&lt; endl;</span><br><span class="line">    cout&lt;&lt;<span class="string">&quot;此时栈顶元素为：&quot;</span> &lt;&lt; <span class="built_in">GetTop_Stack</span>(&amp;s) &lt;&lt;</span><br><span class="line">        <span class="string">&quot;   栈内元素有：&quot;</span>&lt;&lt;<span class="built_in">Length_Stack</span>(&amp;s)&lt;&lt;<span class="string">&quot;个&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Clear_Stack</span>(&amp;s);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;清除后栈状态为（1空0非空）：&quot;</span> &lt;&lt; ifEmpty_Stack(&amp;s) &lt;&lt; endl;</span><br><span class="line">    <span class="built_in">Destroy_Stack</span>(&amp;s);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="队列的实现（循环顺序队列）：">队列的实现（循环顺序队列）：</h2>
+<p>由于只申请了MaxQSize大小的内存空间，且队头队尾指针均会在入队和出队的过程中后移，故当队尾溢出时有时并没有真正的超出给定的储存大小，这种现象被称为“假溢出”。解决假溢出的一种方法就是采用循环队列。</p>
+<p>还有一个问题就是，判断队空或队满要比栈空或栈满麻烦一点，因为判断队空/满的条件是一样的，都是队空指针==队尾指针。解决的方法是加一个统计空间的变量或者少用一个存储空间。</p>
+<p>下面仅陈列<code>queue.cpp</code>的定义部分。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;queue.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//初始化队列</span></span><br><span class="line"><span class="function">queue <span class="title">Init_Queue</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	queue q;</span><br><span class="line">	q.base = <span class="keyword">new</span> <span class="type">int</span>[MaxQSize];</span><br><span class="line">	q.front = q.rear = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> q; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//销毁队列</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Destroy_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	q-&gt;front = q-&gt;rear;</span><br><span class="line">	<span class="keyword">delete</span> q-&gt;base;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//清空队列</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">Clear_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	q-&gt;front = q-&gt;rear = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获得队列长度</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">Length_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (q-&gt;rear - q-&gt;front + MaxQSize) % MaxQSize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取队头元素</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">GetHead_Queue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (q-&gt;front != q-&gt;rear) &#123;</span><br><span class="line">		<span class="keyword">return</span> q-&gt;base[q-&gt;front];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//入队</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">EnQueue</span><span class="params">(queue* q,<span class="type">int</span> data)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//判断队满</span></span><br><span class="line">	<span class="keyword">if</span> ((q-&gt;rear + <span class="number">1</span>) % MaxQSize == q-&gt;front) &#123;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	q-&gt;base[q-&gt;rear] = data;</span><br><span class="line">	q-&gt;rear = (q-&gt;rear + <span class="number">1</span>) % MaxQSize;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出队</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">DeQueue</span><span class="params">(queue* q)</span> </span>&#123;</span><br><span class="line">	<span class="comment">//判断队空</span></span><br><span class="line">	<span class="keyword">if</span> (q-&gt;front == q-&gt;rear) &#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> e = q-&gt;base[q-&gt;front];</span><br><span class="line">	q-&gt;front = (q-&gt;front + <span class="number">1</span>) % MaxQSize;</span><br><span class="line">	<span class="keyword">return</span> e;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>聚类分析</title>
     <url>/2023/08/16/blog19-ClusterAnalyse/</url>
     <content><![CDATA[<blockquote>
@@ -987,6 +987,126 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>主成分分析（PCA）</title>
+    <url>/2023/08/18/blog20-PCA/</url>
+    <content><![CDATA[<p>主成分分析的主要目的是希望用较少的变量去解释原来资料中的大部分变异，将我们手中许多相关性很高的变量转化成彼此相互独立或不相关的变量。实际上是一种降维的方法。</p>
+<h3 id="1-基本思想及方法">1 基本思想及方法</h3>
+<p>p个随机变量$X_1,…,X_p$，其线性组合构成一个可能的主成分：$c_1X_1+\cdots+c_pX_p$（说白了就是一个旋转平移的变换）。如果能使$Var(c_1X_1+\cdots+c_pX_p)$达到最大，则能最大程度的保留信息。通常还要加限制：$c_1<sup>2+\cdots+c_p</sup>2=1$，在此约束下求最优解。易见这个解是一个p维单位向量（这样可以构成一个旋转矩阵）。</p>
+<p>这样找到一个解的话就获得了一个主成分。然而一个主成分不足以代表原有的p个变量，因此还需要寻找更多个。这些主成分不应该有重叠的信息，统计上的描述就是让两两主成分的协方差为零，几何上就是两两主成分的方向正交。</p>
+<span id="more"></span>
+<p>过程（简洁版）：</p>
+<ol>
+<li class="lvl-3">
+<p>去中心化（把坐标原点放在数据中心）</p>
+</li>
+<li class="lvl-3">
+<p>找坐标系（找到方差最大的方向）</p>
+</li>
+</ol>
+<h3 id="2-主成分估计">2 主成分估计</h3>
+<p>详细的证明可以见相关教材，这里写结论。</p>
+<p>设有 p 个回归（自）变量，它在第i次试验中的取值为$X_i=(x_{i1},\cdots,x_{ip})^T$，$(i=1,2,\cdots,n)$，可以写成矩阵形式：$X=(X_1,X_2,\cdots,X_n)$.这里假设已经进行了去中心化。</p>
+<p>根据协方差矩阵的公式，设其协方差矩阵为$C$，则$C=\frac{X^TX}{n-1}$.</p>
+<p>$C$的特征向量就是主成分的方向，特征值就是该主成分的贡献度，也就是上述坐标轴方向的方差。贡献度低的方向若被省去就是降维了。</p>
+<h3 id="3-特征值因子的筛选">3 特征值因子的筛选</h3>
+<p>降维需要一个标准，自然不能说省去就省去。这里一个实用的方法也是经常采用的方式是考虑贡献率，即保持删去的特征向量的特征值$\lambda_{r+1},\lambda_{r+2},\cdots,\lambda_p$的和占所有特征值之和$\Sigma\lambda_i$的$15%$以下。</p>
+<p>但是单纯考虑累积贡献率有时是不够的，还需要考虑选择的主成分对原始变量的贡献值，我们用相关系数的平方和来表示，如果选取的主成分为$z_1,z_2,\cdots,z_r$，则它们对原变量$x_i$的贡献值为：</p>
+<p>$$<br>
+\rho_i=\sum_{j=1}<sup>r{r</sup>2( z_j,x_i)}<br>
+$$</p>
+<p>这里括号代表向量内积。有些例子可以说明，单纯考虑贡献率会导致降维降的太多而丢失信息，这里就不附上了。</p>
+<h3 id="4-实际应用">4 实际应用</h3>
+<p>在实际的应用中，如果可以分析得到的主成分，赋予其字面意义，会更有说服力。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>多元分析</category>
+      </categories>
+      <tags>
+        <tag>多元分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>备案与毕业</title>
+    <url>/2023/05/13/blog2/</url>
+    <content><![CDATA[<p>  经历了长达十多天的备案，终于在昨天过审了。</p>
+<span id="more"></span>
+<p>  根据规定，这段时间不能访问域名，也就一直没有更新。昨晚九点得知过审后遂启动域名，奇怪的是<code>hexo cl</code>,<code>hexo g</code>都能使用，唯独<code>hexo d</code>一直报错，无法成功部署。</p>
+<p>  <code>hexo s</code>本地渲染也没问题，并且在家也没有出现过这种情况，那么猜测就是网络的问题，我想备案的这几天从家里到学校了，网络的影响应该很大。网上找了很多教程，最后搞到凌晨1点，发现断开学校宽带，连手机热点就解决了🤣难绷…</p>
+<p>  十几天内，我给网站添加了“关于”板块，用<code>&amp;emsp;</code>进行首行缩进；参与了毕业论文的答辩，也拍了毕业照，本科生涯渐渐以倒数计时，朋友们都在抓紧时间记录、分享以及欢庆。这让我想到高中毕业时，每个人都在留言板上写一句话，我用当时所学的vb语言写了一小段代码，具体内容我难以记起，大致内容就是有一个按钮，按下就可以将系统时间暂停。</p>
+<p>  还有一位令人怀念的朋友这样写：</p>
+<blockquote>
+<p>“明天会更好。”</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
+        <tag>人生</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>第一次研赛心得体会</title>
+    <url>/2023/09/27/blog22-2023B/</url>
+    <content><![CDATA[<h3 id="2023华为杯研究生数学建模竞赛B题">2023华为杯研究生数学建模竞赛B题</h3>
+<p>自从回到学校后很久没有更新了，除了上课大多数时间都在准备这次的华为杯，终于也是在昨天顺利的结束了，相关的文件已经上传至github的仓库上，不过是粪作罢了（悲</p>
+<p>下面记录一下比赛的经过和心得。</p>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h4 id="经过">经过</h4>
+<p>作为第一次参赛，想着肯定要pass华为题了。赛题发布后发现AB都是华为题，开始看E题比较顺眼，感觉是能完整做下来的。然而当我搜集了一些论文，并准备着手处理数据时，一个队友说B题说不定也能做，并且和我交流了一些想法，另一个队友也答应下来。虽然彼时我内心有些抗拒，听下来我觉得还是有些困难、没有头绪，但最终还是选择了相信团队的能力，于是便确定下来。</p>
+<p>B题大致讲的是对DFT矩阵进行分解逼近，在一定的精度下可以代替原矩阵计算，以减小硬件复杂度。一共五个问题，每个问题都是在原始问题的基础上修改了约束条件或者更改了问题的形式。</p>
+<p>第一问我们大概花了一天半的时间。考虑到用迭代法的话，需要确定初值，但是一直没什么思路。后来根据DFT矩阵的特殊性（范德蒙德矩阵）找了一篇分解的论文，并且满足约束，就直接拿来用了。后来想想都直接分解了这还叫逼近吗（笑</p>
+<p>第二问换了个约束，要求矩阵是整数阵，具体要求见题目。总之一考虑到整数的离散性，我也没多想就觉得可以用遗传算法，并且为了快点解决这题，马上投入了coding，跑出了结果就也没过多分析其正确性就半场开香槟，比赛结束后想想这个结果肯定很离谱。</p>
+<p>第三问加上了稀疏性，那就更省力了，不过相应的要把算法中的一些操作进行修改。</p>
+<p>第四问运用了Kronecker积的性质，但这里用的时候其实有问题，等发现后已经快做完了…于是花了一些时间想<s>怎么圆场</s>怎么改求解方式，但最后无果。</p>
+<p>第五问纯纯的没啥思路，就硬着头皮跑了一些结果来展示。越是做到后面越觉得前面的路歪，但是到这个时候已经25号了，我们也想赶紧结束这一切了。</p>
+</li>
+<li class="lvl-2">
+<h4 id="心得">心得</h4>
+<p>相比本科国赛时，我的代码水平没提高多少，反而因为有了chatgpt，一些简单的任务我都交给它来做了😅。不过那个时候写了各种global变量导致回头一看就是屎山，现在因为学了C艹，习惯稍微好点了。</p>
+<p>再就是感觉自己的知识储备还是太少了，对于这种数学题，理应用更偏数学的方式去解决，但最后还是用了老一套智能优化算法，并且一路用下去，没能有太多创新。虽然都能跑出结果，但效果不好。做题的时候后面一组似乎是研二的学长，也做B题，他们的交流让我们感到我们做的不是同一题…</p>
+</li>
+<li class="lvl-2">
+<h4 id="总结">总结</h4>
+<p>总之这只是一次值得的尝试以及锻炼的机会，拿回300块报名费就算成功（</p>
+<p>希望下次再参加的时候可以更强一点。</p>
+<p><img src="https://i2.100024.xyz/2023/09/27/r7fxmy.webp" alt=""></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>研赛</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于easyx库的C语言制作游戏尝试</title>
+    <url>/2023/10/10/blog23-Cgame/</url>
+    <content><![CDATA[<p>  为了快速熟悉C，我决定跟着网上的游戏项目视频做来练手，一方面能熟悉语言和算法，另一方面也能丰富经验。<br>
+<img src="https://i2.100024.xyz/2023/10/10/mbrcq7.webp" alt="界面预览"></p>
+<span id="more"></span>
+<p>  初次接触到的是一个横板跑酷类游戏，实现的过程很朴素，希望之后有能力来魔改一下。最后我认为跟做一次项目确实适合练手，可以学到很多纸面上学不到的东西，当然最好还是听一遍思路再自己动手实现，如果只是跟着做的话收获还是相当有限的。<br>
+<img src="https://i2.100024.xyz/2023/10/10/mbrguw.webp" alt="部分代码"></p>
+<blockquote>
+<p>参考视频：<a href="https://www.bilibili.com/video/BV1Ca411k7wU/?spm_id_from=333.999.0.0">【程序员ROCK】C语言项目</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>C语言</category>
+      </categories>
+      <tags>
+        <tag>C语言</tag>
+        <tag>游戏项目</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>算术优化算法（AOA）</title>
     <url>/2023/08/25/blog21-AOA/</url>
     <content><![CDATA[<h3 id="1-算法简介">1) 算法简介</h3>
@@ -1098,105 +1218,6 @@ $$</p>
       </categories>
       <tags>
         <tag>智能优化算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>主成分分析（PCA）</title>
-    <url>/2023/08/18/blog20-PCA/</url>
-    <content><![CDATA[<p>主成分分析的主要目的是希望用较少的变量去解释原来资料中的大部分变异，将我们手中许多相关性很高的变量转化成彼此相互独立或不相关的变量。实际上是一种降维的方法。</p>
-<h3 id="1-基本思想及方法">1 基本思想及方法</h3>
-<p>p个随机变量$X_1,…,X_p$，其线性组合构成一个可能的主成分：$c_1X_1+\cdots+c_pX_p$（说白了就是一个旋转平移的变换）。如果能使$Var(c_1X_1+\cdots+c_pX_p)$达到最大，则能最大程度的保留信息。通常还要加限制：$c_1<sup>2+\cdots+c_p</sup>2=1$，在此约束下求最优解。易见这个解是一个p维单位向量（这样可以构成一个旋转矩阵）。</p>
-<p>这样找到一个解的话就获得了一个主成分。然而一个主成分不足以代表原有的p个变量，因此还需要寻找更多个。这些主成分不应该有重叠的信息，统计上的描述就是让两两主成分的协方差为零，几何上就是两两主成分的方向正交。</p>
-<span id="more"></span>
-<p>过程（简洁版）：</p>
-<ol>
-<li class="lvl-3">
-<p>去中心化（把坐标原点放在数据中心）</p>
-</li>
-<li class="lvl-3">
-<p>找坐标系（找到方差最大的方向）</p>
-</li>
-</ol>
-<h3 id="2-主成分估计">2 主成分估计</h3>
-<p>详细的证明可以见相关教材，这里写结论。</p>
-<p>设有 p 个回归（自）变量，它在第i次试验中的取值为$X_i=(x_{i1},\cdots,x_{ip})^T$，$(i=1,2,\cdots,n)$，可以写成矩阵形式：$X=(X_1,X_2,\cdots,X_n)$.这里假设已经进行了去中心化。</p>
-<p>根据协方差矩阵的公式，设其协方差矩阵为$C$，则$C=\frac{X^TX}{n-1}$.</p>
-<p>$C$的特征向量就是主成分的方向，特征值就是该主成分的贡献度，也就是上述坐标轴方向的方差。贡献度低的方向若被省去就是降维了。</p>
-<h3 id="3-特征值因子的筛选">3 特征值因子的筛选</h3>
-<p>降维需要一个标准，自然不能说省去就省去。这里一个实用的方法也是经常采用的方式是考虑贡献率，即保持删去的特征向量的特征值$\lambda_{r+1},\lambda_{r+2},\cdots,\lambda_p$的和占所有特征值之和$\Sigma\lambda_i$的$15%$以下。</p>
-<p>但是单纯考虑累积贡献率有时是不够的，还需要考虑选择的主成分对原始变量的贡献值，我们用相关系数的平方和来表示，如果选取的主成分为$z_1,z_2,\cdots,z_r$，则它们对原变量$x_i$的贡献值为：</p>
-<p>$$<br>
-\rho_i=\sum_{j=1}<sup>r{r</sup>2( z_j,x_i)}<br>
-$$</p>
-<p>这里括号代表向量内积。有些例子可以说明，单纯考虑贡献率会导致降维降的太多而丢失信息，这里就不附上了。</p>
-<h3 id="4-实际应用">4 实际应用</h3>
-<p>在实际的应用中，如果可以分析得到的主成分，赋予其字面意义，会更有说服力。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>多元分析</category>
-      </categories>
-      <tags>
-        <tag>多元分析</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>第一次研赛心得体会</title>
-    <url>/2023/09/27/blog22-2023B/</url>
-    <content><![CDATA[<h3 id="2023华为杯研究生数学建模竞赛B题">2023华为杯研究生数学建模竞赛B题</h3>
-<p>自从回到学校后很久没有更新了，除了上课大多数时间都在准备这次的华为杯，终于也是在昨天顺利的结束了，相关的文件已经上传至github的仓库上，不过是粪作罢了（悲</p>
-<p>下面记录一下比赛的经过和心得。</p>
-<span id="more"></span>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h4 id="经过">经过</h4>
-<p>作为第一次参赛，想着肯定要pass华为题了。赛题发布后发现AB都是华为题，开始看E题比较顺眼，感觉是能完整做下来的。然而当我搜集了一些论文，并准备着手处理数据时，一个队友说B题说不定也能做，并且和我交流了一些想法，另一个队友也答应下来。虽然彼时我内心有些抗拒，听下来我觉得还是有些困难、没有头绪，但最终还是选择了相信团队的能力，于是便确定下来。</p>
-<p>B题大致讲的是对DFT矩阵进行分解逼近，在一定的精度下可以代替原矩阵计算，以减小硬件复杂度。一共五个问题，每个问题都是在原始问题的基础上修改了约束条件或者更改了问题的形式。</p>
-<p>第一问我们大概花了一天半的时间。考虑到用迭代法的话，需要确定初值，但是一直没什么思路。后来根据DFT矩阵的特殊性（范德蒙德矩阵）找了一篇分解的论文，并且满足约束，就直接拿来用了。后来想想都直接分解了这还叫逼近吗（笑</p>
-<p>第二问换了个约束，要求矩阵是整数阵，具体要求见题目。总之一考虑到整数的离散性，我也没多想就觉得可以用遗传算法，并且为了快点解决这题，马上投入了coding，跑出了结果就也没过多分析其正确性就半场开香槟，比赛结束后想想这个结果肯定很离谱。</p>
-<p>第三问加上了稀疏性，那就更省力了，不过相应的要把算法中的一些操作进行修改。</p>
-<p>第四问运用了Kronecker积的性质，但这里用的时候其实有问题，等发现后已经快做完了…于是花了一些时间想<s>怎么圆场</s>怎么改求解方式，但最后无果。</p>
-<p>第五问纯纯的没啥思路，就硬着头皮跑了一些结果来展示。越是做到后面越觉得前面的路歪，但是到这个时候已经25号了，我们也想赶紧结束这一切了。</p>
-</li>
-<li class="lvl-2">
-<h4 id="心得">心得</h4>
-<p>相比本科国赛时，我的代码水平没提高多少，反而因为有了chatgpt，一些简单的任务我都交给它来做了😅。不过那个时候写了各种global变量导致回头一看就是屎山，现在因为学了C艹，习惯稍微好点了。</p>
-<p>再就是感觉自己的知识储备还是太少了，对于这种数学题，理应用更偏数学的方式去解决，但最后还是用了老一套智能优化算法，并且一路用下去，没能有太多创新。虽然都能跑出结果，但效果不好。做题的时候后面一组似乎是研二的学长，也做B题，他们的交流让我们感到我们做的不是同一题…</p>
-</li>
-<li class="lvl-2">
-<h4 id="总结">总结</h4>
-<p>总之这只是一次值得的尝试以及锻炼的机会，拿回300块报名费就算成功（</p>
-<p>希望下次再参加的时候可以更强一点。</p>
-<p><img src="https://i2.100024.xyz/2023/09/27/r7fxmy.webp" alt=""></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习</category>
-      </categories>
-      <tags>
-        <tag>研赛</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基于easyx库的C语言制作游戏尝试</title>
-    <url>/2023/10/10/blog23-Cgame/</url>
-    <content><![CDATA[<p>  为了快速熟悉C，我决定跟着网上的游戏项目视频做来练手，一方面能熟悉语言和算法，另一方面也能丰富经验。<br>
-<img src="https://i2.100024.xyz/2023/10/10/mbrcq7.webp" alt="界面预览"></p>
-<span id="more"></span>
-<p>  初次接触到的是一个横板跑酷类游戏，实现的过程很朴素，希望之后有能力来魔改一下。最后我认为跟做一次项目确实适合练手，可以学到很多纸面上学不到的东西，当然最好还是听一遍思路再自己动手实现，如果只是跟着做的话收获还是相当有限的。<br>
-<img src="https://i2.100024.xyz/2023/10/10/mbrguw.webp" alt="部分代码"></p>
-<blockquote>
-<p>参考视频：<a href="https://www.bilibili.com/video/BV1Ca411k7wU/?spm_id_from=333.999.0.0">【程序员ROCK】C语言项目</a></p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>C语言</category>
-      </categories>
-      <tags>
-        <tag>C语言</tag>
-        <tag>游戏项目</tag>
       </tags>
   </entry>
   <entry>
@@ -1359,58 +1380,6 @@ DOI：10.1109/LWC.2020.3009666</p>
       </tags>
   </entry>
   <entry>
-    <title>Next主题更改引用blockquote以及内嵌代码code的颜色</title>
-    <url>/2023/05/19/blog4/</url>
-    <content><![CDATA[<h5 id="Next版本：7-8-0">Next版本：7.8.0</h5>
-<p>  因为设置了背景，所以往往有统一颜色的需求，此时占比较大的引用和代码的颜色较为明显，如果采用默认颜色会比较难看。在相同Next主题和版本下，可以这样设置：</p>
-<span id="more"></span>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>块引用</p>
-</li>
-</ul>
-<p>  首先cd到<code>..\next\source\css\_common\scaffolding</code>找到<code>base.styl</code>文件，打开ctrl+F搜索blockquote，对代码进行如下编辑：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#d0a7020d</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">4px</span> solid <span class="number">#d0a702</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--blockquote-color);</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">15px</span>;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">cite</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">5px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其中background是引用块的背景颜色，border-left即左边粗竖线的颜色，对#后面改成自己喜欢的颜色后重新部署即可。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>内嵌代码</p>
-</li>
-</ul>
-<p>  cd到<code>..\next\source\css\_variables</code>找到<code>base.styl</code>文件，打开找到code-background，同样将后面的颜色进行修改即可。</p>
-<p>  由于我还没有设置图床，就不放图片演示了😶</p>
-<p>  最后，如果版本不一致，也可以用开发者工具找到源代码进行修改。</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-        <category>Next美化</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>备案与毕业</title>
-    <url>/2023/05/13/blog2/</url>
-    <content><![CDATA[<p>  经历了长达十多天的备案，终于在昨天过审了。</p>
-<span id="more"></span>
-<p>  根据规定，这段时间不能访问域名，也就一直没有更新。昨晚九点得知过审后遂启动域名，奇怪的是<code>hexo cl</code>,<code>hexo g</code>都能使用，唯独<code>hexo d</code>一直报错，无法成功部署。</p>
-<p>  <code>hexo s</code>本地渲染也没问题，并且在家也没有出现过这种情况，那么猜测就是网络的问题，我想备案的这几天从家里到学校了，网络的影响应该很大。网上找了很多教程，最后搞到凌晨1点，发现断开学校宽带，连手机热点就解决了🤣难绷…</p>
-<p>  十几天内，我给网站添加了“关于”板块，用<code>&amp;emsp;</code>进行首行缩进；参与了毕业论文的答辩，也拍了毕业照，本科生涯渐渐以倒数计时，朋友们都在抓紧时间记录、分享以及欢庆。这让我想到高中毕业时，每个人都在留言板上写一句话，我用当时所学的vb语言写了一小段代码，具体内容我难以记起，大致内容就是有一个按钮，按下就可以将系统时间暂停。</p>
-<p>  还有一位令人怀念的朋友这样写：</p>
-<blockquote>
-<p>“明天会更好。”</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>建站</tag>
-        <tag>人生</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo d错误：spawn failed的一种解决方法</title>
     <url>/2023/05/15/blog3/</url>
     <content><![CDATA[<p>  继上一条，这几天内部署断断续续的报错，网上的教程都不适用，和朋友交流后终于有了一个稳定的解决方法。</p>
@@ -1440,23 +1409,6 @@ DOI：10.1109/LWC.2020.3009666</p>
       </categories>
       <tags>
         <tag>建站</tag>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>更新Next主题：v7.8-&gt;v8.16</title>
-    <url>/2023/05/26/blog6/</url>
-    <content><![CDATA[<p>  由于需要换valine为waline或twikoo，以及各种由于Next版本低导致的问题（相关的网络资源少、教程少等等），今天下定决心更新一下版本。</p>
-<span id="more"></span>
-<h4 id="Hexo-version-6-3；Next-version-7-8">Hexo version: 6.3；Next version:7.8</h4>
-<p>  知道更新版本有一定的风险，于是做好了旧版本的备份。最终没有太大的损失，只是先前自定义的一些样式由于文件发生改变而失效，这些会在后续重新补充。</p>
-<p>  更新版本参考教程：<a href="https://drifter-games.com/2021/nextupdate/">https://drifter-games.com/2021/nextupdate/</a></p>
-]]></content>
-      <categories>
-        <category>经验</category>
-        <category>Next升级</category>
-      </categories>
-      <tags>
         <tag>Hexo</tag>
       </tags>
   </entry>
@@ -1504,6 +1456,37 @@ DOI：10.1109/LWC.2020.3009666</p>
 <p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071208706.cur" alt="Arrow"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/kaix2301/pictures/img202201071205091.cur" alt="Hand"></p>
 <p>用法就是将url括号里的链接替换为上述链接。</p>
+]]></content>
+      <categories>
+        <category>经验</category>
+        <category>Next美化</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Next主题更改引用blockquote以及内嵌代码code的颜色</title>
+    <url>/2023/05/19/blog4/</url>
+    <content><![CDATA[<h5 id="Next版本：7-8-0">Next版本：7.8.0</h5>
+<p>  因为设置了背景，所以往往有统一颜色的需求，此时占比较大的引用和代码的颜色较为明显，如果采用默认颜色会比较难看。在相同Next主题和版本下，可以这样设置：</p>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>块引用</p>
+</li>
+</ul>
+<p>  首先cd到<code>..\next\source\css\_common\scaffolding</code>找到<code>base.styl</code>文件，打开ctrl+F搜索blockquote，对代码进行如下编辑：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#d0a7020d</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">4px</span> solid <span class="number">#d0a702</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--blockquote-color);</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">15px</span>;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">cite</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">5px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中background是引用块的背景颜色，border-left即左边粗竖线的颜色，对#后面改成自己喜欢的颜色后重新部署即可。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>内嵌代码</p>
+</li>
+</ul>
+<p>  cd到<code>..\next\source\css\_variables</code>找到<code>base.styl</code>文件，打开找到code-background，同样将后面的颜色进行修改即可。</p>
+<p>  由于我还没有设置图床，就不放图片演示了😶</p>
+<p>  最后，如果版本不一致，也可以用开发者工具找到源代码进行修改。</p>
 ]]></content>
       <categories>
         <category>经验</category>
@@ -1604,36 +1587,6 @@ DOI：10.1109/LWC.2020.3009666</p>
       </tags>
   </entry>
   <entry>
-    <title>一些庵野秀明风格的尝试</title>
-    <url>/2023/06/23/goodbye-graduate/</url>
-    <content><![CDATA[<h2 id="再见了，所有的张秀梅">再见了，所有的张秀梅</h2>
-<p>😎</p>
-<p>🤏🕶️</p>
-<p>😭</p>
-<span id="more"></span>
-<p><img src="https://i2.100024.xyz/2023/06/23/r3edka.webp" alt="1"></p>
-<p><img src="https://i2.100024.xyz/2023/06/23/r3evqt.webp" alt="2"></p>
-<p><img src="https://i2.100024.xyz/2023/06/23/r3f4wp.webp" alt="3"></p>
-<hr>
-<h3 id="参考教程：">参考教程：</h3>
-<ol>
-<li class="lvl-3">
-<p><a href="https://www.bilibili.com/video/BV1Uf4y1n7zK/?spm_id_from=333.788.recommend_more_video.4&amp;vd_source=e86cb514a2080267c3cb770f30a907f6">《One Last Kiss》专辑封面制作</a></p>
-</li>
-<li class="lvl-3">
-<p><a href="https://www.bilibili.com/video/BV14L411S7fu/?spm_id_from=333.999.0.0&amp;vd_source=e86cb514a2080267c3cb770f30a907f6">字体、图片素材和背景音乐等</a></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>毕业</tag>
-        <tag>庵野秀明风格</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>更改waline主题颜色</title>
     <url>/2023/06/03/blog9-stylDIY/</url>
     <content><![CDATA[<p>  之前就想自定义waline的样式以适配当前的背景图，但又因为没学过css，也不会自己上传cdn，所以向waline的开发者求助，最后知道了<code>!important</code>大法，希望能给到和我一样没接触过css的博主一些参考。</p>
@@ -1680,10 +1633,57 @@ DOI：10.1109/LWC.2020.3009666</p>
       </tags>
   </entry>
   <entry>
-    <title>20889;32473;25140;26862;31435;</title>
-    <url>/2023/06/18/linbiezengyan3/</url>
+    <title>更新Next主题：v7.8-&gt;v8.16</title>
+    <url>/2023/05/26/blog6/</url>
+    <content><![CDATA[<p>  由于需要换valine为waline或twikoo，以及各种由于Next版本低导致的问题（相关的网络资源少、教程少等等），今天下定决心更新一下版本。</p>
+<span id="more"></span>
+<h4 id="Hexo-version-6-3；Next-version-7-8">Hexo version: 6.3；Next version:7.8</h4>
+<p>  知道更新版本有一定的风险，于是做好了旧版本的备份。最终没有太大的损失，只是先前自定义的一些样式由于文件发生改变而失效，这些会在后续重新补充。</p>
+<p>  更新版本参考教程：<a href="https://drifter-games.com/2021/nextupdate/">https://drifter-games.com/2021/nextupdate/</a></p>
+]]></content>
+      <categories>
+        <category>经验</category>
+        <category>Next升级</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一些庵野秀明风格的尝试</title>
+    <url>/2023/06/23/goodbye-graduate/</url>
+    <content><![CDATA[<h2 id="再见了，所有的张秀梅">再见了，所有的张秀梅</h2>
+<p>😎</p>
+<p>🤏🕶️</p>
+<p>😭</p>
+<span id="more"></span>
+<p><img src="https://i2.100024.xyz/2023/06/23/r3edka.webp" alt="1"></p>
+<p><img src="https://i2.100024.xyz/2023/06/23/r3evqt.webp" alt="2"></p>
+<p><img src="https://i2.100024.xyz/2023/06/23/r3f4wp.webp" alt="3"></p>
+<hr>
+<h3 id="参考教程：">参考教程：</h3>
+<ol>
+<li class="lvl-3">
+<p><a href="https://www.bilibili.com/video/BV1Uf4y1n7zK/?spm_id_from=333.788.recommend_more_video.4&amp;vd_source=e86cb514a2080267c3cb770f30a907f6">《One Last Kiss》专辑封面制作</a></p>
+</li>
+<li class="lvl-3">
+<p><a href="https://www.bilibili.com/video/BV14L411S7fu/?spm_id_from=333.999.0.0&amp;vd_source=e86cb514a2080267c3cb770f30a907f6">字体、图片素材和背景音乐等</a></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>毕业</tag>
+        <tag>庵野秀明风格</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20889;32473;26045;22025;35946;</title>
+    <url>/2023/06/18/linbiezengyan/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="7d9c043b99ff1207d64f46062030ecf6881ba9ed1febda14ff25cf51f8310d2b">ec802132aacd30f27b2d005e2ea7a7a2003c95ca4590b6f5627ed984429de1c1d45329d55a4e5cabdde96c04776f798020f6ac72896463d7f05fc70e33504fe57a63f71173011006dfa9efb45f6978007e289da1942f12fe9eacd199be6eee1b43a11480bd992db1e915154aec2c481971cafe8cff0102ac95ffab2cde88b993715fce3e5e88b55abe0927eff4d9e98a251aea0d64d2bd95398a377f54a16de4476e83109b0265c51054f127dd6ce4dfd78937ca608c8c89808ed16757a6a3c4ac4466fa6a0e5e268580c344fd90e62b9dbf84e1b36cf7eb7b3798e64769e7b4086f1dc27225533c90a01802de84954abfa51076f7899d26f1496731f1a76296f7e865e5acb786648d8b267e77bd1bde49f0b6fcd06d32e836b195170571b085412142a059f2892425ac87afcb606de1873910ae21d429bfeca4a424c8d0faf8092a88315d5f32b8835e6507f72cf59e90ae1c81afad54fa3438beae98af8aebbd240b70e52efa37e6826bec96a55badb42235a437854d7bfd31899343fdb8fc14209a182ae18f0ba037f3c8d4d05d1ea1ba7e04a2caa83dfec579cec677250d621523629566c92109e457f4f5caec35a8207f0ac4657413e160ce582f997a667bc9c3bbe7dfe00f28a2936f6b15d2e3e933ccb52153e42a1f3d0fe2e8b67dfa17a20e876760bab1f1ec1285fe6ca6f719bc74ac9fa251d52c40787dfa4f0aede6ce9b639a3d4e0ca976d2658f52ea0361e9a2ef035c759624adcaab949f83aab74be163cfd51a07e2f7b67b0898efbfdf8a03a2953544daca39a920c95c2546b5f16757d07164a6bdb74e9a384e029fcab4db3eddab772bd02691def0a5022ba30204984f32f5f4ae47c42f0ad240b08e8f2527c654d33beb659020fade76a58c8b5c5a0b2e31487dd41325c1b628197ff3b66e2792697b831acdfe3b2ff34678f27363d99d849cb1596b6c0894bb52eb3ee2d941144e4c362a17d904a531d54f8fc11414cd57b2b0c6ef0829b6515b64dfe82d075727eb3410542f5e93a672216e05b49b387633fa557de5634ca904794c0a665051f62cd5a95e64ecce2b7a45c26fb73f63926e903c4df7f87c10afcfe88180ad4c35004cd0370baae682d5970f4657de5b707914cb54485e244cf7249507b9755edecf4d759ed584fa492df5fd5bcf718fe2c0e1945717bc5743e5ab347b8241ddbfd25830ac97c0dac0a842dad24a0abd5e5535a8c360caa161b93c940e8dd54e2e055f632c4b8c21978aa5e08a1246831d3f86364495c9a059abc121b3b46690f46741fc6c6e22f2efe450b519d6280286efcd10b9ee0999392a5b45d22a8e9252a3c7d30b7a92418ea01efb6503489063de8ef455aa68b73f261c2f9c7557401b66b6a4624cadb1cd38c50e84dd32f6fb7ac601ac8595cc02d979e3181d171b62bf9410c0fa17784b5a7cadf9811cd84a663fb60e7284fd031d2797f2e316195e3da883f39ea9235836408b3c5fef89dbe419248e1724d7ad1aaff9aa7d9b6adc71d3ef5d1d4484d084c797b286e2365c91f1924e9bb931553300a01bf690b5cfa466cf3eadf68143dd9ab22ecddb661d71d4b214617db9d089</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="7a5e939dbee177c124444d4e5070c2254d4bca5d513f53111bde3cf0c9d40b6e">e80960072eee56390c5704dab6ba0fae854db6dc0f835e374d2013bd94f4e08446a64f0f00b2e823f15c8b4d25422063807c03848af83195d447827db04ea04c11f9e6cc59be5ced9772478f31e7921bab1b8072bca090176edb64c256d9cb08a1f96d5ed9b3865957b5d4689104d11090373b5e76163d612ba0a36891740765c1976f7277f59c5c593087238d40e9ad126c850392c1457fba027cf9c2a5d391274fb74d1a71c88dd02079dc9ba0e8d3ba6ffb414c63ac7298933baa06914741b58cd643218b85dabea50b61721c9265e249e2cc655263fc7dba5889c6aa83961ae314b4ce348a9c59e61c62a21064d3715eae3030b120994e20db3ebe15a7aa3d47c3e029a1d39a8e5c4f5bb57ece3ed42b28d11a171889b742788de07eba7dd9c27fdaff27119bd9f2dc396b1727a43af4c74841f20404d72bad8b8796ac6b8c121d488a69671570633d672c8585176a925e5eba9b1e3e4a675245b1871ce768e50d32debef7cb7033071129ec4bf98cc6a5e30f89281fa26658821f7e3a5d5cdaf1669f909e20ddbfd0be7d07f7da4b9f9adb71127ab03e6e744ebe499ed02fdbdfff21af8aae11efaf5497386c1a34782e0bad69bb8710f43813154e0d22eff26a030f4d47aa28f1596ae6c05f4d6a50ce21af7ef75f9c0fcdd8bc3af04a8f83e5e527d151eae69bd9e7455ddaaa2af222fe1df8025142df6094b10da56bfffa6dc1e8c043a59683c2518f9d0683b2623192fb756538fcdcb6677cd75f6f16959d3b6127282d39c41ae0ef4291bf010aadf09eea0977acfeb11e023399be4814cbd46a09cc259ce2c83c7a27d43158b4e6ade8360db8a15744ebd4e0c8309dc37c45d5292806e6fe1abe26ce08adc466d893da7abb45906e104b3cf72e089f1dda74449cae8943ca379b30063102f86c392ee6bcadbc02d82bbc90ed1ac84aa560abcc83f44cf73276b73c0978509510d49b2302df463f08a234da96a77f274da4276a636ccc6321c7dedb31d1dfd48e5aac3dea1f9c633e48e497ab60f225ce4a47ae0415f348e508a49af8130961705489bb0f4df1b98b0fd79c791e7c96f3c562adc37a7b614045dda449ca08167038b3afa350af25f4ece3e34b49f0c84b72fc35f1ba2ea4e8f80190b994e508d48f7456215381dfe40d11159f1eba61681de87770f50a3628fb948538415ede7bc0d8f2f0b4306d28ada047b173791c743bc27d78beac7e1cb37aceaeb7d2930e2f0c778f1aeab90f7ee73ed408f724022367cc5bea018a4077af1fe23059ef7a039857f5d8d3bd30bdbe40c6953d392779b14d92cc5a41217a36425cd025ba1bc397664f2927af07a3fa92dceb341b1629cd8f1d7f20291afbc42811fb276a07b19498be01fb2a26235fe14303ca1e0b2639247a5ded8c4891e45d247bcf6cc2975c7befeffa21913de8263850ffa0faab433403b100dcc8bdca0798514e38c1848cfbec253f72b510de6383fe5b46719e267b2fabc3cea735cce81474a727945247347cce14714f19e22b75021f8d56d7b6b95a43c19e4682b151f73e6a273d8e3b1db235d3897d81f374fe1c183c0a52b256d6f0c98aa650c7bfdbcf62b7096d9a510d0120e4f957a3f6c3c09a203b8b6aee2d773d28a31e8bb93d083e963cef037d407abca14fc6bb3f5212e92a50fd36bb1cc6b5d85f3c80fc68f0f6adb997f3d0e4986132d4c7781c2aedee4c72b3170218e2e7fa3c66f4d079b6a5471b84a8fe07904d9289c535f9d9be0b85944fa36e7cb7e9d024eaf5222b1d91e6b5e124dbba1080d325533470510479fa23dc405e677a739311f5af3b1b5d1b9510d70b9e0fdb6448b0ac018448803806ff35a5be4c8e432bf554a640eb678d7cf05e8965fb60139b07328e3a6e68b2520c440b94fce46e0f067ae2bdc58ac61626adc33d74e5aaf94530252c891c2701ba572109f31371827ac92fd66ddda68d881584e52134a79783355da4af260e17bebc120e25a433b315d4a8764280bb7e77e0f5a9dc023b53416a466c6f851afe90931a40db98feae2cdb7a4e2bf762cc561eb748004affdef0aeb8f5ebc5fa4dbcc028d70223bbc773b1a7b5947b24d45764564128c4c978bd18e578a5a0ab12331c6038f5ed1bb1fbb9c2f8c49d027d603baadc78490a930d93764793b4d83ff93dd7acdb21e6afc7e1a69a5d34afe0e6fb2929f84421d3cf8b0a41079ed75ee498e7e7fff47f009175b37a55fd41397e43dc29c077ed31f03c991e9c2a1205b6998f850544de3817a970df4b3c97eba5d168ad549e2d807cfac1a52569f78e8f1a67917483662e839a2b704f2abc27f48ee1ceb2901e3b4e8c3e7caaed8f82486ce2ccc3019563624841889b41d4</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -1724,28 +1724,6 @@ DOI：10.1109/LWC.2020.3009666</p>
       </tags>
   </entry>
   <entry>
-    <title>20889;32473;26045;22025;35946;</title>
-    <url>/2023/06/18/linbiezengyan/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="7a5e939dbee177c124444d4e5070c2254d4bca5d513f53111bde3cf0c9d40b6e">e80960072eee56390c5704dab6ba0fae854db6dc0f835e374d2013bd94f4e08446a64f0f00b2e823f15c8b4d25422063807c03848af83195d447827db04ea04c11f9e6cc59be5ced9772478f31e7921bab1b8072bca090176edb64c256d9cb08a1f96d5ed9b3865957b5d4689104d11090373b5e76163d612ba0a36891740765c1976f7277f59c5c593087238d40e9ad126c850392c1457fba027cf9c2a5d391274fb74d1a71c88dd02079dc9ba0e8d3ba6ffb414c63ac7298933baa06914741b58cd643218b85dabea50b61721c9265e249e2cc655263fc7dba5889c6aa83961ae314b4ce348a9c59e61c62a21064d3715eae3030b120994e20db3ebe15a7aa3d47c3e029a1d39a8e5c4f5bb57ece3ed42b28d11a171889b742788de07eba7dd9c27fdaff27119bd9f2dc396b1727a43af4c74841f20404d72bad8b8796ac6b8c121d488a69671570633d672c8585176a925e5eba9b1e3e4a675245b1871ce768e50d32debef7cb7033071129ec4bf98cc6a5e30f89281fa26658821f7e3a5d5cdaf1669f909e20ddbfd0be7d07f7da4b9f9adb71127ab03e6e744ebe499ed02fdbdfff21af8aae11efaf5497386c1a34782e0bad69bb8710f43813154e0d22eff26a030f4d47aa28f1596ae6c05f4d6a50ce21af7ef75f9c0fcdd8bc3af04a8f83e5e527d151eae69bd9e7455ddaaa2af222fe1df8025142df6094b10da56bfffa6dc1e8c043a59683c2518f9d0683b2623192fb756538fcdcb6677cd75f6f16959d3b6127282d39c41ae0ef4291bf010aadf09eea0977acfeb11e023399be4814cbd46a09cc259ce2c83c7a27d43158b4e6ade8360db8a15744ebd4e0c8309dc37c45d5292806e6fe1abe26ce08adc466d893da7abb45906e104b3cf72e089f1dda74449cae8943ca379b30063102f86c392ee6bcadbc02d82bbc90ed1ac84aa560abcc83f44cf73276b73c0978509510d49b2302df463f08a234da96a77f274da4276a636ccc6321c7dedb31d1dfd48e5aac3dea1f9c633e48e497ab60f225ce4a47ae0415f348e508a49af8130961705489bb0f4df1b98b0fd79c791e7c96f3c562adc37a7b614045dda449ca08167038b3afa350af25f4ece3e34b49f0c84b72fc35f1ba2ea4e8f80190b994e508d48f7456215381dfe40d11159f1eba61681de87770f50a3628fb948538415ede7bc0d8f2f0b4306d28ada047b173791c743bc27d78beac7e1cb37aceaeb7d2930e2f0c778f1aeab90f7ee73ed408f724022367cc5bea018a4077af1fe23059ef7a039857f5d8d3bd30bdbe40c6953d392779b14d92cc5a41217a36425cd025ba1bc397664f2927af07a3fa92dceb341b1629cd8f1d7f20291afbc42811fb276a07b19498be01fb2a26235fe14303ca1e0b2639247a5ded8c4891e45d247bcf6cc2975c7befeffa21913de8263850ffa0faab433403b100dcc8bdca0798514e38c1848cfbec253f72b510de6383fe5b46719e267b2fabc3cea735cce81474a727945247347cce14714f19e22b75021f8d56d7b6b95a43c19e4682b151f73e6a273d8e3b1db235d3897d81f374fe1c183c0a52b256d6f0c98aa650c7bfdbcf62b7096d9a510d0120e4f957a3f6c3c09a203b8b6aee2d773d28a31e8bb93d083e963cef037d407abca14fc6bb3f5212e92a50fd36bb1cc6b5d85f3c80fc68f0f6adb997f3d0e4986132d4c7781c2aedee4c72b3170218e2e7fa3c66f4d079b6a5471b84a8fe07904d9289c535f9d9be0b85944fa36e7cb7e9d024eaf5222b1d91e6b5e124dbba1080d325533470510479fa23dc405e677a739311f5af3b1b5d1b9510d70b9e0fdb6448b0ac018448803806ff35a5be4c8e432bf554a640eb678d7cf05e8965fb60139b07328e3a6e68b2520c440b94fce46e0f067ae2bdc58ac61626adc33d74e5aaf94530252c891c2701ba572109f31371827ac92fd66ddda68d881584e52134a79783355da4af260e17bebc120e25a433b315d4a8764280bb7e77e0f5a9dc023b53416a466c6f851afe90931a40db98feae2cdb7a4e2bf762cc561eb748004affdef0aeb8f5ebc5fa4dbcc028d70223bbc773b1a7b5947b24d45764564128c4c978bd18e578a5a0ab12331c6038f5ed1bb1fbb9c2f8c49d027d603baadc78490a930d93764793b4d83ff93dd7acdb21e6afc7e1a69a5d34afe0e6fb2929f84421d3cf8b0a41079ed75ee498e7e7fff47f009175b37a55fd41397e43dc29c077ed31f03c991e9c2a1205b6998f850544de3817a970df4b3c97eba5d168ad549e2d807cfac1a52569f78e8f1a67917483662e839a2b704f2abc27f48ee1ceb2901e3b4e8c3e7caaed8f82486ce2ccc3019563624841889b41d4</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>临别赠言</category>
-      </categories>
-      <tags>
-        <tag>加密内容</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>20889;32473;27611;25391;28009;</title>
     <url>/2023/06/19/linbiezengyan4/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
@@ -1768,10 +1746,54 @@ DOI：10.1109/LWC.2020.3009666</p>
       </tags>
   </entry>
   <entry>
+    <title>20889;32473;39038;26159;30003;</title>
+    <url>/2023/06/18/linbiezengyan2/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="15cfbd87b87bb6f58699d81bed622094af91e9e2c834ae3fd7a65bc4e1f4f3ad">ff237e079a879a02e65405b26b486dd1529cd862ab8dfd048115e1c94775c41337517e9f2dec349b0966dc56c310a4a4467f0c6c33fcbb3f50c6a37c8421136192876c9cf989e8fdd54a428b3063ecf106bda2a143d0c249448fff0b774d9b0f7bcd25d7317d0b870c545ac71bbe62dd7bbbe694fe7ee79f79d5499baab02dd72a1367d60ea463707b4130651e3005dabfe877b5d59439fef114b1bb2908b20250df4c3918db950a37fa9dd5cb65c1cd38ab538b3581ca5938aa0a156880008ca5f1c4769b2fb95bf4d84f0defceeb9fca992d1f8977090f5503af32ca3ed0f9b9858943429f4cfb6bf70b7189dd5b57be65868cd30426bfcb7580b41ea026958c07aa197e167218172285dad3a897405e429d7d85475853121a2fd13b4fa12d492e044a911cfd799bbb61d41d29642a6c1445d3d431880e7b6927f7ebd9799974b560c9a5106ee4f82c4b9ad9d3059c00575d4b91febaea3a41f64059626e135a5058db2540eba6d4adfbdd940e1b613d2e6c1f1aed16c42a7cba2e137050860faf7096b9d1c7ee5e4c84f2dcdf4c53895eb087fad9fac7bfb415cbe058a7a944c57a3550c27b631542772c4dced82fbb5a0dc6b728c61f42579ac08e71085644d8ebc1ac80c16a07cbae690a4350f73660a658c13b4ec717b3641b701937068724eb3be387b49e512de2c63754a4c97d1a8abe1df1a8da6835dd697f197f596357e287e2ffe367d3a7e4fb8cc60def0600bf965be382d79c39d0500928ec072fdcaccbb785b77ff1eb4cdf3ee2ac36405ac6c710b3596405948e6483bd3059258ffb446218005f995ba349840f838cf7d243dd4c81a7781fc9c15b5bfdd4b7859421117994240fcdbb99c7e96e6c260f487106f365475397f8708e4df0ba849fddf522f709374d0aa3a3cf69ff46d9e860918ea57557375d2d25611e30df37fcd20dcf8f9131716aaeeafc33d1d714199acfee6719a958c7d73ab784d9eb0071d813347e9ab83aa06bc5250e2f0c88cca4bf23b6921d6976e177d1a323da55529f62f81b50c818a79a69f8b12d13c1808dd6d1254266c8d5792c5eb0e09c03056645cb905625bb83b54db6a8034564770adedd51d926aa5248d67e2e9f1be1a7d034aed054f045d84ba41ba3e2ded3fef6c9c491683978d3be275ae2b1de6d720286e6b660f21815c3ff0b25771d3484d987cf6034e13f4a1064eea2c58ebd86540c9eae96489423962aa03f8498990abafa6a2cd8577e79177b75497a7b7ea478556e19971b5873b3476418ae2bf3cfe594f765d877a821c76471085fc095b0106edcb3a4a6ec49db8d7eafd209766bb3fd93acf7f361b2bc26dfc419f3d619275331b7e179164d867f77bec53feb60e66de7bb11862f74642df20f55443b750388508632853fdb8a2c43bd6c3141</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>临别赠言</category>
+      </categories>
+      <tags>
+        <tag>加密内容</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>20889;32473;21556;23384;21644;</title>
     <url>/2023/06/20/linbiezengyan5/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
   <script id="hbeData" type="hbeData" data-hmacdigest="3b2d7e973a3f3cc6b32ad1cc6072da5400de9addc17f6298c6cee7587028dd79">d356183645db3b418b139bdb9e96d7fbbb3bf0f94a41f93e166cdfeec6d3ecc5d20bc0a999508a810aa3855d33c7f1ef9939d685a664e5c9d210d8239e0313af5475df80a0d40206ccf2081f25bccae12daea88ddec88d8cae3141c5d55c35aa62e2f90dc68244da9033b68a9bfdd9cf0ee59de674be46a338e22999734483ac4157c1996373af3d7a703d5f0bf3075c16f0ce475a1df47b140e3957fc68d7ec65d4a52ed4e0ca0e0edb1da5e426f89da82a20186012e64070337c7e8bb76e0e7deb7ee462aa0536971ff2bf12a39492ebd2325e1422a7f69012d415547ac90c28d63b716007754860082411f3be792a9c9d4e506c531b24b6d7ec8034f92d649456d81398043e6aac869fc8e47dcf07c5197145977a46f916dccadf681ae06d0069e3ca00b6129289382d30de3120cdce3034d77d6287f0e3c2b72edde52f3569eb1d33f01adf549e1b6e0d9da9316ef74bb3517f5105751a7743e70265c9739fbe5cbeeabf99cf6b076fb9da5d5ef7925e9e1caf461027c48c32a718466f2d4eb97585fe2bb1a97eea263e784c66e1b78cb6d80297b89a1ebbc451613b56e4d9b83cfb0c39fc8a0e400d97b2959d0b2182408a57b13f6a91466524a58803824a32ae96f3a513e309f0061e446b1018ee49af0edecf2d85de7863ad21e35b3a3b38e36ad8527e43c7a4f3a149e55e7295d967663c23a36c08683fd4acd0d5da51b8642398b920a33895f070f15739666403faf31f068aacb06326eaf3aa1ccf642424e9ac737391378e64b54555a1998d6e3de0883c10cc2ac76f11c64610b0c775644b88e30814f3d25c3db91a70ca348fea2830093967eba080a9f5b1fb4725315c2dcfc9e1a6aa07491b0ea39a0d52d8f6a7b9a6860232346f62d67fa55e40ac2a502cbf640e84910c1ed5e1dbf55d858e5e0db3307c843e6375936731888889e90b8e3149a215d265343bfcb412e57cfb30df31d365dbd83d6ee1834d47d05d462347b7e938fe1f71bdc5417a575289a6c85fc5aa25366b13ac1ecb32c6c4135db60659c4b05e09a3e1a7f6521a188b9f2048670d24a2b09724753f2c0adfdb03d6765efbf2f06743e7823012d3d7ca3d8cdd3d3f70f76a4bbb77182ce44b9c4b7c36173878117faded5bbfb90c1e14acf1c85855293cdb66cb983754f3bed18d5384e306dfd239a5520239ea00a296dbc5cb2aa4c0c2e96484ebc368962f5b221eb6d2521db66d4619447ff0326626e19aaa7e5c86b2f00e0854251f00c5ff63bbc910a7b9324843dc712dc4e59692e0125c3650e1e5bb099ab94105d11588409db1de3630cf12be557ce9a97905645a2032a2e188c3730d3a24077723c9490fb57c62f9998eb3a65e6f316ddfb81420883c037dab3b1e7f28628b8b4c0ac7252abc9f91db89a30c7e6b338490a787555b9cf3b41d5230f81763aa5e38e80ece0fa0a83283199856b86232d9de99f1f500ccf45a61fc756c4b095e79a41904a60fcf28a7a313c85a58ca759ec69680b012fe6958e7e6c0459858c610e92e4a83e6f68bd1cd69b5f4f757502d7b5dc5f26ebdd87358fb7647f4051d6475</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>临别赠言</category>
+      </categories>
+      <tags>
+        <tag>加密内容</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20889;32473;25140;26862;31435;</title>
+    <url>/2023/06/18/linbiezengyan3/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="7d9c043b99ff1207d64f46062030ecf6881ba9ed1febda14ff25cf51f8310d2b">ec802132aacd30f27b2d005e2ea7a7a2003c95ca4590b6f5627ed984429de1c1d45329d55a4e5cabdde96c04776f798020f6ac72896463d7f05fc70e33504fe57a63f71173011006dfa9efb45f6978007e289da1942f12fe9eacd199be6eee1b43a11480bd992db1e915154aec2c481971cafe8cff0102ac95ffab2cde88b993715fce3e5e88b55abe0927eff4d9e98a251aea0d64d2bd95398a377f54a16de4476e83109b0265c51054f127dd6ce4dfd78937ca608c8c89808ed16757a6a3c4ac4466fa6a0e5e268580c344fd90e62b9dbf84e1b36cf7eb7b3798e64769e7b4086f1dc27225533c90a01802de84954abfa51076f7899d26f1496731f1a76296f7e865e5acb786648d8b267e77bd1bde49f0b6fcd06d32e836b195170571b085412142a059f2892425ac87afcb606de1873910ae21d429bfeca4a424c8d0faf8092a88315d5f32b8835e6507f72cf59e90ae1c81afad54fa3438beae98af8aebbd240b70e52efa37e6826bec96a55badb42235a437854d7bfd31899343fdb8fc14209a182ae18f0ba037f3c8d4d05d1ea1ba7e04a2caa83dfec579cec677250d621523629566c92109e457f4f5caec35a8207f0ac4657413e160ce582f997a667bc9c3bbe7dfe00f28a2936f6b15d2e3e933ccb52153e42a1f3d0fe2e8b67dfa17a20e876760bab1f1ec1285fe6ca6f719bc74ac9fa251d52c40787dfa4f0aede6ce9b639a3d4e0ca976d2658f52ea0361e9a2ef035c759624adcaab949f83aab74be163cfd51a07e2f7b67b0898efbfdf8a03a2953544daca39a920c95c2546b5f16757d07164a6bdb74e9a384e029fcab4db3eddab772bd02691def0a5022ba30204984f32f5f4ae47c42f0ad240b08e8f2527c654d33beb659020fade76a58c8b5c5a0b2e31487dd41325c1b628197ff3b66e2792697b831acdfe3b2ff34678f27363d99d849cb1596b6c0894bb52eb3ee2d941144e4c362a17d904a531d54f8fc11414cd57b2b0c6ef0829b6515b64dfe82d075727eb3410542f5e93a672216e05b49b387633fa557de5634ca904794c0a665051f62cd5a95e64ecce2b7a45c26fb73f63926e903c4df7f87c10afcfe88180ad4c35004cd0370baae682d5970f4657de5b707914cb54485e244cf7249507b9755edecf4d759ed584fa492df5fd5bcf718fe2c0e1945717bc5743e5ab347b8241ddbfd25830ac97c0dac0a842dad24a0abd5e5535a8c360caa161b93c940e8dd54e2e055f632c4b8c21978aa5e08a1246831d3f86364495c9a059abc121b3b46690f46741fc6c6e22f2efe450b519d6280286efcd10b9ee0999392a5b45d22a8e9252a3c7d30b7a92418ea01efb6503489063de8ef455aa68b73f261c2f9c7557401b66b6a4624cadb1cd38c50e84dd32f6fb7ac601ac8595cc02d979e3181d171b62bf9410c0fa17784b5a7cadf9811cd84a663fb60e7284fd031d2797f2e316195e3da883f39ea9235836408b3c5fef89dbe419248e1724d7ad1aaff9aa7d9b6adc71d3ef5d1d4484d084c797b286e2365c91f1924e9bb931553300a01bf690b5cfa466cf3eadf68143dd9ab22ecddb661d71d4b214617db9d089</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -1816,28 +1838,6 @@ DOI：10.1109/LWC.2020.3009666</p>
     <url>/2023/06/20/linbiezengyan7/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
   <script id="hbeData" type="hbeData" data-hmacdigest="15d468a53fbf778c09212139afd6855a3c29ddde0741916eeb3404f87d94a97b">05e3a79ef22e0826625230940c5fddce2891a51276951a65bc11c9a7f09f063d289a092c42b9985855000e616059bc04ac7a6ef4c2aaa41fe4354fed28df44d9af1d99832f950f41d9acc97f8c9227a10d8341f0bde486b14350929f8fd25a83bdf1bc695c081871db83049cd691549c9c2b2223a8474054dd21949be105776ed5526761bec5bbe393b11a46a5d54763d5395285da9ae9b9cf9d24a597661e892da109e643eb50b8d2e937822a0626ec0d5bfd00ff600fd95a497ca361001a9783792d346318ce401b205554cff40b44344581289851b357b7949c0bacc5506cbc209be65f8579f4e14146fcdaeb58289c3b22eb877ccac80f637624bdc00978ab5b1094e939483082c58c691530837f38dd6142fbae734817c9d91dc377ba05f2aa0ea7d39b5c413bae4af6345af885b06d62b199bcea42807b4c6f3f0eb94121a46ab2add3e99db0cb6644992777113010eddd5ed2056a8de63e46d3d050318dc8b9d8f5a1cb89d38dbc1dc691d0ef0be4069d58ee30e2f8f9c0e8d2e9009225c0a77f84c2ed6e85c822dc6c3881dcafc8c3da63d51b2dcf14398fcde21fd1967e9099ed26fe13d20cefdc9530128af515f3602e063d5dd4ec8927f2742a7172b1626177ba38dfdb90c304a0cd4d5f08794d470b38432761c65d6f18a2ab6d0505501fe232f15c84acc9a2c62fe2d876d34f2d162a23159211bc49dc2f055b681f101c386fd12efbc6470bb6035117f4edd5cbbd42f89e2c70a538f19478b59efb6635ca3a243a267f8a077a034001c6417ac237362b95eb6faba05b6fe508a9b25abb32d73305ebdf98720ad936e3f7456d4e839f2a8f6e4911f911849408afd68f2ab4f74da5c3b20cb48dd4f1f10800e96f4757fa6f1aa958da1bf1056685367c32fe890baf70cde3a10f6982e026c39abe6de62ebd7e97d7b7bed2a13b35fdabf4a973226b45a8672bdcad41d1ebfdf98756867cd3e9e37d970fcb0b970a9e5ad6fa628631a9d1452d9083d2a9619ca820937d96c20cf1154a5f5959df16b0d73af49a266c268a38ea827aee19a85e4bdddc340f8a7ee61bf78660ba6e</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>临别赠言</category>
-      </categories>
-      <tags>
-        <tag>加密内容</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20889;32473;39038;26159;30003;</title>
-    <url>/2023/06/18/linbiezengyan2/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="15cfbd87b87bb6f58699d81bed622094af91e9e2c834ae3fd7a65bc4e1f4f3ad">ff237e079a879a02e65405b26b486dd1529cd862ab8dfd048115e1c94775c41337517e9f2dec349b0966dc56c310a4a4467f0c6c33fcbb3f50c6a37c8421136192876c9cf989e8fdd54a428b3063ecf106bda2a143d0c249448fff0b774d9b0f7bcd25d7317d0b870c545ac71bbe62dd7bbbe694fe7ee79f79d5499baab02dd72a1367d60ea463707b4130651e3005dabfe877b5d59439fef114b1bb2908b20250df4c3918db950a37fa9dd5cb65c1cd38ab538b3581ca5938aa0a156880008ca5f1c4769b2fb95bf4d84f0defceeb9fca992d1f8977090f5503af32ca3ed0f9b9858943429f4cfb6bf70b7189dd5b57be65868cd30426bfcb7580b41ea026958c07aa197e167218172285dad3a897405e429d7d85475853121a2fd13b4fa12d492e044a911cfd799bbb61d41d29642a6c1445d3d431880e7b6927f7ebd9799974b560c9a5106ee4f82c4b9ad9d3059c00575d4b91febaea3a41f64059626e135a5058db2540eba6d4adfbdd940e1b613d2e6c1f1aed16c42a7cba2e137050860faf7096b9d1c7ee5e4c84f2dcdf4c53895eb087fad9fac7bfb415cbe058a7a944c57a3550c27b631542772c4dced82fbb5a0dc6b728c61f42579ac08e71085644d8ebc1ac80c16a07cbae690a4350f73660a658c13b4ec717b3641b701937068724eb3be387b49e512de2c63754a4c97d1a8abe1df1a8da6835dd697f197f596357e287e2ffe367d3a7e4fb8cc60def0600bf965be382d79c39d0500928ec072fdcaccbb785b77ff1eb4cdf3ee2ac36405ac6c710b3596405948e6483bd3059258ffb446218005f995ba349840f838cf7d243dd4c81a7781fc9c15b5bfdd4b7859421117994240fcdbb99c7e96e6c260f487106f365475397f8708e4df0ba849fddf522f709374d0aa3a3cf69ff46d9e860918ea57557375d2d25611e30df37fcd20dcf8f9131716aaeeafc33d1d714199acfee6719a958c7d73ab784d9eb0071d813347e9ab83aa06bc5250e2f0c88cca4bf23b6921d6976e177d1a323da55529f62f81b50c818a79a69f8b12d13c1808dd6d1254266c8d5792c5eb0e09c03056645cb905625bb83b54db6a8034564770adedd51d926aa5248d67e2e9f1be1a7d034aed054f045d84ba41ba3e2ded3fef6c9c491683978d3be275ae2b1de6d720286e6b660f21815c3ff0b25771d3484d987cf6034e13f4a1064eea2c58ebd86540c9eae96489423962aa03f8498990abafa6a2cd8577e79177b75497a7b7ea478556e19971b5873b3476418ae2bf3cfe594f765d877a821c76471085fc095b0106edcb3a4a6ec49db8d7eafd209766bb3fd93acf7f361b2bc26dfc419f3d619275331b7e179164d867f77bec53feb60e66de7bb11862f74642df20f55443b750388508632853fdb8a2c43bd6c3141</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
