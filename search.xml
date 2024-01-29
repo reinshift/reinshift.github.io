@@ -1,33 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>数组的动态联编</title>
-    <url>/2023/06/06/blog10-cppDynamicArray/</url>
-    <content><![CDATA[<p>  使用数组声明来创建数组时，将采用静态联编，即数组的长度在编译时设置。这个时候如果在括号里使用变量会报错，这样如果想输入数组长度以控制是做不到的：</p>
-<span id="more"></span>
-<p><img src="https://i2.100024.xyz/2023/06/06/ny90mg.webp#pic_center" alt=""></p>
-<p>  如果想创建一个数组，其长度让用户来输入管理，这个时候就需要用<code>new[]</code>运算符创建数组，采用动态联编（动态数组）。</p>
-<blockquote>
-<p>静态联编：在编译时给数组分配内存被称为静态联编（static binding），意味着数组是在编译时加入到程序中的。</p>
-</blockquote>
-<blockquote>
-<p>动态联编：使用new时，如果在运行阶段需要数组，则创建它；如果不需要，则不创建。还可以在程序运行时选择数组的长度。这被称为动态联编（dynamic binding），意味着数组是在程序运行时创建的。这种数组叫作动态数组（dynamic array）。</p>
-</blockquote>
-<p>  使用静态联编时，必须在编写程序时指定数组的长度；使用动态联编时，程序将在运行时确定数组的长度。</p>
-<p>  了解了这些特性，就可以在程序中这样写：</p>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> num;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Put in the number of people:__\b\b&quot;</span>;</span><br><span class="line">    cin &gt;&gt; num;</span><br><span class="line">    <span class="comment">//int Age[num];</span></span><br><span class="line">    <span class="type">int</span>* p_Age = <span class="keyword">new</span> <span class="type">int</span>[num];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span>;</span><br><span class="line">        cin &gt;&gt; p_Age[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the age of every person is:&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span> &lt;&lt; p_Age[i] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span>[] p_Age;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  当输入10赋值给变量num时，接下来就会创建一个长度为10的数组以储存数据。</p>
-<p>  当然采用这种方式创建数组的最后需要用<code>delete[]</code>来释放其占用的内存。</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>C++</category>
-      </categories>
-      <tags>
-        <tag>C++</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>今日更新内容</title>
     <url>/2023/04/28/blog1/</url>
     <content><![CDATA[<p>以下是今天的更新内容：</p>
@@ -56,6 +29,195 @@
 ]]></content>
       <tags>
         <tag>建站</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数组的动态联编</title>
+    <url>/2023/06/06/blog10-cppDynamicArray/</url>
+    <content><![CDATA[<p>  使用数组声明来创建数组时，将采用静态联编，即数组的长度在编译时设置。这个时候如果在括号里使用变量会报错，这样如果想输入数组长度以控制是做不到的：</p>
+<span id="more"></span>
+<p><img src="https://i2.100024.xyz/2023/06/06/ny90mg.webp#pic_center" alt=""></p>
+<p>  如果想创建一个数组，其长度让用户来输入管理，这个时候就需要用<code>new[]</code>运算符创建数组，采用动态联编（动态数组）。</p>
+<blockquote>
+<p>静态联编：在编译时给数组分配内存被称为静态联编（static binding），意味着数组是在编译时加入到程序中的。</p>
+</blockquote>
+<blockquote>
+<p>动态联编：使用new时，如果在运行阶段需要数组，则创建它；如果不需要，则不创建。还可以在程序运行时选择数组的长度。这被称为动态联编（dynamic binding），意味着数组是在程序运行时创建的。这种数组叫作动态数组（dynamic array）。</p>
+</blockquote>
+<p>  使用静态联编时，必须在编写程序时指定数组的长度；使用动态联编时，程序将在运行时确定数组的长度。</p>
+<p>  了解了这些特性，就可以在程序中这样写：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> num;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Put in the number of people:__\b\b&quot;</span>;</span><br><span class="line">    cin &gt;&gt; num;</span><br><span class="line">    <span class="comment">//int Age[num];</span></span><br><span class="line">    <span class="type">int</span>* p_Age = <span class="keyword">new</span> <span class="type">int</span>[num];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span>;</span><br><span class="line">        cin &gt;&gt; p_Age[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;the age of every person is:&quot;</span> &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; num; i++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;p_Age[&quot;</span> &lt;&lt; i &lt;&lt; <span class="string">&quot;] = &quot;</span> &lt;&lt; p_Age[i] &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span>[] p_Age;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  当输入10赋值给变量num时，接下来就会创建一个长度为10的数组以储存数据。</p>
+<p>  当然采用这种方式创建数组的最后需要用<code>delete[]</code>来释放其占用的内存。</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>C++</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构note（二）</title>
+    <url>/2023/07/26/blog13-DS2/</url>
+    <content><![CDATA[<h1>算法复杂度的一些简单实例</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="Algorithm01">Algorithm01</h3>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm01</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> sum=<span class="number">0</span>,n=<span class="number">100</span>;</span><br><span class="line">    sum=(<span class="number">1</span>+n)*n/<span class="number">2</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一共进行了三步，这是一个$\mathcal{O}(1)$的算法.</p>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="Algorithm02">Algorithm02</h3>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm02</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>,i&lt;n;i++)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>for循环的执行次数即为$n$，故复杂度为$\mathcal{O}(n)$.</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="Algorithm03">Algorithm03</h3>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm03</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> count=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(count&lt;n)&#123;</span><br><span class="line">        count=count*<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看到，要想把while语句走完，根据判断条件和循环节，需要$log_2n$次，忽略声明变量的常数次复杂度，可得复杂度为$\mathcal{O}(\log_2n)$.</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="Algorithm04">Algorithm04</h3>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm04</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=i;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,i+j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>外循环$i=0$时，内循环执行了$n$次；$i=1$时，内循环执行$n-1$次……故循环共执行了$n+(n-1)+…+1=\frac{n(n+1)}{2}$次，取最高次项，复杂度为$\mathcal{O}(n^2)$.</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h3 id="Algorithm05">Algorithm05</h3>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">function05</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;hello world!\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Algorithm05</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    n++;</span><br><span class="line">    function05(n);</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        function05(n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=i;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;hello world!\n&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在第二个函数里调用了function05函数，故在第二个函数中计算，有$1+n+n<sup>2+\frac{n(n+1)}{2}$次，也即复杂度为$\mathcal{O}(n</sup>2)$.</p>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构note（一）</title>
+    <url>/2023/06/09/blog11-DS1/</url>
+    <content><![CDATA[<h1>1.1 什么是数据结构？</h1>
+<blockquote>
+<p>“数据结构是数据对象，以及存在于该对象的实例和组成实例的数据元素之间的各种联系。这些联系可以通过定义相关的函数给出。”——Sartaj Sahni.</p>
+</blockquote>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>解决问题方法的效率，跟数据的组织方式有关</p>
+</li>
+<li class="lvl-2">
+<p>解决问题方法的效率，跟空间的利用效率有关</p>
+</li>
+<li class="lvl-2">
+<p>解决问题方法的效率，跟算法的巧妙程度有关</p>
+</li>
+</ul>
+<h3 id="抽象数据类型">抽象数据类型</h3>
+<ol>
+<li class="lvl-3">
+<p>数据结构（比如C++里的class）：</p>
+<ol>
+<li class="lvl-6">
+<p>数据对象集</p>
+</li>
+<li class="lvl-6">
+<p>数据集合相关联的操作集</p>
+</li>
+</ol>
+</li>
+<li class="lvl-3">
+<p>抽象：</p>
+<ol>
+<li class="lvl-6">
+<p>与存放数据的机器无关</p>
+</li>
+<li class="lvl-6">
+<p>与数据存储的物理结构无关</p>
+</li>
+<li class="lvl-6">
+<p>与实现操作的算法和编程语言均无关</p>
+</li>
+</ol>
+</li>
+</ol>
+<h1>1.2 什么是算法？</h1>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>一个有限的指令集</p>
+</li>
+<li class="lvl-2">
+<p>接受一些输入（或不需要）</p>
+</li>
+<li class="lvl-2">
+<p>产生输出</p>
+</li>
+<li class="lvl-2">
+<p>在有限步骤后终止</p>
+</li>
+<li class="lvl-2">
+<p>每条指令必须</p>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p>有充分明确的目标，不可以有歧义</p>
+</li>
+<li class="lvl-4">
+<p>计算机的处理能力范围内</p>
+</li>
+<li class="lvl-4">
+<p>描述不依赖计算机语言和具体实现手段</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="什么是好的算法？">什么是好的算法？</h3>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>空间复杂度$S(n)$</p>
+</li>
+<li class="lvl-2">
+<p>时间复杂度$T(n)$：$O(\log n)\le O(n)\le O(n\log n) \le O(n^{2}) \le O(2^{n})\le O(n!)$</p>
+<ul class="lvl-2">
+<li class="lvl-4">
+<p>若两段算法分别有复杂度$T_1(n)=O(f_1(n))$和$T_2(n)=O(f_2(n))$，则：</p>
+<ul class="lvl-4">
+<li class="lvl-6">
+<p>$T_1(n)+T_2(n)=\max(O(f_1(n)),O(f_2(n)))$</p>
+</li>
+<li class="lvl-6">
+<p>$T_1(n)\times T_2(n)=O(f_1(n)\times f_2(n))$</p>
+</li>
+</ul>
+</li>
+<li class="lvl-4">
+<p>一个for循环的时间复杂度等于循环次数乘以循环体代码的复杂度</p>
+</li>
+<li class="lvl-4">
+<p>if-else结构的复杂度取决于if的条件判断复杂度和两个分支部分的复杂度，总体取三者中最大</p>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>数据结构</category>
+      </categories>
+      <tags>
+        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -248,168 +410,6 @@
       </categories>
       <tags>
         <tag>旅游</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构note（一）</title>
-    <url>/2023/06/09/blog11-DS1/</url>
-    <content><![CDATA[<h1>1.1 什么是数据结构？</h1>
-<blockquote>
-<p>“数据结构是数据对象，以及存在于该对象的实例和组成实例的数据元素之间的各种联系。这些联系可以通过定义相关的函数给出。”——Sartaj Sahni.</p>
-</blockquote>
-<span id="more"></span>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>解决问题方法的效率，跟数据的组织方式有关</p>
-</li>
-<li class="lvl-2">
-<p>解决问题方法的效率，跟空间的利用效率有关</p>
-</li>
-<li class="lvl-2">
-<p>解决问题方法的效率，跟算法的巧妙程度有关</p>
-</li>
-</ul>
-<h3 id="抽象数据类型">抽象数据类型</h3>
-<ol>
-<li class="lvl-3">
-<p>数据结构（比如C++里的class）：</p>
-<ol>
-<li class="lvl-6">
-<p>数据对象集</p>
-</li>
-<li class="lvl-6">
-<p>数据集合相关联的操作集</p>
-</li>
-</ol>
-</li>
-<li class="lvl-3">
-<p>抽象：</p>
-<ol>
-<li class="lvl-6">
-<p>与存放数据的机器无关</p>
-</li>
-<li class="lvl-6">
-<p>与数据存储的物理结构无关</p>
-</li>
-<li class="lvl-6">
-<p>与实现操作的算法和编程语言均无关</p>
-</li>
-</ol>
-</li>
-</ol>
-<h1>1.2 什么是算法？</h1>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>一个有限的指令集</p>
-</li>
-<li class="lvl-2">
-<p>接受一些输入（或不需要）</p>
-</li>
-<li class="lvl-2">
-<p>产生输出</p>
-</li>
-<li class="lvl-2">
-<p>在有限步骤后终止</p>
-</li>
-<li class="lvl-2">
-<p>每条指令必须</p>
-<ul class="lvl-2">
-<li class="lvl-4">
-<p>有充分明确的目标，不可以有歧义</p>
-</li>
-<li class="lvl-4">
-<p>计算机的处理能力范围内</p>
-</li>
-<li class="lvl-4">
-<p>描述不依赖计算机语言和具体实现手段</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="什么是好的算法？">什么是好的算法？</h3>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>空间复杂度$S(n)$</p>
-</li>
-<li class="lvl-2">
-<p>时间复杂度$T(n)$：$O(\log n)\le O(n)\le O(n\log n) \le O(n^{2}) \le O(2^{n})\le O(n!)$</p>
-<ul class="lvl-2">
-<li class="lvl-4">
-<p>若两段算法分别有复杂度$T_1(n)=O(f_1(n))$和$T_2(n)=O(f_2(n))$，则：</p>
-<ul class="lvl-4">
-<li class="lvl-6">
-<p>$T_1(n)+T_2(n)=\max(O(f_1(n)),O(f_2(n)))$</p>
-</li>
-<li class="lvl-6">
-<p>$T_1(n)\times T_2(n)=O(f_1(n)\times f_2(n))$</p>
-</li>
-</ul>
-</li>
-<li class="lvl-4">
-<p>一个for循环的时间复杂度等于循环次数乘以循环体代码的复杂度</p>
-</li>
-<li class="lvl-4">
-<p>if-else结构的复杂度取决于if的条件判断复杂度和两个分支部分的复杂度，总体取三者中最大</p>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构note（二）</title>
-    <url>/2023/07/26/blog13-DS2/</url>
-    <content><![CDATA[<h1>算法复杂度的一些简单实例</h1>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="Algorithm01">Algorithm01</h3>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm01</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">int</span> sum=<span class="number">0</span>,n=<span class="number">100</span>;</span><br><span class="line">    sum=(<span class="number">1</span>+n)*n/<span class="number">2</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>一共进行了三步，这是一个$\mathcal{O}(1)$的算法.</p>
-<span id="more"></span>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="Algorithm02">Algorithm02</h3>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm02</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>,i&lt;n;i++)&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>for循环的执行次数即为$n$，故复杂度为$\mathcal{O}(n)$.</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="Algorithm03">Algorithm03</h3>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm03</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> count=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(count&lt;n)&#123;</span><br><span class="line">        count=count*<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>可以看到，要想把while语句走完，根据判断条件和循环节，需要$log_2n$次，忽略声明变量的常数次复杂度，可得复杂度为$\mathcal{O}(\log_2n)$.</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="Algorithm04">Algorithm04</h3>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">Algorithm04</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=i;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,i+j);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>外循环$i=0$时，内循环执行了$n$次；$i=1$时，内循环执行$n-1$次……故循环共执行了$n+(n-1)+…+1=\frac{n(n+1)}{2}$次，取最高次项，复杂度为$\mathcal{O}(n^2)$.</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<h3 id="Algorithm05">Algorithm05</h3>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">function05</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;hello world!\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">Algorithm05</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    n++;</span><br><span class="line">    function05(n);</span><br><span class="line">    <span class="type">int</span> i,j;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        function05(n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(j=i;j&lt;n;j++)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;hello world!\n&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在第二个函数里调用了function05函数，故在第二个函数中计算，有$1+n+n<sup>2+\frac{n(n+1)}{2}$次，也即复杂度为$\mathcal{O}(n</sup>2)$.</p>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>数据结构</category>
-      </categories>
-      <tags>
-        <tag>数据结构</tag>
       </tags>
   </entry>
   <entry>
@@ -1162,6 +1162,44 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>第一次研赛心得体会</title>
+    <url>/2023/09/27/blog22-2023B/</url>
+    <content><![CDATA[<h3 id="2023华为杯研究生数学建模竞赛B题">2023华为杯研究生数学建模竞赛B题</h3>
+<p>自从回到学校后很久没有更新了，除了上课大多数时间都在准备这次的华为杯，终于也是在昨天顺利的结束了，相关的文件已经上传至github的仓库上，不过是粪作罢了（悲</p>
+<p>下面记录一下比赛的经过和心得。</p>
+<span id="more"></span>
+<ul class="lvl-0">
+<li class="lvl-2">
+<h4 id="经过">经过</h4>
+<p>作为第一次参赛，想着肯定要pass华为题了。赛题发布后发现AB都是华为题，开始看E题比较顺眼，感觉是能完整做下来的。然而当我搜集了一些论文，并准备着手处理数据时，一个队友说B题说不定也能做，并且和我交流了一些想法，另一个队友也答应下来。虽然彼时我内心有些抗拒，听下来我觉得还是有些困难、没有头绪，但最终还是选择了相信团队的能力，于是便确定下来。</p>
+<p>B题大致讲的是对DFT矩阵进行分解逼近，在一定的精度下可以代替原矩阵计算，以减小硬件复杂度。一共五个问题，每个问题都是在原始问题的基础上修改了约束条件或者更改了问题的形式。</p>
+<p>第一问我们大概花了一天半的时间。考虑到用迭代法的话，需要确定初值，但是一直没什么思路。后来根据DFT矩阵的特殊性（范德蒙德矩阵）找了一篇分解的论文，并且满足约束，就直接拿来用了。后来想想都直接分解了这还叫逼近吗（笑</p>
+<p>第二问换了个约束，要求矩阵是整数阵，具体要求见题目。总之一考虑到整数的离散性，我也没多想就觉得可以用遗传算法，并且为了快点解决这题，马上投入了coding，跑出了结果就也没过多分析其正确性就半场开香槟，比赛结束后想想这个结果肯定很离谱。</p>
+<p>第三问加上了稀疏性，那就更省力了，不过相应的要把算法中的一些操作进行修改。</p>
+<p>第四问运用了Kronecker积的性质，但这里用的时候其实有问题，等发现后已经快做完了…于是花了一些时间想<s>怎么圆场</s>怎么改求解方式，但最后无果。</p>
+<p>第五问纯纯的没啥思路，就硬着头皮跑了一些结果来展示。越是做到后面越觉得前面的路歪，但是到这个时候已经25号了，我们也想赶紧结束这一切了。</p>
+</li>
+<li class="lvl-2">
+<h4 id="心得">心得</h4>
+<p>相比本科国赛时，我的代码水平没提高多少，反而因为有了chatgpt，一些简单的任务我都交给它来做了😅。不过那个时候写了各种global变量导致回头一看就是屎山，现在因为学了C艹，习惯稍微好点了。</p>
+<p>再就是感觉自己的知识储备还是太少了，对于这种数学题，理应用更偏数学的方式去解决，但最后还是用了老一套智能优化算法，并且一路用下去，没能有太多创新。虽然都能跑出结果，但效果不好。做题的时候后面一组似乎是研二的学长，也做B题，他们的交流让我们感到我们做的不是同一题…</p>
+</li>
+<li class="lvl-2">
+<h4 id="总结">总结</h4>
+<p>总之这只是一次值得的尝试以及锻炼的机会，拿回300块报名费就算成功（</p>
+<p>希望下次再参加的时候可以更强一点。</p>
+<p><img src="https://i2.100024.xyz/2023/09/27/r7fxmy.webp" alt=""></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>学习</category>
+      </categories>
+      <tags>
+        <tag>研赛</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>基于easyx库的C语言制作游戏尝试</title>
     <url>/2023/10/10/blog23-Cgame/</url>
     <content><![CDATA[<p>  为了快速熟悉C，我决定跟着网上的游戏项目视频做来练手，一方面能熟悉语言和算法，另一方面也能丰富经验。<br>
@@ -1180,6 +1218,40 @@ $$</p>
       <tags>
         <tag>C语言</tag>
         <tag>游戏项目</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PageRank算法</title>
+    <url>/2023/11/23/blog25-PaperRank/</url>
+    <content><![CDATA[<h3 id="PageRank的基本思想">PageRank的基本思想</h3>
+<p>PageRank算法是谷歌搜索引擎中用于评估网页重要性的核心算法之一。该算法由谷歌创始人拉里·佩奇和谢尔盖·布林在1998年提出，并成为谷歌搜索引擎的基础。</p>
+<span id="more"></span>
+<p>PageRank算法的核心思想是，通过分析网页之间的链接关系，将网页作为节点，将所有网络转化为一个有向图。<strong>它认为被更多网页指向的网页更重要</strong>（比如说博客，大佬的博客有很多友链，我只有少数大佬的友链，说明我的博客很垃圾），从而定义了每个网页的重要程度，即PageRank值，简称PR值。</p>
+<p>假设互联网是一个有向图，在其基础上定义随机游走模型，即一阶马尔可夫链，表示网页浏览者在互联网上随机浏览网页的过程。假设浏览者在每个网页依照连接出去的超链接以等概率跳转到下一个网页，并在网上持续不断进行这样的随机跳转，这个过程形成一阶马尔可夫链。PageRank表示这个马尔可夫链的平稳分布。每个网页的PageRank值就是平稳概率。</p>
+<h3 id="PageRank的一般定义">PageRank的一般定义</h3>
+<p>给定一个含有$n$个结点$v_i,i=1,2,\cdots,n$的任意有向图，则每个节点的PR值一般定义如下式：<br>
+$$<br>
+PR(v_i)=d(\sum_{v_j \in N(v_i)}\frac{PR(v_j)}{DE(v_j)})+\frac{1-d}{n},i=1,2,\cdots,n.<br>
+$$<br>
+其中$d$为阻尼系数由经验决定，一般令$d=0.85$，$DE(v_j)$为节点$v_j$的度，$N(v_i)$为$v_i$的邻居节点。并且有$\sum_{i=1}^{n} PR(v_i)=1$.</p>
+<p>在实际应用中PR值往往是一个时变的数，由迭代产生每个时刻的PR值。对于第$i$个节点，$t=0$时每个节点的PR值相等为$\frac{1}{n}$。$t&gt;0$时，PR值定义如下：<br>
+$$<br>
+PR_i(t)=d(\sum_{v_j \in N(v_i)}\frac{\rho_{ij} PR_j(t)}{DE(v_j)})+\frac{1-d}{n},i=1,2,\cdots,n.<br>
+$$<br>
+其中$\rho_{ij}=DE(v_i)+DE(v_j)$代表了边的权值。这样待迭代至最终就可以生成每个节点的PR值。</p>
+<blockquote>
+<p>参考文献：<br>
+CDS-Based Topology Control in FANETs via Power and Position Optimization.<br>
+DOI：10.1109/LWC.2020.3009666</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>算法</tag>
+        <tag>网络</tag>
       </tags>
   </entry>
   <entry>
@@ -1308,75 +1380,34 @@ Movie4-6：30架无人机分别在4、6、8m/s速度下对应对角线、避障�
       </tags>
   </entry>
   <entry>
-    <title>第一次研赛心得体会</title>
-    <url>/2023/09/27/blog22-2023B/</url>
-    <content><![CDATA[<h3 id="2023华为杯研究生数学建模竞赛B题">2023华为杯研究生数学建模竞赛B题</h3>
-<p>自从回到学校后很久没有更新了，除了上课大多数时间都在准备这次的华为杯，终于也是在昨天顺利的结束了，相关的文件已经上传至github的仓库上，不过是粪作罢了（悲</p>
-<p>下面记录一下比赛的经过和心得。</p>
+    <title>Next主题更改引用blockquote以及内嵌代码code的颜色</title>
+    <url>/2023/05/19/blog4/</url>
+    <content><![CDATA[<h5 id="Next版本：7-8-0">Next版本：7.8.0</h5>
+<p>  因为设置了背景，所以往往有统一颜色的需求，此时占比较大的引用和代码的颜色较为明显，如果采用默认颜色会比较难看。在相同Next主题和版本下，可以这样设置：</p>
 <span id="more"></span>
 <ul class="lvl-0">
 <li class="lvl-2">
-<h4 id="经过">经过</h4>
-<p>作为第一次参赛，想着肯定要pass华为题了。赛题发布后发现AB都是华为题，开始看E题比较顺眼，感觉是能完整做下来的。然而当我搜集了一些论文，并准备着手处理数据时，一个队友说B题说不定也能做，并且和我交流了一些想法，另一个队友也答应下来。虽然彼时我内心有些抗拒，听下来我觉得还是有些困难、没有头绪，但最终还是选择了相信团队的能力，于是便确定下来。</p>
-<p>B题大致讲的是对DFT矩阵进行分解逼近，在一定的精度下可以代替原矩阵计算，以减小硬件复杂度。一共五个问题，每个问题都是在原始问题的基础上修改了约束条件或者更改了问题的形式。</p>
-<p>第一问我们大概花了一天半的时间。考虑到用迭代法的话，需要确定初值，但是一直没什么思路。后来根据DFT矩阵的特殊性（范德蒙德矩阵）找了一篇分解的论文，并且满足约束，就直接拿来用了。后来想想都直接分解了这还叫逼近吗（笑</p>
-<p>第二问换了个约束，要求矩阵是整数阵，具体要求见题目。总之一考虑到整数的离散性，我也没多想就觉得可以用遗传算法，并且为了快点解决这题，马上投入了coding，跑出了结果就也没过多分析其正确性就半场开香槟，比赛结束后想想这个结果肯定很离谱。</p>
-<p>第三问加上了稀疏性，那就更省力了，不过相应的要把算法中的一些操作进行修改。</p>
-<p>第四问运用了Kronecker积的性质，但这里用的时候其实有问题，等发现后已经快做完了…于是花了一些时间想<s>怎么圆场</s>怎么改求解方式，但最后无果。</p>
-<p>第五问纯纯的没啥思路，就硬着头皮跑了一些结果来展示。越是做到后面越觉得前面的路歪，但是到这个时候已经25号了，我们也想赶紧结束这一切了。</p>
-</li>
-<li class="lvl-2">
-<h4 id="心得">心得</h4>
-<p>相比本科国赛时，我的代码水平没提高多少，反而因为有了chatgpt，一些简单的任务我都交给它来做了😅。不过那个时候写了各种global变量导致回头一看就是屎山，现在因为学了C艹，习惯稍微好点了。</p>
-<p>再就是感觉自己的知识储备还是太少了，对于这种数学题，理应用更偏数学的方式去解决，但最后还是用了老一套智能优化算法，并且一路用下去，没能有太多创新。虽然都能跑出结果，但效果不好。做题的时候后面一组似乎是研二的学长，也做B题，他们的交流让我们感到我们做的不是同一题…</p>
-</li>
-<li class="lvl-2">
-<h4 id="总结">总结</h4>
-<p>总之这只是一次值得的尝试以及锻炼的机会，拿回300块报名费就算成功（</p>
-<p>希望下次再参加的时候可以更强一点。</p>
-<p><img src="https://i2.100024.xyz/2023/09/27/r7fxmy.webp" alt=""></p>
+<p>块引用</p>
 </li>
 </ul>
+<p>  首先cd到<code>..\next\source\css\_common\scaffolding</code>找到<code>base.styl</code>文件，打开ctrl+F搜索blockquote，对代码进行如下编辑：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#d0a7020d</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">4px</span> solid <span class="number">#d0a702</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--blockquote-color);</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">15px</span>;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">cite</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">5px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中background是引用块的背景颜色，border-left即左边粗竖线的颜色，对#后面改成自己喜欢的颜色后重新部署即可。</p>
+<ul class="lvl-0">
+<li class="lvl-2">
+<p>内嵌代码</p>
+</li>
+</ul>
+<p>  cd到<code>..\next\source\css\_variables</code>找到<code>base.styl</code>文件，打开找到code-background，同样将后面的颜色进行修改即可。</p>
+<p>  由于我还没有设置图床，就不放图片演示了😶</p>
+<p>  最后，如果版本不一致，也可以用开发者工具找到源代码进行修改。</p>
 ]]></content>
       <categories>
-        <category>学习</category>
+        <category>经验</category>
+        <category>Next美化</category>
       </categories>
       <tags>
-        <tag>研赛</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PageRank算法</title>
-    <url>/2023/11/23/blog25-PaperRank/</url>
-    <content><![CDATA[<h3 id="PageRank的基本思想">PageRank的基本思想</h3>
-<p>PageRank算法是谷歌搜索引擎中用于评估网页重要性的核心算法之一。该算法由谷歌创始人拉里·佩奇和谢尔盖·布林在1998年提出，并成为谷歌搜索引擎的基础。</p>
-<span id="more"></span>
-<p>PageRank算法的核心思想是，通过分析网页之间的链接关系，将网页作为节点，将所有网络转化为一个有向图。<strong>它认为被更多网页指向的网页更重要</strong>（比如说博客，大佬的博客有很多友链，我只有少数大佬的友链，说明我的博客很垃圾），从而定义了每个网页的重要程度，即PageRank值，简称PR值。</p>
-<p>假设互联网是一个有向图，在其基础上定义随机游走模型，即一阶马尔可夫链，表示网页浏览者在互联网上随机浏览网页的过程。假设浏览者在每个网页依照连接出去的超链接以等概率跳转到下一个网页，并在网上持续不断进行这样的随机跳转，这个过程形成一阶马尔可夫链。PageRank表示这个马尔可夫链的平稳分布。每个网页的PageRank值就是平稳概率。</p>
-<h3 id="PageRank的一般定义">PageRank的一般定义</h3>
-<p>给定一个含有$n$个结点$v_i,i=1,2,\cdots,n$的任意有向图，则每个节点的PR值一般定义如下式：<br>
-$$<br>
-PR(v_i)=d(\sum_{v_j \in N(v_i)}\frac{PR(v_j)}{DE(v_j)})+\frac{1-d}{n},i=1,2,\cdots,n.<br>
-$$<br>
-其中$d$为阻尼系数由经验决定，一般令$d=0.85$，$DE(v_j)$为节点$v_j$的度，$N(v_i)$为$v_i$的邻居节点。并且有$\sum_{i=1}^{n} PR(v_i)=1$.</p>
-<p>在实际应用中PR值往往是一个时变的数，由迭代产生每个时刻的PR值。对于第$i$个节点，$t=0$时每个节点的PR值相等为$\frac{1}{n}$。$t&gt;0$时，PR值定义如下：<br>
-$$<br>
-PR_i(t)=d(\sum_{v_j \in N(v_i)}\frac{\rho_{ij} PR_j(t)}{DE(v_j)})+\frac{1-d}{n},i=1,2,\cdots,n.<br>
-$$<br>
-其中$\rho_{ij}=DE(v_i)+DE(v_j)$代表了边的权值。这样待迭代至最终就可以生成每个节点的PR值。</p>
-<blockquote>
-<p>参考文献：<br>
-CDS-Based Topology Control in FANETs via Power and Position Optimization.<br>
-DOI：10.1109/LWC.2020.3009666</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>算法</category>
-      </categories>
-      <tags>
-        <tag>算法</tag>
-        <tag>网络</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -1413,37 +1444,6 @@ DOI：10.1109/LWC.2020.3009666</p>
       </tags>
   </entry>
   <entry>
-    <title>Next主题更改引用blockquote以及内嵌代码code的颜色</title>
-    <url>/2023/05/19/blog4/</url>
-    <content><![CDATA[<h5 id="Next版本：7-8-0">Next版本：7.8.0</h5>
-<p>  因为设置了背景，所以往往有统一颜色的需求，此时占比较大的引用和代码的颜色较为明显，如果采用默认颜色会比较难看。在相同Next主题和版本下，可以这样设置：</p>
-<span id="more"></span>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>块引用</p>
-</li>
-</ul>
-<p>  首先cd到<code>..\next\source\css\_common\scaffolding</code>找到<code>base.styl</code>文件，打开ctrl+F搜索blockquote，对代码进行如下编辑：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#d0a7020d</span>;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">4px</span> solid <span class="number">#d0a702</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="built_in">var</span>(--blockquote-color);</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">15px</span>;</span><br><span class="line"></span><br><span class="line">  <span class="selector-tag">cite</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;-&#x27;</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">5px</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>其中background是引用块的背景颜色，border-left即左边粗竖线的颜色，对#后面改成自己喜欢的颜色后重新部署即可。</p>
-<ul class="lvl-0">
-<li class="lvl-2">
-<p>内嵌代码</p>
-</li>
-</ul>
-<p>  cd到<code>..\next\source\css\_variables</code>找到<code>base.styl</code>文件，打开找到code-background，同样将后面的颜色进行修改即可。</p>
-<p>  由于我还没有设置图床，就不放图片演示了😶</p>
-<p>  最后，如果版本不一致，也可以用开发者工具找到源代码进行修改。</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-        <category>Next美化</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>响应式Bilibili视频代码块测试</title>
     <url>/2023/05/24/blog5/</url>
     <content><![CDATA[<p>  首先在b站点击分享，复制嵌入代码，再按照如下格式编辑：</p>
@@ -1457,6 +1457,23 @@ DOI：10.1109/LWC.2020.3009666</p>
       <categories>
         <category>经验</category>
         <category>Next美化</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>更新Next主题：v7.8-&gt;v8.16</title>
+    <url>/2023/05/26/blog6/</url>
+    <content><![CDATA[<p>  由于需要换valine为waline或twikoo，以及各种由于Next版本低导致的问题（相关的网络资源少、教程少等等），今天下定决心更新一下版本。</p>
+<span id="more"></span>
+<h4 id="Hexo-version-6-3；Next-version-7-8">Hexo version: 6.3；Next version:7.8</h4>
+<p>  知道更新版本有一定的风险，于是做好了旧版本的备份。最终没有太大的损失，只是先前自定义的一些样式由于文件发生改变而失效，这些会在后续重新补充。</p>
+<p>  更新版本参考教程：<a href="https://drifter-games.com/2021/nextupdate/">https://drifter-games.com/2021/nextupdate/</a></p>
+]]></content>
+      <categories>
+        <category>经验</category>
+        <category>Next升级</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
@@ -1494,6 +1511,36 @@ DOI：10.1109/LWC.2020.3009666</p>
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一些庵野秀明风格的尝试</title>
+    <url>/2023/06/23/goodbye-graduate/</url>
+    <content><![CDATA[<h2 id="再见了，所有的张秀梅">再见了，所有的张秀梅</h2>
+<p>😎</p>
+<p>🤏🕶️</p>
+<p>😭</p>
+<span id="more"></span>
+<p><img src="https://i2.100024.xyz/2023/06/23/r3edka.webp" alt="1"></p>
+<p><img src="https://i2.100024.xyz/2023/06/23/r3evqt.webp" alt="2"></p>
+<p><img src="https://i2.100024.xyz/2023/06/23/r3f4wp.webp" alt="3"></p>
+<hr>
+<h3 id="参考教程：">参考教程：</h3>
+<ol>
+<li class="lvl-3">
+<p><a href="https://www.bilibili.com/video/BV1Uf4y1n7zK/?spm_id_from=333.788.recommend_more_video.4&amp;vd_source=e86cb514a2080267c3cb770f30a907f6">《One Last Kiss》专辑封面制作</a></p>
+</li>
+<li class="lvl-3">
+<p><a href="https://www.bilibili.com/video/BV14L411S7fu/?spm_id_from=333.999.0.0&amp;vd_source=e86cb514a2080267c3cb770f30a907f6">字体、图片素材和背景音乐等</a></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>日常</category>
+      </categories>
+      <tags>
+        <tag>毕业</tag>
+        <tag>庵野秀明风格</tag>
       </tags>
   </entry>
   <entry>
@@ -1633,10 +1680,10 @@ DOI：10.1109/LWC.2020.3009666</p>
       </tags>
   </entry>
   <entry>
-    <title>20889;32473;26045;22025;35946;</title>
-    <url>/2023/06/18/linbiezengyan/</url>
+    <title>20889;32473;24464;36827;24179;</title>
+    <url>/2023/06/18/linbiezengyan1/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="7a5e939dbee177c124444d4e5070c2254d4bca5d513f53111bde3cf0c9d40b6e">e80960072eee56390c5704dab6ba0fae854db6dc0f835e374d2013bd94f4e08446a64f0f00b2e823f15c8b4d25422063807c03848af83195d447827db04ea04c11f9e6cc59be5ced9772478f31e7921bab1b8072bca090176edb64c256d9cb08a1f96d5ed9b3865957b5d4689104d11090373b5e76163d612ba0a36891740765c1976f7277f59c5c593087238d40e9ad126c850392c1457fba027cf9c2a5d391274fb74d1a71c88dd02079dc9ba0e8d3ba6ffb414c63ac7298933baa06914741b58cd643218b85dabea50b61721c9265e249e2cc655263fc7dba5889c6aa83961ae314b4ce348a9c59e61c62a21064d3715eae3030b120994e20db3ebe15a7aa3d47c3e029a1d39a8e5c4f5bb57ece3ed42b28d11a171889b742788de07eba7dd9c27fdaff27119bd9f2dc396b1727a43af4c74841f20404d72bad8b8796ac6b8c121d488a69671570633d672c8585176a925e5eba9b1e3e4a675245b1871ce768e50d32debef7cb7033071129ec4bf98cc6a5e30f89281fa26658821f7e3a5d5cdaf1669f909e20ddbfd0be7d07f7da4b9f9adb71127ab03e6e744ebe499ed02fdbdfff21af8aae11efaf5497386c1a34782e0bad69bb8710f43813154e0d22eff26a030f4d47aa28f1596ae6c05f4d6a50ce21af7ef75f9c0fcdd8bc3af04a8f83e5e527d151eae69bd9e7455ddaaa2af222fe1df8025142df6094b10da56bfffa6dc1e8c043a59683c2518f9d0683b2623192fb756538fcdcb6677cd75f6f16959d3b6127282d39c41ae0ef4291bf010aadf09eea0977acfeb11e023399be4814cbd46a09cc259ce2c83c7a27d43158b4e6ade8360db8a15744ebd4e0c8309dc37c45d5292806e6fe1abe26ce08adc466d893da7abb45906e104b3cf72e089f1dda74449cae8943ca379b30063102f86c392ee6bcadbc02d82bbc90ed1ac84aa560abcc83f44cf73276b73c0978509510d49b2302df463f08a234da96a77f274da4276a636ccc6321c7dedb31d1dfd48e5aac3dea1f9c633e48e497ab60f225ce4a47ae0415f348e508a49af8130961705489bb0f4df1b98b0fd79c791e7c96f3c562adc37a7b614045dda449ca08167038b3afa350af25f4ece3e34b49f0c84b72fc35f1ba2ea4e8f80190b994e508d48f7456215381dfe40d11159f1eba61681de87770f50a3628fb948538415ede7bc0d8f2f0b4306d28ada047b173791c743bc27d78beac7e1cb37aceaeb7d2930e2f0c778f1aeab90f7ee73ed408f724022367cc5bea018a4077af1fe23059ef7a039857f5d8d3bd30bdbe40c6953d392779b14d92cc5a41217a36425cd025ba1bc397664f2927af07a3fa92dceb341b1629cd8f1d7f20291afbc42811fb276a07b19498be01fb2a26235fe14303ca1e0b2639247a5ded8c4891e45d247bcf6cc2975c7befeffa21913de8263850ffa0faab433403b100dcc8bdca0798514e38c1848cfbec253f72b510de6383fe5b46719e267b2fabc3cea735cce81474a727945247347cce14714f19e22b75021f8d56d7b6b95a43c19e4682b151f73e6a273d8e3b1db235d3897d81f374fe1c183c0a52b256d6f0c98aa650c7bfdbcf62b7096d9a510d0120e4f957a3f6c3c09a203b8b6aee2d773d28a31e8bb93d083e963cef037d407abca14fc6bb3f5212e92a50fd36bb1cc6b5d85f3c80fc68f0f6adb997f3d0e4986132d4c7781c2aedee4c72b3170218e2e7fa3c66f4d079b6a5471b84a8fe07904d9289c535f9d9be0b85944fa36e7cb7e9d024eaf5222b1d91e6b5e124dbba1080d325533470510479fa23dc405e677a739311f5af3b1b5d1b9510d70b9e0fdb6448b0ac018448803806ff35a5be4c8e432bf554a640eb678d7cf05e8965fb60139b07328e3a6e68b2520c440b94fce46e0f067ae2bdc58ac61626adc33d74e5aaf94530252c891c2701ba572109f31371827ac92fd66ddda68d881584e52134a79783355da4af260e17bebc120e25a433b315d4a8764280bb7e77e0f5a9dc023b53416a466c6f851afe90931a40db98feae2cdb7a4e2bf762cc561eb748004affdef0aeb8f5ebc5fa4dbcc028d70223bbc773b1a7b5947b24d45764564128c4c978bd18e578a5a0ab12331c6038f5ed1bb1fbb9c2f8c49d027d603baadc78490a930d93764793b4d83ff93dd7acdb21e6afc7e1a69a5d34afe0e6fb2929f84421d3cf8b0a41079ed75ee498e7e7fff47f009175b37a55fd41397e43dc29c077ed31f03c991e9c2a1205b6998f850544de3817a970df4b3c97eba5d168ad549e2d807cfac1a52569f78e8f1a67917483662e839a2b704f2abc27f48ee1ceb2901e3b4e8c3e7caaed8f82486ce2ccc3019563624841889b41d4</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="a2a6a4f54239b08c2a35d71290ca5e93f33c5c0a34518647e4a8f7f838e98137">65735b815448ad3a63446ef12ba35639330eb3e3b37cd7a17fb2f2c0c867a0e05e21f825603638338db11dd61e6de0e4343d4c7fd577c1e4a0d20aa95bde770060beb77c3eb135578c065f70508d42d04403ed9e8a6884a333a7128c8074971e28f83015cfaafb293c5b92a7a080c2d4c41bec5aa4fe54fdcb438184384c385e9b803992c2e3a0b9a0ea5c871a81a10b15c4933166a4117e3aefe7d20de7b1404379a05364f1a1b7584360f255a75fd3dce80574732e58021c7256271e60e988a404b3125f0f57b0fc3ec2c7f9a4b6eda498259cc73d7e71721862ce3714351eea19a746bd8f2df8b1ad7617e4c89499748710c211745fbfd505da2c1d6db22f337b530b29c0419ba18df7c9495ba769de429250e12e54efe17a73e0a6f03e80eac0b724bb1d0e6f81262adb64ee45bced1a72ee7056d65281f490710333ccddbd6eb10966299e7d92f624e6bb17bb649c2032cbafb056a230db197484d4687b494be916353461dfa16babdb5ac37ddf7e26c6c758607aef3ab4b06e87860c33e6d0bdd288ee4416111b21a09573317f6b662e9f670431283b06734cb25018d9cc90de62f53a362bf6a37c439e5d761c8363bebc48710d0c3f2ed469fd3d4db8c716900746402f4df31bc30f009824fadea47cb4f0570c16096c4232219f1b89589dad0cb1352dffd376f220516199973b349cd4dea769a9cbc2b068e4378c404ff385d8da3fe16262fc71fa1eaeb2860101228ec5f7023b31a1f986c7d8c1c1f1ad0e6db959cb049ae5021de01bdf123d3ddd5d0e81c60db40c06f58ea1363dcab0305e062335b6bdb40dd30ecbadc6d2d640df2522d2f8abbd2dd0915ddfe6d3a17ee352b42fd65343f4cb72a8323c65a4472822b29e3a0012a1386c5fe8f6a59953473eee900e2c0f6d667d80cf14a8411d948c0a489c03e86282253a2c7fcf26fbe60bb8cfa157294e4b3cd863ec94392dc9f985a8e3f79c9b659de9dd3478e1b00cee8af17ea6feb7f982cbbc77d949d13119e53a21700f211b8546c83bbb554d21d11d3e5951ceb909008a2bdd2006ed748ef9639ac362a7b11bb853feed961961d523a9d900dbbacffa3e1aa7c7c49cb1a6e01041eb3471f3811fcb858fa19c296193b2328e1841af2c87b4ab9287e5d181aadfb3cdda3d6d535d785f0a3e27822f2b06ce448f572bfde45578bc7d2ee65a642cc0cfe5ec05a4ae5024b2823af07f93f75864727019880fb9f7ad78ead1493fc5d5febca0620eb3b0915b0fcef0d02b9a5e3fa9087de7f843df73c81ca0675a7a506c0852265640189159427b2afc805f584c60824633f0e1ed5525782cef841d187dffa47c5ddc7e29373d16ef107a88e6c7f42de9b5abec3e4bc214f98c8bc6fc667271803dd2054e06b2951305fa39385df73c001a6f7a293282d397b95dfaedcd66d467fb4356b892276cd8e5e9044452283913b80773b07eeb96ed22c24690bb90103677b04332</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -1655,40 +1702,10 @@ DOI：10.1109/LWC.2020.3009666</p>
       </tags>
   </entry>
   <entry>
-    <title>一些庵野秀明风格的尝试</title>
-    <url>/2023/06/23/goodbye-graduate/</url>
-    <content><![CDATA[<h2 id="再见了，所有的张秀梅">再见了，所有的张秀梅</h2>
-<p>😎</p>
-<p>🤏🕶️</p>
-<p>😭</p>
-<span id="more"></span>
-<p><img src="https://i2.100024.xyz/2023/06/23/r3edka.webp" alt="1"></p>
-<p><img src="https://i2.100024.xyz/2023/06/23/r3evqt.webp" alt="2"></p>
-<p><img src="https://i2.100024.xyz/2023/06/23/r3f4wp.webp" alt="3"></p>
-<hr>
-<h3 id="参考教程：">参考教程：</h3>
-<ol>
-<li class="lvl-3">
-<p><a href="https://www.bilibili.com/video/BV1Uf4y1n7zK/?spm_id_from=333.788.recommend_more_video.4&amp;vd_source=e86cb514a2080267c3cb770f30a907f6">《One Last Kiss》专辑封面制作</a></p>
-</li>
-<li class="lvl-3">
-<p><a href="https://www.bilibili.com/video/BV14L411S7fu/?spm_id_from=333.999.0.0&amp;vd_source=e86cb514a2080267c3cb770f30a907f6">字体、图片素材和背景音乐等</a></p>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>日常</category>
-      </categories>
-      <tags>
-        <tag>毕业</tag>
-        <tag>庵野秀明风格</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20889;32473;24464;36827;24179;</title>
-    <url>/2023/06/18/linbiezengyan1/</url>
+    <title>20889;32473;26045;22025;35946;</title>
+    <url>/2023/06/18/linbiezengyan/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="a2a6a4f54239b08c2a35d71290ca5e93f33c5c0a34518647e4a8f7f838e98137">65735b815448ad3a63446ef12ba35639330eb3e3b37cd7a17fb2f2c0c867a0e05e21f825603638338db11dd61e6de0e4343d4c7fd577c1e4a0d20aa95bde770060beb77c3eb135578c065f70508d42d04403ed9e8a6884a333a7128c8074971e28f83015cfaafb293c5b92a7a080c2d4c41bec5aa4fe54fdcb438184384c385e9b803992c2e3a0b9a0ea5c871a81a10b15c4933166a4117e3aefe7d20de7b1404379a05364f1a1b7584360f255a75fd3dce80574732e58021c7256271e60e988a404b3125f0f57b0fc3ec2c7f9a4b6eda498259cc73d7e71721862ce3714351eea19a746bd8f2df8b1ad7617e4c89499748710c211745fbfd505da2c1d6db22f337b530b29c0419ba18df7c9495ba769de429250e12e54efe17a73e0a6f03e80eac0b724bb1d0e6f81262adb64ee45bced1a72ee7056d65281f490710333ccddbd6eb10966299e7d92f624e6bb17bb649c2032cbafb056a230db197484d4687b494be916353461dfa16babdb5ac37ddf7e26c6c758607aef3ab4b06e87860c33e6d0bdd288ee4416111b21a09573317f6b662e9f670431283b06734cb25018d9cc90de62f53a362bf6a37c439e5d761c8363bebc48710d0c3f2ed469fd3d4db8c716900746402f4df31bc30f009824fadea47cb4f0570c16096c4232219f1b89589dad0cb1352dffd376f220516199973b349cd4dea769a9cbc2b068e4378c404ff385d8da3fe16262fc71fa1eaeb2860101228ec5f7023b31a1f986c7d8c1c1f1ad0e6db959cb049ae5021de01bdf123d3ddd5d0e81c60db40c06f58ea1363dcab0305e062335b6bdb40dd30ecbadc6d2d640df2522d2f8abbd2dd0915ddfe6d3a17ee352b42fd65343f4cb72a8323c65a4472822b29e3a0012a1386c5fe8f6a59953473eee900e2c0f6d667d80cf14a8411d948c0a489c03e86282253a2c7fcf26fbe60bb8cfa157294e4b3cd863ec94392dc9f985a8e3f79c9b659de9dd3478e1b00cee8af17ea6feb7f982cbbc77d949d13119e53a21700f211b8546c83bbb554d21d11d3e5951ceb909008a2bdd2006ed748ef9639ac362a7b11bb853feed961961d523a9d900dbbacffa3e1aa7c7c49cb1a6e01041eb3471f3811fcb858fa19c296193b2328e1841af2c87b4ab9287e5d181aadfb3cdda3d6d535d785f0a3e27822f2b06ce448f572bfde45578bc7d2ee65a642cc0cfe5ec05a4ae5024b2823af07f93f75864727019880fb9f7ad78ead1493fc5d5febca0620eb3b0915b0fcef0d02b9a5e3fa9087de7f843df73c81ca0675a7a506c0852265640189159427b2afc805f584c60824633f0e1ed5525782cef841d187dffa47c5ddc7e29373d16ef107a88e6c7f42de9b5abec3e4bc214f98c8bc6fc667271803dd2054e06b2951305fa39385df73c001a6f7a293282d397b95dfaedcd66d467fb4356b892276cd8e5e9044452283913b80773b07eeb96ed22c24690bb90103677b04332</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="7a5e939dbee177c124444d4e5070c2254d4bca5d513f53111bde3cf0c9d40b6e">e80960072eee56390c5704dab6ba0fae854db6dc0f835e374d2013bd94f4e08446a64f0f00b2e823f15c8b4d25422063807c03848af83195d447827db04ea04c11f9e6cc59be5ced9772478f31e7921bab1b8072bca090176edb64c256d9cb08a1f96d5ed9b3865957b5d4689104d11090373b5e76163d612ba0a36891740765c1976f7277f59c5c593087238d40e9ad126c850392c1457fba027cf9c2a5d391274fb74d1a71c88dd02079dc9ba0e8d3ba6ffb414c63ac7298933baa06914741b58cd643218b85dabea50b61721c9265e249e2cc655263fc7dba5889c6aa83961ae314b4ce348a9c59e61c62a21064d3715eae3030b120994e20db3ebe15a7aa3d47c3e029a1d39a8e5c4f5bb57ece3ed42b28d11a171889b742788de07eba7dd9c27fdaff27119bd9f2dc396b1727a43af4c74841f20404d72bad8b8796ac6b8c121d488a69671570633d672c8585176a925e5eba9b1e3e4a675245b1871ce768e50d32debef7cb7033071129ec4bf98cc6a5e30f89281fa26658821f7e3a5d5cdaf1669f909e20ddbfd0be7d07f7da4b9f9adb71127ab03e6e744ebe499ed02fdbdfff21af8aae11efaf5497386c1a34782e0bad69bb8710f43813154e0d22eff26a030f4d47aa28f1596ae6c05f4d6a50ce21af7ef75f9c0fcdd8bc3af04a8f83e5e527d151eae69bd9e7455ddaaa2af222fe1df8025142df6094b10da56bfffa6dc1e8c043a59683c2518f9d0683b2623192fb756538fcdcb6677cd75f6f16959d3b6127282d39c41ae0ef4291bf010aadf09eea0977acfeb11e023399be4814cbd46a09cc259ce2c83c7a27d43158b4e6ade8360db8a15744ebd4e0c8309dc37c45d5292806e6fe1abe26ce08adc466d893da7abb45906e104b3cf72e089f1dda74449cae8943ca379b30063102f86c392ee6bcadbc02d82bbc90ed1ac84aa560abcc83f44cf73276b73c0978509510d49b2302df463f08a234da96a77f274da4276a636ccc6321c7dedb31d1dfd48e5aac3dea1f9c633e48e497ab60f225ce4a47ae0415f348e508a49af8130961705489bb0f4df1b98b0fd79c791e7c96f3c562adc37a7b614045dda449ca08167038b3afa350af25f4ece3e34b49f0c84b72fc35f1ba2ea4e8f80190b994e508d48f7456215381dfe40d11159f1eba61681de87770f50a3628fb948538415ede7bc0d8f2f0b4306d28ada047b173791c743bc27d78beac7e1cb37aceaeb7d2930e2f0c778f1aeab90f7ee73ed408f724022367cc5bea018a4077af1fe23059ef7a039857f5d8d3bd30bdbe40c6953d392779b14d92cc5a41217a36425cd025ba1bc397664f2927af07a3fa92dceb341b1629cd8f1d7f20291afbc42811fb276a07b19498be01fb2a26235fe14303ca1e0b2639247a5ded8c4891e45d247bcf6cc2975c7befeffa21913de8263850ffa0faab433403b100dcc8bdca0798514e38c1848cfbec253f72b510de6383fe5b46719e267b2fabc3cea735cce81474a727945247347cce14714f19e22b75021f8d56d7b6b95a43c19e4682b151f73e6a273d8e3b1db235d3897d81f374fe1c183c0a52b256d6f0c98aa650c7bfdbcf62b7096d9a510d0120e4f957a3f6c3c09a203b8b6aee2d773d28a31e8bb93d083e963cef037d407abca14fc6bb3f5212e92a50fd36bb1cc6b5d85f3c80fc68f0f6adb997f3d0e4986132d4c7781c2aedee4c72b3170218e2e7fa3c66f4d079b6a5471b84a8fe07904d9289c535f9d9be0b85944fa36e7cb7e9d024eaf5222b1d91e6b5e124dbba1080d325533470510479fa23dc405e677a739311f5af3b1b5d1b9510d70b9e0fdb6448b0ac018448803806ff35a5be4c8e432bf554a640eb678d7cf05e8965fb60139b07328e3a6e68b2520c440b94fce46e0f067ae2bdc58ac61626adc33d74e5aaf94530252c891c2701ba572109f31371827ac92fd66ddda68d881584e52134a79783355da4af260e17bebc120e25a433b315d4a8764280bb7e77e0f5a9dc023b53416a466c6f851afe90931a40db98feae2cdb7a4e2bf762cc561eb748004affdef0aeb8f5ebc5fa4dbcc028d70223bbc773b1a7b5947b24d45764564128c4c978bd18e578a5a0ab12331c6038f5ed1bb1fbb9c2f8c49d027d603baadc78490a930d93764793b4d83ff93dd7acdb21e6afc7e1a69a5d34afe0e6fb2929f84421d3cf8b0a41079ed75ee498e7e7fff47f009175b37a55fd41397e43dc29c077ed31f03c991e9c2a1205b6998f850544de3817a970df4b3c97eba5d168ad549e2d807cfac1a52569f78e8f1a67917483662e839a2b704f2abc27f48ee1ceb2901e3b4e8c3e7caaed8f82486ce2ccc3019563624841889b41d4</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -1729,27 +1746,10 @@ DOI：10.1109/LWC.2020.3009666</p>
       </tags>
   </entry>
   <entry>
-    <title>更新Next主题：v7.8-&gt;v8.16</title>
-    <url>/2023/05/26/blog6/</url>
-    <content><![CDATA[<p>  由于需要换valine为waline或twikoo，以及各种由于Next版本低导致的问题（相关的网络资源少、教程少等等），今天下定决心更新一下版本。</p>
-<span id="more"></span>
-<h4 id="Hexo-version-6-3；Next-version-7-8">Hexo version: 6.3；Next version:7.8</h4>
-<p>  知道更新版本有一定的风险，于是做好了旧版本的备份。最终没有太大的损失，只是先前自定义的一些样式由于文件发生改变而失效，这些会在后续重新补充。</p>
-<p>  更新版本参考教程：<a href="https://drifter-games.com/2021/nextupdate/">https://drifter-games.com/2021/nextupdate/</a></p>
-]]></content>
-      <categories>
-        <category>经验</category>
-        <category>Next升级</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20889;32473;39038;26159;30003;</title>
-    <url>/2023/06/18/linbiezengyan2/</url>
+    <title>20889;32473;27611;25391;28009;</title>
+    <url>/2023/06/19/linbiezengyan4/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="15cfbd87b87bb6f58699d81bed622094af91e9e2c834ae3fd7a65bc4e1f4f3ad">ff237e079a879a02e65405b26b486dd1529cd862ab8dfd048115e1c94775c41337517e9f2dec349b0966dc56c310a4a4467f0c6c33fcbb3f50c6a37c8421136192876c9cf989e8fdd54a428b3063ecf106bda2a143d0c249448fff0b774d9b0f7bcd25d7317d0b870c545ac71bbe62dd7bbbe694fe7ee79f79d5499baab02dd72a1367d60ea463707b4130651e3005dabfe877b5d59439fef114b1bb2908b20250df4c3918db950a37fa9dd5cb65c1cd38ab538b3581ca5938aa0a156880008ca5f1c4769b2fb95bf4d84f0defceeb9fca992d1f8977090f5503af32ca3ed0f9b9858943429f4cfb6bf70b7189dd5b57be65868cd30426bfcb7580b41ea026958c07aa197e167218172285dad3a897405e429d7d85475853121a2fd13b4fa12d492e044a911cfd799bbb61d41d29642a6c1445d3d431880e7b6927f7ebd9799974b560c9a5106ee4f82c4b9ad9d3059c00575d4b91febaea3a41f64059626e135a5058db2540eba6d4adfbdd940e1b613d2e6c1f1aed16c42a7cba2e137050860faf7096b9d1c7ee5e4c84f2dcdf4c53895eb087fad9fac7bfb415cbe058a7a944c57a3550c27b631542772c4dced82fbb5a0dc6b728c61f42579ac08e71085644d8ebc1ac80c16a07cbae690a4350f73660a658c13b4ec717b3641b701937068724eb3be387b49e512de2c63754a4c97d1a8abe1df1a8da6835dd697f197f596357e287e2ffe367d3a7e4fb8cc60def0600bf965be382d79c39d0500928ec072fdcaccbb785b77ff1eb4cdf3ee2ac36405ac6c710b3596405948e6483bd3059258ffb446218005f995ba349840f838cf7d243dd4c81a7781fc9c15b5bfdd4b7859421117994240fcdbb99c7e96e6c260f487106f365475397f8708e4df0ba849fddf522f709374d0aa3a3cf69ff46d9e860918ea57557375d2d25611e30df37fcd20dcf8f9131716aaeeafc33d1d714199acfee6719a958c7d73ab784d9eb0071d813347e9ab83aa06bc5250e2f0c88cca4bf23b6921d6976e177d1a323da55529f62f81b50c818a79a69f8b12d13c1808dd6d1254266c8d5792c5eb0e09c03056645cb905625bb83b54db6a8034564770adedd51d926aa5248d67e2e9f1be1a7d034aed054f045d84ba41ba3e2ded3fef6c9c491683978d3be275ae2b1de6d720286e6b660f21815c3ff0b25771d3484d987cf6034e13f4a1064eea2c58ebd86540c9eae96489423962aa03f8498990abafa6a2cd8577e79177b75497a7b7ea478556e19971b5873b3476418ae2bf3cfe594f765d877a821c76471085fc095b0106edcb3a4a6ec49db8d7eafd209766bb3fd93acf7f361b2bc26dfc419f3d619275331b7e179164d867f77bec53feb60e66de7bb11862f74642df20f55443b750388508632853fdb8a2c43bd6c3141</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="9235aec39a00a974192cba804329ffb7b9d0a04972bba6a0eabaef08afdd71ff">5886ab30ca5714d1f9b371b3ffbd606ac2e5302c24784353516fb9e96cad5c5edbf5e98c0e80d26cb9de7b883daea64b55c9e647c6cd2b25142be028c7c45cfa6633e78078773f60330d4f6b0ebe2fe44957a307b410739070f6e5fb465b82c1f638c01b86930646299e23e86c73d3d0c15d44d98c0e2cf9d076f823c5d3715e66e4a17abeb595aa4368fea347f5248494c56a0a36310b38fabb2f2cdb117e95954947664c134e740c3586280a22cc4001b25d12cdd596af60921a08ab46e2eff83c931072fc231bf054f3ef8e03c7efbacdf7299963d2b72b44d0088baf2ac1647e5e41f46457dc52867f6710ddce03235858a655c9560b69319f0c3c1324d82def73c051102bbe2b91ac2ac10786dd3d3901dd9e342d5ec704b1fd68e8dae9e3c432713509b11f423c70c3223185345d8ec4d9c29ef5fd9b47175c44688e523b3d58f573a79e1baf6fe0e85e3354a8aa85092187c4ec3137a68d4ff3fef7e5aef197a6a573933fa63b9756fce52ee9da43a8a0fd92155be3cc7b847e4aeebb77edd25fa02e5d2e05b6e53a45c30fe68735b80f75391afb8bc3ecab81e94587b854e5d51fae1e37533c38628b83652f13577f4526e2a2013bb93d9548dc178945a2bcd398d107d3a588453b917b62b8d42faee86a26be3cd6387c72b7735ff08d2c5f526b6733bf41ae93ccc2db10907e1ebf28bcd709a9fece94848152dcd0501ac6df84bfe0af3bc6cdebbceb87fc2ecf9c458a332253b5831471de8ca9796dfaa0c200b83a503db483359ebcfe35fb42fbed0b51effcc2282fce61bde9cb8fe852122821c95a3e5beda3ab043ef8009489fcd578e6ff0409e5fc6af3a3d5b97b7a8c00316c6785b38f03ec323d0cc21fc63e4c2cc49154b5395414400e4fb6e034e91d64761251bb7e383dd8d64d62aa530e92582e86897c6d86275d6d3562d5254e4d2650b41734c85c211f0a7d1a315ac7df8c5a5dc7869edfb4753bbea98c0cbeb5295a9295ced4c392fe525843f60c3f8bf0ebe0c3793f6557edad5f03cd4f7eeea5ee6a1324e6cd11502a09423a343fa889b04c7b9311bc41840f7d70c118012b145b600eaa0d15bdb6dd40308d576730d286d7f0f1bbdcf215d7220767d3ff5e21e86e9207a8b231a38554400dbc7061a7236901472e299a1e8631bad3e14acc4742bc6c4da920f1e14a182f7a005fe61180de89db66546345d123d2cd32bf1981c853e1f5d68417abfe71df6b55af380d0a8ffe4fd060355a0a73fa6af35c47594a2be080bf7ce3c4131e845a3f2b3256f9603a67ef763345f6c0e41f24fde142fa8173a8d6da02d413f8f12a10aea70720d94fb0c908e36004e9d7eb0870f3eca904c8ce165177055b25f7a9f58f0e066e02263deddd5108b2958243c2982f135ca2ba7abc12c944b94b2eb84a2784eabc4a536910790f430380a96eb56f352de2d44e4809ca5e72e42172ecdcbdb35e05454131c86431d44b1e3ec5279a2ec1c15656a3f72aaf99937674ae5fc56e3c5e71bd6fe305e25e0c8077300a8a070341223abc50305edbbb365000d9299f79940a9c68f610b7ebc43dee35d779e28476ff8248588af7d13af5519cc570f11b0f52bd4f57c6329ccba7451dcdaffc18a9d3216d168ee6efec3965582f51ff65e42300857c42b54fc51fd9abeeccd80ed1a6f9b6fcf9dd3bad9c0be99723e11860d49af328f29c92816fe45b3cafbbd73209d9cc743ed20a9bdbea4abec0db74522a9720267773046d75054bfcb118933c5d22840a34191e4782a144c5c56799e4e0fb783ff221481fd6</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -1790,51 +1790,10 @@ DOI：10.1109/LWC.2020.3009666</p>
       </tags>
   </entry>
   <entry>
-    <title>my first post</title>
-    <url>/2023/04/27/test/</url>
-    <content><![CDATA[<h1>你好</h1>
-<h2 id="这是我的第一篇个人博客">这是我的第一篇个人博客</h2>
-<span id="more"></span>
-<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Hello World!&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Le vent se lève, il faut tenter de vivre</p>
-</blockquote>
-<p>have fun 😃</p>
-]]></content>
-      <categories>
-        <category>经验</category>
-      </categories>
-      <tags>
-        <tag>建站</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20889;32473;21346;24518;25991;</title>
-    <url>/2023/06/20/linbiezengyan7/</url>
+    <title>20889;32473;39038;26159;30003;</title>
+    <url>/2023/06/18/linbiezengyan2/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="15d468a53fbf778c09212139afd6855a3c29ddde0741916eeb3404f87d94a97b">05e3a79ef22e0826625230940c5fddce2891a51276951a65bc11c9a7f09f063d289a092c42b9985855000e616059bc04ac7a6ef4c2aaa41fe4354fed28df44d9af1d99832f950f41d9acc97f8c9227a10d8341f0bde486b14350929f8fd25a83bdf1bc695c081871db83049cd691549c9c2b2223a8474054dd21949be105776ed5526761bec5bbe393b11a46a5d54763d5395285da9ae9b9cf9d24a597661e892da109e643eb50b8d2e937822a0626ec0d5bfd00ff600fd95a497ca361001a9783792d346318ce401b205554cff40b44344581289851b357b7949c0bacc5506cbc209be65f8579f4e14146fcdaeb58289c3b22eb877ccac80f637624bdc00978ab5b1094e939483082c58c691530837f38dd6142fbae734817c9d91dc377ba05f2aa0ea7d39b5c413bae4af6345af885b06d62b199bcea42807b4c6f3f0eb94121a46ab2add3e99db0cb6644992777113010eddd5ed2056a8de63e46d3d050318dc8b9d8f5a1cb89d38dbc1dc691d0ef0be4069d58ee30e2f8f9c0e8d2e9009225c0a77f84c2ed6e85c822dc6c3881dcafc8c3da63d51b2dcf14398fcde21fd1967e9099ed26fe13d20cefdc9530128af515f3602e063d5dd4ec8927f2742a7172b1626177ba38dfdb90c304a0cd4d5f08794d470b38432761c65d6f18a2ab6d0505501fe232f15c84acc9a2c62fe2d876d34f2d162a23159211bc49dc2f055b681f101c386fd12efbc6470bb6035117f4edd5cbbd42f89e2c70a538f19478b59efb6635ca3a243a267f8a077a034001c6417ac237362b95eb6faba05b6fe508a9b25abb32d73305ebdf98720ad936e3f7456d4e839f2a8f6e4911f911849408afd68f2ab4f74da5c3b20cb48dd4f1f10800e96f4757fa6f1aa958da1bf1056685367c32fe890baf70cde3a10f6982e026c39abe6de62ebd7e97d7b7bed2a13b35fdabf4a973226b45a8672bdcad41d1ebfdf98756867cd3e9e37d970fcb0b970a9e5ad6fa628631a9d1452d9083d2a9619ca820937d96c20cf1154a5f5959df16b0d73af49a266c268a38ea827aee19a85e4bdddc340f8a7ee61bf78660ba6e</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>临别赠言</category>
-      </categories>
-      <tags>
-        <tag>加密内容</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>20889;32473;27611;25391;28009;</title>
-    <url>/2023/06/19/linbiezengyan4/</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="9235aec39a00a974192cba804329ffb7b9d0a04972bba6a0eabaef08afdd71ff">5886ab30ca5714d1f9b371b3ffbd606ac2e5302c24784353516fb9e96cad5c5edbf5e98c0e80d26cb9de7b883daea64b55c9e647c6cd2b25142be028c7c45cfa6633e78078773f60330d4f6b0ebe2fe44957a307b410739070f6e5fb465b82c1f638c01b86930646299e23e86c73d3d0c15d44d98c0e2cf9d076f823c5d3715e66e4a17abeb595aa4368fea347f5248494c56a0a36310b38fabb2f2cdb117e95954947664c134e740c3586280a22cc4001b25d12cdd596af60921a08ab46e2eff83c931072fc231bf054f3ef8e03c7efbacdf7299963d2b72b44d0088baf2ac1647e5e41f46457dc52867f6710ddce03235858a655c9560b69319f0c3c1324d82def73c051102bbe2b91ac2ac10786dd3d3901dd9e342d5ec704b1fd68e8dae9e3c432713509b11f423c70c3223185345d8ec4d9c29ef5fd9b47175c44688e523b3d58f573a79e1baf6fe0e85e3354a8aa85092187c4ec3137a68d4ff3fef7e5aef197a6a573933fa63b9756fce52ee9da43a8a0fd92155be3cc7b847e4aeebb77edd25fa02e5d2e05b6e53a45c30fe68735b80f75391afb8bc3ecab81e94587b854e5d51fae1e37533c38628b83652f13577f4526e2a2013bb93d9548dc178945a2bcd398d107d3a588453b917b62b8d42faee86a26be3cd6387c72b7735ff08d2c5f526b6733bf41ae93ccc2db10907e1ebf28bcd709a9fece94848152dcd0501ac6df84bfe0af3bc6cdebbceb87fc2ecf9c458a332253b5831471de8ca9796dfaa0c200b83a503db483359ebcfe35fb42fbed0b51effcc2282fce61bde9cb8fe852122821c95a3e5beda3ab043ef8009489fcd578e6ff0409e5fc6af3a3d5b97b7a8c00316c6785b38f03ec323d0cc21fc63e4c2cc49154b5395414400e4fb6e034e91d64761251bb7e383dd8d64d62aa530e92582e86897c6d86275d6d3562d5254e4d2650b41734c85c211f0a7d1a315ac7df8c5a5dc7869edfb4753bbea98c0cbeb5295a9295ced4c392fe525843f60c3f8bf0ebe0c3793f6557edad5f03cd4f7eeea5ee6a1324e6cd11502a09423a343fa889b04c7b9311bc41840f7d70c118012b145b600eaa0d15bdb6dd40308d576730d286d7f0f1bbdcf215d7220767d3ff5e21e86e9207a8b231a38554400dbc7061a7236901472e299a1e8631bad3e14acc4742bc6c4da920f1e14a182f7a005fe61180de89db66546345d123d2cd32bf1981c853e1f5d68417abfe71df6b55af380d0a8ffe4fd060355a0a73fa6af35c47594a2be080bf7ce3c4131e845a3f2b3256f9603a67ef763345f6c0e41f24fde142fa8173a8d6da02d413f8f12a10aea70720d94fb0c908e36004e9d7eb0870f3eca904c8ce165177055b25f7a9f58f0e066e02263deddd5108b2958243c2982f135ca2ba7abc12c944b94b2eb84a2784eabc4a536910790f430380a96eb56f352de2d44e4809ca5e72e42172ecdcbdb35e05454131c86431d44b1e3ec5279a2ec1c15656a3f72aaf99937674ae5fc56e3c5e71bd6fe305e25e0c8077300a8a070341223abc50305edbbb365000d9299f79940a9c68f610b7ebc43dee35d779e28476ff8248588af7d13af5519cc570f11b0f52bd4f57c6329ccba7451dcdaffc18a9d3216d168ee6efec3965582f51ff65e42300857c42b54fc51fd9abeeccd80ed1a6f9b6fcf9dd3bad9c0be99723e11860d49af328f29c92816fe45b3cafbbd73209d9cc743ed20a9bdbea4abec0db74522a9720267773046d75054bfcb118933c5d22840a34191e4782a144c5c56799e4e0fb783ff221481fd6</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="15cfbd87b87bb6f58699d81bed622094af91e9e2c834ae3fd7a65bc4e1f4f3ad">ff237e079a879a02e65405b26b486dd1529cd862ab8dfd048115e1c94775c41337517e9f2dec349b0966dc56c310a4a4467f0c6c33fcbb3f50c6a37c8421136192876c9cf989e8fdd54a428b3063ecf106bda2a143d0c249448fff0b774d9b0f7bcd25d7317d0b870c545ac71bbe62dd7bbbe694fe7ee79f79d5499baab02dd72a1367d60ea463707b4130651e3005dabfe877b5d59439fef114b1bb2908b20250df4c3918db950a37fa9dd5cb65c1cd38ab538b3581ca5938aa0a156880008ca5f1c4769b2fb95bf4d84f0defceeb9fca992d1f8977090f5503af32ca3ed0f9b9858943429f4cfb6bf70b7189dd5b57be65868cd30426bfcb7580b41ea026958c07aa197e167218172285dad3a897405e429d7d85475853121a2fd13b4fa12d492e044a911cfd799bbb61d41d29642a6c1445d3d431880e7b6927f7ebd9799974b560c9a5106ee4f82c4b9ad9d3059c00575d4b91febaea3a41f64059626e135a5058db2540eba6d4adfbdd940e1b613d2e6c1f1aed16c42a7cba2e137050860faf7096b9d1c7ee5e4c84f2dcdf4c53895eb087fad9fac7bfb415cbe058a7a944c57a3550c27b631542772c4dced82fbb5a0dc6b728c61f42579ac08e71085644d8ebc1ac80c16a07cbae690a4350f73660a658c13b4ec717b3641b701937068724eb3be387b49e512de2c63754a4c97d1a8abe1df1a8da6835dd697f197f596357e287e2ffe367d3a7e4fb8cc60def0600bf965be382d79c39d0500928ec072fdcaccbb785b77ff1eb4cdf3ee2ac36405ac6c710b3596405948e6483bd3059258ffb446218005f995ba349840f838cf7d243dd4c81a7781fc9c15b5bfdd4b7859421117994240fcdbb99c7e96e6c260f487106f365475397f8708e4df0ba849fddf522f709374d0aa3a3cf69ff46d9e860918ea57557375d2d25611e30df37fcd20dcf8f9131716aaeeafc33d1d714199acfee6719a958c7d73ab784d9eb0071d813347e9ab83aa06bc5250e2f0c88cca4bf23b6921d6976e177d1a323da55529f62f81b50c818a79a69f8b12d13c1808dd6d1254266c8d5792c5eb0e09c03056645cb905625bb83b54db6a8034564770adedd51d926aa5248d67e2e9f1be1a7d034aed054f045d84ba41ba3e2ded3fef6c9c491683978d3be275ae2b1de6d720286e6b660f21815c3ff0b25771d3484d987cf6034e13f4a1064eea2c58ebd86540c9eae96489423962aa03f8498990abafa6a2cd8577e79177b75497a7b7ea478556e19971b5873b3476418ae2bf3cfe594f765d877a821c76471085fc095b0106edcb3a4a6ec49db8d7eafd209766bb3fd93acf7f361b2bc26dfc419f3d619275331b7e179164d867f77bec53feb60e66de7bb11862f74642df20f55443b750388508632853fdb8a2c43bd6c3141</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -1872,6 +1831,47 @@ DOI：10.1109/LWC.2020.3009666</p>
       </categories>
       <tags>
         <tag>加密内容</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>20889;32473;21346;24518;25991;</title>
+    <url>/2023/06/20/linbiezengyan7/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉，这个密码不太对捏" data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="15d468a53fbf778c09212139afd6855a3c29ddde0741916eeb3404f87d94a97b">05e3a79ef22e0826625230940c5fddce2891a51276951a65bc11c9a7f09f063d289a092c42b9985855000e616059bc04ac7a6ef4c2aaa41fe4354fed28df44d9af1d99832f950f41d9acc97f8c9227a10d8341f0bde486b14350929f8fd25a83bdf1bc695c081871db83049cd691549c9c2b2223a8474054dd21949be105776ed5526761bec5bbe393b11a46a5d54763d5395285da9ae9b9cf9d24a597661e892da109e643eb50b8d2e937822a0626ec0d5bfd00ff600fd95a497ca361001a9783792d346318ce401b205554cff40b44344581289851b357b7949c0bacc5506cbc209be65f8579f4e14146fcdaeb58289c3b22eb877ccac80f637624bdc00978ab5b1094e939483082c58c691530837f38dd6142fbae734817c9d91dc377ba05f2aa0ea7d39b5c413bae4af6345af885b06d62b199bcea42807b4c6f3f0eb94121a46ab2add3e99db0cb6644992777113010eddd5ed2056a8de63e46d3d050318dc8b9d8f5a1cb89d38dbc1dc691d0ef0be4069d58ee30e2f8f9c0e8d2e9009225c0a77f84c2ed6e85c822dc6c3881dcafc8c3da63d51b2dcf14398fcde21fd1967e9099ed26fe13d20cefdc9530128af515f3602e063d5dd4ec8927f2742a7172b1626177ba38dfdb90c304a0cd4d5f08794d470b38432761c65d6f18a2ab6d0505501fe232f15c84acc9a2c62fe2d876d34f2d162a23159211bc49dc2f055b681f101c386fd12efbc6470bb6035117f4edd5cbbd42f89e2c70a538f19478b59efb6635ca3a243a267f8a077a034001c6417ac237362b95eb6faba05b6fe508a9b25abb32d73305ebdf98720ad936e3f7456d4e839f2a8f6e4911f911849408afd68f2ab4f74da5c3b20cb48dd4f1f10800e96f4757fa6f1aa958da1bf1056685367c32fe890baf70cde3a10f6982e026c39abe6de62ebd7e97d7b7bed2a13b35fdabf4a973226b45a8672bdcad41d1ebfdf98756867cd3e9e37d970fcb0b970a9e5ad6fa628631a9d1452d9083d2a9619ca820937d96c20cf1154a5f5959df16b0d73af49a266c268a38ea827aee19a85e4bdddc340f8a7ee61bf78660ba6e</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">这是一个加密内容，需要密码</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>临别赠言</category>
+      </categories>
+      <tags>
+        <tag>加密内容</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>my first post</title>
+    <url>/2023/04/27/test/</url>
+    <content><![CDATA[<h1>你好</h1>
+<h2 id="这是我的第一篇个人博客">这是我的第一篇个人博客</h2>
+<span id="more"></span>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line">using namespace <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">&quot;Hello World!&quot;</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	system(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Le vent se lève, il faut tenter de vivre</p>
+</blockquote>
+<p>have fun 😃</p>
+]]></content>
+      <categories>
+        <category>经验</category>
+      </categories>
+      <tags>
+        <tag>建站</tag>
       </tags>
   </entry>
 </search>
